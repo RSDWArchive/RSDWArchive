@@ -1,0 +1,2695 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_DominionAICharacter_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Water"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Fire"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_DominionAICharacter_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModifyHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyHealth.0"
+      },
+      "ModifyMaxHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyMaxHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyMaxHealth.0"
+      },
+      "MaxHealth": 150.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_DominionAICharacter_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NavAgentName": "Default",
+      "SpeedFactorIfMovingBackwards": {
+        "ObjectName": "CurveFloat'Curve_MediumBeast_BackwardsAccelleration'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MediumBeast/Curve_MediumBeast_BackwardsAccelleration.0"
+      },
+      "bEnableLocomotionAnimation": true,
+      "MovementAnimationsTable": {
+        "ObjectName": "DataTable'DT_DragonLesser_Movement'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_Movement.0"
+      },
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_DragonLesser_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_Rotation.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_DragonLesser_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_Rotation.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_DragonLesser_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_DragonLesser_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_DragonLesser_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_DragonLesser_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_DragonLesser_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Movement/DT_DragonLesser_Rotation.0"
+          }
+        }
+      ],
+      "MaxDistanceCoveredByLocomotionAnimation": 1200.0,
+      "MaxStepHeight": 35.0,
+      "WalkableFloorAngle": 60.0,
+      "WalkableFloorZ": 0.49999997,
+      "MaxAcceleration": 1600.0,
+      "BrakingFrictionFactor": 0.0,
+      "NavMovementProperties": {
+        "bUpdateNavAgentWithOwnersCollision": false
+      },
+      "NavAgentProps": {
+        "AgentRadius": 30.0,
+        "AgentHeight": 150.0,
+        "PreferredNavData": {
+          "AssetPathName": "/Script/NavigationSystem.RecastNavMesh",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "AiRangedAttackComponent",
+    "Name": "AiRangedAttack_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'AiRangedAttackComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_DominionAICharacter_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'BP_AI_DragonLesserGreen_Character_C:Timeline_0_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.74"
+        },
+        {
+          "ObjectName": "TimelineTemplate'BP_AI_DragonLesserGreen_Character_C:Timeline_1_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.75"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.69"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_DragonLesserGreen_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.46"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:ExecuteUbergraph_BP_AI_DragonLesserGreen_Character'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.32"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:GetHomingTargetComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.33"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:UpdateLaser'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.42"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:CreateLaser'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.31"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:SetEyeVisible'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.37"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.38"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.39"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_1__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.40"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_1__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.41"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.35"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:ReceiveTick'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.36"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:PresenceEvent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.34"
+      },
+      {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:ExecuteUbergraph_BP_AI_DragonLesserGreen_Character'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.32"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_BossAiHealthBarComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BossAiHealthBarComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Shape Collection Component",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'ShapeCollectionComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DragonFireBreath",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DragonFireBreathComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AiRangedAttack",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AiRangedAttackComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_DragonLesser_AttackOpportunityComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DragonLesser_AttackOpportunityComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_DragonLesser_AttackOpportunityComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "HomingTarget",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SpellTargetingSphere",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LootDrop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'LootDropComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Cow_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Cow_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Cow_AiAttackComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Cow_AiAttackComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiAttackComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Targetable",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'TargetableComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Head",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitPointsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiAnimationManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitReactionsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDamageComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDeathComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_1_Radius_5D6855784162434646A847A7A08747EC",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_1__Direction_5D6855784162434646A847A7A08747EC",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_0_Radius_BEFCC87E453E96472B6B12A6CFDBFA83",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_0__Direction_BEFCC87E453E96472B6B12A6CFDBFA83",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_0",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Laser",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "Socket Name",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 12,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LaserTarget",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Event Params",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 32,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Object'LargeEventParams'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_DragonLesserGreen_Character": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:ExecuteUbergraph_BP_AI_DragonLesserGreen_Character'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.32"
+      },
+      "PresenceEvent": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:PresenceEvent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.34"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:ReceiveTick'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.36"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.35"
+      },
+      "Timeline_1__UpdateFunc": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_1__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.41"
+      },
+      "Timeline_1__FinishedFunc": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_1__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.40"
+      },
+      "Timeline_0__UpdateFunc": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.39"
+      },
+      "Timeline_0__FinishedFunc": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.38"
+      },
+      "SetEyeVisible": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:SetEyeVisible'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.37"
+      },
+      "CreateLaser": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:CreateLaser'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.31"
+      },
+      "UpdateLaser": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:UpdateLaser'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.42"
+      },
+      "GetHomingTargetComponent": {
+        "ObjectName": "Function'BP_AI_DragonLesserGreen_Character_C:GetHomingTargetComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.33"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_DragonLesserGreen_Character_C'Default__BP_AI_DragonLesserGreen_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.6"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_DragonLesserGreen_Character_C",
+    "Name": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.BP_AI_DragonLesserGreen_Character_C'",
+    "Template": {
+      "ObjectName": "BP_DominionAICharacter_C'Default__BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.7"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "Socket Name": "fire",
+      "Event Params": {
+        "LargeEventLocation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LargeEventRadius": -1.0,
+        "EventStrength": 1.0
+      },
+      "VFXDeathDelay": 3.0,
+      "DeathAttachSocket": "spine3",
+      "MaterialDeathDelay": 2.2,
+      "AIDataClass": {
+        "AssetPathName": "/Game/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Data.BP_AI_DragonLesserGreen_Data_C",
+        "SubPathString": ""
+      },
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_DragonLesserGreen_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.20"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_DragonLesserGreen_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.1"
+      },
+      "HitRecipientAudioTag": {
+        "TagName": "Audio.Flesh"
+      },
+      "MusicStateToRequest": "EPrimaryMusicState::EPrimaryMusicState_MAX",
+      "MusicThreatLevel": 10,
+      "TargetingAttachToBone": "spine_4",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_DragonLesserGreen_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_DragonLesserGreen_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_DragonLesserGreen_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.76"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_DragonLesserGreen_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.30"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_DragonLesserGreen_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.21"
+      },
+      "AISnapshotShapeInfos": [
+        {
+          "ID": 0,
+          "SocketName": "spine_2",
+          "Radius": 200.0
+        },
+        {
+          "ID": 0,
+          "SocketName": "head",
+          "Radius": 120.0
+        },
+        {
+          "ID": 0,
+          "SocketName": "Tail_1_Snapshot",
+          "Radius": 100.0
+        },
+        {
+          "ID": 0,
+          "SocketName": "Tail_4_Snapshot",
+          "Radius": 80.0
+        }
+      ],
+      "LockOnTargetingBoneName": "spine_4",
+      "AIName": {
+        "Namespace": "",
+        "Key": "CF7D05DD4EE4E9CF2B8A478EF70B2859",
+        "SourceString": "Cow",
+        "LocalizedString": "Cow"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_DragonLesserGreen_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.43"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_DragonLesserGreen_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.70"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_DragonLesserGreen_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.2"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_DragonLesserGreen_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.16"
+      },
+      "bUseControllerRotationYaw": false,
+      "AutoPossessAI": "EAutoPossessAI::PlacedInWorldOrSpawned",
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_DragonLesserGreen_Controller_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Controller.8"
+      },
+      "PrimaryActorTick": {
+        "bCanEverTick": true
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_DragonLesserGreen_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.16"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiAnimationManager_C",
+    "Name": "BP_AiAnimationManager_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.BP_AiAnimationManager_C'",
+    "Template": {
+      "ObjectName": "BP_AiAnimationManager_C'Default__BP_AiAnimationManager_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoneLookAt": "head",
+      "MinRotationPlayRate": 1.0,
+      "LeftYawRange": {
+        "X": 0.0,
+        "Y": 90.0
+      },
+      "RightYawRange": {
+        "X": 0.0,
+        "Y": 90.0
+      },
+      "ForwardYawRange": {
+        "X": -90.0,
+        "Y": 90.0
+      }
+    }
+  },
+  {
+    "Type": "BP_AiDamageComponent_C",
+    "Name": "BP_AiDamageComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.BP_AiDamageComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDamageComponent_C'Default__BP_AiDamageComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'Default__BP_AiDeathComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DespawnVFX_Socket": "spine_2",
+      "DespawnVFX_SizeScale": 1.5,
+      "DespawnTime": 5.0,
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_DragonLesser_Death_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/Actions/Death/DAA_DragonLesser_Death.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'Default__BP_AiHitPointsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_DragonLesserGreen_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.44"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_DragonLesserGreen_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.45"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiHitReactionsComponent_C",
+    "Name": "BP_AiHitReactionsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.BP_AiHitReactionsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitReactionsComponent_C'Default__BP_AiHitReactionsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LightForceThreshold": 100.0,
+      "HeavyForceThreshold": 200.0
+    }
+  },
+  {
+    "Type": "BP_BossAiHealthBarComponent_C",
+    "Name": "BP_BossAiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.BP_BossAiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_BossAiHealthBarComponent_C'Default__BP_BossAiHealthBarComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AiDisplayName": {
+        "TableId": "/FutureMajorVersion/Gameplay/AI/ST_AI_Names_Fellhollow.ST_AI_Names_Fellhollow",
+        "Key": "DragonGreen",
+        "SourceString": null,
+        "LocalizedString": null
+      }
+    }
+  },
+  {
+    "Type": "BP_Cow_AiAttackComponent_C",
+    "Name": "BP_Cow_AiAttackComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiAttackComponent.BP_Cow_AiAttackComponent_C'",
+    "Template": {
+      "ObjectName": "BP_Cow_AiAttackComponent_C'Default__BP_Cow_AiAttackComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiAttackComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_Cow_AiCombatModeInitiator_C",
+    "Name": "BP_Cow_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiCombatModeInitiator.BP_Cow_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_Cow_AiCombatModeInitiator_C'Default__BP_Cow_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_DragonLesserGreen_Character_C:BP_Cow_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.17"
+      }
+    }
+  },
+  {
+    "Type": "BP_DragonLesser_AttackOpportunityComponent_C",
+    "Name": "BP_DragonLesser_AttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_DragonLesser_AttackOpportunityComponent.BP_DragonLesser_AttackOpportunityComponent_C'",
+    "Template": {
+      "ObjectName": "BP_DragonLesser_AttackOpportunityComponent_C'Default__BP_DragonLesser_AttackOpportunityComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_DragonLesser_AttackOpportunityComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EarlyOutRange": 900.0,
+      "EarlyOutAngle": 130.0,
+      "EarlyOutMultiplierIfTargetIsOffNavigationMesh": 1.0
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 55.0,
+      "CapsuleRadius": 55.0,
+      "bDynamicObstacle": false,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel3",
+        "CollisionProfileName": "Ai",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "TriggerVolume",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": "BP_Cow_AiCombatModeInitiator_GEN_VARIABLE",
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_Cow_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_DragonLesserGreen_Character_C:BP_Cow_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.23"
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.12161185,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.12161215,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 1.1701651,
+            "ArriveTangent": 0.0115425335,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.011543879,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 6.0,
+            "Value": 1.1988809,
+            "ArriveTangent": 0.013424069,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.013423615,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 7.0,
+            "Value": 0.0,
+            "ArriveTangent": -0.4233818,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.42338145,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0_1",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 0.9851935,
+            "ArriveTangent": -0.49228114,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.4922813,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.0,
+            "Value": 0.0,
+            "ArriveTangent": -0.4233818,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.42338145,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_DominionAICharacter_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_DominionAICharacter_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.13"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Box",
+    "Name": "DominionShape_Box_0",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Box'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Extents": {
+        "X": 2000.0,
+        "Y": 300.0,
+        "Z": 600.0
+      },
+      "Offset": {
+        "X": 2500.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "CombatModeArea_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_Cow_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_0",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 70.0,
+      "ZHeight": 600.0,
+      "MinDepth": 150.0,
+      "Depth": 650.0,
+      "AngleOffset": 180.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_1",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 60.0,
+      "ZHeight": 800.0,
+      "MinDepth": 1300.0,
+      "Depth": 4500.0,
+      "Offset": {
+        "X": -1000.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_2",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 50.0,
+      "ZHeight": 600.0,
+      "Depth": 600.0,
+      "AngleOffset": 130.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_3",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 50.0,
+      "ZHeight": 600.0,
+      "Depth": 600.0,
+      "AngleOffset": -130.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_4",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 55.0,
+      "ZHeight": 600.0,
+      "MinDepth": 650.0,
+      "Depth": 1700.0,
+      "Offset": {
+        "X": -500.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "DragonFireBreathComponent",
+    "Name": "DragonFireBreath_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'DragonFireBreathComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DragonMeshRef": {
+        "ComponentProperty": "Mesh"
+      },
+      "PrimaryComponentTick": {
+        "TickGroup": "ETickingGroup::TG_PostUpdateWork"
+      },
+      "bAutoActivate": true
+    }
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_DominionAICharacter_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 60
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "CreateLaser",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "TargetActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Init Data Duration",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Init Data Initial Aim Point",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "TrackingPolicy",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Object'EDragonFireBreathTracking'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_DragonFireBreathInitData",
+        "Flags": "RF_Public",
+        "ElementSize": 64,
+        "Struct": {
+          "ObjectName": "Object'DragonFireBreathInitData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_DragonLesserGreen_Character",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_CustomEvent_Radius",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_CustomEvent_Strenght",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_CustomEvent_Largesoft_ShortStrong",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Object'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetWorldSubsystem_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PresenceSubsystem'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_TransformLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_LargeEventParams",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "Struct": {
+          "ObjectName": "Object'LargeEventParams'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_UpdateLaser_Delta_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_MakeStruct_EventStrength_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_B_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetLargeEventRadius_NewRadius_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetLargeEventRadius_NewRadius_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetHomingTargetComponent",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'TargetingInterface:GetHomingTargetComponent'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm | ReturnParm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "PresenceEvent",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Radius",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Strenght",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Largesoft/ShortStrong",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveTick'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetEyeVisible",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "value",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__FinishedFunc",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__UpdateFunc",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_1__FinishedFunc",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_1__UpdateFunc",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateLaser",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Delta",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorRotation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Object'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Subtract_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetActorLocation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_SetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Normal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Conv_VectorToRotator_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_RInterpTo_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_SetActorRotation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetActorTransform_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_SetActorTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_RInterpTo_DeltaTime_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_DominionAICharacter_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.27"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.25
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Type": "EHitPointType::Critical"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable.0"
+        },
+        "RowName": "Dragon_Lesser_Green"
+      },
+      "DefaultResourceClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RuntimeSpawnedWorldItem_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/WorldItems/BP_RuntimeSpawnedWorldItem.0"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "HomingTarget_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 35.0,
+        "Z": 170.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": -0.0
+      },
+      "bVisible": false,
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      }
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_DragonLesserGreen_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.48"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiAnimationManager_C'BP_AI_DragonLesserGreen_Character_C:BP_AiAnimationManager_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.7"
+      },
+      "VariableGUID": "2B4DEC54-426CE68D-A11FA9BA-B463D2A0",
+      "InternalVariableName": "BP_AiAnimationManager"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_DragonLesserGreen_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.10"
+      },
+      "VariableGUID": "C5793BCD-4BCF5388-08EE2897-9B88E849",
+      "InternalVariableName": "BP_AiHitPointsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'TargetableComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TargetableComponent'BP_AI_DragonLesserGreen_Character_C:Targetable_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.73"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "2C96FF69-451E36C5-DFFBFB8F-184C333B",
+      "InternalVariableName": "Targetable"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_DragonLesserGreen_Character_C:WeakPoint_Head_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.72"
+      },
+      "AttachToName": "head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "109DDAAE-4541C3D9-76CC68B8-100B361E",
+      "InternalVariableName": "WeakPoint_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_DragonLesserGreen_Character_C:SpellTargetingSphere_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.71"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "46A3C3F3-400B4066-0F9348BC-F34792D7",
+      "InternalVariableName": "SpellTargetingSphere"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_16",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DragonLesser_AttackOpportunityComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_DragonLesser_AttackOpportunityComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_DragonLesser_AttackOpportunityComponent_C'BP_AI_DragonLesserGreen_Character_C:BP_DragonLesser_AttackOpportunityComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.15"
+      },
+      "VariableGUID": "4895EB60-41F7C39A-A1BF32A3-1CE5F1D0",
+      "InternalVariableName": "BP_DragonLesser_AttackOpportunityComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_17",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AiRangedAttackComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AiRangedAttackComponent'BP_AI_DragonLesserGreen_Character_C:AiRangedAttack_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.3"
+      },
+      "VariableGUID": "1CC3AB8A-4509593F-19719BB9-7B7BD5AF",
+      "InternalVariableName": "AiRangedAttack"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DragonFireBreathComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DragonFireBreathComponent'BP_AI_DragonLesserGreen_Character_C:DragonFireBreath_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.29"
+      },
+      "VariableGUID": "633A27B7-4B532495-820A0DB3-E5F27613",
+      "InternalVariableName": "DragonFireBreath"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_19",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ShapeCollectionComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ShapeCollectionComponent'BP_AI_DragonLesserGreen_Character_C:Shape Collection Component_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.68"
+      },
+      "VariableGUID": "E189B988-4C4F615D-45E58683-0CAAFA14",
+      "InternalVariableName": "Shape Collection Component"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'LootDropComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "LootDropComponent'BP_AI_DragonLesserGreen_Character_C:LootDrop_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.47"
+      },
+      "VariableGUID": "0593CF70-49F0D89F-F8C5A683-1A82A315",
+      "InternalVariableName": "LootDrop"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_20",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_BossAiHealthBarComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_BossAiHealthBarComponent_C'BP_AI_DragonLesserGreen_Character_C:BP_BossAiHealthBarComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.12"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "F508D516-403D2C03-166BFBB3-45946A72",
+      "InternalVariableName": "BP_BossAiHealthBarComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDeathComponent_C'BP_AI_DragonLesserGreen_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.9"
+      },
+      "VariableGUID": "B4B3B570-4973C0DC-F54169BF-84C0559D",
+      "InternalVariableName": "BP_AiDeathComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDamageComponent_C'BP_AI_DragonLesserGreen_Character_C:BP_AiDamageComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.8"
+      },
+      "VariableGUID": "95C62570-47762DE3-2D5FFB8A-D46C7610",
+      "InternalVariableName": "BP_AiDamageComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitReactionsComponent_C'BP_AI_DragonLesserGreen_Character_C:BP_AiHitReactionsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.11"
+      },
+      "VariableGUID": "1F3CE235-4204EADA-59885CA3-5459544D",
+      "InternalVariableName": "BP_AiHitReactionsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Cow_AiAttackComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiAttackComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Cow_AiAttackComponent_C'BP_AI_DragonLesserGreen_Character_C:BP_Cow_AiAttackComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.13"
+      },
+      "VariableGUID": "7424984B-42F017E0-288B2EA6-7105713E",
+      "InternalVariableName": "BP_Cow_AiAttackComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_DragonLesserGreen_Character_C:HomingTarget_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.49"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "94D83E73-480D3D42-C7D63DBF-736595D3",
+      "InternalVariableName": "HomingTarget"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Cow_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Cow_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Cow_AiCombatModeInitiator_C'BP_AI_DragonLesserGreen_Character_C:BP_Cow_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.14"
+      },
+      "VariableGUID": "CD67D27F-4846E592-7320BF8F-32F57D1B",
+      "InternalVariableName": "BP_Cow_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "ShapeCollectionComponent",
+    "Name": "Shape Collection Component_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'ShapeCollectionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shapes": [
+        {
+          "Key": "ShapeCollectionOption8",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_DragonLesserGreen_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.24"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption7",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_DragonLesserGreen_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_1'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.25"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption9",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_DragonLesserGreen_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_2'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.26"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption10",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_DragonLesserGreen_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_3'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.27"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption4",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_DragonLesserGreen_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_4'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.28"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption6",
+          "Value": {
+            "ObjectName": "DominionShape_Box'BP_AI_DragonLesserGreen_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Box_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.22"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.67"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.66"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.61"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.67"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.66"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.61"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_DragonLesserGreen_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.50"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_DominionAICharacter_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.33"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_Dragon_Lesser_Green_C'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Reptilian/Dragon_Lesser_Green_01/ABP_Dragon_Lesser_Green.1"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_Dragon_Lesser_Green_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Reptilian/Dragon_Lesser_Green_01/SK_Dragon_Lesser_Green_01.1"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_Dragon_Lesser_Green_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Reptilian/Dragon_Lesser_Green_01/SK_Dragon_Lesser_Green_01.1"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_DragonLesserGreen_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.16"
+      },
+      "RelativeLocation": {
+        "X": -35.0,
+        "Y": 7.771561E-15,
+        "Z": -60.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "SpellTargetingSphere_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 160.0,
+      "bGenerateOverlapEvents": false,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel3",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "Ai",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "TriggerVolume",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -7.1054274E-15,
+        "Y": 55.0,
+        "Z": 170.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": -0.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Head_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 80.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel3",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "Ai",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "TriggerVolume",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 3.1918912E-16,
+        "Y": 18.316353,
+        "Z": -6.146869
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "TargetableComponent",
+    "Name": "Targetable_GEN_VARIABLE",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'TargetableComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetingDistance": 5000.0,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 40.0
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_0_Template",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 7.0,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_DragonLesserGreen_Character_C:CurveFloat_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.18"
+          },
+          "PropertyName": "Timeline_0_Radius_BEFCC87E453E96472B6B12A6CFDBFA83",
+          "TrackName": "Radius",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "BEFCC87E-453E9647-2B6B12A6-CFDBFA83",
+      "VariableName": "Timeline_0",
+      "DirectionPropertyName": "Timeline_0__Direction_BEFCC87E453E96472B6B12A6CFDBFA83",
+      "UpdateFunctionName": "Timeline_0__UpdateFunc",
+      "FinishedFunctionName": "Timeline_0__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_1_Template",
+    "Outer": "BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 2.0,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_DragonLesserGreen_Character_C:CurveFloat_0_1'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/DragonLesser/BP_AI_DragonLesserGreen_Character.19"
+          },
+          "PropertyName": "Timeline_1_Radius_5D6855784162434646A847A7A08747EC",
+          "TrackName": "Radius",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "5D685578-41624346-46A847A7-A08747EC",
+      "VariableName": "Timeline_1",
+      "DirectionPropertyName": "Timeline_1__Direction_5D6855784162434646A847A7A08747EC",
+      "UpdateFunctionName": "Timeline_1__UpdateFunc",
+      "FinishedFunctionName": "Timeline_1__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_DragonLesserGreen_Character_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_DominionAICharacter_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.35"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 8,
+      "SlowEffectConfig": {
+        "MaximumValue": 0.4
+      }
+    }
+  }
+]

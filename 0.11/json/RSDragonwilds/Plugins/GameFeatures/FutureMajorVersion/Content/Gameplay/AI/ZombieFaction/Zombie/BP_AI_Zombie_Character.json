@@ -1,0 +1,1703 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_AI_Biped_Base_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Fire"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Slash"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Earth"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Ranged"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_AI_Biped_Base_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxHealth": 150.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_AI_Biped_Base_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NavAgentName": "Default",
+      "MoveSpeedMultiplierWhenFullySlowed": 0.42,
+      "bEnableLocomotionAnimation": true,
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zombie_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Movement/Turns/DT_Zombie_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zombie_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Movement/Turns/DT_Zombie_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zombie_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Movement/Turns/DT_Zombie_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zombie_RotationAlert'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Movement/Turns/DT_Zombie_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zombie_RotationAlert'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Movement/Turns/DT_Zombie_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zombie_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Movement/Turns/DT_Zombie_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zombie_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Movement/Turns/DT_Zombie_Rotation"
+          }
+        }
+      ],
+      "MaxStepHeight": 100.0,
+      "WalkableFloorAngle": 90.0,
+      "WalkableFloorZ": -4.371139E-08,
+      "MaxAcceleration": 1000.0,
+      "NavMovementProperties": {
+        "bUpdateNavAgentWithOwnersCollision": false
+      },
+      "NavAgentProps": {
+        "AgentRadius": 30.0,
+        "AgentHeight": 150.0,
+        "PreferredNavData": {
+          "AssetPathName": "/Script/NavigationSystem.RecastNavMesh",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "AiRangedAttackComponent",
+    "Name": "AiRangedAttack_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'AiRangedAttackComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Biped_Base_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_Zombie_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.39"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_Zombie_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.31"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:ExecuteUbergraph_BP_AI_Zombie_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.23"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:AssignOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.18"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:OnSpawnFailed_F42F353E458E2035E4EA7D9BF977C109'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.25"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:OnSpawnSucceeded_F42F353E458E2035E4EA7D9BF977C109'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.26"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:OnLoaded_7DEAD84745F2F422C62A79B7A2304EBC'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.24"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.27"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.20"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:BP_AdjustAiVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.19"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:Event_SpawnAllyZombie'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.22"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:Event_LoadOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.21"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:ExecuteUbergraph_BP_AI_Zombie_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.23"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AiRangedAttack",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AiRangedAttackComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_ZombieSlow_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_ZombieSlow_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_ZombieSlow_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_ZombieSlow_AttackOpportunityComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_ZombieSlow_AttackOpportunityComponent_C'",
+          "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/ZombieSlow/Attacks/BP_ZombieSlow_AttackOpportunityComponent"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Head",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "ChanceToSpawnAllyZombies",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Outfits",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Inner": {
+          "Type": "SoftObjectProperty",
+          "Name": "Outfits",
+          "Flags": "RF_Public",
+          "ElementSize": 48,
+          "PropertyClass": {
+            "ObjectName": "Class'SkeletalMesh'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "OverrideOutfit",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 48,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_Zombie_Character": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:ExecuteUbergraph_BP_AI_Zombie_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.23"
+      },
+      "Event_LoadOutfit": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:Event_LoadOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.21"
+      },
+      "Event_SpawnAllyZombie": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:Event_SpawnAllyZombie'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.22"
+      },
+      "BP_AdjustAiVisibility": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:BP_AdjustAiVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.19"
+      },
+      "BP_OnDeath": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.20"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.27"
+      },
+      "OnLoaded_7DEAD84745F2F422C62A79B7A2304EBC": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:OnLoaded_7DEAD84745F2F422C62A79B7A2304EBC'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.24"
+      },
+      "OnSpawnSucceeded_F42F353E458E2035E4EA7D9BF977C109": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:OnSpawnSucceeded_F42F353E458E2035E4EA7D9BF977C109'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.26"
+      },
+      "OnSpawnFailed_F42F353E458E2035E4EA7D9BF977C109": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:OnSpawnFailed_F42F353E458E2035E4EA7D9BF977C109'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.25"
+      },
+      "AssignOutfit": {
+        "ObjectName": "Function'BP_AI_Zombie_Character_C:AssignOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.18"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_Zombie_Character_C'Default__BP_AI_Zombie_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.6"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_Zombie_Character_C",
+    "Name": "Default__BP_AI_Zombie_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.BP_AI_Zombie_Character_C'",
+    "Template": {
+      "ObjectName": "BP_AI_Biped_Base_C'Default__BP_AI_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.5"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "ChanceToSpawnAllyZombies": 0.3,
+      "Outfits": [
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_01_Outfit_A.SK_M_MED_Zombie_01_Outfit_A",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_01_Outfit_B.SK_M_MED_Zombie_01_Outfit_B",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_01_Outfit_C.SK_M_MED_Zombie_01_Outfit_C",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_01_Outfit_D.SK_M_MED_Zombie_01_Outfit_D",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_02_Outfit_A.SK_M_MED_Zombie_02_Outfit_A",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_02_Outfit_B.SK_M_MED_Zombie_02_Outfit_B",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_02_Outfit_C.SK_M_MED_Zombie_02_Outfit_C",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/Game/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_02_Outfit_D.SK_M_MED_Zombie_02_Outfit_D",
+          "SubPathString": ""
+        }
+      ],
+      "AIDataClass": {
+        "AssetPathName": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Data.BP_AI_Zombie_Data_C",
+        "SubPathString": ""
+      },
+      "bCanBeSpawnedByDebugMenu": true,
+      "bAiVisibility": false,
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Zombie_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.14"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_Zombie_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.1"
+      },
+      "HitRecipientAudioTag": {
+        "TagName": "Audio.Flesh"
+      },
+      "TargetingAttachToBone": "spine_03",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Zombie_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_Zombie_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Zombie_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.43"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_Zombie_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.17"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Zombie_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.15"
+      },
+      "LockOnTargetingBoneName": "spine_03",
+      "AIName": {
+        "Namespace": "",
+        "Key": "292F473943382C27D22A9ABE2A254A54",
+        "SourceString": "Axe Goblin",
+        "LocalizedString": "Axe Goblin"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_Zombie_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.28"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Zombie_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.40"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_Zombie_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.2"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Zombie_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.12"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_Zombie_Controller_C'",
+        "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Controller"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Zombie_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.12"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'BP_AI_Biped_Base_C:BP_AiDeathComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.9"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_Zombie_Death_C'",
+        "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zombie/Actions/Death/DAA_Zombie_Death"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHealthBarComponent_C",
+    "Name": "BP_AiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.BP_AiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_Biped_Base_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.11"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Zombie_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.29"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_Zombie_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.30"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_ZombieSlow_AiCombatModeInitiator_C",
+    "Name": "BP_ZombieSlow_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_ZombieSlow_AiCombatModeInitiator.BP_ZombieSlow_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_ZombieSlow_AiCombatModeInitiator_C'Default__BP_ZombieSlow_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_ZombieSlow_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_Zombie_Character_C:BP_ZombieSlow_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.13"
+      }
+    }
+  },
+  {
+    "Type": "UObject",
+    "Name": "BP_ZombieSlow_AttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_AI_Biped_Base_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 95.0,
+      "CapsuleRadius": 30.0,
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": "BP_ZombieSlow_AiCombatModeInitiator_GEN_VARIABLE",
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_ZombieSlow_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_ZombieSlow_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_Zombie_Character_C:BP_ZombieSlow_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.16"
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Biped_Base_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.15"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Biped_Base_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.16"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "CombatModeArea_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_ZombieSlow_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_ZombieSlow_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_AI_Biped_Base_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.17"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "AssignOutfit",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "OverrideOutfit",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValidSoftObjectReference_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetRandomStream_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Object'RandomStream'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_LastIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_RandomIntegerInRangeFromStream_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_AdjustAiVisibility",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_AdjustAiVisibility'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.15"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_AdjustAiVisibility'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.15"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnDeath",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Event_LoadOutfit",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "OutfitSoftRef",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Event_SpawnAllyZombie",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_Zombie_Character",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_SpawnedAI",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_Loaded",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_AI_Zombie_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AI_Zombie_Character_C'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.5"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Temp_object_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetAIPowerLevel_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'OnDomAISpawnedDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetClosestPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ClassProperty",
+        "Name": "CallFunc_GetObjectClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Class'",
+          "ObjectPath": "/Script/CoreUObject"
+        },
+        "MetaClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AI_Zombie_Character_C'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.5"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "SoftClassProperty",
+        "Name": "CallFunc_Conv_ClassToSoftClassReference_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "UObjectWrapper",
+        "PropertyClass": {
+          "ObjectName": "Class'Class'",
+          "ObjectPath": "/Script/CoreUObject"
+        },
+        "MetaClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AI_Zombie_Character_C'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.5"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_AsyncDomSpawnAI_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'AsyncAction_DomSpawnAI'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_RandomBoolWithWeight_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_SpawnedAI_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "K2Node_CustomEvent_OutfitSoftRef",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'KismetSystemLibrary:OnAssetLoaded__DelegateSignature'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Conv_SoftObjectReferenceToObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSkeletal_Mesh",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValidSoftObjectReference_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_2",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'OnDomAISpawnedDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_RandomBoolWithWeight_Weight_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnLoaded_7DEAD84745F2F422C62A79B7A2304EBC",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Loaded",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnSpawnFailed_F42F353E458E2035E4EA7D9BF977C109",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "SpawnedAI",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnSpawnSucceeded_F42F353E458E2035E4EA7D9BF977C109",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "SpawnedAI",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_AI_Biped_Base_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.23"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Template": {
+      "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.24"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.25
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Template": {
+      "ObjectName": "HitPointTypeModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.25"
+    },
+    "Flags": "RF_Public | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiDeathComponent_C'BP_AI_Zombie_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiDeathComponent",
+            "AssociatedGuid": "0CC921EB-43120990-5809CDA9-007BAF5B"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StaticMeshComponent'BP_AI_Zombie_Character_C:Weapon_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.42"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "Weapon",
+            "AssociatedGuid": "3A7ED551-4C0089F7-85CE76AD-FBBF5A2C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'LootDropComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "LootDropComponent'BP_AI_Zombie_Character_C:LootDrop_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.32"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "LootDrop",
+            "AssociatedGuid": "E788FAC4-403B8549-0048D999-D6CFFA57"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Zombie_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.9"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHitPointsComponent",
+            "AssociatedGuid": "4C173E0F-43676F3E-9ECDF0B3-5A6DE610"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHealthBarComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_Zombie_Character_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHealthBarComponent",
+            "AssociatedGuid": "6A8FB227-4EDA65EE-1F2AF5A1-22343270"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Template": {
+      "ObjectName": "LootDropComponent'BP_AI_Biped_Base_C:LootDrop_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.27"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "RowName": "Zombie_Zombie"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_Zombie_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.33"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AiRangedAttackComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AiRangedAttackComponent'BP_AI_Zombie_Character_C:AiRangedAttack_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.3"
+      },
+      "VariableGUID": "31C0526C-4DF874DB-981C4991-2AFA3FA0",
+      "InternalVariableName": "AiRangedAttack"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_Zombie_Character_C:WeakPoint_Head_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.41"
+      },
+      "AttachToName": "head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "6DF29A9A-4CFB5F47-C66CBCBE-76B249E1",
+      "InternalVariableName": "WeakPoint_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_ZombieSlow_AttackOpportunityComponent_C'",
+        "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/ZombieSlow/Attacks/BP_ZombieSlow_AttackOpportunityComponent"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_ZombieSlow_AttackOpportunityComponent_C'BP_AI_Zombie_Character_C:BP_ZombieSlow_AttackOpportunityComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.11"
+      },
+      "VariableGUID": "A61DBA2C-41007581-114C5B8B-DF75DC6C",
+      "InternalVariableName": "BP_ZombieSlow_AttackOpportunityComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_ZombieSlow_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_ZombieSlow_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_ZombieSlow_AiCombatModeInitiator_C'BP_AI_Zombie_Character_C:BP_ZombieSlow_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.10"
+      },
+      "VariableGUID": "FA771938-4FD9A5CB-7C83CCB3-92764457",
+      "InternalVariableName": "BP_ZombieSlow_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.35"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.35"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_Zombie_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.34"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Biped_Base_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.42"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_M_MED_Zombie_Fast_C'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/ZombieFast/ABP_M_MED_Zombie_Fast.1"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Zombie_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_01.1"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Zombie_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Humanoid/M_MED_Zombie_01/SK_M_MED_Zombie_01.1"
+      },
+      "OverrideMaterials": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "CustomPrimitiveData": {
+        "Data": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Zombie_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zombie/BP_AI_Zombie_Character.12"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -95.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Head_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 35.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Weapon_GEN_VARIABLE",
+    "Outer": "BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'BP_AI_Biped_Base_C:Weapon_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.43"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "bEvaluateWorldPositionOffsetInRayTracing": true,
+      "bAffectDistanceFieldLighting": false,
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_Zombie_Character_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Biped_Base_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.45"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SlowEffectConfig": {
+        "MaximumValue": 0.4
+      }
+    }
+  }
+]

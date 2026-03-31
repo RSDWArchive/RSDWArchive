@@ -1,0 +1,186 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_TerrorBird_Data_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Data_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_AI_Data.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Data_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_AI_Data.0"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_TerrorBird_Data_C'Default__BP_AI_TerrorBird_Data_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/BP_AI_TerrorBird_Data.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_TerrorBird_Data_C",
+    "Name": "Default__BP_AI_TerrorBird_Data_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Terrorbird/BP_AI_TerrorBird_Data.BP_AI_TerrorBird_Data_C'",
+    "Template": {
+      "ObjectName": "BP_AI_Data_C'Default__BP_AI_Data_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_AI_Data.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AIName": {
+        "TableId": "/Game/Gameplay/AI/ST_AI_Names.ST_AI_Names",
+        "Key": "Terrorbird",
+        "SourceString": "Terrorbird",
+        "LocalizedString": "Terrorbird"
+      },
+      "Archetype": "AI_ARCHETYPE::Defensive",
+      "TetheringType": "AI_TETHERING_TYPE::Short",
+      "bIsQuadruped": true,
+      "GameplayTags": [
+        "AI.Aggressive",
+        "AI.Wildlife"
+      ],
+      "AIDifficultyScalingCategoryTag": {
+        "TagName": "AI.DifficultyCategory.Beast"
+      },
+      "AudioAIIdentifier": {
+        "TagName": "Audio.AI.TerrorBird"
+      },
+      "MoverConfig": {
+        "RunSpeed": 700.0
+      },
+      "PreferredDistanceFromTarget": 280.0,
+      "CombatMovementConfig": {
+        "DistToProxyMultiplierForWalkAndStrafe": 3.0,
+        "TeleportDistanceThreshold": -1.0
+      },
+      "AmbientConfig": {
+        "AmbientMinWaitingTime": 10.0,
+        "AmbientMaxWaitingTime": 15.0,
+        "AmbientAIActions": [
+          {
+            "AIAction": null,
+            "Weight": 0.5
+          },
+          {
+            "AIAction": {
+              "ObjectName": "BlueprintGeneratedClass'DAA_Terrorbird_IdleBreathe_01_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/Idle/DAA_Terrorbird_IdleBreathe_01.0"
+            },
+            "Weight": 0.5
+          },
+          {
+            "AIAction": {
+              "ObjectName": "BlueprintGeneratedClass'DAA_Terrorbird_Idle_Break_Passive_01_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/Idle/DAA_Terrorbird_Idle_Break_Passive_01.0"
+            },
+            "Weight": 1.0
+          },
+          {
+            "AIAction": {
+              "ObjectName": "BlueprintGeneratedClass'DAA_Terrorbird_Idle_Break_Passive_02_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/Idle/DAA_Terrorbird_Idle_Break_Passive_02.0"
+            },
+            "Weight": 1.0
+          }
+        ],
+        "RoamPointsSelectionWeightCurve": {
+          "ObjectName": "CurveFloat'Curve_RoamTetherSelectionWeight_Float'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Curve_RoamTetherSelectionWeight_Float.0"
+        }
+      },
+      "SuspiciousConfig": {
+        "Strategy": "EAISuspiciousStrategy::StandGround",
+        "StandGroundConfig": {
+          "ActionOptions": {
+            "ObjectName": "DataTable'DT_TerrorBird_SuspiciousActions'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/DT_TerrorBird_SuspiciousActions.0"
+          }
+        }
+      },
+      "HitReactionConfig": {
+        "bShowStunBreakOptions": true,
+        "bShowForceTresholds": true,
+        "FrontAdditiveHitReaction": {
+          "ObjectName": "AnimMontage'AM_NPC_TerrorBird_Additive_HitRct_Fnt'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/HitReactions/AM_NPC_TerrorBird_Additive_HitRct_Fnt.1"
+        },
+        "BackAdditiveHitReaction": {
+          "ObjectName": "AnimMontage'AM_NPC_TerrorBird_Additive_HitRct_Bck'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/HitReactions/AM_NPC_TerrorBird_Additive_HitRct_Bck.1"
+        },
+        "OnParryReceivedEffect": {
+          "ObjectName": "BlueprintGeneratedClass'GE_OnParryVulnerable_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_OnParryVulnerable.0"
+        },
+        "LightForceThreshold": 100.0,
+        "HeavyForceThreshold": 200.0,
+        "HitReactionsDataTable": {
+          "ObjectName": "DataTable'DT_Terrorbird_HitReactions'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/HitReactions/DT_Terrorbird_HitReactions.0"
+        },
+        "StunBreakerAIActions": [
+          {
+            "ObjectName": "BlueprintGeneratedClass'DAA_Terrorbird_StunBreaker_Retaliate_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Attacks/DAA_Terrorbird_StunBreaker_Retaliate.0"
+          }
+        ],
+        "StunBreakerValueIncreaseAtNightFactor": 1.6,
+        "StunBreakerValueIncreasePerHitReaction": 3.5,
+        "StunBreakerValueRandomDeviation": 0.6,
+        "StunBreakerValueDecreaseRate": 0.2
+      },
+      "ThreatSystemConfig": {
+        "PlayerThreatPriorityRadius": 3000.0,
+        "MemoryDuration": 20.0,
+        "MemoryDurationOutOfCombat": 3.0,
+        "IncreaseInCertaintyBasedOnDistanceCurve": {
+          "ObjectName": "CurveFloat'Curve_Terrorbird_CertaintyIncreaseBasedOnDistance'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Curve_Terrorbird_CertaintyIncreaseBasedOnDistance.0"
+        },
+        "CertaintyDecreaseRate": 0.02,
+        "SuspiciousToCombatRequiredCertainty": 0.7,
+        "StealthHearingRangeModifier": 0.5,
+        "TouchRadius": 100.0,
+        "RadiusWithinSightCanCauseEnterCombat": 8000.0,
+        "TargetSelectorCooldownMin": 3.0,
+        "TargetSelectorCooldownMax": 4.0,
+        "InitialPulseRadius": 500.0,
+        "PulseRadiusWhileActive": 200.0
+      },
+      "AlertnessConfig": {
+        "TransitionToAwareAIAction": {
+          "ObjectName": "BlueprintGeneratedClass'DAA_Terrorbird_EnterAwareState_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/Alert/DAA_Terrorbird_EnterAwareState.0"
+        },
+        "TransitionToAmbientAIAction": {
+          "ObjectName": "BlueprintGeneratedClass'DAA_Shared_ReturnToSpawnPoint_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/AIActions/DAA_Shared_ReturnToSpawnPoint.0"
+        }
+      },
+      "CombatAttacksTable": {
+        "ObjectName": "DataTable'DT_ATK_Terrorbird'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Attacks/DT_ATK_Terrorbird.0"
+      },
+      "CombatActionsTable": {
+        "ObjectName": "DataTable'DT_DAA_Terrorbird'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Terrorbird/Actions/CombatAction/DT_DAA_Terrorbird.0"
+      },
+      "ConfuseRequirements": "EAIConfuseRequirements::CanConfuse",
+      "AIDataTableRowHandle": {
+        "RowName": "Terrorbird"
+      },
+      "PersistenceID": "qZMa0Ugvrd3l-DCHtDzqZA"
+    }
+  }
+]

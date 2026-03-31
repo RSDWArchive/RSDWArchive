@@ -1,0 +1,783 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'HeldEquipmentEffectData'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:ApplyFullyChargedFXToDominionProjectileInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.2"
+      },
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:GetGameplayEffectToApplyOnFullyChargedProjectileHitInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.5"
+      },
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:HasCorruptionShotPerkUnlocked'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.6"
+      },
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:RemoveFXFromDominionProjectileInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.8"
+      },
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:ApplyFXToDominionProjectileInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.3"
+      },
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:RemoveFXFromHeldEquipmentActorInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.9"
+      },
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:ApplyFXToHeldEquipmentActorInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.4"
+      },
+      {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:IsCompatibleWithInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.7"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "BowOverlayMaterial",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BowNiagaraSystem",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystem'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BowSoundLoop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionMetaSoundSource'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CorruptionShotGameplayEffect",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | DisableEditOnInstance | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionGameplayEffectData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ChargedArrowOverlayMaterial",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ArrowOverlayMaterial",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ChargedArrowNiagaraSystem",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystem'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ArrowNiagaraSystem",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystem'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ArrowTrail",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystem'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ChargedArrowTrail",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystem'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BowFireLocalSound",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SoundBase'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BowFireRemoteSound",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SoundBase'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BowDrawLocalSound",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SoundBase'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BowDrawRemoteSound",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SoundBase'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "IsCompatibleWithInternal": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:IsCompatibleWithInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.7"
+      },
+      "ApplyFXToHeldEquipmentActorInternal": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:ApplyFXToHeldEquipmentActorInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.4"
+      },
+      "RemoveFXFromHeldEquipmentActorInternal": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:RemoveFXFromHeldEquipmentActorInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.9"
+      },
+      "ApplyFXToDominionProjectileInternal": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:ApplyFXToDominionProjectileInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.3"
+      },
+      "RemoveFXFromDominionProjectileInternal": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:RemoveFXFromDominionProjectileInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.8"
+      },
+      "HasCorruptionShotPerkUnlocked": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:HasCorruptionShotPerkUnlocked'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.6"
+      },
+      "GetGameplayEffectToApplyOnFullyChargedProjectileHitInternal": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:GetGameplayEffectToApplyOnFullyChargedProjectileHitInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.5"
+      },
+      "ApplyFullyChargedFXToDominionProjectileInternal": {
+        "ObjectName": "Function'BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:ApplyFullyChargedFXToDominionProjectileInternal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.2"
+      }
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C'Default__BP_BaseCorruptionArrowsHeldEquipmentEffectData_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Name": "Default__BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.BP_BaseCorruptionArrowsHeldEquipmentEffectData_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BowOverlayMaterial": {
+        "ObjectName": "MaterialInstanceConstant'MI_VFX_CorruptionArrow'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/MI_VFX_CorruptionArrow.0"
+      },
+      "BowNiagaraSystem": {
+        "ObjectName": "NiagaraSystem'NS_CorruptionArrows_Bow'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/NS_CorruptionArrows_Bow.13"
+      },
+      "BowSoundLoop": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Pl_Suso_EnchantRanged_Astral_Loop'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/SurvivalSorcery/EnchantRanged/MSS_Pl_Suso_EnchantRanged_Astral_Loop.0"
+      },
+      "CorruptionShotGameplayEffect": {
+        "ObjectName": "GE_CorruptionShot_C'Default__BP_BaseCorruptionArrowsHeldEquipmentEffectData_C:GE_CorruptionShot_C_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/BP_BaseCorruptionArrowsHeldEquipmentEffectData.10"
+      },
+      "ChargedArrowOverlayMaterial": {
+        "ObjectName": "MaterialInstanceConstant'MI_VFX_CorruptionArrow_Charged'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/MI_VFX_CorruptionArrow_Charged.0"
+      },
+      "ArrowOverlayMaterial": {
+        "ObjectName": "MaterialInstanceConstant'MI_VFX_CorruptionArrow'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/MI_VFX_CorruptionArrow.0"
+      },
+      "ChargedArrowNiagaraSystem": {
+        "ObjectName": "NiagaraSystem'NS_CorruptionArrows_Head'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/NS_CorruptionArrows_Head.19"
+      },
+      "ArrowNiagaraSystem": {
+        "ObjectName": "NiagaraSystem'NS_CorruptionArrows_Head'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/NS_CorruptionArrows_Head.19"
+      },
+      "ArrowTrail": {
+        "ObjectName": "NiagaraSystem'NS_CorruptionArrows_Trail'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/NS_CorruptionArrows_Trail.36"
+      },
+      "ChargedArrowTrail": {
+        "ObjectName": "NiagaraSystem'NS_CorruptionArrows_Trail'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/CorruptionArrows/NS_CorruptionArrows_Trail.36"
+      },
+      "BowFireLocalSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Co_Ra_AstralBow_Fire'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/SurvivalSorcery/EnchantRanged/MSS_Co_Ra_AstralBow_Fire.0"
+      },
+      "BowFireRemoteSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Co_Ra_AstralBow_Fire_REM'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/SurvivalSorcery/EnchantRanged/MSS_Co_Ra_AstralBow_Fire_REM.0"
+      },
+      "BowDrawLocalSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Co_Player_SpectralBow_Draw'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Combat/Ranged/MSS_Co_Player_SpectralBow_Draw.0"
+      },
+      "BowDrawRemoteSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Co_Player_SpectralBow_Draw_Rem'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Combat/Ranged/RangedCombat_Rem/MSS_Co_Player_SpectralBow_Draw_Rem.0"
+      },
+      "AdditiveDamageTypes": [
+        "DamageType.Corruption"
+      ],
+      "PersistenceID": "aH1QN0Rr416YHzGmdxtK7w"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ApplyFullyChargedFXToDominionProjectileInternal",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'HeldEquipmentEffectData:ApplyFullyChargedFXToDominionProjectileInternal'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ADominionProjectile",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionProjectile'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Arrow_Base",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Arrow_Base_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Ammo/BP_Arrow_Base.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasCorruptionShotPerkUnlocked_HasPerkUnlocked",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "ApplyFXToDominionProjectileInternal",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'HeldEquipmentEffectData:ApplyFXToDominionProjectileInternal'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ADominionProjectile",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionProjectile'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Arrow_Base",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Arrow_Base_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Ammo/BP_Arrow_Base.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "ApplyFXToHeldEquipmentActorInternal",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'HeldEquipmentEffectData:ApplyFXToHeldEquipmentActorInternal'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "HeldEquipmentActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'HeldEquipmentActor'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_HeldEquipmentFXBundle",
+        "Flags": "RF_Public",
+        "ElementSize": 40,
+        "Struct": {
+          "ObjectName": "Object'HeldEquipmentFXBundle'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetGameplayEffectToApplyOnFullyChargedProjectileHitInternal",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'HeldEquipmentEffectData:GetGameplayEffectToApplyOnFullyChargedProjectileHitInternal'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Projectile",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionProjectile'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm | ReturnParm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionGameplayEffectData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionGameplayEffectData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasCorruptionShotPerkUnlocked_HasPerkUnlocked",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionGameplayEffectData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "HasCorruptionShotPerkUnlocked",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "EffectInstigator",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "HasPerkUnlocked",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasCorruptionShotSkillPerk_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "IsCompatibleWithInternal",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'HeldEquipmentEffectData:IsCompatibleWithInternal'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "HeldEquipmentData",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'HeldEquipmentData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetSkillType_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ESkill'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "RemoveFXFromDominionProjectileInternal",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'HeldEquipmentEffectData:RemoveFXFromDominionProjectileInternal'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ADominionProjectile",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionProjectile'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Arrow_Base",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Arrow_Base_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Ammo/BP_Arrow_Base.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "RemoveFXFromHeldEquipmentActorInternal",
+    "Outer": "BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'HeldEquipmentEffectData:RemoveFXFromHeldEquipmentActorInternal'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "HeldEquipmentActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'HeldEquipmentActor'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "GE_CorruptionShot_C",
+    "Name": "GE_CorruptionShot_C_0",
+    "Outer": "Default__BP_BaseCorruptionArrowsHeldEquipmentEffectData_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/GE_CorruptionShot.GE_CorruptionShot_C'",
+    "Template": {
+      "ObjectName": "GE_CorruptionShot_C'Default__GE_CorruptionShot_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/CorruptionArrows/GE_CorruptionShot.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

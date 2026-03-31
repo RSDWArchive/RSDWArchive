@@ -1,0 +1,1700 @@
+[
+  {
+    "Type": "ComputeKernel",
+    "Name": "ComputeKernel_0",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'ComputeKernel'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "KernelSource": {
+        "ObjectName": "OptimusKernelSource'DG_LinearBlendSkin_Morph_Cloth:ComputeKernel_0.OptimusKernelSource_0'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.7"
+      }
+    }
+  },
+  {
+    "Type": "OptimusClothDataInterface",
+    "Name": "OptimusClothDataInterface_0",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusClothDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusComponentSourceBinding",
+    "Name": "Primary",
+    "Outer": "@Bindings",
+    "Class": "UScriptClass'OptimusComponentSourceBinding'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BindingName": "Primary",
+      "ComponentType": {
+        "ObjectName": "Class'OptimusSkinnedMeshComponentSource'",
+        "ObjectPath": "/Script/OptimusCore"
+      },
+      "bIsPrimaryBinding": true
+    }
+  },
+  {
+    "Type": "OptimusComponentSourceBindingContainer",
+    "Name": "@Bindings",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusComponentSourceBindingContainer'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Bindings": [
+        {
+          "ObjectName": "OptimusComponentSourceBinding'DG_LinearBlendSkin_Morph_Cloth:@Bindings.Primary'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.2"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusComputeGraph",
+    "Name": "UpdateGraph_ComputeGraph",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusComputeGraph'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "KernelToNode": [
+        {
+          "AssetPathName": "/DeformerGraph/DeformerFunctions/DG_Function_LinearBlendSkin_Morph_Cloth.DG_Function_LinearBlendSkin_Morph_Cloth",
+          "SubPathString": "LinearBlendSkin_Morph_Cloth.OptimusNode_ComputeKernel_1"
+        }
+      ],
+      "KernelInvocations": [
+        {
+          "ObjectName": "ComputeKernel'DG_LinearBlendSkin_Morph_Cloth:ComputeKernel_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.0"
+        }
+      ],
+      "DataInterfaces": [
+        {
+          "ObjectName": "OptimusClothDataInterface'DG_LinearBlendSkin_Morph_Cloth:OptimusClothDataInterface_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.1"
+        },
+        {
+          "ObjectName": "OptimusSkinnedMeshReadDataInterface'DG_LinearBlendSkin_Morph_Cloth:OptimusSkinnedMeshReadDataInterface_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.38"
+        },
+        {
+          "ObjectName": "OptimusSkeletonDataInterface'DG_LinearBlendSkin_Morph_Cloth:OptimusSkeletonDataInterface_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.37"
+        },
+        {
+          "ObjectName": "OptimusMorphTargetDataInterface'DG_LinearBlendSkin_Morph_Cloth:OptimusMorphTargetDataInterface_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.8"
+        },
+        {
+          "ObjectName": "OptimusSkinnedMeshWriteDataInterface'DG_LinearBlendSkin_Morph_Cloth:SkinnedMeshWriteDataInterface_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.40"
+        },
+        {
+          "ObjectName": "OptimusCustomComputeKernelDataInterface'DG_LinearBlendSkin_Morph_Cloth:OptimusCustomComputeKernelDataInterface_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.5"
+        }
+      ],
+      "GraphEdges": [
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 0,
+          "DataInterfaceIndex": 5,
+          "DataInterfaceBindingIndex": 0,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadNumThreads",
+          "BindingFunctionNamespace": "KernelInternal"
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 1,
+          "DataInterfaceIndex": 5,
+          "DataInterfaceBindingIndex": 1,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadNumThreadsPerInvocation",
+          "BindingFunctionNamespace": "KernelInternal"
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 2,
+          "DataInterfaceIndex": 5,
+          "DataInterfaceBindingIndex": 2,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadThreadIndexOffset",
+          "BindingFunctionNamespace": "KernelInternal"
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 3,
+          "DataInterfaceIndex": 0,
+          "DataInterfaceBindingIndex": 1,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadClothToLocal",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 4,
+          "DataInterfaceIndex": 1,
+          "DataInterfaceBindingIndex": 1,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadPosition",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 5,
+          "DataInterfaceIndex": 1,
+          "DataInterfaceBindingIndex": 2,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadTangentX",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 6,
+          "DataInterfaceIndex": 1,
+          "DataInterfaceBindingIndex": 3,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadTangentZ",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 7,
+          "DataInterfaceIndex": 2,
+          "DataInterfaceBindingIndex": 4,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadBoneMatrix",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 8,
+          "DataInterfaceIndex": 3,
+          "DataInterfaceBindingIndex": 1,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadDeltaPosition",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 9,
+          "DataInterfaceIndex": 3,
+          "DataInterfaceBindingIndex": 2,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadDeltaNormal",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 10,
+          "DataInterfaceIndex": 0,
+          "DataInterfaceBindingIndex": 2,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadClothWeight",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 11,
+          "DataInterfaceIndex": 0,
+          "DataInterfaceBindingIndex": 3,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadClothPosition",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 12,
+          "DataInterfaceIndex": 0,
+          "DataInterfaceBindingIndex": 4,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadClothTangentX",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 13,
+          "DataInterfaceIndex": 0,
+          "DataInterfaceBindingIndex": 5,
+          "bKernelInput": true,
+          "BindingFunctionNameOverride": "ReadClothTangentZ",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 0,
+          "DataInterfaceIndex": 4,
+          "DataInterfaceBindingIndex": 0,
+          "bKernelInput": false,
+          "BindingFunctionNameOverride": "WriteOutPosition",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 1,
+          "DataInterfaceIndex": 4,
+          "DataInterfaceBindingIndex": 1,
+          "bKernelInput": false,
+          "BindingFunctionNameOverride": "WriteOutTangentX",
+          "BindingFunctionNamespace": ""
+        },
+        {
+          "KernelIndex": 0,
+          "KernelBindingIndex": 2,
+          "DataInterfaceIndex": 4,
+          "DataInterfaceBindingIndex": 2,
+          "bKernelInput": false,
+          "BindingFunctionNameOverride": "WriteOutTangentZ",
+          "BindingFunctionNamespace": ""
+        }
+      ],
+      "Bindings": [
+        {
+          "ObjectName": "Class'SkinnedMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      ],
+      "DataInterfaceToBinding": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "Type": "OptimusCustomComputeKernelDataInterface",
+    "Name": "OptimusCustomComputeKernelDataInterface_0",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusCustomComputeKernelDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentSourceBinding": {
+        "ObjectName": "OptimusComponentSourceBinding'DG_LinearBlendSkin_Morph_Cloth:@Bindings.Primary'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.2"
+      },
+      "NumThreadsExpression": "Vertex"
+    }
+  },
+  {
+    "Type": "OptimusDeformer",
+    "Name": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusDeformer'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComputeGraphs": [
+        {
+          "GraphType": "EOptimusNodeGraphType::Update",
+          "GraphName": "UpdateGraph",
+          "ComputeGraph": {
+            "ObjectName": "OptimusComputeGraph'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph_ComputeGraph'",
+            "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.4"
+          }
+        }
+      ],
+      "Status": "EOptimusDeformerStatus::Compiled",
+      "Graphs": [
+        {
+          "ObjectName": "OptimusNodeGraph'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.12"
+        }
+      ],
+      "Bindings": {
+        "ObjectName": "OptimusComponentSourceBindingContainer'DG_LinearBlendSkin_Morph_Cloth:@Bindings'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.3"
+      },
+      "Variables": {
+        "ObjectName": "OptimusVariableContainer'DG_LinearBlendSkin_Morph_Cloth:@Variables'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.42"
+      },
+      "Resources": {
+        "ObjectName": "OptimusResourceContainer'DG_LinearBlendSkin_Morph_Cloth:@Resources'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.36"
+      }
+    }
+  },
+  {
+    "Type": "OptimusKernelSource",
+    "Name": "OptimusKernelSource_0",
+    "Outer": "ComputeKernel_0",
+    "Class": "UScriptClass'OptimusKernelSource'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Source": "uint3 ReadNumThreads() { return KernelInternal::ReadNumThreads(); }\n\n#include \"/Engine/Private/ComputeShaderUtils.ush\"\n[numthreads(64,1,1)]\nvoid LinearBlendSkin_Morph_Cloth_OptimusNode_ComputeKernel_1(uint3 GroupId : SV_GroupID, uint GroupIndex : SV_GroupIndex)\n{\nuint IndexForInvocation = GetUnWrappedDispatchThreadId(GroupId, GroupIndex, 64);\nif (IndexForInvocation >= KernelInternal::ReadNumThreadsPerInvocation()) return;\nuint Index = IndexForInvocation + KernelInternal::ReadThreadIndexOffset();\n\n#line 1 \"/Engine/Generated/UObject/DeformerGraph/DeformerFunctions/DG_Function_LinearBlendSkin_Morph_Cloth.DG_Function_LinearBlendSkin_Morph_Cloth@LinearBlendSkin_Morph_Cloth.OptimusNode_ComputeKernel_1.ush\"\nif (Index >= ReadNumThreads().x) return;\n\nfloat3 LocalPosition = ReadPosition(Index);\nfloat4 LocalTangentX = ReadTangentX(Index);\nfloat4 LocalTangentZ = ReadTangentZ(Index);\n\nfloat3 DeltaPosition = ReadDeltaPosition(Index);\nfloat3 DeltaTangentZ = ReadDeltaNormal(Index);\n\nfloat3 MorphPosition = LocalPosition + DeltaPosition;\nfloat3 MorphTangentZ = LocalTangentZ.xyz + DeltaTangentZ;\n\nfloat3 ClothWeight = ReadClothWeight(Index);\nfloat3 ClothPosition = ReadClothPosition(Index);\nfloat3 ClothTangentX = ReadClothTangentX(Index);\nfloat3 ClothTangentZ = ReadClothTangentZ(Index);\n\nfloat3x4 BoneMatrix = ReadBoneMatrix(Index);\n\nfloat3 SkinnedPosition = mul(BoneMatrix, float4(MorphPosition, 1));\nfloat4 SkinnedTangentX = float4(normalize(mul((float3x3)BoneMatrix, LocalTangentX.xyz)), LocalTangentX.w);\nfloat4 SkinnedTangentZ = float4(normalize(mul((float3x3)BoneMatrix, MorphTangentZ.xyz)), LocalTangentZ.w);\n\nfloat3 LocalClothPosition = mul(float4(ClothPosition, 1), ReadClothToLocal()).xyz;\nfloat3 FinalPosition = lerp(SkinnedPosition, LocalClothPosition.xyz, ClothWeight);\n\nfloat4 FinalTangentX = float4(lerp(SkinnedTangentX.xyz, ClothTangentX, ClothWeight), SkinnedTangentX.w);\nfloat4 FinalTangentZ = float4(lerp(SkinnedTangentZ.xyz, ClothTangentZ, ClothWeight), SkinnedTangentZ.w);\n\nWriteOutPosition(Index, FinalPosition);\nWriteOutTangentX(Index, FinalTangentX);\nWriteOutTangentZ(Index, FinalTangentZ);\n\n}\n",
+      "EntryPoint": "LinearBlendSkin_Morph_Cloth_OptimusNode_ComputeKernel_1",
+      "ExternalInputs": [
+        {
+          "Name": "ReadNumThreads",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "uint3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadNumThreadsPerInvocation",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadThreadIndexOffset",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadClothToLocal",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float4x4",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 2,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 4,
+                "MatrixColumnCount": 4
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadPosition",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadTangentX",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float4",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 4,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadTangentZ",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float4",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 4,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadWeightedBoneMatrix",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float3x4",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 2,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 3,
+                "MatrixColumnCount": 4
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadDeltaPosition",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadDeltaNormal",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadClothWeight",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadClothPosition",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadClothTangentX",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        },
+        {
+          "Name": "ReadClothTangentZ",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "float3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": true
+        }
+      ],
+      "ExternalOutputs": [
+        {
+          "Name": "WritePosition",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "float3",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 3,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": false
+        },
+        {
+          "Name": "WriteTangentX",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "float4",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 4,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": false
+        },
+        {
+          "Name": "WriteTangentZ",
+          "ParamTypes": [
+            {
+              "TypeDeclaration": "uint",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 2,
+                "DimensionType": 0,
+                "VectorElemCount": 0,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            },
+            {
+              "TypeDeclaration": "float4",
+              "Name": "",
+              "ValueType": {
+                "Name": "None",
+                "bIsDynamicArray": false,
+                "StructElements": [],
+                "Type": 3,
+                "DimensionType": 1,
+                "VectorElemCount": 4,
+                "MatrixRowCount": 0,
+                "MatrixColumnCount": 0
+              },
+              "ArrayElementCount": 0,
+              "BindingType": "EShaderParamBindingType::None",
+              "ResourceType": "EShaderResourceType::None",
+              "Modifier": "EShaderParamModifier::None"
+            }
+          ],
+          "bHasReturnType": false
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusMorphTargetDataInterface",
+    "Name": "OptimusMorphTargetDataInterface_0",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusMorphTargetDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusNode_DataInterface",
+    "Name": "OptimusNode_DataInterface_0",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNode_DataInterface'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DataInterfaceClass": {
+        "ObjectName": "Class'OptimusSkinnedMeshReadDataInterface'",
+        "ObjectPath": "/Script/OptimusCore"
+      },
+      "DataInterfaceData": {
+        "ObjectName": "OptimusSkinnedMeshReadDataInterface'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.OptimusSkinnedMeshReadDataInterface_0'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.39"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "BBF2E87E4534831669B8B4B8F3D3337D",
+        "SourceString": "Read Skinned Mesh",
+        "LocalizedString": "Read Skinned Mesh"
+      },
+      "GraphPosition": {
+        "X": 96.0,
+        "Y": 352.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.SkinnedMesh'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.21"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.Position'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.20"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.TangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.22"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.TangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.23"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.Color'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.19"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNode_DataInterface",
+    "Name": "OptimusNode_DataInterface_4",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNode_DataInterface'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DataInterfaceClass": {
+        "ObjectName": "Class'OptimusSkinnedMeshWriteDataInterface'",
+        "ObjectPath": "/Script/OptimusCore"
+      },
+      "DataInterfaceData": {
+        "ObjectName": "OptimusSkinnedMeshWriteDataInterface'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.SkinnedMeshWriteDataInterface_0'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.41"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "BB997F024EF1A5600DD8B383BAA69BF1",
+        "SourceString": "Write Skinned Mesh",
+        "LocalizedString": "Write Skinned Mesh"
+      },
+      "GraphPosition": {
+        "X": 864.0,
+        "Y": 336.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.SkinnedMesh'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.26"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.Position'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.25"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.TangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.27"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.TangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.28"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.Color'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.24"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNode_FunctionReference",
+    "Name": "OptimusNode_FunctionReference",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNode_FunctionReference'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FunctionGraphIdentifier": {
+        "Asset": {
+          "ObjectName": "OptimusDeformer'DG_Function_LinearBlendSkin_Morph_Cloth'",
+          "ObjectPath": "/DeformerGraph/DeformerFunctions/DG_Function_LinearBlendSkin_Morph_Cloth"
+        },
+        "Guid": "24E07994-4BE03F0E-96774E36-9DC00B00"
+      },
+      "DefaultComponentPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.Default Component Binding'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.29"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "9F927B31424BA4D53B341980A943C1D0",
+        "SourceString": "LinearBlendSkin_Morph_Cloth",
+        "LocalizedString": "LinearBlendSkin_Morph_Cloth"
+      },
+      "GraphPosition": {
+        "X": 432.0,
+        "Y": 352.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.Default Component Binding'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.29"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.Position'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.33"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.TangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.34"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.TangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.35"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.OutPosition'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.30"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.OutTangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.31"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.OutTangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.32"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNodeGraph",
+    "Name": "UpdateGraph",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusNodeGraph'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Nodes": [
+        {
+          "ObjectName": "OptimusNode_DataInterface'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.10"
+        },
+        {
+          "ObjectName": "OptimusNode_FunctionReference'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.11"
+        },
+        {
+          "ObjectName": "OptimusNode_DataInterface'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.9"
+        }
+      ],
+      "Links": [
+        {
+          "ObjectName": "OptimusNodeLink'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNodeLink_7'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.18"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNodeLink_12'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.15"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNodeLink_13'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.16"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNodeLink_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.13"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNodeLink_1'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.14"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNodeLink_2'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.17"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_0",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.Position'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.20"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.Position'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.33"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_1",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.TangentX'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.22"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.TangentX'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.34"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_12",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.OutTangentX'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.31"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.TangentX'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.27"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_13",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.OutTangentZ'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.32"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.TangentZ'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.28"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_2",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_0.TangentZ'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.23"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.TangentZ'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.35"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_7",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_FunctionReference.OutPosition'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.30"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_LinearBlendSkin_Morph_Cloth:UpdateGraph.OptimusNode_DataInterface_4.Position'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/Deformers/DG_LinearBlendSkin_Morph_Cloth.25"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Color",
+    "Outer": "OptimusNode_DataInterface_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Position",
+    "Outer": "OptimusNode_DataInterface_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "SkinnedMesh",
+    "Outer": "OptimusNode_DataInterface_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataType": {
+        "TypeName": "UOptimusComponentSourceBinding",
+        "TypeObject": {
+          "AssetPathName": "/Script/OptimusCore.OptimusComponentSourceBinding",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentX",
+    "Outer": "OptimusNode_DataInterface_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentZ",
+    "Outer": "OptimusNode_DataInterface_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Color",
+    "Outer": "OptimusNode_DataInterface_4",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Position",
+    "Outer": "OptimusNode_DataInterface_4",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "SkinnedMesh",
+    "Outer": "OptimusNode_DataInterface_4",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataType": {
+        "TypeName": "UOptimusComponentSourceBinding",
+        "TypeObject": {
+          "AssetPathName": "/Script/OptimusCore.OptimusComponentSourceBinding",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentX",
+    "Outer": "OptimusNode_DataInterface_4",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentZ",
+    "Outer": "OptimusNode_DataInterface_4",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Default Component Binding",
+    "Outer": "OptimusNode_FunctionReference",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataType": {
+        "TypeName": "UOptimusComponentSourceBinding",
+        "TypeObject": {
+          "AssetPathName": "/Script/OptimusCore.OptimusComponentSourceBinding",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutPosition",
+    "Outer": "OptimusNode_FunctionReference",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentX",
+    "Outer": "OptimusNode_FunctionReference",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentZ",
+    "Outer": "OptimusNode_FunctionReference",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Position",
+    "Outer": "OptimusNode_FunctionReference",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentX",
+    "Outer": "OptimusNode_FunctionReference",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentZ",
+    "Outer": "OptimusNode_FunctionReference",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusResourceContainer",
+    "Name": "@Resources",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusResourceContainer'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusSkeletonDataInterface",
+    "Name": "OptimusSkeletonDataInterface_0",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusSkeletonDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusSkinnedMeshReadDataInterface",
+    "Name": "OptimusSkinnedMeshReadDataInterface_0",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusSkinnedMeshReadDataInterface'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusSkinnedMeshReadDataInterface",
+    "Name": "OptimusSkinnedMeshReadDataInterface_0",
+    "Outer": "OptimusNode_DataInterface_0",
+    "Class": "UScriptClass'OptimusSkinnedMeshReadDataInterface'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusSkinnedMeshWriteDataInterface",
+    "Name": "SkinnedMeshWriteDataInterface_0",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusSkinnedMeshWriteDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusSkinnedMeshWriteDataInterface",
+    "Name": "SkinnedMeshWriteDataInterface_0",
+    "Outer": "OptimusNode_DataInterface_4",
+    "Class": "UScriptClass'OptimusSkinnedMeshWriteDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusVariableContainer",
+    "Name": "@Variables",
+    "Outer": "DG_LinearBlendSkin_Morph_Cloth",
+    "Class": "UScriptClass'OptimusVariableContainer'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

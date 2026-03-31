@@ -1,0 +1,3624 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_DominionAICharacter_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Slash"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Air"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Stab"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_DominionAICharacter_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModifyHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyHealth.0"
+      },
+      "ModifyMaxHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyMaxHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyMaxHealth.0"
+      },
+      "MaxHealth": 500.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_DominionAICharacter_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NavAgentName": "Gigantic",
+      "bEnableLocomotionAnimation": true,
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_AbyssalDemon_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Movement/DT_AbyssalDemon_Rotation.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_AbyssalDemon_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Movement/DT_AbyssalDemon_Rotation.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_AbyssalDemon_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Movement/DT_AbyssalDemon_Rotation.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_AbyssalDemon_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Movement/DT_AbyssalDemon_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_AbyssalDemon_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Movement/DT_AbyssalDemon_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_AbyssalDemon_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Movement/DT_AbyssalDemon_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_AbyssalDemon_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Movement/DT_AbyssalDemon_RotationAlert.0"
+          }
+        }
+      ],
+      "MaxStepHeight": 100.0,
+      "WalkableFloorAngle": 60.0,
+      "WalkableFloorZ": 0.49999997,
+      "MaxWalkSpeed": 160.0,
+      "MaxAcceleration": 600.0,
+      "BrakingDecelerationWalking": 10000.0,
+      "bOrientRotationToMovement": true,
+      "bSweepWhileNavWalking": false,
+      "bEnablePhysicsInteraction": false,
+      "MaxOutOfWaterStepHeight": 120.0,
+      "Mass": 1000.0,
+      "bAlwaysCheckFloor": false,
+      "bRequestedMoveUseAcceleration": false,
+      "NavMovementProperties": {
+        "bUpdateNavAgentWithOwnersCollision": false
+      },
+      "NavAgentProps": {
+        "AgentRadius": 200.0,
+        "AgentHeight": 420.0,
+        "AgentStepHeight": 100.0,
+        "PreferredNavData": {
+          "AssetPathName": "/Script/NavigationSystem.RecastNavMesh",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_DominionAICharacter_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.74"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_Miniboss_Gigantic_Base_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.48"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ExecuteUbergraph_BP_AI_Miniboss_Gigantic_Base'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.30"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:Initialice DynamicMaterials'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.34"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:UpdateDynamicMaterials'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.39"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:HideOrb'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.33"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:AnimNotifyState_SetCollision_End'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.27"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:AnimNotifyState_SetCollision_Begin'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.26"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:GetWarpAttackLikelihood'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.32"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:BP_OnDay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.28"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:BP_OnNight'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.29"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ExtendOrb'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.31"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:RetractOrb'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.38"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.36"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ReceiveDestroyed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.37"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:OndeathAbyssalDemon'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.35"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ExecuteUbergraph_BP_AI_Miniboss_Gigantic_Base'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.30"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LootDrop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'LootDropComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_BossAiHealthBarComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BossAiHealthBarComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Orb",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Orb",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_BL",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_BR",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_FR",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_FL",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Targetable",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'TargetableComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AbyssalDemon_AttackComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_AttackComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemon_AttackComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AbyssalDemon_HitReactionsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_HitReactionsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/HitReactions/BP_AbyssalDemon_HitReactionsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AbyssalDemon_WarpComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_WarpComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/BP_AbyssalDemon_WarpComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AbyssalDemonAttackOpportunityComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemonAttackOpportunityComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemonAttackOpportunityComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AbyssalDemon_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AbyssalDemon_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Head",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitPointsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiAnimationComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDamageComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDeathComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "PreviousCollisionProfiles",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "KeyProp": {
+          "Type": "StrProperty",
+          "Name": "PreviousCollisionProfiles",
+          "Flags": "RF_Public",
+          "ElementSize": 16
+        },
+        "ValueProp": {
+          "Type": "NameProperty",
+          "Name": "PreviousCollisionProfiles_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AudioComp_Orb",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_Miniboss_Gigantic_Base": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ExecuteUbergraph_BP_AI_Miniboss_Gigantic_Base'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.30"
+      },
+      "OndeathAbyssalDemon": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:OndeathAbyssalDemon'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.35"
+      },
+      "ReceiveDestroyed": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ReceiveDestroyed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.37"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.36"
+      },
+      "RetractOrb": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:RetractOrb'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.38"
+      },
+      "ExtendOrb": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:ExtendOrb'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.31"
+      },
+      "BP_OnNight": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:BP_OnNight'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.29"
+      },
+      "BP_OnDay": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:BP_OnDay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.28"
+      },
+      "GetWarpAttackLikelihood": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:GetWarpAttackLikelihood'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.32"
+      },
+      "AnimNotifyState_SetCollision_Begin": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:AnimNotifyState_SetCollision_Begin'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.26"
+      },
+      "AnimNotifyState_SetCollision_End": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:AnimNotifyState_SetCollision_End'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.27"
+      },
+      "HideOrb": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:HideOrb'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.33"
+      },
+      "UpdateDynamicMaterials": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:UpdateDynamicMaterials'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.39"
+      },
+      "Initialice DynamicMaterials": {
+        "ObjectName": "Function'BP_AI_Miniboss_Gigantic_Base_C:Initialice DynamicMaterials'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.34"
+      }
+    },
+    "ClassFlags": "CLASS_Abstract | CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_Miniboss_Gigantic_Base_C'Default__BP_AI_Miniboss_Gigantic_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.10"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AbyssalDemon_AiCombatModeInitiator_C",
+    "Name": "BP_AbyssalDemon_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AbyssalDemon_AiCombatModeInitiator.BP_AbyssalDemon_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_AbyssalDemon_AiCombatModeInitiator_C'Default__BP_AbyssalDemon_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AbyssalDemon_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_Miniboss_Gigantic_Base_C:BP_AbyssalDemon_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.21"
+      }
+    }
+  },
+  {
+    "Type": "BP_AbyssalDemon_AttackComponent_C",
+    "Name": "BP_AbyssalDemon_AttackComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemon_AttackComponent.BP_AbyssalDemon_AttackComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AbyssalDemon_AttackComponent_C'Default__BP_AbyssalDemon_AttackComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemon_AttackComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AbyssalDemon_HitReactionsComponent_C",
+    "Name": "BP_AbyssalDemon_HitReactionsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/HitReactions/BP_AbyssalDemon_HitReactionsComponent.BP_AbyssalDemon_HitReactionsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AbyssalDemon_HitReactionsComponent_C'Default__BP_AbyssalDemon_HitReactionsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/HitReactions/BP_AbyssalDemon_HitReactionsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AbyssalDemon_WarpComponent_C",
+    "Name": "BP_AbyssalDemon_WarpComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/BP_AbyssalDemon_WarpComponent.BP_AbyssalDemon_WarpComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AbyssalDemon_WarpComponent_C'Default__BP_AbyssalDemon_WarpComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/BP_AbyssalDemon_WarpComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ProxyTargetClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_ProxyMovementTarget_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_ProxyMovementTarget.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_AbyssalDemonAttackOpportunityComponent_C",
+    "Name": "BP_AbyssalDemonAttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemonAttackOpportunityComponent.BP_AbyssalDemonAttackOpportunityComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AbyssalDemonAttackOpportunityComponent_C'Default__BP_AbyssalDemonAttackOpportunityComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemonAttackOpportunityComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AbilityCooldownMin": 20,
+      "AbilityCooldownMax": 30,
+      "LeftFinisherComboChance": 0.1,
+      "RightLeftComboChance": 0.3,
+      "EarlyOutRange": 800.0,
+      "EarlyOutAngle": 180.0
+    }
+  },
+  {
+    "Type": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Name": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.BP_AI_Miniboss_Gigantic_Base_C'",
+    "Template": {
+      "ObjectName": "BP_DominionAICharacter_C'Default__BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.7"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "MaterialDeathDelay": 1.0,
+      "bCanBeSpawnedByDebugMenu": false,
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.22"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.1"
+      },
+      "HitRecipientAudioTag": {
+        "TagName": "Audio.Chitin.AbyssalDemon"
+      },
+      "MusicStateToRequest": "EPrimaryMusicState::SeekerCombat",
+      "MusicThreatLevel": 65,
+      "TargetingAttachToBone": "spine_02",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.3"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.79"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.25"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.23"
+      },
+      "AIName": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "AbyssalDemon",
+        "SourceString": "Abyssal Demon",
+        "LocalizedString": "Abyssal Demon"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.40"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.75"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.2"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.20"
+      },
+      "bUseControllerRotationYaw": false,
+      "AutoPossessAI": "EAutoPossessAI::PlacedInWorldOrSpawned",
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_AbyssalDemon_Controller_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/BP_AI_AbyssalDemon_Controller.8"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.20"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiAnimationManager_C",
+    "Name": "BP_AiAnimationComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.BP_AiAnimationManager_C'",
+    "Template": {
+      "ObjectName": "BP_AiAnimationManager_C'Default__BP_AiAnimationManager_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoneLookAt": "head",
+      "AmbientRunningAllowed": true,
+      "AnimatedWalkSpeedMult": 0.24
+    }
+  },
+  {
+    "Type": "BP_AiDamageComponent_C",
+    "Name": "BP_AiDamageComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.BP_AiDamageComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDamageComponent_C'Default__BP_AiDamageComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'Default__BP_AiDeathComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DespawnVFX_Socket": "ChestVFXSocket",
+      "DespawnVFX_SizeScale": 1.3,
+      "DespawnTime": 6.8,
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_AbyssalDemon_Death_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Actions/DAA_AbyssalDemon_Death.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'Default__BP_AiHitPointsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.41"
+              }
+            }
+          ]
+        },
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_FR",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 0,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0000"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_1'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.42"
+              }
+            }
+          ]
+        },
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_FL",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 0,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0000"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_2'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.43"
+              }
+            }
+          ]
+        },
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_BR",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 0,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0000"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_5'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.46"
+              }
+            }
+          ]
+        },
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_BL",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 0,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0000"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_4'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.45"
+              }
+            }
+          ]
+        },
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Orb",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 0,
+            "G": 183,
+            "R": 255,
+            "A": 255,
+            "Hex": "FFB700"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_3'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.44"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.47"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_BossAiHealthBarComponent_C",
+    "Name": "BP_BossAiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.BP_BossAiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_BossAiHealthBarComponent_C'Default__BP_BossAiHealthBarComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AiDisplayName": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "AbyssalDemon",
+        "SourceString": "Abyssal Demon",
+        "LocalizedString": "Abyssal Demon"
+      },
+      "DisplayHealthBarDistance": 2500.0
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "WeakPoint_BL_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleRadius": 18.0,
+      "ShapeColor": {
+        "B": 94,
+        "G": 0,
+        "R": 248,
+        "A": 255,
+        "Hex": "F8005E"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "WeakPoint",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 89.0,
+        "Y": 34.0,
+        "Z": -1.6
+      },
+      "RelativeRotation": {
+        "Pitch": 85.0,
+        "Yaw": 85.0,
+        "Roll": 85.0
+      },
+      "RelativeScale3D": {
+        "X": 3.5,
+        "Y": 3.5,
+        "Z": 3.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "WeakPoint_BR_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleRadius": 18.0,
+      "ShapeColor": {
+        "B": 94,
+        "G": 0,
+        "R": 248,
+        "A": 255,
+        "Hex": "F8005E"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "WeakPoint",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 89.0,
+        "Y": 34.0,
+        "Z": -1.6
+      },
+      "RelativeRotation": {
+        "Pitch": 85.0,
+        "Yaw": 85.0,
+        "Roll": 85.0
+      },
+      "RelativeScale3D": {
+        "X": 3.5,
+        "Y": 3.5,
+        "Z": 3.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "WeakPoint_FL_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleRadius": 18.0,
+      "ShapeColor": {
+        "B": 94,
+        "G": 0,
+        "R": 248,
+        "A": 255,
+        "Hex": "F8005E"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "WeakPoint",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 89.0,
+        "Y": 34.0,
+        "Z": -1.6
+      },
+      "RelativeRotation": {
+        "Pitch": 85.0,
+        "Yaw": 85.0,
+        "Roll": 85.0
+      },
+      "RelativeScale3D": {
+        "X": 3.5,
+        "Y": 3.5,
+        "Z": 3.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "WeakPoint_FR_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleRadius": 18.0,
+      "ShapeColor": {
+        "B": 94,
+        "G": 0,
+        "R": 248,
+        "A": 255,
+        "Hex": "F8005E"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "WeakPoint",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 89.0,
+        "Y": 34.0,
+        "Z": -1.6
+      },
+      "RelativeRotation": {
+        "Pitch": 85.0,
+        "Yaw": 85.0,
+        "Roll": 85.0
+      },
+      "RelativeScale3D": {
+        "X": 3.5,
+        "Y": 3.5,
+        "Z": 3.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 230.0,
+      "CapsuleRadius": 190.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel3",
+        "CollisionProfileName": "Ai",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "TriggerVolume",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": "BP_AbyssalDemon_AiCombatModeInitiator_GEN_VARIABLE",
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_AbyssalDemon_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AbyssalDemon_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_Miniboss_Gigantic_Base_C:BP_AbyssalDemon_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.24"
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_DominionAICharacter_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_DominionAICharacter_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.13"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "CombatModeArea_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_AbyssalDemon_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AbyssalDemon_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Radius": 4000.0
+    }
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_DominionAICharacter_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 255
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "AnimNotifyState_SetCollision_Begin",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "ComponentNames",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Inner": {
+          "Type": "StrProperty",
+          "Name": "ComponentNames",
+          "Flags": "RF_Public",
+          "ElementSize": 16
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CollisionProfile",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetChildrenComponents_Children",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetChildrenComponents_Children",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsPrimitive_Component",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_GetCollisionProfileName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetObjectName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_Contains_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "AnimNotifyState_SetCollision_End",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "ComponentNames",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Inner": {
+          "Type": "StrProperty",
+          "Name": "ComponentNames",
+          "Flags": "RF_Public",
+          "ElementSize": 16
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetChildrenComponents_Children",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetChildrenComponents_Children",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsPrimitive_Component",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetObjectName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_Contains_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_Map_Find_Value",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Map_Find_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnDay",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.16"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.16"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnNight",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnNight'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.18"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnNight'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.18"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_Miniboss_Gigantic_Base",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAiHealthComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AiHealthComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'OnDeathSignatureDynamic__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_SetTriggerParameter_self_CastInput",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class'AudioParameterControllerInterface'",
+          "ObjectPath": "/Script/AudioExtensions"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "CallFunc_SetTriggerParameter_self_CastInput_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class'AudioParameterControllerInterface'",
+          "ObjectPath": "/Script/AudioExtensions"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExtendOrb",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetWarpAttackLikelihood",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Likelihood",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsEnabled_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_GetMinimumAttackDistance_Distance",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsAiCurrentTargetInRange_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_FunctionResult_Likelihood_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_IsAiCurrentTargetInRange_MinDistance_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Select_Option_1_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Select_Option_0_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "HideOrb",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Initialice DynamicMaterials",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Root Mesh",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "DynamicMaterials",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Parm | OutParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "DynamicMaterials",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'MaterialInstanceDynamic'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Dynamic Materials",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "Dynamic Materials",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'MaterialInstanceDynamic'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetChildrenComponents_Children",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetChildrenComponents_Children",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSkeletal_Mesh_Component",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetNumMaterials_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateDynamicMaterialInstance_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Add_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OndeathAbyssalDemon",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveDestroyed",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveDestroyed'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RetractOrb",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateDynamicMaterials",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Dissolve",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "GlowIntensity",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "DitherWidth",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "GlowWidth",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetCustomPrimitiveDataFloat_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetCustomPrimitiveDataFloat_Value_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetCustomPrimitiveDataFloat_Value_ImplicitCast_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetCustomPrimitiveDataFloat_Value_ImplicitCast_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_DominionAICharacter_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.27"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 2.0
+    }
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_1",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.5
+    }
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_2",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.5
+    }
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_3",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 8.0
+    }
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_4",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.5
+    }
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_5",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.5
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Type": "EHitPointType::Critical"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable.0"
+        },
+        "RowName": "Miniboss_Gigantic_Base"
+      },
+      "DefaultResourceClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RuntimeSpawnedWorldItem_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/WorldItems/BP_RuntimeSpawnedWorldItem.0"
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Orb_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_AbyssalDemon_Orb'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/AbyssalDemonFX/Export/AbyssalOrb/NS_AbyssalDemon_Orb.37"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Extended",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Extended",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightEnabled",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightEnabled",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightExponent",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightExponent",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightIntensity",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightIntensity",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightRadius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightRadius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "StaticMesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.StaticMesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Extended",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraBool'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 8,
+            "Name": "User.LightEnabled",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraBool'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 12,
+            "Name": "User.LightExponent",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.LightIntensity",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.LightRadius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.StaticMesh",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          32,
+          65,
+          255,
+          255,
+          255,
+          255,
+          0,
+          0,
+          32,
+          65,
+          0,
+          0,
+          160,
+          64
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceStaticMesh'BP_AI_Miniboss_Gigantic_Base_C:Orb_GEN_VARIABLE.NiagaraDataInterfaceStaticMesh_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.51"
+          }
+        ]
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 58.0,
+        "Z": 19.0
+      },
+      "RelativeRotation": {
+        "Pitch": 3.1805547E-15,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_0",
+    "Outer": "Orb_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_1",
+    "Outer": "Orb_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_Miniboss_Gigantic_Base_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.53"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_WarpComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/BP_AbyssalDemon_WarpComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AbyssalDemon_WarpComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AbyssalDemon_WarpComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.8"
+      },
+      "VariableGUID": "C0EB038E-430D6486-1F440C9C-28DC4157",
+      "InternalVariableName": "BP_AbyssalDemon_WarpComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_Miniboss_Gigantic_Base_C:WeakPoint_Head_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.76"
+      },
+      "AttachToName": "head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "F495D8A0-449B7956-F6B8B9B2-E3852B1B",
+      "InternalVariableName": "WeakPoint_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_Miniboss_Gigantic_Base_C:Orb_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.50"
+      },
+      "AttachToName": "prop_stow",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "1A06F0B2-4150FC74-A077129D-E14965B4",
+      "InternalVariableName": "Orb"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AbyssalDemon_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AbyssalDemon_AiCombatModeInitiator_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AbyssalDemon_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.5"
+      },
+      "VariableGUID": "9528BF0E-453D790E-E281AC96-5D9A67EA",
+      "InternalVariableName": "BP_AbyssalDemon_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_16",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemonAttackOpportunityComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemonAttackOpportunityComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AbyssalDemonAttackOpportunityComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AbyssalDemonAttackOpportunityComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.9"
+      },
+      "VariableGUID": "B6E5D1E1-4BE77C69-2E412789-C59446ED",
+      "InternalVariableName": "BP_AbyssalDemonAttackOpportunityComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_17",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_Miniboss_Gigantic_Base_C:WeakPoint_Orb_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.77"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "684E15C7-46E406E7-7D177192-1A1198DC",
+      "InternalVariableName": "WeakPoint_Orb"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_HitReactionsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/HitReactions/BP_AbyssalDemon_HitReactionsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AbyssalDemon_HitReactionsComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AbyssalDemon_HitReactionsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.7"
+      },
+      "VariableGUID": "6EFB97D1-407CAD1C-811AC496-51CF4BA7",
+      "InternalVariableName": "BP_AbyssalDemon_HitReactionsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_19",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AbyssalDemon_AttackComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/Attacks/BP_AbyssalDemon_AttackComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AbyssalDemon_AttackComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AbyssalDemon_AttackComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.6"
+      },
+      "VariableGUID": "3341ABA0-40D34B35-C65C9FBE-756372B9",
+      "InternalVariableName": "BP_AbyssalDemon_AttackComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_20",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Miniboss_Gigantic_Base_C:WeakPoint_FL_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.18"
+      },
+      "AttachToName": "front_leg4_l",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "871D7A77-486A0BF2-F6646EB6-42F86BBC",
+      "InternalVariableName": "WeakPoint_FL"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_22",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Miniboss_Gigantic_Base_C:WeakPoint_FR_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.19"
+      },
+      "AttachToName": "front_leg4_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "FC065E5E-4593B8FD-DD043D96-17271F6B",
+      "InternalVariableName": "WeakPoint_FR"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_23",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Miniboss_Gigantic_Base_C:WeakPoint_BR_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.17"
+      },
+      "AttachToName": "back_leg4_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "85B24F46-40878EDD-EC925FA4-97944DE5",
+      "InternalVariableName": "WeakPoint_BR"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_24",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Miniboss_Gigantic_Base_C:WeakPoint_BL_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.16"
+      },
+      "AttachToName": "back_leg4_l",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "A57385BA-42AC40DE-F248899E-1A30BC4F",
+      "InternalVariableName": "WeakPoint_BL"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'LootDropComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "LootDropComponent'BP_AI_Miniboss_Gigantic_Base_C:LootDrop_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.49"
+      },
+      "VariableGUID": "B080B734-44EA9F3B-7BF2B38D-076DBC7D",
+      "InternalVariableName": "LootDrop"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiAnimationManager_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AiAnimationComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.11"
+      },
+      "VariableGUID": "8679E4D3-4C9E7E9E-C44C0D9B-C169BF68",
+      "InternalVariableName": "BP_AiAnimationComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_BossAiHealthBarComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_BossAiHealthBarComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_BossAiHealthBarComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.15"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "2593CF1A-43993AEF-C2D2B4B3-BE9E19D8",
+      "InternalVariableName": "BP_BossAiHealthBarComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDamageComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AiDamageComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.12"
+      },
+      "VariableGUID": "3457B8DE-432F2649-DA6984AF-83DDAF13",
+      "InternalVariableName": "BP_AiDamageComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'TargetableComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TargetableComponent'BP_AI_Miniboss_Gigantic_Base_C:Targetable_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.78"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "A7649DCC-4BA955AD-DDDF10BD-8D228F9F",
+      "InternalVariableName": "Targetable"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDeathComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AiDeathComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.13"
+      },
+      "VariableGUID": "0CC921EB-43120990-5809CDA9-007BAF5B",
+      "InternalVariableName": "BP_AiDeathComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Miniboss_Gigantic_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.14"
+      },
+      "VariableGUID": "4C173E0F-43676F3E-9ECDF0B3-5A6DE610",
+      "InternalVariableName": "BP_AiHitPointsComponent"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.72"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.70"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.68"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.73"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.71"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.66"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.69"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.67"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.72"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.70"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.68"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.73"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.71"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.66"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.69"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.67"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_Miniboss_Gigantic_Base_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.54"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_DominionAICharacter_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.33"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_Abyssal_Demon_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AbyssalDemon/ABP_Abyssal_Demon.1"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_Abyssal_Demon_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Insectoid/Abyssal_Demon_01/SK_Abyssal_Demon_01.1"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_Abyssal_Demon_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Insectoid/Abyssal_Demon_01/SK_Abyssal_Demon_01.1"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Miniboss_Gigantic_Base_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Gigantic_Base.20"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -230.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Head_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 55.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "WeakPoint",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Orb_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 120.0,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 270.0,
+        "Z": 80.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "TargetableComponent",
+    "Name": "Targetable_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'TargetableComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetingDistance": 5000.0
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_Miniboss_Gigantic_Base_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_DominionAICharacter_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.35"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

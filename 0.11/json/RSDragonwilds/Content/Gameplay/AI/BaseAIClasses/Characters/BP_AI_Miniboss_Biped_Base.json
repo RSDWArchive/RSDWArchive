@@ -1,0 +1,1166 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_DominionAICharacter_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_DominionAICharacter_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModifyHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyHealth.0"
+      },
+      "ModifyMaxHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyMaxHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyMaxHealth.0"
+      }
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_DominionAICharacter_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SpeedFactorIfMovingBackwards": {
+        "ObjectName": "CurveFloat'Curve_MediumBeast_BackwardsAccelleration'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MediumBeast/Curve_MediumBeast_BackwardsAccelleration.0"
+      },
+      "MaxStepHeight": 80.0,
+      "WalkableFloorAngle": 80.0,
+      "WalkableFloorZ": 0.17364822,
+      "MaxWalkSpeed": 160.0,
+      "MaxAcceleration": 600.0,
+      "BrakingFrictionFactor": 0.0,
+      "bOrientRotationToMovement": true,
+      "bSweepWhileNavWalking": false,
+      "bEnablePhysicsInteraction": false,
+      "MaxOutOfWaterStepHeight": 120.0,
+      "bAlwaysCheckFloor": false,
+      "bUseRVOAvoidance": true,
+      "AvoidanceConsiderationRadius": 100.0,
+      "AvoidanceWeight": 0.5
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_DominionAICharacter_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.38"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_Miniboss_Biped_Base_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.24"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:ExecuteUbergraph_BP_AI_Miniboss_Biped_Base'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.19"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.20"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:BP_OnAlertnessStateChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.18"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:ExecuteUbergraph_BP_AI_Miniboss_Biped_Base'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.19"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_BossAiHealthBarComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BossAiHealthBarComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LootDrop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'LootDropComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Targetable",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'TargetableComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiFuturePositionComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiFuturePositionComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiFuturePositionComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitPointsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiAttackComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiAttackComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAttackComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiAnimationComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDamageComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitReactionsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDeathComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "AlertnessState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_Miniboss_Biped_Base": {
+        "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:ExecuteUbergraph_BP_AI_Miniboss_Biped_Base'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.19"
+      },
+      "BP_OnAlertnessStateChanged": {
+        "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:BP_OnAlertnessStateChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.18"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.20"
+      }
+    },
+    "ClassFlags": "CLASS_Abstract | CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_Miniboss_Biped_Base_C'Default__BP_AI_Miniboss_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.5"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_Miniboss_Biped_Base_C",
+    "Name": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.BP_AI_Miniboss_Biped_Base_C'",
+    "Template": {
+      "ObjectName": "BP_DominionAICharacter_C'Default__BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.7"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "DeathAttachSocket": "pelvis",
+      "bCanBeSpawnedByDebugMenu": false,
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Miniboss_Biped_Base_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.15"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_Miniboss_Biped_Base_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.1"
+      },
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Miniboss_Biped_Base_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.3"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_Miniboss_Biped_Base_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Miniboss_Biped_Base_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.41"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_Miniboss_Biped_Base_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.17"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Miniboss_Biped_Base_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.16"
+      },
+      "AIName": {
+        "Namespace": "",
+        "Key": "1049A75D4C62015B8C77728FF7323C04",
+        "SourceString": "Garou",
+        "LocalizedString": "Garou"
+      },
+      "ActorFuturePositionComponentRef": {
+        "ComponentProperty": "BP_AiFuturePositionComponent"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_Miniboss_Biped_Base_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.21"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Miniboss_Biped_Base_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.39"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_Miniboss_Biped_Base_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.2"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Miniboss_Biped_Base_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.14"
+      },
+      "bUseControllerRotationYaw": false,
+      "AutoPossessAI": "EAutoPossessAI::PlacedInWorldOrSpawned",
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_MediumBeast_Controller_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MediumBeast/BP_AI_MediumBeast_Controller.8"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Miniboss_Biped_Base_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.14"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiAnimationManager_C",
+    "Name": "BP_AiAnimationComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.BP_AiAnimationManager_C'",
+    "Template": {
+      "ObjectName": "BP_AiAnimationManager_C'Default__BP_AiAnimationManager_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiAttackComponent_C",
+    "Name": "BP_AiAttackComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAttackComponent.BP_AiAttackComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiAttackComponent_C'Default__BP_AiAttackComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAttackComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiDamageComponent_C",
+    "Name": "BP_AiDamageComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.BP_AiDamageComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDamageComponent_C'Default__BP_AiDamageComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'Default__BP_AiDeathComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DespawnVFX_Socket": "ChestVFXSocket",
+      "DespawnVFX_SizeScale": 1.3,
+      "DespawnTime": 3.0,
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_MediumBeast_Death_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MediumBeast/Actions/DAA_MediumBeast_Death.0"
+      },
+      "MeshesToDropOnDeath": [
+        {
+          "MeshComponentReference": {
+            "OtherActor": null,
+            "ComponentProperty": "Weapon",
+            "PathToComponent": ""
+          },
+          "ImpulseStrengthAwayfromCharacter": 300.0,
+          "ImpulseStrengthVertical": 300.0,
+          "bForceVisible": false
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiFuturePositionComponent_C",
+    "Name": "BP_AiFuturePositionComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiFuturePositionComponent.BP_AiFuturePositionComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiFuturePositionComponent_C'Default__BP_AiFuturePositionComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiFuturePositionComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'Default__BP_AiHitPointsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.22"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_Miniboss_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.23"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiHitReactionsComponent_C",
+    "Name": "BP_AiHitReactionsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.BP_AiHitReactionsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitReactionsComponent_C'Default__BP_AiHitReactionsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LightForceThreshold": 150.0,
+      "HeavyForceThreshold": 250.0
+    }
+  },
+  {
+    "Type": "BP_BossAiHealthBarComponent_C",
+    "Name": "BP_BossAiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.BP_BossAiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_BossAiHealthBarComponent_C'Default__BP_BossAiHealthBarComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 120.0,
+      "CapsuleRadius": 50.0,
+      "bDynamicObstacle": false,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "BlueprintGeneratedClass'AI_AvoidanceNavArea_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/AI_AvoidanceNavArea.1"
+      },
+      "bVisibleInReflectionCaptures": false,
+      "bVisibleInRealTimeSkyCaptures": false,
+      "bHiddenInSceneCapture": true,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel3",
+        "CollisionProfileName": "Ai",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "TriggerVolume",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "bCanEverAffectNavigation": true
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_DominionAICharacter_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_DominionAICharacter_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.13"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_DominionAICharacter_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 255
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnAlertnessStateChanged",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'DominionAICharacter:BP_OnAlertnessStateChanged'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "State",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_Miniboss_Biped_Base",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_State",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_DominionAICharacter_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.27"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.5
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Type": "EHitPointType::Critical"
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable.0"
+        },
+        "RowName": "Biped_Base"
+      },
+      "DefaultResourceClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RuntimeSpawnedWorldItem_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/WorldItems/BP_RuntimeSpawnedWorldItem.0"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_Miniboss_Biped_Base_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.26"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiAttackComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAttackComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiAttackComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiAttackComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.7"
+      },
+      "VariableGUID": "186B68E0-46F24E0F-64B2F8A5-DB98CF4D",
+      "InternalVariableName": "BP_AiAttackComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_BossAiHealthBarComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_BossAiHealthBarComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_BossAiHealthBarComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.13"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "F993C16C-4277989D-C12F27BA-0EE31F60",
+      "InternalVariableName": "BP_BossAiHealthBarComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiFuturePositionComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiFuturePositionComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiFuturePositionComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiFuturePositionComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.10"
+      },
+      "VariableGUID": "1C621ED0-48ADA17F-FC786995-A5A59338",
+      "InternalVariableName": "BP_AiFuturePositionComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'TargetableComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TargetableComponent'BP_AI_Miniboss_Biped_Base_C:Targetable_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.40"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "29119D5C-405C392F-92036BA6-95D2794D",
+      "InternalVariableName": "Targetable"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiAnimationManager_C'BP_AI_Miniboss_Biped_Base_C:BP_AiAnimationComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.6"
+      },
+      "VariableGUID": "8679E4D3-4C9E7E9E-C44C0D9B-C169BF68",
+      "InternalVariableName": "BP_AiAnimationComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitReactionsComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiHitReactionsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.12"
+      },
+      "VariableGUID": "0B82FFF7-429B1E29-CB3BDAA2-AE6E0C2B",
+      "InternalVariableName": "BP_AiHitReactionsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDamageComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiDamageComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.8"
+      },
+      "VariableGUID": "3457B8DE-432F2649-DA6984AF-83DDAF13",
+      "InternalVariableName": "BP_AiDamageComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'LootDropComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "LootDropComponent'BP_AI_Miniboss_Biped_Base_C:LootDrop_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.25"
+      },
+      "VariableGUID": "E788FAC4-403B8549-0048D999-D6CFFA57",
+      "InternalVariableName": "LootDrop"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDeathComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiDeathComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.9"
+      },
+      "VariableGUID": "0CC921EB-43120990-5809CDA9-007BAF5B",
+      "InternalVariableName": "BP_AiDeathComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.11"
+      },
+      "VariableGUID": "4C173E0F-43676F3E-9ECDF0B3-5A6DE610",
+      "InternalVariableName": "BP_AiHitPointsComponent"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.29"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.29"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_Miniboss_Biped_Base_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.27"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_DominionAICharacter_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.33"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_MedBeast_C'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Faction/M_MED_Beast_01/ABP_MedBeast.1"
+      },
+      "bVisibleInReflectionCaptures": false,
+      "bVisibleInRealTimeSkyCaptures": false,
+      "bHiddenInSceneCapture": true,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Miniboss_Biped_Base_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.14"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -120.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "TargetableComponent",
+    "Name": "Targetable_GEN_VARIABLE",
+    "Outer": "BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'TargetableComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetingDistance": 5000.0,
+      "RelativeLocation": {
+        "X": 590.0,
+        "Y": -0.0,
+        "Z": 220.0
+      }
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_Miniboss_Biped_Base_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_DominionAICharacter_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.35"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

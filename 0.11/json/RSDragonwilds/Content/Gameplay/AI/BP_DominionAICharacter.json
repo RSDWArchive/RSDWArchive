@@ -1,0 +1,1206 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AIAudioManagerComponent",
+    "Name": "AIAudioManager_GEN_VARIABLE",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'AIAudioManagerComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CharacterAudioManagerData": {
+        "ObjectName": "CharacterAudioManagerData'ADA_DefaultCharacterData'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/DataAssets/Characters/ADA_DefaultCharacterData.0"
+      }
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'BP_DominionAICharacter_C:Timeline_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.34"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_DominionAICharacter_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.32"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:ExecuteUbergraph_BP_DominionAICharacter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.19"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'DominionAICharacter'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:OnAIKnockdownState_End'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.21"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:OnAIKnockdownState_Begin'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.20"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Set Glowing Eyes State'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.23"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Switch Glowing Eyes State'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.24"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Timeline__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.25"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Timeline__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.26"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnNight'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.18"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.16"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_AdjustAiVisibility'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.15"
+      },
+      {
+        "ObjectName": "Function'BP_DominionAICharacter_C:ExecuteUbergraph_BP_DominionAICharacter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.19"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AIAudioManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AIAudioManagerComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Components_Presence_Affector",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Components_Presence_Affector_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Presence/BP_Components_Presence_Affector.0"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_GlowWidth_C8015B794EB5B468BE49BE8B52776027",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_GlowIntensity_C8015B794EB5B468BE49BE8B52776027",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_Dissolve_C8015B794EB5B468BE49BE8B52776027",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline__Direction_C8015B794EB5B468BE49BE8B52776027",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "MinimumVolume",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "MinimumLowPass",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "ObstructionValueLastFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "VisibleMeshes",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "VisibleMeshes",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'MeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "VFXDeathDelay",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "DeathAttachSocket",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 12,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "MaterialDeathDelay",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "GlowingEyesMaterialSlotName",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 12,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "HasGlowingEyes",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "DeathMaterialFadeSpeed",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DeathVFXTemplate",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystem'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_DominionAICharacter": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:ExecuteUbergraph_BP_DominionAICharacter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.19"
+      },
+      "BP_AdjustAiVisibility": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_AdjustAiVisibility'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.15"
+      },
+      "BP_OnDeath": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+      },
+      "BP_OnDay": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.16"
+      },
+      "BP_OnNight": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnNight'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.18"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+      },
+      "Timeline__UpdateFunc": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Timeline__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.26"
+      },
+      "Timeline__FinishedFunc": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Timeline__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.25"
+      },
+      "Switch Glowing Eyes State": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Switch Glowing Eyes State'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.24"
+      },
+      "Set Glowing Eyes State": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:Set Glowing Eyes State'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.23"
+      },
+      "OnAIKnockdownState_Begin": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:OnAIKnockdownState_Begin'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.20"
+      },
+      "OnAIKnockdownState_End": {
+        "ObjectName": "Function'BP_DominionAICharacter_C:OnAIKnockdownState_End'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.21"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_DominionAICharacter_C'Default__BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.7"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_Components_Presence_Affector_C",
+    "Name": "BP_Components_Presence_Affector_GEN_VARIABLE",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Presence/BP_Components_Presence_Affector.BP_Components_Presence_Affector_C'",
+    "Template": {
+      "ObjectName": "BP_Components_Presence_Affector_C'Default__BP_Components_Presence_Affector_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Presence/BP_Components_Presence_Affector.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_DominionAICharacter_C",
+    "Name": "Default__BP_DominionAICharacter_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.BP_DominionAICharacter_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "MinimumVolume": 0.5,
+      "MinimumLowPass": 10000.0,
+      "VFXDeathDelay": 0.8,
+      "DeathAttachSocket": "hips",
+      "GlowingEyesMaterialSlotName": "MI_Eye_Glow",
+      "HasGlowingEyes": true,
+      "DeathMaterialFadeSpeed": 1.0,
+      "DeathVFXTemplate": {
+        "ObjectName": "NiagaraSystem'NS_Character_Despawn_AI'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Character/NS_Character_Despawn_AI.29"
+      },
+      "AIDataClass": {
+        "AssetPathName": "/Game/Gameplay/AI/BP_AI_Data.BP_AI_Data_C",
+        "SubPathString": ""
+      },
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_DominionAICharacter_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.12"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_DominionAICharacter_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.2"
+      },
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_DominionAICharacter_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_DominionAICharacter_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_DominionAICharacter_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.35"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_DominionAICharacter_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.14"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_DominionAICharacter_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.13"
+      },
+      "AudioComponentRef": {
+        "ComponentProperty": "AIAudioManager"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_DominionAICharacter_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.27"
+      },
+      "NetCullDistanceBand": "ENetCullDistanceBand::Medium",
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_DominionAICharacter_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.33"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_DominionAICharacter_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.3"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5585661,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.962636,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5831985,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.916096,
+            "Value": 3.8,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_2",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.031332016,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5585661,
+            "Value": 0.7992804,
+            "ArriveTangent": -0.020378303,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.020376721,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 3.0119019,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ObjectTypes": [
+        "ObjectTypeQuery10"
+      ],
+      "RelevantStatusEffects": 58
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_AdjustAiVisibility",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'DominionAICharacter:BP_AdjustAiVisibility'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnDay",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'DominionAICharacter:BP_OnDay'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnDeath",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'DominionAICharacter:BP_OnDeath'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnNight",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'DominionAICharacter:BP_OnNight'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_DominionAICharacter",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'MeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_K2_GetComponentsByClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_K2_GetComponentsByClass_ReturnValue",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'MeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetSocketLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnSystemAtLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetWorldLocation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetVariableFloat_InValue_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Delay_Duration_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetCustomPrimitiveDataFloat_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnAIKnockdownState_Begin",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnAIKnockdownState_End",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Set Glowing Eyes State",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "State",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Switch Glowing Eyes State",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Switch",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocationInsideDungeon_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsMaterialSlotNameValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline__FinishedFunc",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline__UpdateFunc",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_DominionAICharacter_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.28"
+      },
+      "VariableGUID": "1EF6FEEE-4A84C994-5B553EB8-E30BC6B3",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Components_Presence_Affector_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Presence/BP_Components_Presence_Affector.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Components_Presence_Affector_C'BP_DominionAICharacter_C:BP_Components_Presence_Affector_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.6"
+      },
+      "VariableGUID": "21D991F2-47213AFE-480153B7-8671D8B2",
+      "InternalVariableName": "BP_Components_Presence_Affector"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AIAudioManagerComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AIAudioManagerComponent'BP_DominionAICharacter_C:AIAudioManager_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.1"
+      },
+      "VariableGUID": "A67185B4-4154555F-CC1F3980-144D6B0F",
+      "InternalVariableName": "AIAudioManager"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_DominionAICharacter_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DominionAICharacter_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.31"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_DominionAICharacter_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DominionAICharacter_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.31"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_DominionAICharacter_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.29"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_Template",
+    "Outer": "BP_DominionAICharacter_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 3.0,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DominionAICharacter_C:CurveFloat_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.9"
+          },
+          "PropertyName": "Timeline_Dissolve_C8015B794EB5B468BE49BE8B52776027",
+          "TrackName": "Dissolve",
+          "bIsExternalCurve": false
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DominionAICharacter_C:CurveFloat_1'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.10"
+          },
+          "PropertyName": "Timeline_GlowIntensity_C8015B794EB5B468BE49BE8B52776027",
+          "TrackName": "GlowIntensity",
+          "bIsExternalCurve": false
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DominionAICharacter_C:CurveFloat_2'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.11"
+          },
+          "PropertyName": "Timeline_GlowWidth_C8015B794EB5B468BE49BE8B52776027",
+          "TrackName": "GlowWidth",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "C8015B79-4EB5B468-BE49BE8B-52776027",
+      "VariableName": "Timeline",
+      "DirectionPropertyName": "Timeline__Direction_C8015B794EB5B468BE49BE8B52776027",
+      "UpdateFunctionName": "Timeline__UpdateFunc",
+      "FinishedFunctionName": "Timeline__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_DominionAICharacter_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PoisonEffectConfig": {
+        "MaximumValue": 100.0,
+        "Thresholds": [
+          {
+            "GameplayEffect": {
+              "ObjectName": "BlueprintGeneratedClass'GE_Poisoned_AI_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/StatusEffects/GE_Poisoned_AI.0"
+            },
+            "ActivationThreshold": 100.0,
+            "DeactivationThreshold": 0.0
+          }
+        ]
+      },
+      "BurningEffectConfig": {
+        "MaximumValue": 100.0,
+        "Thresholds": [
+          {
+            "GameplayEffect": {
+              "ObjectName": "BlueprintGeneratedClass'GE_Burning_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/StatusEffects/GE_Burning.0"
+            },
+            "ActivationThreshold": 100.0,
+            "DeactivationThreshold": 0.0
+          }
+        ]
+      },
+      "BleedingEffectConfig": {
+        "MaximumValue": 100.0,
+        "Thresholds": [
+          {
+            "GameplayEffect": {
+              "ObjectName": "BlueprintGeneratedClass'GE_ScaledBleeding_AI_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/StatusEffects/GE_ScaledBleeding_AI.0"
+            },
+            "ActivationThreshold": 100.0,
+            "DeactivationThreshold": 0.0
+          }
+        ]
+      },
+      "SlowEffectConfig": {
+        "MaximumValue": 100.0
+      }
+    }
+  }
+]
