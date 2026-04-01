@@ -1,0 +1,2168 @@
+[
+  {
+    "Type": "CommonLazyImage",
+    "Name": "Background",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CommonLazyImage'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LoadingBackgroundBrush": {
+        "DrawAs": "ESlateBrushDrawType::Image"
+      },
+      "Brush": {
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_SkillList_Bg'",
+          "ObjectPath": "RSDragonwilds/Content/Art/UI/Skills/T_SkillList_Bg.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.29"
+      }
+    }
+  },
+  {
+    "Type": "CommonLazyImage",
+    "Name": "IconImage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CommonLazyImage'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 86.0,
+          "Y": 80.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_Notification_Skill_Woodcutting'",
+          "ObjectPath": "RSDragonwilds/Content/Art/UI/Skills/Icons/T_Notification_Skill_Woodcutting.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_1.SizeBoxSlot_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.44"
+      },
+      "RenderTransform": {
+        "Translation": {
+          "X": -5.0,
+          "Y": 3.5
+        },
+        "Scale": {
+          "X": 1.2,
+          "Y": 1.2
+        }
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnDeselected",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'CommonButtonBase:BP_OnDeselected'",
+      "ObjectPath": "/Script/CommonUI"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnEntryReleased",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UserListEntry:BP_OnEntryReleased'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnHovered",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'CommonButtonBase:BP_OnHovered'",
+      "ObjectPath": "/Script/CommonUI"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnItemExpansionChanged",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UserListEntry:BP_OnItemExpansionChanged'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsExpanded",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnItemSelectionChanged",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UserListEntry:BP_OnItemSelectionChanged'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsSelected",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnSelected",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'CommonButtonBase:BP_OnSelected'",
+      "ObjectPath": "/Script/CommonUI"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnUnhovered",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'CommonButtonBase:BP_OnUnhovered'",
+      "ObjectPath": "/Script/CommonUI"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_WBP_SkillTileEntry",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_ListItemObject",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bIsExpanded",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNiagaraComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraUIComponent'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNiagaraComponent_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraUIComponent'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNiagaraComponent_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraUIComponent'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bIsSelected",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNiagaraComponent_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraUIComponent'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNiagaraComponent_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraUIComponent'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNiagaraComponent_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraUIComponent'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNiagaraComponent_ReturnValue_6",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraUIComponent'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnListItemObjectSet",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UserObjectListEntry:OnListItemObjectSet'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ListItemObject",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "WidgetAnimationEvt_DisableAnim_K2Node_WidgetAnimationEvent_1",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "WidgetAnimationEvt_EnableAnim_K2Node_WidgetAnimationEvent_0",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "DisableAnim",
+    "Outer": "DisableAnim_INST",
+    "Class": "UScriptClass'MovieScene'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "01785CB4-42EA60A5-FBEDF798-4F017250",
+          "Name": "WBP_SkillTileEntry_C_11",
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "01785CB4-42EA60A5-FBEDF798-4F017250",
+          "BindingName": "WBP_SkillTileEntry_C_11",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneColorTrack'WBP_SkillTileEntry_C:DisableAnim_INST.DisableAnim.MovieSceneColorTrack_0'",
+              "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.22"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 3001
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 20
+      },
+      "Signature": "E9E36824-425AEBF7-280D5B94-85A34909"
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "EnableAnim",
+    "Outer": "EnableAnim_INST",
+    "Class": "UScriptClass'MovieScene'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "6C6102CB-405F7144-28A3A0A3-0CA18977",
+          "Name": "WBP_SkillTileEntry_C_12",
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "6C6102CB-405F7144-28A3A0A3-0CA18977",
+          "BindingName": "WBP_SkillTileEntry_C_12",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneColorTrack'WBP_SkillTileEntry_C:EnableAnim_INST.EnableAnim.MovieSceneColorTrack_0'",
+              "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.23"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 3001
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 20
+      },
+      "Signature": "2EB3EDF6-429E0FFF-6413E3BE-20FDD71B"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "MovieSceneColorSection",
+    "Name": "MovieSceneColorSection_0",
+    "Outer": "MovieSceneColorTrack_0",
+    "Class": "UScriptClass'MovieSceneColorSection'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RedCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 0.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "GreenCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 0.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "BlueCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 0.1,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "AlphaCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_SkillTileEntry_C:DisableAnim_INST.DisableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseInFunction'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.16"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_SkillTileEntry_C:DisableAnim_INST.DisableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseOutFunction'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.17"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 3000
+            }
+          }
+        }
+      },
+      "Signature": "9795F759-45C768DD-132C3DB2-B632D8E6"
+    }
+  },
+  {
+    "Type": "MovieSceneColorSection",
+    "Name": "MovieSceneColorSection_0",
+    "Outer": "MovieSceneColorTrack_0",
+    "Class": "UScriptClass'MovieSceneColorSection'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RedCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "GreenCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "BlueCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "AlphaCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 60000,
+          "Denominator": 1
+        },
+        "bShowCurve": false,
+        "StructFallback": null
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_SkillTileEntry_C:EnableAnim_INST.EnableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseInFunction'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.18"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_SkillTileEntry_C:EnableAnim_INST.EnableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseOutFunction'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.19"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 3000
+            }
+          }
+        }
+      },
+      "Signature": "BD114454-44837723-3AE793BB-356A0975"
+    }
+  },
+  {
+    "Type": "MovieSceneColorTrack",
+    "Name": "MovieSceneColorTrack_0",
+    "Outer": "DisableAnim",
+    "Class": "UScriptClass'MovieSceneColorTrack'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "ColorAndOpacity",
+        "PropertyPath": "ColorAndOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneColorSection'WBP_SkillTileEntry_C:DisableAnim_INST.DisableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.20"
+        }
+      ],
+      "EvaluationFieldGuid": "4794F32D-4004D9C4-C305AC82-C9806ABF",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneColorSection'WBP_SkillTileEntry_C:DisableAnim_INST.DisableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+              "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.20"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 3000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "4794F32D-4004D9C4-C305AC82-C9806ABF"
+    }
+  },
+  {
+    "Type": "MovieSceneColorTrack",
+    "Name": "MovieSceneColorTrack_0",
+    "Outer": "EnableAnim",
+    "Class": "UScriptClass'MovieSceneColorTrack'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "ColorAndOpacity",
+        "PropertyPath": "ColorAndOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneColorSection'WBP_SkillTileEntry_C:EnableAnim_INST.EnableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.21"
+        }
+      ],
+      "EvaluationFieldGuid": "2A3997D1-4BBB8887-95600189-DFE3C1D5",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneColorSection'WBP_SkillTileEntry_C:EnableAnim_INST.EnableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+              "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.21"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 3000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "2A3997D1-4BBB8887-95600189-DFE3C1D5"
+    }
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "DisableAnim_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 3000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneColorSection'WBP_SkillTileEntry_C:DisableAnim_INST.DisableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+                "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.20"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "01785CB4-42EA60A5-FBEDF798-4F017250"
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 3000
+          },
+          "bInclusive": false
+        }
+      ],
+      "CompiledSignature": "D61E4D33-4D8D4B45-6383F7A8-DF50FDEB",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": "EMovieSceneSequenceCompilerMask::EntityComponentField",
+      "AllocatedMask": "EMovieSceneSequenceCompilerMask::EntityComponentField"
+    }
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "EnableAnim_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 3000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneColorSection'WBP_SkillTileEntry_C:EnableAnim_INST.EnableAnim.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+                "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.21"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "6C6102CB-405F7144-28A3A0A3-0CA18977"
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 3000
+          },
+          "bInclusive": false
+        }
+      ],
+      "CompiledSignature": "0A6D6F93-44D9F6F4-6A9FE481-0432B3C7",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": "EMovieSceneSequenceCompilerMask::EntityComponentField",
+      "AllocatedMask": "EMovieSceneSequenceCompilerMask::EntityComponentField"
+    }
+  },
+  {
+    "Type": "NiagaraSystemWidget",
+    "Name": "NS_UI_SkillButtonLoop",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'NiagaraSystemWidget'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NiagaraSystemReference": {
+        "ObjectName": "NiagaraSystem'NS_UI_SkillButtonLoop'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/UI/NS_UI_SkillButtonLoop.26"
+      },
+      "MaterialRemapList": [
+        {
+          "Key": "Material'RSDragonwilds/Content/Art/VFX/UI/M_VFX_UI_Embers.M_VFX_UI_Embers'",
+          "Value": {
+            "ObjectName": "Material'M_VFX_UI_Embers_UI'",
+            "ObjectPath": "RSDragonwilds/Content/Art/VFX/UI/M_VFX_UI_Embers_UI.0"
+          }
+        }
+      ],
+      "AutoActivate": false,
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_2.SizeBoxSlot_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.45"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "NiagaraSystemWidget",
+    "Name": "NS_UI_SkillButtonSelected",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'NiagaraSystemWidget'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NiagaraSystemReference": {
+        "ObjectName": "NiagaraSystem'NS_UI_SkillButtonRollover'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/UI/NS_UI_SkillButtonRollover.28"
+      },
+      "MaterialRemapList": [
+        {
+          "Key": "Material'RSDragonwilds/Content/Art/VFX/UI/M_VFX_UI_Embers.M_VFX_UI_Embers'",
+          "Value": {
+            "ObjectName": "Material'M_VFX_UI_Embers_UI'",
+            "ObjectPath": "RSDragonwilds/Content/Art/VFX/UI/M_VFX_UI_Embers_UI.0"
+          }
+        },
+        {
+          "Key": "Material'RSDragonwilds/Content/Art/VFX/UI/M_VFX_UI_SmokeSubUV.M_VFX_UI_SmokeSubUV'",
+          "Value": {
+            "ObjectName": "Material'M_VFX_UI_SmokeSubUV_UI'",
+            "ObjectPath": "RSDragonwilds/Content/Art/VFX/UI/M_VFX_UI_SmokeSubUV_UI.0"
+          }
+        }
+      ],
+      "AutoActivate": false,
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_3.SizeBoxSlot_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.46"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.29"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.30"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_2'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.31"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_3'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.32"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_4'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.33"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_5'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.34"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "ScaleBoxSlot'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_1.ScaleBoxSlot_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.38"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SkillTileEntry_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.28"
+      },
+      "Content": {
+        "ObjectName": "CommonLazyImage'WBP_SkillTileEntry_C:WidgetTree.Background'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.0"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SkillTileEntry_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.28"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_2'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.41"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_2",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SkillTileEntry_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.28"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_3'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.42"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_3",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Padding": {
+        "Left": 30.0
+      },
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SkillTileEntry_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.28"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.40"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_4",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Padding": {
+        "Top": 12.0,
+        "Right": 63.0,
+        "Bottom": 14.0
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Right",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SkillTileEntry_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.28"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.39"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_5",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Padding": {
+        "Left": -20.0
+      },
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SkillTileEntry_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.28"
+      },
+      "Content": {
+        "ObjectName": "ScaleBox'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.35"
+      }
+    }
+  },
+  {
+    "Type": "ScaleBox",
+    "Name": "ScaleBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'ScaleBox'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Stretch": "EStretch::UserSpecified",
+      "UserSpecifiedScale": 1.5,
+      "Slots": [
+        {
+          "ObjectName": "ScaleBoxSlot'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_0.ScaleBoxSlot_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.37"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_5'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.34"
+      }
+    }
+  },
+  {
+    "Type": "ScaleBox",
+    "Name": "ScaleBox_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'ScaleBox'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "ScaleBoxSlot'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_1.ScaleBoxSlot_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.38"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ScaleBoxSlot",
+    "Name": "ScaleBoxSlot_0",
+    "Outer": "ScaleBox_0",
+    "Class": "UScriptClass'ScaleBoxSlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "ScaleBox'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.35"
+      },
+      "Content": {
+        "ObjectName": "WBP_UnlockNotifyIcon_C'WBP_SkillTileEntry_C:WidgetTree.NewPerkIcon'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.49"
+      }
+    }
+  },
+  {
+    "Type": "ScaleBoxSlot",
+    "Name": "ScaleBoxSlot_0",
+    "Outer": "ScaleBox_1",
+    "Class": "UScriptClass'ScaleBoxSlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Fill",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+      "Parent": {
+        "ObjectName": "ScaleBox'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.36"
+      },
+      "Content": {
+        "ObjectName": "Overlay'WBP_SkillTileEntry_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.28"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WidthOverride": 77.0,
+      "bOverride_WidthOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.43"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_4'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.33"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_1.SizeBoxSlot_1'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.44"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_3'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.32"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_2",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_2.SizeBoxSlot_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.45"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.30"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_3",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_3.SizeBoxSlot_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.46"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SkillTileEntry_C:WidgetTree.Overlay_0.OverlaySlot_2'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.31"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "SizeBox_0",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.39"
+      },
+      "Content": {
+        "ObjectName": "WBP_SkillProgress_C'WBP_SkillTileEntry_C:WidgetTree.SkillProgress'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.47"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_1",
+    "Outer": "SizeBox_1",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Left",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.40"
+      },
+      "Content": {
+        "ObjectName": "CommonLazyImage'WBP_SkillTileEntry_C:WidgetTree.IconImage'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.1"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "SizeBox_2",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_2'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.41"
+      },
+      "Content": {
+        "ObjectName": "NiagaraSystemWidget'WBP_SkillTileEntry_C:WidgetTree.NS_UI_SkillButtonLoop'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.26"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "SizeBox_3",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "SizeBox'WBP_SkillTileEntry_C:WidgetTree.SizeBox_3'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.42"
+      },
+      "Content": {
+        "ObjectName": "NiagaraSystemWidget'WBP_SkillTileEntry_C:WidgetTree.NS_UI_SkillButtonSelected'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.27"
+      }
+    }
+  },
+  {
+    "Type": "WBP_SkillProgress_C",
+    "Name": "SkillProgress",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillProgress.WBP_SkillProgress_C'",
+    "Template": {
+      "ObjectName": "WBP_SkillProgress_C'Default__WBP_SkillProgress_C'",
+      "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillProgress.7"
+    },
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'WBP_SkillTileEntry_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.43"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "WBP_SkillTileEntry_C",
+    "Name": "Default__WBP_SkillTileEntry_C",
+    "Class": "WidgetBlueprintGeneratedClass'RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.WBP_SkillTileEntry_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "SelectFontColor": {
+        "R": 0.996078,
+        "G": 0.843137,
+        "B": 0.545098,
+        "A": 1.0,
+        "Hex": "FFEDC3"
+      },
+      "UnselectedFontColor": {
+        "R": 0.862745,
+        "G": 0.858824,
+        "B": 0.854902,
+        "A": 1.0,
+        "Hex": "EFEFEE"
+      },
+      "Style": {
+        "ObjectName": "BlueprintGeneratedClass'CUIS_SkillListITileButtonStyle_C'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Styles/Buttons/CUIS_SkillListITileButtonStyle.0"
+      },
+      "PressedSlateSoundOverride": {
+        "ResourceObject": {
+          "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Skill_Select'",
+          "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Skills/MSS_UI_Mn_Skill_Select.0"
+        }
+      },
+      "HoveredSlateSoundOverride": {
+        "ResourceObject": {
+          "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Inventory_ItemMouseOver'",
+          "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Inventory/MSS_UI_Mn_Inventory_ItemMouseOver.0"
+        }
+      },
+      "SelectedPressedSlateSoundOverride": {
+        "ResourceObject": {
+          "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Skill_Select'",
+          "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Skills/MSS_UI_Mn_Skill_Select.0"
+        }
+      },
+      "SelectedHoveredSlateSoundOverride": {
+        "ResourceObject": {
+          "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Inventory_ItemMouseOver'",
+          "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Inventory/MSS_UI_Mn_Inventory_ItemMouseOver.0"
+        }
+      },
+      "LockedPressedSlateSoundOverride": {
+        "ResourceObject": {
+          "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Skill_Locked'",
+          "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Skills/MSS_UI_Mn_Skill_Locked.0"
+        }
+      },
+      "LockedHoveredSlateSoundOverride": {
+        "ResourceObject": {
+          "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Inventory_ItemMouseOver'",
+          "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Inventory/MSS_UI_Mn_Inventory_ItemMouseOver.0"
+        }
+      },
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "WBP_UnlockNotifyIcon_C",
+    "Name": "NewPerkIcon",
+    "Outer": "WidgetTree",
+    "Class": "WidgetBlueprintGeneratedClass'RSDragonwilds/Content/UI/Notifications/QuestAndUnlocks/WBP_UnlockNotifyIcon.WBP_UnlockNotifyIcon_C'",
+    "Template": {
+      "ObjectName": "WBP_UnlockNotifyIcon_C'Default__WBP_UnlockNotifyIcon_C'",
+      "ObjectPath": "RSDragonwilds/Content/UI/Notifications/QuestAndUnlocks/WBP_UnlockNotifyIcon.32"
+    },
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "ScaleBoxSlot'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_0.ScaleBoxSlot_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.37"
+      }
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "DisableAnim_INST",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'WidgetAnimation'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene'WBP_SkillTileEntry_C:DisableAnim_INST.DisableAnim'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.14"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "WBP_SkillTileEntry_C_11",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "01785CB4-42EA60A5-FBEDF798-4F017250",
+          "bIsRootWidget": true,
+          "DynamicBinding": {
+            "Function": null,
+            "ResolveParamsProperty": {
+              "Path": [],
+              "ResolvedOwner": null
+            }
+          }
+        }
+      ],
+      "DisplayLabel": "DisableAnim",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData'WBP_SkillTileEntry_C:DisableAnim_INST.CompiledData'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.24"
+      },
+      "Signature": "D61E4D33-4D8D4B45-6383F7A8-DF50FDEB"
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "EnableAnim_INST",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'WidgetAnimation'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene'WBP_SkillTileEntry_C:EnableAnim_INST.EnableAnim'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.15"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "WBP_SkillTileEntry_C_12",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "6C6102CB-405F7144-28A3A0A3-0CA18977",
+          "bIsRootWidget": true,
+          "DynamicBinding": {
+            "Function": null,
+            "ResolveParamsProperty": {
+              "Path": [],
+              "ResolvedOwner": null
+            }
+          }
+        }
+      ],
+      "DisplayLabel": "EnableAnim",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData'WBP_SkillTileEntry_C:EnableAnim_INST.CompiledData'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.25"
+      },
+      "Signature": "0A6D6F93-44D9F6F4-6A9FE481-0432B3C7"
+    }
+  },
+  {
+    "Type": "WidgetAnimationDelegateBinding",
+    "Name": "WidgetAnimationDelegateBinding_0",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'WidgetAnimationDelegateBinding'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WidgetAnimationDelegateBindings": [
+        {
+          "Action": "EWidgetAnimationEvent::Started",
+          "AnimationToBind": "DisableAnim",
+          "FunctionNameToBind": "WidgetAnimationEvt_DisableAnim_K2Node_WidgetAnimationEvent_1",
+          "UserTag": "None"
+        },
+        {
+          "Action": "EWidgetAnimationEvent::Started",
+          "AnimationToBind": "EnableAnim",
+          "FunctionNameToBind": "WidgetAnimationEvt_EnableAnim_K2Node_WidgetAnimationEvent_0",
+          "UserTag": "None"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_SkillTileEntry_C:WidgetTree'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.54"
+      },
+      "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'WBP_SkillTileEntry_C:DisableAnim_INST'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.50"
+        },
+        {
+          "ObjectName": "WidgetAnimation'WBP_SkillTileEntry_C:EnableAnim_INST'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.51"
+        }
+      ],
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "WidgetAnimationDelegateBinding'WBP_SkillTileEntry_C:WidgetAnimationDelegateBinding_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.52"
+        }
+      ],
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:ExecuteUbergraph_WBP_SkillTileEntry'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.10"
+      },
+      "CookedPropertyGuids": [
+        {
+          "Key": "IsSelected",
+          "Value": "AEA79850-465C14DD-624DB9AB-A3217C3B"
+        },
+        {
+          "Key": "Background",
+          "Value": "02485C3D-120831DE-BFC9AEDF-F23396CC"
+        },
+        {
+          "Key": "NS_UI_SkillButtonLoop",
+          "Value": "76F0C7D3-4A7D3760-95A4A8A5-E294E550"
+        },
+        {
+          "Key": "NS_UI_SkillButtonSelected",
+          "Value": "20554B79-57613783-9C7E647E-5B29633D"
+        }
+      ]
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'SkillTileEntry'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnItemSelectionChanged'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.6"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:OnListItemObjectSet'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.11"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnItemExpansionChanged'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.5"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnEntryReleased'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.3"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnSelected'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.7"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnDeselected'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.2"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:Construct'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.9"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:WidgetAnimationEvt_EnableAnim_K2Node_WidgetAnimationEvent_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.13"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:WidgetAnimationEvt_DisableAnim_K2Node_WidgetAnimationEvent_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.12"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnHovered'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.4"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnUnhovered'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.8"
+      },
+      {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:ExecuteUbergraph_WBP_SkillTileEntry'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.10"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_UI_SkillButtonSelected",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystemWidget'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_UI_SkillButtonLoop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraSystemWidget'",
+          "ObjectPath": "/Script/NiagaraUIRenderer"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Background",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | BlueprintReadOnly | DisableEditOnInstance | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'CommonLazyImage'",
+          "ObjectPath": "/Script/CommonUI"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "IsSelected",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_SkillTileEntry": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:ExecuteUbergraph_WBP_SkillTileEntry'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.10"
+      },
+      "BP_OnUnhovered": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnUnhovered'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.8"
+      },
+      "BP_OnHovered": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnHovered'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.4"
+      },
+      "WidgetAnimationEvt_DisableAnim_K2Node_WidgetAnimationEvent_1": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:WidgetAnimationEvt_DisableAnim_K2Node_WidgetAnimationEvent_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.12"
+      },
+      "WidgetAnimationEvt_EnableAnim_K2Node_WidgetAnimationEvent_0": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:WidgetAnimationEvt_EnableAnim_K2Node_WidgetAnimationEvent_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.13"
+      },
+      "Construct": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:Construct'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.9"
+      },
+      "BP_OnDeselected": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnDeselected'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.2"
+      },
+      "BP_OnSelected": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnSelected'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.7"
+      },
+      "BP_OnEntryReleased": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnEntryReleased'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.3"
+      },
+      "BP_OnItemExpansionChanged": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnItemExpansionChanged'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.5"
+      },
+      "OnListItemObjectSet": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:OnListItemObjectSet'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.11"
+      },
+      "BP_OnItemSelectionChanged": {
+        "ObjectName": "Function'WBP_SkillTileEntry_C:BP_OnItemSelectionChanged'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.6"
+      }
+    },
+    "ClassFlags": "CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_SkillTileEntry_C'Default__WBP_SkillTileEntry_C'",
+      "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.48"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "WBP_SkillTileEntry_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "ScaleBox'WBP_SkillTileEntry_C:WidgetTree.ScaleBox_1'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/TopNavScreens/Skills_New/WBP_SkillTileEntry.36"
+      }
+    }
+  }
+]

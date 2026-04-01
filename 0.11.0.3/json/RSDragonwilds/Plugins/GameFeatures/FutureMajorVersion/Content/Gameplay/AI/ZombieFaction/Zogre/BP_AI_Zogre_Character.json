@@ -1,0 +1,1932 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_AI_Miniboss_Biped_Base_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Earth"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Crush"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Stab"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Slash"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Air"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_AI_Miniboss_Biped_Base_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxHealth": 150.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_AI_Miniboss_Biped_Base_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NavAgentName": "Gigantic",
+      "SpeedFactorIfMovingBackwards": null,
+      "bEnableLocomotionAnimation": true,
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zorge_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Movement/Turns/DT_Zorge_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zorge_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Movement/Turns/DT_Zorge_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zorge_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Movement/Turns/DT_Zorge_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zorge_Alert_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Movement/Turns/DT_Zorge_Alert_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zorge_Alert_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Movement/Turns/DT_Zorge_Alert_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zorge_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Movement/Turns/DT_Zorge_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Zorge_Rotation'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Movement/Turns/DT_Zorge_Rotation"
+          }
+        }
+      ],
+      "MaxStepHeight": 100.0,
+      "WalkableFloorAngle": 60.0,
+      "WalkableFloorZ": 0.5,
+      "MaxAcceleration": 1000.0,
+      "BrakingFrictionFactor": 2.0,
+      "BrakingDecelerationWalking": 10000.0,
+      "Mass": 1000.0,
+      "NavMovementProperties": {
+        "bUpdateNavAgentWithOwnersCollision": false
+      },
+      "NavAgentProps": {
+        "AgentRadius": 200.0,
+        "AgentHeight": 420.0,
+        "AgentStepHeight": 100.0,
+        "PreferredNavData": {
+          "AssetPathName": "/Script/NavigationSystem.RecastNavMesh",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "AiRangedAttackComponent",
+    "Name": "AiRangedAttack_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'AiRangedAttackComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Miniboss_Biped_Base_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Miniboss_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_Zogre_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.50"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_Zogre_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.32"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_Zogre_Character_C:ExecuteUbergraph_BP_AI_Zogre_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.27"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Miniboss_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.4"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_Zogre_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.28"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Zogre_Character_C:ExecuteUbergraph_BP_AI_Zogre_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.27"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TrampleTrigger",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'TrampleTrigger'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NearbyFoliageConverter",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NearbyFoliageConverterComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Projectile_L",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Projectile_R",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Hitpoint_Arm_L",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Hitpoint_Arm_R",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Hitpoint_Body",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AiRangedAttack",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AiRangedAttackComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Shape Collection Component",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'ShapeCollectionComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Zogre_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Zogre_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Zogre_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Zogre_AttackOpportunityComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Zogre_AttackOpportunityComponent_C'",
+          "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/BP_Zogre_AttackOpportunityComponent"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Head",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_Zogre_Character": {
+        "ObjectName": "Function'BP_AI_Zogre_Character_C:ExecuteUbergraph_BP_AI_Zogre_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.27"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_Zogre_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.28"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_Zogre_Character_C'Default__BP_AI_Zogre_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.6"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_Zogre_Character_C",
+    "Name": "Default__BP_AI_Zogre_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.BP_AI_Zogre_Character_C'",
+    "Template": {
+      "ObjectName": "BP_AI_Miniboss_Biped_Base_C'Default__BP_AI_Miniboss_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.5"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "DeathVFXTemplate": {
+        "ObjectName": "NiagaraSystem'NS_Character_Despawn_AI_Large'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Character/NS_Character_Despawn_AI_Large.29"
+      },
+      "AIDataClass": {
+        "AssetPathName": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Data.BP_AI_Zogre_Data_C",
+        "SubPathString": ""
+      },
+      "bCanBeSpawnedByDebugMenu": true,
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Zogre_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.17"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_Zogre_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.1"
+      },
+      "HitRecipientAudioTag": {
+        "TagName": "Audio.Flesh"
+      },
+      "TargetingAttachToBone": "spine_05",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Zogre_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_Zogre_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Zogre_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.56"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_Zogre_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.26"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Zogre_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.18"
+      },
+      "AISnapshotShapeInfos": [
+        {
+          "ID": 0,
+          "SocketName": "Pelvis_Snapshot",
+          "Radius": 230.0
+        },
+        {
+          "ID": 0,
+          "SocketName": "Spine_Snapshot",
+          "Radius": 180.0
+        }
+      ],
+      "LockOnTargetingBoneName": "spine_05",
+      "AIName": {
+        "Namespace": "",
+        "Key": "4FEE59524510E32975340BBBC0601071",
+        "SourceString": "Axe Goblin",
+        "LocalizedString": "Axe Goblin"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_Zogre_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.29"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Zogre_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.51"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_Zogre_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.2"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Zogre_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.15"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_Zogre_Controller_C'",
+        "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Controller"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Zogre_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.15"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiDeathComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.9"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "DespawnTime": 6.0,
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_Zogre_Death_C'",
+        "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/Death/DAA_Zogre_Death"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.11"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Zogre_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.30"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_Zogre_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.31"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_BossAiHealthBarComponent_C",
+    "Name": "BP_BossAiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.BP_BossAiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_BossAiHealthBarComponent_C'BP_AI_Miniboss_Biped_Base_C:BP_BossAiHealthBarComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.13"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "AiDisplayName": {
+        "TableId": "/FutureMajorVersion/Gameplay/AI/ST_AI_Names_Fellhollow.ST_AI_Names_Fellhollow",
+        "Key": "Zogre",
+        "SourceString": null,
+        "LocalizedString": null
+      },
+      "DisplayHealthBarDistance": 3000.0,
+      "DistanceFromPlayerToShow": 3000.0
+    }
+  },
+  {
+    "Type": "BP_Zogre_AiCombatModeInitiator_C",
+    "Name": "BP_Zogre_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_Zogre_AiCombatModeInitiator.BP_Zogre_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_Zogre_AiCombatModeInitiator_C'Default__BP_Zogre_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Zogre_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_Zogre_Character_C:BP_Zogre_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.16"
+      }
+    }
+  },
+  {
+    "Type": "UObject",
+    "Name": "BP_Zogre_AttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Hitpoint_Arm_L_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 200.0,
+      "CapsuleRadius": 50.0,
+      "LineThickness": 1.0,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 100.0,
+        "Y": 20.0,
+        "Z": -10.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 0.0,
+        "Roll": -20.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Hitpoint_Arm_R_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 200.0,
+      "CapsuleRadius": 50.0,
+      "LineThickness": 1.0,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -100.0,
+        "Y": -20.0,
+        "Z": 10.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 0.0,
+        "Roll": -20.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Hitpoint_Body_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 280.0,
+      "CapsuleRadius": 170.0,
+      "LineThickness": 1.0,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 280.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": -0.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_AI_Miniboss_Biped_Base_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 280.0,
+      "CapsuleRadius": 120.0,
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": "BP_Zogre_AiCombatModeInitiator_GEN_VARIABLE",
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_Zogre_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Zogre_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_Zogre_Character_C:BP_Zogre_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.20"
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Miniboss_Biped_Base_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.15"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Miniboss_Biped_Base_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.16"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Box",
+    "Name": "DominionShape_Box_9",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Box'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Extents": {
+        "X": 1700.0,
+        "Y": 300.0,
+        "Z": 500.0
+      },
+      "Offset": {
+        "X": 2400.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "CombatModeArea_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_Zogre_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Zogre_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_0",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 90.0,
+      "ZHeight": 700.0,
+      "MinDepth": 350.0,
+      "Depth": 800.0,
+      "AngleOffset": 180.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_1",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 100.0,
+      "ZHeight": 700.0,
+      "Depth": 700.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_2",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 90.0,
+      "ZHeight": 700.0,
+      "Depth": 650.0,
+      "AngleOffset": -90.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_3",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 90.0,
+      "ZHeight": 700.0,
+      "Depth": 650.0,
+      "AngleOffset": 90.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_6",
+    "Outer": "Shape Collection Component_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 55.0,
+      "ZHeight": 1000.0,
+      "MinDepth": 500.0,
+      "Depth": 4000.0,
+      "Offset": {
+        "X": -300.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_AI_Miniboss_Biped_Base_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.17"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_Zogre_Character",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.20"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_AI_Miniboss_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.20"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_AI_Miniboss_Biped_Base_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.21"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Template": {
+      "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Miniboss_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.22"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.1
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Template": {
+      "ObjectName": "HitPointTypeModule'BP_AI_Miniboss_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.23"
+    },
+    "Flags": "RF_Public | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'TargetableComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "TargetableComponent'BP_AI_Zogre_Character_C:Targetable_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.55"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Miniboss_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.4"
+            },
+            "SCSVariableName": "Targetable",
+            "AssociatedGuid": "29119D5C-405C392F-92036BA6-95D2794D"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_BossAiHealthBarComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_BossAiHealthBarComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_BossAiHealthBarComponent_C'BP_AI_Zogre_Character_C:BP_BossAiHealthBarComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.9"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Miniboss_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_BossAiHealthBarComponent",
+            "AssociatedGuid": "F993C16C-4277989D-C12F27BA-0EE31F60"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiDeathComponent_C'BP_AI_Zogre_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Miniboss_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiDeathComponent",
+            "AssociatedGuid": "0CC921EB-43120990-5809CDA9-007BAF5B"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'LootDropComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "LootDropComponent'BP_AI_Zogre_Character_C:LootDrop_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.33"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Miniboss_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.4"
+            },
+            "SCSVariableName": "LootDrop",
+            "AssociatedGuid": "E788FAC4-403B8549-0048D999-D6CFFA57"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Zogre_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Miniboss_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHitPointsComponent",
+            "AssociatedGuid": "4C173E0F-43676F3E-9ECDF0B3-5A6DE610"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Template": {
+      "ObjectName": "LootDropComponent'BP_AI_Miniboss_Biped_Base_C:LootDrop_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.25"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "RowName": "Zombie_Ogre"
+      }
+    }
+  },
+  {
+    "Type": "NearbyFoliageConverterComponent",
+    "Name": "NearbyFoliageConverter_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'NearbyFoliageConverterComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_Zogre_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.35"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_AI_Zogre_Character_C:Projectile_R_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.54"
+      },
+      "AttachToName": "hand_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "A8B78BDB-4E6FCB2F-211687B0-539C21DC",
+      "InternalVariableName": "Projectile_R"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Zogre_Character_C:Hitpoint_Arm_L_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.12"
+      },
+      "AttachToName": "upperarm_l",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "D6CA1A04-4485483E-02B8D28C-B23EEF09",
+      "InternalVariableName": "Hitpoint_Arm_L"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'TrampleTrigger'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TrampleTrigger'BP_AI_Zogre_Character_C:TrampleTrigger_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.57"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "E430C6F2-4E90FF75-AAFAFC83-6B816742",
+      "InternalVariableName": "TrampleTrigger"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NearbyFoliageConverterComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NearbyFoliageConverterComponent'BP_AI_Zogre_Character_C:NearbyFoliageConverter_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.34"
+      },
+      "VariableGUID": "D2206A97-4FBED9A5-59921AA7-D9E1A4B7",
+      "InternalVariableName": "NearbyFoliageConverter"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Zogre_AttackOpportunityComponent_C'",
+        "ObjectPath": "/FutureMajorVersion/Gameplay/AI/ZombieFaction/Zogre/BP_Zogre_AttackOpportunityComponent"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Zogre_AttackOpportunityComponent_C'BP_AI_Zogre_Character_C:BP_Zogre_AttackOpportunityComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.11"
+      },
+      "VariableGUID": "8468EC7E-48B869F5-00288DBE-EE0FCF7F",
+      "InternalVariableName": "BP_Zogre_AttackOpportunityComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Zogre_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Zogre_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Zogre_AiCombatModeInitiator_C'BP_AI_Zogre_Character_C:BP_Zogre_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.10"
+      },
+      "VariableGUID": "344F66F1-440EE9D4-D06D92B4-B3E3EBBF",
+      "InternalVariableName": "BP_Zogre_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_AI_Zogre_Character_C:Projectile_L_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.53"
+      },
+      "AttachToName": "hand_l",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "D6969CAE-46B9E086-0FEEC1B1-F5ACC2D5",
+      "InternalVariableName": "Projectile_L"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_Zogre_Character_C:WeakPoint_Head_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.52"
+      },
+      "AttachToName": "head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "6DF29A9A-4CFB5F47-C66CBCBE-76B249E1",
+      "InternalVariableName": "WeakPoint_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ShapeCollectionComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ShapeCollectionComponent'BP_AI_Zogre_Character_C:Shape Collection Component_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.49"
+      },
+      "VariableGUID": "C4F68043-423712A4-56709DB2-E47E1F4C",
+      "InternalVariableName": "Shape Collection Component"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AiRangedAttackComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AiRangedAttackComponent'BP_AI_Zogre_Character_C:AiRangedAttack_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.3"
+      },
+      "VariableGUID": "65F0544C-4C4DE17C-83FDB0A0-66AEB310",
+      "InternalVariableName": "AiRangedAttack"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Zogre_Character_C:Hitpoint_Body_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.14"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "2D8EE616-4456D53D-9B6F6A96-C14A51B7",
+      "InternalVariableName": "Hitpoint_Body"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Zogre_Character_C:Hitpoint_Arm_R_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.13"
+      },
+      "AttachToName": "upperarm_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "DCCA4DB1-427BF6D5-BD9F7C91-CAB56B0A",
+      "InternalVariableName": "Hitpoint_Arm_R"
+    }
+  },
+  {
+    "Type": "ShapeCollectionComponent",
+    "Name": "Shape Collection Component_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'ShapeCollectionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shapes": [
+        {
+          "Key": "ShapeCollectionOption8",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_Zogre_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_0'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.21"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption7",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_Zogre_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_1'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.22"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption9",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_Zogre_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_2'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.23"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption10",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_Zogre_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_3'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.24"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption4",
+          "Value": {
+            "ObjectName": "DominionShape_Box'BP_AI_Zogre_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Box_9'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.19"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption6",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_Zogre_Character_C:Shape Collection Component_GEN_VARIABLE.DominionShape_Wedge_6'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.25"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.39"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.48"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.39"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_Zogre_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.36"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Miniboss_Biped_Base_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.39"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_Zogre_C'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Humanoid/M_LRG_Zogre_01/ABP_Zogre.1"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_M_LRG_Zogre_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Humanoid/M_LRG_Zogre_01/SK_M_LRG_Zogre_01.1"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_M_LRG_Zogre_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Humanoid/M_LRG_Zogre_01/SK_M_LRG_Zogre_01.1"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "CustomPrimitiveData": {
+        "Data": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Zogre_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/ZombieFaction/Zogre/BP_AI_Zogre_Character.15"
+      },
+      "RelativeLocation": {
+        "X": -3.9444835E-08,
+        "Y": 0.0,
+        "Z": -270.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Head_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 110.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -20.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Projectile_L_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Small_Boulder_02'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Item/Resources/Boulders/SM_Small_Boulder_02.2"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 80.0,
+        "Y": -50.0,
+        "Z": 0.0
+      },
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Projectile_R_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Small_Boulder_02'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Item/Resources/Boulders/SM_Small_Boulder_02.2"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -80.0,
+        "Y": 50.0,
+        "Z": 0.0
+      },
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "TargetableComponent",
+    "Name": "Targetable_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'TargetableComponent'",
+    "Template": {
+      "ObjectName": "TargetableComponent'BP_AI_Miniboss_Biped_Base_C:Targetable_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.40"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Miniboss_Biped_Base_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Miniboss_Biped_Base.41"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 14,
+      "SlowEffectConfig": {
+        "MaximumValue": 0.4
+      }
+    }
+  },
+  {
+    "Type": "TrampleTrigger",
+    "Name": "TrampleTrigger_GEN_VARIABLE",
+    "Outer": "BP_AI_Zogre_Character_C",
+    "Class": "UScriptClass'TrampleTrigger'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TrampleForce": 50000.0,
+      "CapsuleHalfHeight": 300.0,
+      "CapsuleRadius": 190.0
+    }
+  }
+]

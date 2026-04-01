@@ -1,0 +1,1511 @@
+[
+  {
+    "Type": "OptimusComponentSourceBinding",
+    "Name": "Primary",
+    "Outer": "@Bindings",
+    "Class": "UScriptClass'OptimusComponentSourceBinding'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BindingName": "Primary",
+      "ComponentType": {
+        "ObjectName": "Class'OptimusSkeletalMeshComponentSource'",
+        "ObjectPath": "/Script/OptimusCore"
+      },
+      "bIsPrimaryBinding": true
+    }
+  },
+  {
+    "Type": "OptimusComponentSourceBindingContainer",
+    "Name": "@Bindings",
+    "Outer": "DG_Function_ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusComponentSourceBindingContainer'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Bindings": [
+        {
+          "ObjectName": "OptimusComponentSourceBinding'DG_Function_ComputeNormalsTangents:@Bindings.Primary'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusDeformer",
+    "Name": "DG_Function_ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusDeformer'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Status": "EOptimusDeformerStatus::CompiledWithWarnings",
+      "Graphs": [
+        {
+          "ObjectName": "OptimusNodeGraph'DG_Function_ComputeNormalsTangents:UpdateGraph'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.11"
+        },
+        {
+          "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
+        }
+      ],
+      "Bindings": {
+        "ObjectName": "OptimusComponentSourceBindingContainer'DG_Function_ComputeNormalsTangents:@Bindings'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.1"
+      },
+      "Variables": {
+        "ObjectName": "OptimusVariableContainer'DG_Function_ComputeNormalsTangents:@Variables'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.54"
+      },
+      "Resources": {
+        "ObjectName": "OptimusResourceContainer'DG_Function_ComputeNormalsTangents:@Resources'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.52"
+      }
+    }
+  },
+  {
+    "Type": "OptimusFunctionNodeGraph",
+    "Name": "ComputeNormalsTangents",
+    "Outer": "DG_Function_ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusFunctionNodeGraph'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Category": "Utility",
+      "AccessSpecifier": "Public",
+      "Guid": "387AEE58-327239E1-94A100F8-1A380E31",
+      "InputBindings": {
+        "InnerArray": [
+          {
+            "Name": {
+              "Name": "Position"
+            },
+            "DataType": {
+              "TypeName": "FVector",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          }
+        ]
+      },
+      "OutputBindings": {
+        "InnerArray": [
+          {
+            "Name": {
+              "Name": "OutPosition"
+            },
+            "DataType": {
+              "TypeName": "FVector",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "OutTangentX"
+            },
+            "DataType": {
+              "TypeName": "FVector4",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector4",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "OutTangentZ"
+            },
+            "DataType": {
+              "TypeName": "FVector4",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector4",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          }
+        ]
+      },
+      "GraphType": "EOptimusNodeGraphType::Function",
+      "Nodes": [
+        {
+          "ObjectName": "OptimusNode_GraphTerminal'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Entry'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.9"
+        },
+        {
+          "ObjectName": "OptimusNode_GraphTerminal'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.10"
+        },
+        {
+          "ObjectName": "OptimusNode_CustomComputeKernel'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.5"
+        },
+        {
+          "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
+        },
+        {
+          "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.7"
+        }
+      ],
+      "Links": [
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_0'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.12"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_1'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.13"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_2'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.14"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_3'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.15"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_4'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.16"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_5'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.17"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_6'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.18"
+        },
+        {
+          "ObjectName": "OptimusNodeLink'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNodeLink_7'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.19"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusHalfEdgeDataInterface",
+    "Name": "OptimusHalfEdgeDataInterface_0",
+    "Outer": "OptimusNode_DataInterface_2",
+    "Class": "UScriptClass'OptimusHalfEdgeDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusNode_CustomComputeKernel",
+    "Name": "OptimusNode_CustomComputeKernel_0",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNode_CustomComputeKernel'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "KernelName": {
+        "Name": "ComputeNormalsTangents"
+      },
+      "ExecutionDomain": {
+        "Name": "Vertex"
+      },
+      "InputBindingArray": {
+        "InnerArray": [
+          {
+            "Name": {
+              "Name": "Position"
+            },
+            "DataType": {
+              "TypeName": "FVector",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "UV"
+            },
+            "DataType": {
+              "TypeName": "FVector2D",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector2D",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex",
+                "UVChannel"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "IndexBuffer"
+            },
+            "DataType": {
+              "TypeName": "UInt32Property",
+              "TypeObject": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Triangle"
+              ],
+              "Multiplier": 3,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "Edge"
+            },
+            "DataType": {
+              "TypeName": "IntProperty",
+              "TypeObject": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "TwinEdge"
+            },
+            "DataType": {
+              "TypeName": "IntProperty",
+              "TypeObject": {
+                "AssetPathName": "",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Triangle"
+              ],
+              "Multiplier": 3,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          }
+        ]
+      },
+      "OutputBindingArray": {
+        "InnerArray": [
+          {
+            "Name": {
+              "Name": "OutPosition"
+            },
+            "DataType": {
+              "TypeName": "FVector",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "OutTangentX"
+            },
+            "DataType": {
+              "TypeName": "FVector4",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector4",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          },
+          {
+            "Name": {
+              "Name": "OutTangentZ"
+            },
+            "DataType": {
+              "TypeName": "FVector4",
+              "TypeObject": {
+                "AssetPathName": "/Script/CoreUObject.Vector4",
+                "SubPathString": ""
+              }
+            },
+            "DataDomain": {
+              "Type": "EOptimusDataDomainType::Dimensional",
+              "DimensionNames": [
+                "Vertex"
+              ],
+              "Multiplier": 1,
+              "Expression": ""
+            },
+            "bSupportAtomicIfCompatibleDataType": false,
+            "bSupportRead": false
+          }
+        ]
+      },
+      "ShaderSource": {
+        "Declarations": "// Parameters and resource read/write functions\nuint NumTriangle();\nuint ReadIndexBuffer(uint TriangleIndex);\nint ReadTwinEdge(uint TriangleIndex);\nuint NumVertex();\nfloat3 ReadPosition(uint VertexIndex);\nuint NumVertexUVChannel();\nfloat2 ReadUV(uint VertexIndex, uint UVChannelIndex);\nint ReadEdge(uint VertexIndex);\nvoid WriteOutPosition(uint VertexIndex, float3 Value);\nvoid WriteOutTangentX(uint VertexIndex, float4 Value);\nvoid WriteOutTangentZ(uint VertexIndex, float4 Value);\n// Resource Indexing\nuint Index;\t// From SV_DispatchThreadID.x\nint3 ReadNumThreads();\n",
+        "ShaderText": "if (Index >= ReadNumThreads().x) return;\r\n\r\nuint VertexIndex = Index;\r\nfloat3 Position = ReadPosition(VertexIndex);\r\n\r\nfloat3 SumTangentX = 0;\r\nfloat3 SumTangentZ = 0;\r\nfloat SumOrientation = 0;\r\n\r\nuint StartEdgeIndex = (uint)ReadEdge(Index);\r\nuint EdgeIndex = StartEdgeIndex;\r\n\r\nint MaxIterationIndex = 16; // Avoid GPU hand on bad data.\r\nfor(int IterationIndex = 0; IterationIndex < MaxIterationIndex; ++IterationIndex)\r\n//while(1)\r\n{\r\n    uint TriangleIndex = EdgeIndex / 3;\r\n    uint SubEdgeIndex = EdgeIndex % 3;\r\n\r\n    uint VertexIndex0 = ReadIndexBuffer(EdgeIndex);\r\n    float2 UV0 = ReadUV(VertexIndex0, 0);\r\n    \r\n    uint VertexIndex1 = ReadIndexBuffer(TriangleIndex * 3 + ((SubEdgeIndex + 1) % 3));\r\n    float3 Position1 = ReadPosition(VertexIndex1);\r\n    float2 UV1 = ReadUV(VertexIndex1, 0);\r\n\r\n    uint VertexIndex2 = ReadIndexBuffer(TriangleIndex * 3 + ((SubEdgeIndex + 2) % 3));\r\n    float3 Position2 = ReadPosition(VertexIndex2);\r\n    float2 UV2 = ReadUV(VertexIndex2, 0);\r\n    \r\n    float3 EdgeA = Position1 - Position;\r\n\tfloat3 EdgeB = Position2 - Position;\r\n\tfloat3 TangentZ = cross(EdgeB, EdgeA);\r\n\tSumTangentZ += normalize(TangentZ);\r\n\r\n    // Only accumulate TangentX if we have not crossed to a triangle of a duplicated vertex.     \r\n    if (VertexIndex == VertexIndex0)\r\n    {\r\n        float2 UVEdgeA = UV1 - UV0;\r\n\t    float2 UVEdgeB = UV2 - UV0;\r\n        float CP = UVEdgeA.y * UVEdgeB.x - UVEdgeA.x * UVEdgeB.y;\r\n        // Simply ignore ill defined UVs.\r\n\t    if (abs(CP) > 0.000001f)\r\n    \t{\r\n            float SignCP = sign(CP);\r\n            SumOrientation += SignCP;\r\n\r\n            float3 TangentX = (EdgeA * -UVEdgeB.y + EdgeB * UVEdgeA.y) * SignCP;\r\n    \t    SumTangentX += normalize(TangentX);\r\n    \t}\r\n    }\r\n\r\n    // Iterate to next triangle.\r\n    int TwinEdgeIndex = ReadTwinEdge(EdgeIndex);\r\n    if (TwinEdgeIndex == -1)\r\n    {\r\n        break;\r\n    }\r\n\r\n    uint TwinTriangleIndex = (uint)TwinEdgeIndex / 3;\r\n    uint TwinSubEdgeIndex = (uint)TwinEdgeIndex % 3;\r\n    uint NextSubEdgeIndex = (TwinSubEdgeIndex + 1) % 3;\r\n    \r\n\tEdgeIndex = TwinTriangleIndex * 3 + NextSubEdgeIndex;\r\n    if (EdgeIndex == StartEdgeIndex)\r\n    {\r\n        break;\r\n    }\r\n}\r\n\r\nfloat4 TangentZ = float4(normalize(SumTangentZ), SumOrientation <= 0 ? -1 : 1);\r\nfloat4 TangentX = float4(normalize(SumTangentX), 0);\r\nTangentX.xyz = normalize(TangentX.xyz - (dot(TangentX.xyz, TangentZ.xyz) * TangentZ.xyz));\r\n\r\nWriteOutPosition(Index, Position);\r\nWriteOutTangentX(Index, TangentX);\r\nWriteOutTangentZ(Index, TangentZ);"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "E11EA0624C485EDF004A1DA7AC3B23F2",
+        "SourceString": "ComputeNormalsTangents",
+        "LocalizedString": "ComputeNormalsTangents"
+      },
+      "GraphPosition": {
+        "X": 624.0,
+        "Y": 288.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.25"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.OutPosition'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.22"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.OutTangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.23"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.OutTangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.24"
+        }
+      ],
+      "ExpandedPins": [
+        "Primary Group"
+      ],
+      "DiagnosticLevel": "EOptimusDiagnosticLevel::Info"
+    }
+  },
+  {
+    "Type": "OptimusNode_DataInterface",
+    "Name": "OptimusNode_DataInterface_1",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNode_DataInterface'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DataInterfaceClass": {
+        "ObjectName": "Class'OptimusSkinnedMeshDataInterface'",
+        "ObjectPath": "/Script/OptimusCore"
+      },
+      "DataInterfaceData": {
+        "ObjectName": "OptimusSkinnedMeshDataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.OptimusSkinnedMeshDataInterface_0'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.53"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "B20C74EE46EFD66BAF97168FE70D6555",
+        "SourceString": "Skinned Mesh",
+        "LocalizedString": "Skinned Mesh"
+      },
+      "GraphPosition": {
+        "X": 128.0,
+        "Y": 400.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.SkinnedMesh'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.37"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.NumVertices'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.35"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.Position'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.36"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.TangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.38"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.TangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.39"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.NumUVChannels'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.34"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.UV'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.40"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.Color'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.31"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.NumTriangles'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.33"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.IndexBuffer'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.32"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNode_DataInterface",
+    "Name": "OptimusNode_DataInterface_2",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNode_DataInterface'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DataInterfaceClass": {
+        "ObjectName": "Class'OptimusHalfEdgeDataInterface'",
+        "ObjectPath": "/Script/OptimusCore"
+      },
+      "DataInterfaceData": {
+        "ObjectName": "OptimusHalfEdgeDataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2.OptimusHalfEdgeDataInterface_0'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.4"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "DCB76ADA486C2C654EBFDDA2FAEFAB2C",
+        "SourceString": "HalfEdge",
+        "LocalizedString": "HalfEdge"
+      },
+      "GraphPosition": {
+        "X": 144.0,
+        "Y": 704.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2.SkinnedMesh'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.42"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2.EdgesPerVertex'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.41"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2.TwinEdges'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.43"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNode_FunctionReference",
+    "Name": "FunctionReferenceNode",
+    "Outer": "UpdateGraph",
+    "Class": "UScriptClass'OptimusNode_FunctionReference'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FunctionGraphIdentifier": {
+        "Asset": {
+          "ObjectName": "OptimusDeformer'DG_Function_ComputeNormalsTangents'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.2"
+        },
+        "Guid": "387AEE58-327239E1-94A100F8-1A380E31"
+      },
+      "DefaultComponentPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode.Default Component Binding'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.47"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "8E69265B41EE9140391414BDFE7CE273",
+        "SourceString": "ComputeNormalsTangents",
+        "LocalizedString": "ComputeNormalsTangents"
+      },
+      "GraphPosition": {
+        "X": 256.0,
+        "Y": 272.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode.Default Component Binding'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.47"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode.Position'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.51"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode.OutPosition'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.48"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode.OutTangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.49"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode.OutTangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.50"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNode_GraphTerminal",
+    "Name": "Entry",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNode_GraphTerminal'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TerminalType": "EOptimusTerminalType::Entry",
+      "DefaultComponentPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Entry.Default Component Binding'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.20"
+      },
+      "GraphPosition": {
+        "X": -322.0,
+        "Y": 496.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Entry.Default Component Binding'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.20"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Entry.Position'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.21"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNode_GraphTerminal",
+    "Name": "Return",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNode_GraphTerminal'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TerminalType": "EOptimusTerminalType::Return",
+      "GraphPosition": {
+        "X": 1374.0,
+        "Y": 496.0
+      },
+      "Pins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return.OutPosition'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.44"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return.OutTangentX'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.45"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return.OutTangentZ'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.46"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNodeGraph",
+    "Name": "UpdateGraph",
+    "Outer": "DG_Function_ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeGraph'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Nodes": [
+        {
+          "ObjectName": "OptimusNode_FunctionReference'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.8"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_0",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.UV'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.40"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.UV'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.30"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_1",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1.IndexBuffer'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.32"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.IndexBuffer'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.27"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_2",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2.EdgesPerVertex'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.41"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.Edge'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.26"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_3",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2.TwinEdges'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.43"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.TwinEdge'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.29"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_4",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Entry.Position'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.21"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.Position'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.28"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_5",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.OutPosition'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.22"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return.OutPosition'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.44"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_6",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.OutTangentX'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.23"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return.OutTangentX'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.45"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodeLink",
+    "Name": "OptimusNodeLink_7",
+    "Outer": "ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusNodeLink'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NodeOutputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.OutTangentZ'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.24"
+      },
+      "NodeInputPin": {
+        "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return.OutTangentZ'",
+        "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.46"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Default Component Binding",
+    "Outer": "Entry",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataType": {
+        "TypeName": "UOptimusComponentSourceBinding",
+        "TypeObject": {
+          "AssetPathName": "/Script/OptimusCore.OptimusComponentSourceBinding",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Position",
+    "Outer": "Entry",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutPosition",
+    "Outer": "OptimusNode_CustomComputeKernel_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentX",
+    "Outer": "OptimusNode_CustomComputeKernel_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentZ",
+    "Outer": "OptimusNode_CustomComputeKernel_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Primary Group",
+    "Outer": "OptimusNode_CustomComputeKernel_0",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bIsGroupingPin": true,
+      "Direction": "EOptimusNodePinDirection::Input",
+      "SubPins": [
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.Position'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.28"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.UV'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.30"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.IndexBuffer'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.27"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.Edge'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.26"
+        },
+        {
+          "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group.TwinEdge'",
+          "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.29"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Edge",
+    "Outer": "Primary Group",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "IntProperty"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "IndexBuffer",
+    "Outer": "Primary Group",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Triangle"
+        ],
+        "Multiplier": 3
+      },
+      "DataType": {
+        "TypeName": "UInt32Property"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Position",
+    "Outer": "Primary Group",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TwinEdge",
+    "Outer": "Primary Group",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Triangle"
+        ],
+        "Multiplier": 3
+      },
+      "DataType": {
+        "TypeName": "IntProperty"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "UV",
+    "Outer": "Primary Group",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex",
+          "UVChannel"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector2D",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector2D",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Color",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "IndexBuffer",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Triangle"
+        ],
+        "Multiplier": 3
+      },
+      "DataType": {
+        "TypeName": "UInt32Property"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "NumTriangles",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataType": {
+        "TypeName": "UInt32Property"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "NumUVChannels",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataType": {
+        "TypeName": "UInt32Property"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "NumVertices",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataType": {
+        "TypeName": "UInt32Property"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Position",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "SkinnedMesh",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataType": {
+        "TypeName": "UOptimusComponentSourceBinding",
+        "TypeObject": {
+          "AssetPathName": "/Script/OptimusCore.OptimusComponentSourceBinding",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentX",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TangentZ",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "UV",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex",
+          "UVChannel"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector2D",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector2D",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "EdgesPerVertex",
+    "Outer": "OptimusNode_DataInterface_2",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "IntProperty"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "SkinnedMesh",
+    "Outer": "OptimusNode_DataInterface_2",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataType": {
+        "TypeName": "UOptimusComponentSourceBinding",
+        "TypeObject": {
+          "AssetPathName": "/Script/OptimusCore.OptimusComponentSourceBinding",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "TwinEdges",
+    "Outer": "OptimusNode_DataInterface_2",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Triangle"
+        ],
+        "Multiplier": 3
+      },
+      "DataType": {
+        "TypeName": "IntProperty"
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutPosition",
+    "Outer": "Return",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentX",
+    "Outer": "Return",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentZ",
+    "Outer": "Return",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Default Component Binding",
+    "Outer": "FunctionReferenceNode",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataType": {
+        "TypeName": "UOptimusComponentSourceBinding",
+        "TypeObject": {
+          "AssetPathName": "/Script/OptimusCore.OptimusComponentSourceBinding",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutPosition",
+    "Outer": "FunctionReferenceNode",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentX",
+    "Outer": "FunctionReferenceNode",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "OutTangentZ",
+    "Outer": "FunctionReferenceNode",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Output",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector4",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector4",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusNodePin",
+    "Name": "Position",
+    "Outer": "FunctionReferenceNode",
+    "Class": "UScriptClass'OptimusNodePin'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Direction": "EOptimusNodePinDirection::Input",
+      "DataDomain": {
+        "DimensionNames": [
+          "Vertex"
+        ]
+      },
+      "DataType": {
+        "TypeName": "FVector",
+        "TypeObject": {
+          "AssetPathName": "/Script/CoreUObject.Vector",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "OptimusResourceContainer",
+    "Name": "@Resources",
+    "Outer": "DG_Function_ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusResourceContainer'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusSkinnedMeshDataInterface",
+    "Name": "OptimusSkinnedMeshDataInterface_0",
+    "Outer": "OptimusNode_DataInterface_1",
+    "Class": "UScriptClass'OptimusSkinnedMeshDataInterface'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "OptimusVariableContainer",
+    "Name": "@Variables",
+    "Outer": "DG_Function_ComputeNormalsTangents",
+    "Class": "UScriptClass'OptimusVariableContainer'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

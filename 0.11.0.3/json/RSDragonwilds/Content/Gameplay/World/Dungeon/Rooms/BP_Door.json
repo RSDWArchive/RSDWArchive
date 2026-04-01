@@ -1,0 +1,860 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Door_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'BP_Door_C:Timeline_0_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.23"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Door_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.20"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_Door_C:ExecuteUbergraph_BP_Door'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.6"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Door'",
+      "ObjectPath": "/Script/Dungeon"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Door_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.7"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:DoorOpenFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.5"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.12"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.13"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:UpdateDoorColor'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.14"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:ReBuildDoor'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.10"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:Server_Rebuild'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.11"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:MC_Rebuild'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.8"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:OnDoorOpen'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.9"
+      },
+      {
+        "ObjectName": "Function'BP_Door_C:ExecuteUbergraph_BP_Door'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.6"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_0_DoorScale_60DE027F4FEA1D0C92ACBFB2EEDFBEE7",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_0_UpDoor_60DE027F4FEA1D0C92ACBFB2EEDFBEE7",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_0__Direction_60DE027F4FEA1D0C92ACBFB2EEDFBEE7",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_0",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "DoorPosition",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_DoorPosition'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/Base/E_DoorPosition.0"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Door1_ClosedAngle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Door1_OpenedAngle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "DisplayText",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_Door": {
+        "ObjectName": "Function'BP_Door_C:ExecuteUbergraph_BP_Door'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.6"
+      },
+      "OnDoorOpen": {
+        "ObjectName": "Function'BP_Door_C:OnDoorOpen'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.9"
+      },
+      "MC_Rebuild": {
+        "ObjectName": "Function'BP_Door_C:MC_Rebuild'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.8"
+      },
+      "Server_Rebuild": {
+        "ObjectName": "Function'BP_Door_C:Server_Rebuild'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.11"
+      },
+      "ReBuildDoor": {
+        "ObjectName": "Function'BP_Door_C:ReBuildDoor'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.10"
+      },
+      "UpdateDoorColor": {
+        "ObjectName": "Function'BP_Door_C:UpdateDoorColor'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.14"
+      },
+      "Timeline_0__UpdateFunc": {
+        "ObjectName": "Function'BP_Door_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.13"
+      },
+      "Timeline_0__FinishedFunc": {
+        "ObjectName": "Function'BP_Door_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.12"
+      },
+      "DoorOpenFunc": {
+        "ObjectName": "Function'BP_Door_C:DoorOpenFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.5"
+      },
+      "GetDisplayName": {
+        "ObjectName": "Function'BP_Door_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.7"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Door_C'Default__BP_Door_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.2"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box Component",
+    "Outer": "Default__BP_Door_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel1",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "OnComponentBeginOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Door_C'Default__BP_Door_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.2"
+            },
+            "FunctionName": "OnOverlapBegin"
+          }
+        ]
+      },
+      "OnComponentEndOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Door_C'Default__BP_Door_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.2"
+            },
+            "FunctionName": "OnOverlapEnd"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Door_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.18"
+      },
+      "RelativeScale3D": {
+        "X": 2.0,
+        "Y": 2.0,
+        "Z": 1.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "BP_Door_C",
+    "Name": "Default__BP_Door_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.BP_Door_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "DisplayText": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "Door",
+        "SourceString": "Door",
+        "LocalizedString": "Door"
+      },
+      "DoorFrame": {
+        "ObjectName": "StaticMeshComponent'Default__BP_Door_C:Door Frame'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.22"
+      },
+      "Door": {
+        "ObjectName": "StaticMeshComponent'Default__BP_Door_C:Door'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.21"
+      },
+      "BoxComp": {
+        "ObjectName": "BoxComponent'Default__BP_Door_C:Box Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.1"
+      },
+      "InteractionComponent": {
+        "ObjectName": "InteractionComponent'Default__BP_Door_C:InteractionComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.15"
+      },
+      "MiniMapIconComponent": {
+        "ObjectName": "MapIconComponent'Default__BP_Door_C:MiniMapIconComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.16"
+      },
+      "IconOpenDoor": {
+        "ObjectName": "Texture2D'T_Navicons_DoorOpen'",
+        "ObjectPath": "RSDragonwilds/Content/Art/UI/NavIcons/T_Navicons_DoorOpen.0"
+      },
+      "IconCloseDoor": {
+        "ObjectName": "Texture2D'T_Navicons_DoorClosed'",
+        "ObjectPath": "RSDragonwilds/Content/Art/UI/NavIcons/T_Navicons_DoorClosed.0"
+      },
+      "SceneComponent": {
+        "ObjectName": "SceneComponent'Default__BP_Door_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.18"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_Door_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.18"
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 53.74186,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 53.74203,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5,
+            "Value": 425.0,
+            "ArriveTangent": 382.18408,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 382.09442,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5,
+            "Value": 0.34,
+            "ArriveTangent": -1.1656032,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -1.1656008,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "DoorOpenFunc",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Door",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetDoorType_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EDoorType'",
+          "ObjectPath": "/Script/Dungeon"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeLocation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeVector_Z_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeVector_Z_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetDisplayName",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'WorldActorInterface:GetDisplayName'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "TextProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "MC_Rebuild",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Net | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDoorOpen",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Door:OnDoorOpen'",
+      "ObjectPath": "/Script/Dungeon"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReBuildDoor",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Door:ReBuildDoor'",
+      "ObjectPath": "/Script/Dungeon"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Server_Rebuild",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Net | FUNC_NetServer | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__FinishedFunc",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__UpdateFunc",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateDoorColor",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Door:UpdateDoorColor'",
+      "ObjectPath": "/Script/Dungeon"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "InteractionComponent",
+    "Outer": "Default__BP_Door_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OnInteractionEvent": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Door_C'Default__BP_Door_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.2"
+            },
+            "FunctionName": "OnInteraction"
+          }
+        ]
+      },
+      "InteractionPrompt": {
+        "Namespace": "",
+        "Key": "6469080B4D956A402A7E7F9C12613D1A",
+        "SourceString": "Investigate",
+        "LocalizedString": "Investigate"
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Door_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.18"
+      }
+    }
+  },
+  {
+    "Type": "MapIconComponent",
+    "Name": "MiniMapIconComponent",
+    "Outer": "Default__BP_Door_C",
+    "Class": "UScriptClass'MapIconComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Door_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.18"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComponent",
+    "Outer": "Default__BP_Door_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Door_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.17"
+      },
+      "VariableGUID": "97471696-47D9E44A-E4FCEE9A-348F3699",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Door_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.19"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Door",
+    "Outer": "Default__BP_Door_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BodyInstance": {
+        "CollisionProfileName": "BlockAllWorldActor",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Footstep",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "FeetIK",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "AudioOcclusion",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Door_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.18"
+      },
+      "RelativeLocation": {
+        "X": 10.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Door Frame",
+    "Outer": "Default__BP_Door_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BodyInstance": {
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Door_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.18"
+      },
+      "RelativeLocation": {
+        "X": 10.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_0_Template",
+    "Outer": "BP_Door_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 1.5,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_Door_C:CurveFloat_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.3"
+          },
+          "PropertyName": "Timeline_0_UpDoor_60DE027F4FEA1D0C92ACBFB2EEDFBEE7",
+          "TrackName": "UpDoor",
+          "bIsExternalCurve": false
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_Door_C:CurveFloat_1'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Rooms/BP_Door.4"
+          },
+          "PropertyName": "Timeline_0_DoorScale_60DE027F4FEA1D0C92ACBFB2EEDFBEE7",
+          "TrackName": "DoorScale",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "60DE027F-4FEA1D0C-92ACBFB2-EEDFBEE7",
+      "VariableName": "Timeline_0",
+      "DirectionPropertyName": "Timeline_0__Direction_60DE027F4FEA1D0C92ACBFB2EEDFBEE7",
+      "UpdateFunctionName": "Timeline_0__UpdateFunc",
+      "FinishedFunctionName": "Timeline_0__FinishedFunc"
+    }
+  }
+]

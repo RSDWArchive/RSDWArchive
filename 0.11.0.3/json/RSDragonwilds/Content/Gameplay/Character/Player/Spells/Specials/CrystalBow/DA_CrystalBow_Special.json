@@ -1,0 +1,277 @@
+[
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_0",
+    "Outer": "SpellModule_Shape_0",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ZHeight": 200.0,
+      "Depth": 875.0
+    }
+  },
+  {
+    "Type": "DominionSpellData",
+    "Name": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'DominionSpellData'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Modules": {
+        "Modules": [
+          {
+            "Module": {
+              "ObjectName": "SpellModule_PlayMontage'DA_CrystalBow_Special:SpellModule_PlayMontage_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.8"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Cast'DA_CrystalBow_Special:SpellModule_Cast_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.2"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Transform'DA_CrystalBow_Special:SpellModule_Transform_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.11"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_ExpireAfterDuration'DA_CrystalBow_Special:SpellModule_ExpireAfterDuration_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.6"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Collision'DA_CrystalBow_Special:SpellModule_Collision_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.3"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Shape'DA_CrystalBow_Special:SpellModule_Shape_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.9"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Damage'DA_CrystalBow_Special:SpellModule_Damage_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.5"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_SpawnActor'DA_CrystalBow_Special:SpellModule_SpawnActor_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.10"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_GameplayEffect'DA_CrystalBow_Special:SpellModule_GameplayEffect_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.7"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_CostStamina'DA_CrystalBow_Special:SpellModule_CostStamina_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.4"
+            }
+          }
+        ]
+      },
+      "PersistenceID": "OJCh50N4Nd3rzGq2TBKMzQ",
+      "InternalName": "special_crystalbow"
+    }
+  },
+  {
+    "Type": "SpellModule_Cast",
+    "Name": "SpellModule_Cast_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_Cast'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModuleName": "Cast",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_AttackDamagePoint_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_AttackDamagePoint.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Collision",
+    "Name": "SpellModule_Collision_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_Collision'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Profile": {
+        "Name": "Spell"
+      },
+      "TargetedProfile": {
+        "Name": "SpellTargeting"
+      },
+      "OptionalSpawnActorModule": {
+        "ModuleName": "SpawnActor"
+      },
+      "OptionalShapeModule": {
+        "ModuleName": "Shape"
+      },
+      "ModuleName": "Collision",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_CostStamina",
+    "Name": "SpellModule_CostStamina_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_CostStamina'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Amount": 65.0,
+      "ModuleName": "CostStamina"
+    }
+  },
+  {
+    "Type": "SpellModule_Damage",
+    "Name": "SpellModule_Damage_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_Damage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageAmount": 5.0,
+      "DamageClass": "EDamageClass::Ranged",
+      "Force": 50.0,
+      "CollisionModule": {
+        "ModuleName": "Collision"
+      },
+      "ModuleName": "Damage",
+      "Triggers": {
+        "CollisionRef": {
+          "ModuleName": "Collision"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_ExpireAfterDuration",
+    "Name": "SpellModule_ExpireAfterDuration_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_ExpireAfterDuration'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Duration": 3.0,
+      "ModuleName": "ExpireAfterDuration",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_GameplayEffect",
+    "Name": "SpellModule_GameplayEffect_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_GameplayEffect'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'GE_CrystalBow_Target_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/GE_CrystalBow_Target.0"
+      },
+      "GameplayEffectSpellTarget": "EGameplayEffectSpellTarget::CollisionTarget",
+      "ModuleName": "GameplayEffect",
+      "Triggers": {
+        "CollisionRef": {
+          "ModuleName": "Collision"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_PlayMontage",
+    "Name": "SpellModule_PlayMontage_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_PlayMontage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Montage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_Attack_CrystalBow_Secondary'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Animation/PlayerM/CrystalBow/AM_PlayerM_Attack_CrystalBow_Secondary.0"
+      },
+      "ModuleName": "PlayMontage",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Shape",
+    "Name": "SpellModule_Shape_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_Shape'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Wedge'DA_CrystalBow_Special:SpellModule_Shape_0.DominionShape_Wedge_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/DA_CrystalBow_Special.0"
+      },
+      "ModuleName": "Shape",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_SpawnActor",
+    "Name": "SpellModule_SpawnActor_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_SpawnActor'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_CrystalBow_VFX_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/CrystalBow/BP_CrystalBow_VFX.0"
+      },
+      "SpawnMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
+      "OptionalTransformModule": {
+        "ModuleName": "Transform"
+      },
+      "ModuleName": "SpawnActor",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Transform",
+    "Name": "SpellModule_Transform_0",
+    "Outer": "DA_CrystalBow_Special",
+    "Class": "UScriptClass'SpellModule_Transform'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PositionOffset": {
+        "X": 100.0,
+        "Y": 0.0,
+        "Z": 65.0
+      },
+      "TraceProfile": {
+        "Name": "Spell"
+      },
+      "ModuleName": "Transform",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  }
+]

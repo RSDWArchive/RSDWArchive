@@ -1,0 +1,254 @@
+[
+  {
+    "Type": "DominionShape_Capsule",
+    "Name": "DominionShape_Capsule_0",
+    "Outer": "SpellModule_Shape_0",
+    "Class": "UScriptClass'DominionShape_Capsule'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HalfHeight": 115.0,
+      "Radius": 20.0,
+      "Offset": {
+        "X": 70.0,
+        "Y": 0.0,
+        "Z": -80.0
+      }
+    }
+  },
+  {
+    "Type": "DominionSpellData",
+    "Name": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'DominionSpellData'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Modules": {
+        "Modules": [
+          {
+            "Module": {
+              "ObjectName": "SpellModule_InputHoldingTracker'DA_WateringCan_UseOneCharge:SpellModule_InputHoldingTracker_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.6"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_PlayMontage'DA_WateringCan_UseOneCharge:SpellModule_PlayMontage_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.7"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Shape'DA_WateringCan_UseOneCharge:SpellModule_Shape_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.8"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Collision'DA_WateringCan_UseOneCharge:SpellModule_Collision_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.3"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_UseCharge'DA_WateringCan_UseOneCharge:SpellModule_UseCharge_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.9"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Cast'DA_WateringCan_UseOneCharge:SpellModule_Cast_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.2"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_ExpireAfterDuration'DA_WateringCan_UseOneCharge:SpellModule_ExpireAfterDuration_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.4"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_GameplayEffect'DA_WateringCan_UseOneCharge:SpellModule_GameplayEffect_1'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.5"
+            }
+          }
+        ]
+      },
+      "PersistenceID": "TheHhkmHO3y97Mel68COeQ",
+      "InternalName": "pour_wateringcan"
+    }
+  },
+  {
+    "Type": "SpellModule_Cast",
+    "Name": "SpellModule_Cast_0",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_Cast'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModuleName": "Cast",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_AttackDamagePoint_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_AttackDamagePoint.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Collision",
+    "Name": "SpellModule_Collision_0",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_Collision'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Profile": {
+        "Name": "BlockAll"
+      },
+      "TargetedProfile": {
+        "Name": "NoCollision"
+      },
+      "DebugDrawDuration": 1.0,
+      "OptionalShapeModule": {
+        "ModuleName": "Shape"
+      },
+      "ModuleName": "Collision",
+      "Triggers": {
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_ExpireAfterDuration",
+    "Name": "SpellModule_ExpireAfterDuration_0",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_ExpireAfterDuration'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Duration": 0.1,
+      "ModuleName": "ExpireAfterDuration",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_GameplayEffect",
+    "Name": "SpellModule_GameplayEffect_1",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_GameplayEffect'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ContainerUseSlow_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ContainerUseSlow.0"
+      },
+      "PerkForUpgradedGameplayEffect": {
+        "ObjectName": "SkillPerkData'PerkV2_Farming_SpeedyFarmer'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/PerksV2/Farming/PerkV2_Farming_SpeedyFarmer.0"
+      },
+      "UpgradedGameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ContainerUseSlow_Upgraded_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ContainerUseSlow_Upgraded.0"
+      },
+      "GameplayEffectSpellTarget": "EGameplayEffectSpellTarget::SpellOwner",
+      "bSkipCanBeDamagedCheck": true,
+      "bRemoveEffectsWithSameDataBeforeApplying": true,
+      "bRemoveEffectsOnShutDown": true,
+      "ModuleName": "GameplayEffect",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_StartCharging_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_StartCharging.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_InputHoldingTracker",
+    "Name": "SpellModule_InputHoldingTracker_0",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_InputHoldingTracker'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InputHoldingLoopExitType": "EInputHoldingLoopExitType::CancelSpell",
+      "ModuleName": "InputHoldingTracker",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_StartCharging_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_StartCharging.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_PlayMontage",
+    "Name": "SpellModule_PlayMontage_0",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_PlayMontage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Montage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_WateringCan_Watering'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Animation/PlayerM/Interact/AM_PlayerM_WateringCan_Watering.0"
+      },
+      "MontagePreset": 51,
+      "bShouldBlockMovement": false,
+      "bShouldRotateToCameraForward": false,
+      "bShouldEnableStrafing": true,
+      "bSkipToSectionOnExpire": true,
+      "SectionName": "Outro",
+      "ModuleName": "PlayMontage",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Shape",
+    "Name": "SpellModule_Shape_0",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_Shape'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Capsule'DA_WateringCan_UseOneCharge:SpellModule_Shape_0.DominionShape_Capsule_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Container/DA_WateringCan_UseOneCharge.0"
+      },
+      "ModuleName": "Shape"
+    }
+  },
+  {
+    "Type": "SpellModule_UseCharge",
+    "Name": "SpellModule_UseCharge_0",
+    "Outer": "DA_WateringCan_UseOneCharge",
+    "Class": "UScriptClass'SpellModule_UseCharge'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InputHoldingTrackerModule": {
+        "ModuleName": "InputHoldingTracker"
+      },
+      "CollisionModule": {
+        "ModuleName": "Collision"
+      },
+      "ModuleName": "UseCharge",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_StartCharging_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_StartCharging.1"
+        }
+      }
+    }
+  }
+]

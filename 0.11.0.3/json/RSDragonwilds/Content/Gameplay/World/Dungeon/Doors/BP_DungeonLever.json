@@ -1,0 +1,1846 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_DungeonLever_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'BP_DungeonLever_C:LeverAnimation_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.41"
+        },
+        {
+          "ObjectName": "TimelineTemplate'BP_DungeonLever_C:RotateCrystal_Timeline_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.42"
+        },
+        {
+          "ObjectName": "TimelineTemplate'BP_DungeonLever_C:EndCrystalAnimation_Timeline_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.40"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_DungeonLever_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.33"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_DungeonLever_C:ExecuteUbergraph_BP_DungeonLever'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.11"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Lever'",
+      "ObjectPath": "/Script/Dungeon"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.12"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:LeverAnimation__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.13"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:LeverAnimation__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.14"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:RotateCrystal_Timeline__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.17"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:RotateCrystal_Timeline__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.18"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:EndCrystalAnimation_Timeline__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.9"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:EndCrystalAnimation_Timeline__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.10"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:UpdateLeverState'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.19"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:RotateCrystal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.16"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.15"
+      },
+      {
+        "ObjectName": "Function'BP_DungeonLever_C:ExecuteUbergraph_BP_DungeonLever'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.11"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DominionAudio",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAudioComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Box",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Niagara",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Rock_Formation_Strip_a_b1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_Crystal_1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Rock_Formation_Strip_a_b",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_StatuePlinth02",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Light",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SpotLightComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "EndCrystalAnimation_Timeline_CircleZ_Loc_B30012304E6A9CC815D879868F3FA9B1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "EndCrystalAnimation_Timeline_CircleY_Rot_B30012304E6A9CC815D879868F3FA9B1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "EndCrystalAnimation_Timeline__Direction_B30012304E6A9CC815D879868F3FA9B1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "EndCrystalAnimation_Timeline",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "RotateCrystal_Timeline_Floating_BB67F9B847EDABB19280C6BA3037D590",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "RotateCrystal_Timeline_Rotate_BB67F9B847EDABB19280C6BA3037D590",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "RotateCrystal_Timeline__Direction_BB67F9B847EDABB19280C6BA3037D590",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RotateCrystal_Timeline",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "LeverAnimation_Blend_E1BF05504557612C774897BE86BD741B",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "LeverAnimation__Direction_E1BF05504557612C774897BE86BD741B",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LeverAnimation",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "DisplayName",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CrystalDefaultZ",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Is Active",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "BeamColor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Struct": {
+          "ObjectName": "Object'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ActivateSFX",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SoundBase'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RumbleSFX",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SoundBase'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_DungeonLever": {
+        "ObjectName": "Function'BP_DungeonLever_C:ExecuteUbergraph_BP_DungeonLever'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.11"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_DungeonLever_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.15"
+      },
+      "RotateCrystal": {
+        "ObjectName": "Function'BP_DungeonLever_C:RotateCrystal'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.16"
+      },
+      "UpdateLeverState": {
+        "ObjectName": "Function'BP_DungeonLever_C:UpdateLeverState'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.19"
+      },
+      "EndCrystalAnimation_Timeline__UpdateFunc": {
+        "ObjectName": "Function'BP_DungeonLever_C:EndCrystalAnimation_Timeline__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.10"
+      },
+      "EndCrystalAnimation_Timeline__FinishedFunc": {
+        "ObjectName": "Function'BP_DungeonLever_C:EndCrystalAnimation_Timeline__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.9"
+      },
+      "RotateCrystal_Timeline__UpdateFunc": {
+        "ObjectName": "Function'BP_DungeonLever_C:RotateCrystal_Timeline__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.18"
+      },
+      "RotateCrystal_Timeline__FinishedFunc": {
+        "ObjectName": "Function'BP_DungeonLever_C:RotateCrystal_Timeline__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.17"
+      },
+      "LeverAnimation__UpdateFunc": {
+        "ObjectName": "Function'BP_DungeonLever_C:LeverAnimation__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.14"
+      },
+      "LeverAnimation__FinishedFunc": {
+        "ObjectName": "Function'BP_DungeonLever_C:LeverAnimation__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.13"
+      },
+      "GetDisplayName": {
+        "ObjectName": "Function'BP_DungeonLever_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.12"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_DungeonLever_C'Default__BP_DungeonLever_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.2"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Box_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoxExtent": {
+        "X": 50.0,
+        "Y": 50.0,
+        "Z": 100.0
+      },
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bGenerateOverlapEvents": false,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Footstep",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_PathTrace",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "FeetIK",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "AudioOcclusion",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 100.0
+      }
+    }
+  },
+  {
+    "Type": "BP_DungeonLever_C",
+    "Name": "Default__BP_DungeonLever_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.BP_DungeonLever_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "921F8C49400C2B6436C1D6BD5AD919AB",
+        "SourceString": "Portal Crystal",
+        "LocalizedString": "Portal Crystal"
+      },
+      "Is Active": true,
+      "BeamColor": {
+        "R": 1.0,
+        "G": 0.4,
+        "B": 0.25,
+        "A": 0.005,
+        "Hex": "01FFAA89"
+      },
+      "ActivateSFX": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Pl_Dungeon_PortalCrystalActivate'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/Dungeon/MSS_Pl_Dungeon_PortalCrystalActivate.0"
+      },
+      "RumbleSFX": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Pl_In_Dungeon_RumblePortalCrystal'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/Dungeon/MSS_Pl_In_Dungeon_RumblePortalCrystal.0"
+      },
+      "InteractSphere": {
+        "ObjectName": "SphereComponent'Default__BP_DungeonLever_C:Box Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.34"
+      },
+      "InteractionComponent": {
+        "ObjectName": "InteractionComponent'Default__BP_DungeonLever_C:InteractionComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.20"
+      },
+      "Root": {
+        "ObjectName": "SceneComponent'Default__BP_DungeonLever_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.23"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_DungeonLever_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.23"
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.005,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 0.04,
+            "ArriveTangent": -0.0016666664,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.0016666664,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 3.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 38.89594,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 5.0,
+            "Value": 360.0,
+            "ArriveTangent": 33.272163,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 33.272163,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_2",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 24.580858,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 24.580843,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.666,
+            "Value": 8.0,
+            "ArriveTangent": -3.0012004,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -3.0012004,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 3.332,
+            "Value": -10.0,
+            "ArriveTangent": -3.7128935,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -3.7129178,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 5.0,
+            "Value": 0.0,
+            "ArriveTangent": 31.46776,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 31.467724,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_3_4",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 75.0,
+            "ArriveTangent": 45.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 45.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.0,
+            "Value": 90.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_4_5",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 210.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.0,
+            "Value": 140.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "DominionAudioComponent",
+    "Name": "DominionAudio_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'DominionAudioComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "EndCrystalAnimation_Timeline__FinishedFunc",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "EndCrystalAnimation_Timeline__UpdateFunc",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_DungeonLever",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeRotator_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeRotator_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bIsActivated",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeRotator_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeRotator_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeRotation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeRotation_SweepHitResult_1",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeLocation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_X",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Y",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_BreakVector_Z",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_LinearColor",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Object'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeLocationAndRotation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeLocationAndRotation_SweepHitResult_1",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Add_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeVector_Z_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeVector_Z_ImplicitCast_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetDisplayName",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'WorldActorInterface:GetDisplayName'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "TextProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "LeverAnimation__FinishedFunc",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "LeverAnimation__UpdateFunc",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RotateCrystal",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RotateCrystal_Timeline__FinishedFunc",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RotateCrystal_Timeline__UpdateFunc",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateLeverState",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Lever:UpdateLeverState'",
+      "ObjectPath": "/Script/Dungeon"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsActivated",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "InteractionComponent",
+    "Outer": "Default__BP_DungeonLever_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OnInteractionEvent": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_DungeonLever_C'Default__BP_DungeonLever_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.2"
+            },
+            "FunctionName": "OnInteraction"
+          }
+        ]
+      },
+      "InteractionPrompt": {
+        "Namespace": "",
+        "Key": "C73C22CE462975709B59D59B507C211F",
+        "SourceString": "Touch",
+        "LocalizedString": "Touch"
+      },
+      "InteractionDistance": "EInteractionDistance::Short",
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_DungeonLever_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.23"
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_LeverCurtain_Beam'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Env/Dungeon/NS_LeverCurtain_Beam.8"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "BeamEnd",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'Vector3f'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.BeamEnd",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'Vector3f'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LootColor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LootColor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.BeamEnd",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'Vector3f'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 12,
+            "Name": "User.LootColor",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          250,
+          68,
+          0,
+          0,
+          128,
+          63,
+          206,
+          204,
+          204,
+          62,
+          0,
+          0,
+          128,
+          62,
+          10,
+          215,
+          163,
+          59
+        ]
+      },
+      "RelativeLocation": {
+        "X": -8.109455E-14,
+        "Y": 2.0273637E-14,
+        "Z": 210.0
+      },
+      "RelativeRotation": {
+        "Pitch": 3.1805547E-15,
+        "Yaw": 90.0,
+        "Roll": -100.0
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 1.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComponent",
+    "Outer": "Default__BP_DungeonLever_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_DungeonLever_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.22"
+      },
+      "VariableGUID": "3CAC6119-4BD91552-3BCB01A4-AD90F3E8",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DominionAudioComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DominionAudioComponent'BP_DungeonLever_C:DominionAudio_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.8"
+      },
+      "ParentComponentOrVariableName": "SceneComponent",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "EB622AC0-481D695A-9CCDA4B1-F79E6713",
+      "InternalVariableName": "DominionAudio"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_DungeonLever_C:Niagara_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.21"
+      },
+      "VariableGUID": "D9E7CFB3-479D7C81-80B6D9BD-8223A535",
+      "InternalVariableName": "Niagara"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'BP_DungeonLever_C:Box_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.1"
+      },
+      "ParentComponentOrVariableName": "SceneComponent",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "6228C233-4C629312-A8A59EA3-49E60B92",
+      "InternalVariableName": "Box"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SpotLightComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SpotLightComponent'BP_DungeonLever_C:Light_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.35"
+      },
+      "ParentComponentOrVariableName": "SceneComponent",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "039733FC-45E09287-B156D6AD-DF0D30CB",
+      "InternalVariableName": "Light"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_DungeonLever_C:SM_StatuePlinth02_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.39"
+      },
+      "ParentComponentOrVariableName": "SceneComponent",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.26"
+        }
+      ],
+      "VariableGUID": "9C15C5AA-42B9BF73-778B2E96-285F8851",
+      "InternalVariableName": "SM_StatuePlinth02"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_DungeonLever_C:Rock_Formation_Strip_a_b_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.37"
+      },
+      "VariableGUID": "A63E7B4E-465E9CAE-FBC5B0A8-B5CE3D6A",
+      "InternalVariableName": "Rock_Formation_Strip_a_b"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_DungeonLever_C:SM_Crystal_1_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.38"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.32"
+        }
+      ],
+      "VariableGUID": "BA9E686D-44796613-8DE6619F-F4D3B17D",
+      "InternalVariableName": "SM_Crystal_1"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_DungeonLever_C:Rock_Formation_Strip_a_b1_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.36"
+      },
+      "VariableGUID": "C0B5567E-4CFCC712-0B1E68A9-5AD266BB",
+      "InternalVariableName": "Rock_Formation_Strip_a_b1"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.25"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.30"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.25"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_DungeonLever_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.24"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "Box Component",
+    "Outer": "Default__BP_DungeonLever_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 100.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "TraceOnlyWorldActor",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_DungeonLever_C:SceneComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.23"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 130.0
+      }
+    }
+  },
+  {
+    "Type": "SpotLightComponent",
+    "Name": "Light_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'SpotLightComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OuterConeAngle": 38.0,
+      "SoftSourceRadius": 25.0,
+      "AttenuationRadius": 600.0,
+      "intensity": 4000.0,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 595.0
+      },
+      "RelativeRotation": {
+        "Pitch": -90.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    },
+    "IntensityNits": 50.26548385620117,
+    "bUseInverseSquaredFalloff": true
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Rock_Formation_Strip_a_b1_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'DoorInner'",
+        "ObjectPath": "RSDragonwilds/Content/Marketplace/ParagonProps/Agora/Props/Meshes/DoorInner.2"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 90.0,
+        "Roll": -0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.028159833,
+        "Y": 0.05631999,
+        "Z": 0.05632
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Rock_Formation_Strip_a_b_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'DoorInner'",
+        "ObjectPath": "RSDragonwilds/Content/Marketplace/ParagonProps/Agora/Props/Meshes/DoorInner.2"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 210.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.095651604,
+        "Y": 0.19130431,
+        "Z": 0.22
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_Crystal_1_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Crystal_1'",
+        "ObjectPath": "RSDragonwilds/Content/Marketplace/Crystals/Mesh/SM_Crystal_1.2"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 210.0
+      },
+      "RelativeScale3D": {
+        "X": 1.4347826,
+        "Y": 1.4347826,
+        "Z": 1.65
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_StatuePlinth02_GEN_VARIABLE",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_StatuePlinth01'",
+        "ObjectPath": "RSDragonwilds/Content/Marketplace/DepthsBelow/Geometry/Props/Statues/SM_StatuePlinth01.2"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.8,
+        "Y": 0.8,
+        "Z": 0.6956522
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "EndCrystalAnimation_Timeline_Template",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 2.0,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DungeonLever_C:CurveFloat_3_4'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.6"
+          },
+          "PropertyName": "EndCrystalAnimation_Timeline_CircleY_Rot_B30012304E6A9CC815D879868F3FA9B1",
+          "TrackName": "CircleY_Rot",
+          "bIsExternalCurve": false
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DungeonLever_C:CurveFloat_4_5'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.7"
+          },
+          "PropertyName": "EndCrystalAnimation_Timeline_CircleZ_Loc_B30012304E6A9CC815D879868F3FA9B1",
+          "TrackName": "CircleZ_Loc",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "B3001230-4E6A9CC8-15D87986-8F3FA9B1",
+      "VariableName": "EndCrystalAnimation_Timeline",
+      "DirectionPropertyName": "EndCrystalAnimation_Timeline__Direction_B30012304E6A9CC815D879868F3FA9B1",
+      "UpdateFunctionName": "EndCrystalAnimation_Timeline__UpdateFunc",
+      "FinishedFunctionName": "EndCrystalAnimation_Timeline__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "LeverAnimation_Template",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DungeonLever_C:CurveFloat_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.3"
+          },
+          "PropertyName": "LeverAnimation_Blend_E1BF05504557612C774897BE86BD741B",
+          "TrackName": "Blend",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "E1BF0550-4557612C-774897BE-86BD741B",
+      "VariableName": "LeverAnimation",
+      "DirectionPropertyName": "LeverAnimation__Direction_E1BF05504557612C774897BE86BD741B",
+      "UpdateFunctionName": "LeverAnimation__UpdateFunc",
+      "FinishedFunctionName": "LeverAnimation__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "RotateCrystal_Timeline_Template",
+    "Outer": "BP_DungeonLever_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DungeonLever_C:CurveFloat_1'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.4"
+          },
+          "PropertyName": "RotateCrystal_Timeline_Rotate_BB67F9B847EDABB19280C6BA3037D590",
+          "TrackName": "Rotate",
+          "bIsExternalCurve": false
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_DungeonLever_C:CurveFloat_2'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Doors/BP_DungeonLever.5"
+          },
+          "PropertyName": "RotateCrystal_Timeline_Floating_BB67F9B847EDABB19280C6BA3037D590",
+          "TrackName": "Floating",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "BB67F9B8-47EDABB1-9280C6BA-3037D590",
+      "VariableName": "RotateCrystal_Timeline",
+      "DirectionPropertyName": "RotateCrystal_Timeline__Direction_BB67F9B847EDABB19280C6BA3037D590",
+      "UpdateFunctionName": "RotateCrystal_Timeline__UpdateFunc",
+      "FinishedFunctionName": "RotateCrystal_Timeline__FinishedFunc"
+    }
+  }
+]

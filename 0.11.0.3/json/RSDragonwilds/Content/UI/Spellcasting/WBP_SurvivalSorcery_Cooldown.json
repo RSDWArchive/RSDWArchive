@@ -1,0 +1,700 @@
+[
+  {
+    "Type": "DomTextBlock",
+    "Name": "CooldownText",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'DomTextBlock'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Text": {
+        "CultureInvariantString": "2"
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.686275,
+          "G": 0.717647,
+          "B": 0.701961,
+          "A": 1.0,
+          "Hex": "D8DDDA"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'Poppins-Regular_Font'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Fonts/Poppins-Regular_Font.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 10.0
+      },
+      "Justification": "ETextJustify::Center",
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.13"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "WBP_SurvivalSorcery_Cooldown_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_WBP_SurvivalSorcery_Cooldown",
+    "Outer": "WBP_SurvivalSorcery_Cooldown_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Image",
+    "Name": "BackgroundRing",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 36.0,
+          "Y": 36.5
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_Countdown_Bg'",
+          "ObjectPath": "RSDragonwilds/Content/Art/UI/Spellcasting/T_Countdown_Bg.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_7'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.14"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "IconImage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 36.0,
+          "Y": 36.5
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'T_Countdown_Fill_Pattern'",
+          "ObjectPath": "RSDragonwilds/Content/Art/UI/Spellcasting/T_Countdown_Fill_Pattern.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_9'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.16"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "TimerRing",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 36.0,
+          "Y": 36.5
+        },
+        "ResourceObject": {
+          "ObjectName": "MaterialInstanceConstant'MI_UI_RadialFill_SpellTimer'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/MI_UI_RadialFill_SpellTimer.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_8'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.15"
+      }
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "ProgressAnimation",
+    "Outer": "ProgressAnimation_INST",
+    "Class": "UScriptClass'MovieScene'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "1EA37E84-48B22C81-9D0B13AE-1B0913B7",
+          "Name": "TimerRing",
+          "ParentGuid": "00000000-00000000-00000000-00000000",
+          "SpawnableObjectBindingID": {
+            "Guid": "00000000-00000000-00000000-00000000",
+            "SequenceID": 0,
+            "ResolveParentIndex": -1
+          }
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "1EA37E84-48B22C81-9D0B13AE-1B0913B7",
+          "BindingName": "TimerRing",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneWidgetMaterialTrack'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.ProgressAnimation.MovieSceneWidgetMaterialTrack_0'",
+              "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.11"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 60001
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "Numerator": 20
+      },
+      "Signature": "8DAE5EFB-4B366ED1-447A98A6-574031F8"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneParameterSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneParameterSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'",
+    "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "ProgressAnimation_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 60000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneParameterSection'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.ProgressAnimation.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0'",
+                "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.10"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "1EA37E84-48B22C81-9D0B13AE-1B0913B7"
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 60000
+          },
+          "bInclusive": false
+        }
+      ],
+      "CompiledSignature": "609C2F80-460B561D-42055D8F-77CF940F",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": "EMovieSceneSequenceCompilerMask::EntityComponentField",
+      "AllocatedMask": "EMovieSceneSequenceCompilerMask::EntityComponentField"
+    }
+  },
+  {
+    "Type": "MovieSceneParameterSection",
+    "Name": "MovieSceneParameterSection_0",
+    "Outer": "MovieSceneWidgetMaterialTrack_0",
+    "Class": "UScriptClass'MovieSceneParameterSection'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ScalarParameterNamesAndCurves": [
+        {
+          "ParameterCurve": {
+            "PreInfinityExtrap": "RCCE_Constant",
+            "PostInfinityExtrap": "RCCE_Constant",
+            "Times": [
+              {
+                "Value": 0
+              },
+              {
+                "Value": 60000
+              }
+            ],
+            "Values": [
+              {
+                "Value": 0.0,
+                "Tangent": {
+                  "ArriveTangent": 0.0,
+                  "LeaveTangent": 0.0,
+                  "ArriveTangentWeight": 0.0,
+                  "LeaveTangentWeight": 0.0,
+                  "TangentWeightMode": 0
+                },
+                "InterpMode": 2,
+                "TangentMode": 0
+              },
+              {
+                "Value": 1.0,
+                "Tangent": {
+                  "ArriveTangent": 0.0,
+                  "LeaveTangent": 0.0,
+                  "ArriveTangentWeight": 0.0,
+                  "LeaveTangentWeight": 0.0,
+                  "TangentWeightMode": 0
+                },
+                "InterpMode": 2,
+                "TangentMode": 0
+              }
+            ],
+            "DefaultValue": 0.0,
+            "bHasDefaultValue": false,
+            "TickResolution": {
+              "Numerator": 60000,
+              "Denominator": 1
+            },
+            "bShowCurve": false,
+            "StructFallback": null
+          },
+          "ParameterName": "FillBar"
+        }
+      ],
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.ProgressAnimation.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0.EaseInFunction'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.7"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.ProgressAnimation.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0.EaseOutFunction'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.8"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 60000
+            }
+          }
+        }
+      },
+      "Signature": "37564815-421E1B1C-AC63D5A5-79C970ED"
+    }
+  },
+  {
+    "Type": "MovieSceneWidgetMaterialTrack",
+    "Name": "MovieSceneWidgetMaterialTrack_0",
+    "Outer": "ProgressAnimation",
+    "Class": "UScriptClass'MovieSceneWidgetMaterialTrack'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BrushPropertyNamePath": [
+        "Brush"
+      ],
+      "TrackName": "Brush",
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneParameterSection'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.ProgressAnimation.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.10"
+        }
+      ],
+      "EvaluationFieldGuid": "9B12C74F-4C09E1DF-CB23128E-DE1A91A3",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneParameterSection'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.ProgressAnimation.MovieSceneWidgetMaterialTrack_0.MovieSceneParameterSection_0'",
+              "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.10"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 60000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "9B12C74F-4C09E1DF-CB23128E-DE1A91A3"
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_7'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.14"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_8'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.15"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_9'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.16"
+        },
+        {
+          "ObjectName": "OverlaySlot'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay.OverlaySlot_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.13"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.12"
+      },
+      "Content": {
+        "ObjectName": "DomTextBlock'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.CooldownText'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.0"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_7",
+    "Outer": "Overlay",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.12"
+      },
+      "Content": {
+        "ObjectName": "Image'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.BackgroundRing'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.3"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_8",
+    "Outer": "Overlay",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.12"
+      },
+      "Content": {
+        "ObjectName": "Image'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.TimerRing'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.5"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_9",
+    "Outer": "Overlay",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HorizontalAlignment": "EHorizontalAlignment::HAlign_Center",
+      "VerticalAlignment": "EVerticalAlignment::VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.12"
+      },
+      "Content": {
+        "ObjectName": "Image'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.IconImage'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.4"
+      }
+    }
+  },
+  {
+    "Type": "WBP_SurvivalSorcery_Cooldown_C",
+    "Name": "Default__WBP_SurvivalSorcery_Cooldown_C",
+    "Class": "WidgetBlueprintGeneratedClass'RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.WBP_SurvivalSorcery_Cooldown_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "ProgressAnimation_INST",
+    "Outer": "WBP_SurvivalSorcery_Cooldown_C",
+    "Class": "UScriptClass'WidgetAnimation'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.ProgressAnimation'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.6"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "TimerRing",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "1EA37E84-48B22C81-9D0B13AE-1B0913B7",
+          "bIsRootWidget": false,
+          "DynamicBinding": {
+            "Function": null,
+            "ResolveParamsProperty": {
+              "Path": [],
+              "ResolvedOwner": null
+            }
+          }
+        }
+      ],
+      "DisplayLabel": "ProgressAnimation",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST.CompiledData'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.9"
+      },
+      "Signature": "609C2F80-460B561D-42055D8F-77CF940F"
+    }
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "WBP_SurvivalSorcery_Cooldown_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'WBP_SurvivalSorcery_Cooldown_C:WidgetTree'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.20"
+      },
+      "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'WBP_SurvivalSorcery_Cooldown_C:ProgressAnimation_INST'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.18"
+        }
+      ],
+      "UberGraphFunction": {
+        "ObjectName": "Function'WBP_SurvivalSorcery_Cooldown_C:ExecuteUbergraph_WBP_SurvivalSorcery_Cooldown'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.2"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'CooldownProgressBarWidget'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'WBP_SurvivalSorcery_Cooldown_C:Construct'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.1"
+      },
+      {
+        "ObjectName": "Function'WBP_SurvivalSorcery_Cooldown_C:ExecuteUbergraph_WBP_SurvivalSorcery_Cooldown'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.2"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_WBP_SurvivalSorcery_Cooldown": {
+        "ObjectName": "Function'WBP_SurvivalSorcery_Cooldown_C:ExecuteUbergraph_WBP_SurvivalSorcery_Cooldown'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.2"
+      },
+      "Construct": {
+        "ObjectName": "Function'WBP_SurvivalSorcery_Cooldown_C:Construct'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.1"
+      }
+    },
+    "ClassFlags": "CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WBP_SurvivalSorcery_Cooldown_C'Default__WBP_SurvivalSorcery_Cooldown_C'",
+      "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.17"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "WBP_SurvivalSorcery_Cooldown_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "Overlay'WBP_SurvivalSorcery_Cooldown_C:WidgetTree.Overlay'",
+        "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SurvivalSorcery_Cooldown.12"
+      }
+    }
+  }
+]

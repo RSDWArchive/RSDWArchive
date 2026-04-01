@@ -1,0 +1,1306 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_HUD_MainHUD_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.18"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ExecuteUbergraph_BP_HUD_MainHUD'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'PlayerHUD'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:IsInputBlockingWidgetOpen'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.4"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:BuildHUD'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.2"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ResetHUD'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.14"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.13"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ShowcaseNotifications'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.15"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifTextWithSecondaryTextDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.12"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifItemPickupDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.5"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifSkillUpDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.10"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifNewBuildingsDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.6"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifTextDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.11"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifNewRecipesDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.7"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifPlayerJoinDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.8"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifPlayerLeaveDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.9"
+      },
+      {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ExecuteUbergraph_BP_HUD_MainHUD'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "RecipeDebugArray",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "RecipeDebugArray",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'RecipeData'",
+            "ObjectPath": "/Script/Dominion"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SkillUpRowDebug",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SkillData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "BuildingPiecesDebugArray",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "BuildingPiecesDebugArray",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'BuildingPieceData'",
+            "ObjectPath": "/Script/Dominion"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "RecipeDebugArray_0",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "RecipeDebugArray_0",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'RecipeData'",
+            "ObjectPath": "/Script/Dominion"
+          }
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_HUD_MainHUD": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ExecuteUbergraph_BP_HUD_MainHUD'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.3"
+      },
+      "NotifPlayerLeaveDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifPlayerLeaveDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.9"
+      },
+      "NotifPlayerJoinDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifPlayerJoinDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.8"
+      },
+      "NotifNewRecipesDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifNewRecipesDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.7"
+      },
+      "NotifTextDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifTextDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.11"
+      },
+      "NotifNewBuildingsDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifNewBuildingsDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.6"
+      },
+      "NotifSkillUpDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifSkillUpDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.10"
+      },
+      "NotifItemPickupDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifItemPickupDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.5"
+      },
+      "NotifTextWithSecondaryTextDebug": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:NotifTextWithSecondaryTextDebug'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.12"
+      },
+      "ShowcaseNotifications": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ShowcaseNotifications'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.15"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.13"
+      },
+      "ResetHUD": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:ResetHUD'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.14"
+      },
+      "BuildHUD": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:BuildHUD'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.2"
+      },
+      "IsInputBlockingWidgetOpen": {
+        "ObjectName": "Function'BP_HUD_MainHUD_C:IsInputBlockingWidgetOpen'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.4"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Transient | CLASS_NoExport | CLASS_NotPlaceable | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_HUD_MainHUD_C'Default__BP_HUD_MainHUD_C'",
+      "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_HUD_MainHUD_C",
+    "Name": "Default__BP_HUD_MainHUD_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.BP_HUD_MainHUD_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "RecipeDebugArray": [
+        {
+          "ObjectName": "RecipeData'RECIPE_Weapon_GreatAxe_Iron'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Held/GreatAxe/RECIPE_Weapon_GreatAxe_Iron.0"
+        },
+        {
+          "ObjectName": "RecipeData'RECIPE_Armour_T2_Body_Linen'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Body/RECIPE_Armour_T2_Body_Linen.0"
+        },
+        {
+          "ObjectName": "RecipeData'RECIPE_Armour_T4_Body_Iron'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Body/RECIPE_Armour_T4_Body_Iron.0"
+        }
+      ],
+      "SkillUpRowDebug": {
+        "ObjectName": "SkillData'SKILL_Attack'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Skills/SKILL_Attack.1"
+      },
+      "BuildingPiecesDebugArray": [
+        {
+          "ObjectName": "BuildingPieceData'BUILDPIECE_ProcessingStation_Smelter'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Data/BuildingPieces/Structures/Crafting/BUILDPIECE_ProcessingStation_Smelter.0"
+        },
+        {
+          "ObjectName": "BuildingPieceData'BUILDPIECE_Wall_PROXY'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Data/BuildingPieces/Structures/PROXY/BUILDPIECE_Wall_PROXY.0"
+        },
+        {
+          "ObjectName": "BuildingPieceData'BUILDPIECE_Beam_Horizontal_Half_Thick'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Data/BuildingPieces/Structures/Beams/BUILDPIECE_Beam_Horizontal_Half_Thick.0"
+        }
+      ],
+      "RecipeDebugArray_0": [
+        {
+          "ObjectName": "RecipeData'RECIPE_Armour_T3_Head_Bronze'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Head/RECIPE_Armour_T3_Head_Bronze.0"
+        },
+        {
+          "ObjectName": "RecipeData'RECIPE_Armour_T3_Body_Wizard'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Equipment/Body/RECIPE_Armour_T3_Body_Wizard.0"
+        },
+        null
+      ],
+      "PlayerHUDWidgetsType": [
+        "EWidgetType::VitalsBars",
+        "EWidgetType::StatusEffects",
+        "EWidgetType::InputsLegend",
+        "EWidgetType::Compass",
+        "EWidgetType::Vignette",
+        "EWidgetType::InteractionPrompt",
+        "EWidgetType::DayAndNight"
+      ],
+      "HUDRootWidgetClassAlwaysActive": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_RootWidget_C'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_RootWidget.2"
+      },
+      "HUDRootWidgetClassAlwaysDeactive": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_RootWidget_C'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_RootWidget.2"
+      },
+      "HUDRootWidgetClassAlwaysOnTop": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_RootWidget_C'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_RootWidget.2"
+      },
+      "HUDRootWidgetClassDebug": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_RootWidget_C'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_RootWidget.2"
+      },
+      "MainMenuRootWidgetClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_InGameScreensRoot_C'",
+        "ObjectPath": "RSDragonwilds/Content/UI/InGameMenus/WBP_InGameScreensRoot.2"
+      },
+      "DialogBaseClass": {
+        "ObjectName": "WidgetBlueprintGeneratedClass'WBP_GenericDialogBase_C'",
+        "ObjectPath": "RSDragonwilds/Content/UI/GenericDialog/WBP_GenericDialogBase.2"
+      },
+      "InventoryWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Inventory_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Inventory/WBP_Inventory_MainPanel.78"
+        },
+        "ZOrder": 69,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "VitalsBarsWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_PlayerVitalsBars_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/VitalsBars/WBP_HUD_PlayerVitalsBars.48"
+        },
+        "ZOrder": 1,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "ProcessingStationWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_ProcessingStation_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/ProcessingStations/WBP_ProcessingStation_MainPanel.39"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "WorldActorInventoryWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_WorldActorInventory_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/WorldActorInventory/WBP_WorldActorInventory_MainPanel.5"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "CancelSplitStackWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_CancelSplit_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_CancelSplit.39"
+        },
+        "ZOrder": 68,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "StatusEffectsWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_EffectsDisplayLists_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/StatusEffects/WBP_HUD_EffectsDisplayLists.4"
+        },
+        "ZOrder": 2
+      },
+      "SpellTimerWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_SpellTimerList_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/SpellTimer/WBP_SpellTimerList.4"
+        }
+      },
+      "BuildingMenuWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Building_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Building/WBP_Building_MainPanel.98"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "BuildingPlacementTooltipsWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Building_WorldTooltip_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Building/Tooltip/World/WBP_Building_WorldTooltip.107"
+        },
+        "ZOrder": 71,
+        "bCollapseOnCreate": true
+      },
+      "CraftingMenuWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Crafting_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Crafting/WBP_Crafting_MainPanel.93"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "RunecraftingMenuWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Runecrafting_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Crafting/WBP_Runecrafting_MainPanel.324"
+        },
+        "ZOrder": 68,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "ReticleWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_ReticleWidget_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_ReticleWidget.13"
+        },
+        "ZOrder": 1
+      },
+      "CompassWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_Compass_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/Compass/WBP_HUD_Compass.90"
+        },
+        "ZOrder": 1
+      },
+      "InteractionPromptWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_InteractionPrompt_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_InteractionPrompt.18"
+        },
+        "ZOrder": 1
+      },
+      "NotificationsWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_Notifications_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_Notifications.34"
+        },
+        "ZOrder": 75,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "NotificationsOnTopWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_NotificationsOnTop_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_NotificationsOnTop.2"
+        },
+        "ZOrder": 10,
+        "RootWidgetType": "ERootWidgetType::AlwaysOnTop"
+      },
+      "VignetteWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_VignetteContainer_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_VignetteContainer.14"
+        }
+      },
+      "InputLegendsWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_InputsLegend_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_InputsLegend.28"
+        },
+        "ZOrder": 30
+      },
+      "DebugMenuWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_DebugMenu_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_DebugMenu.8"
+        },
+        "ZOrder": 255,
+        "RootWidgetType": "ERootWidgetType::Debug"
+      },
+      "ChatWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Chat_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Chat/WBP_Chat.6"
+        },
+        "ZOrder": 70,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "CompositeVariableMenuWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_CompositeVariableMenu_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_CompositeVariableMenu.13"
+        },
+        "ZOrder": 255,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "RestingWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_Resting_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/WBP_HUD_Resting.4"
+        },
+        "ZOrder": 68,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "SpellcastingWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Spellcasting_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_Spellcasting_MainPanel.10"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "SpellPlacementWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_SpellPlacementWidget_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Spellcasting/WBP_SpellPlacementWidget.8"
+        },
+        "ZOrder": 71,
+        "bCollapseOnCreate": true
+      },
+      "EnchantingWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Enchanting_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Enchanting/WBP_Enchanting_MainPanel.20"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "ConversationWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Conversation_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Conversation/WBP_Conversation_MainPanel.63"
+        },
+        "ZOrder": 75,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "SplitStackCancelWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "Class'SplitStackCancelZoneBase'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "ZOrder": 253,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "DragSlotWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Inventory_DraggedVisual_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Inventory/WBP_Inventory_DraggedVisual.18"
+        },
+        "ZOrder": 254,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "RegionTextWidgetConfig": {
+        "ZOrder": 1
+      },
+      "SignWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Sign_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Sign/WBP_Sign_MainPanel.18"
+        },
+        "ZOrder": 2,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "LorePopupWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_LorePopupMainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/LorePopup/WBP_LorePopupMainPanel.20"
+        },
+        "ZOrder": 76,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "DayAndNightWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_HUD_DayAndNight_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/DayAndNight/WBP_HUD_DayAndNight.6"
+        },
+        "ZOrder": 1
+      },
+      "ContainerWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Container_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Container/WBP_Container_MainPanel.37"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "ComposterWidgetConfig": {
+        "WidgetClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Composter_MainPanel_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/ProcessingStations/Composter/WBP_Composter_MainPanel.45"
+        },
+        "ZOrder": 70,
+        "bCollapseOnCreate": true,
+        "RootWidgetType": "ERootWidgetType::AlwaysActivated"
+      },
+      "FishingWidgetConfig": {
+        "ZOrder": 1,
+        "bCollapseOnCreate": true
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BuildHUD",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_HUD_MainHUD",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerController_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsPlayerReady_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayerController_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetLocalPlayerSubSystemFromPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'NotificationsSubsystem'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetLocalPlayerSubSystemFromPlayerController_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'NotificationsSubsystem'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayerController_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetLocalPlayerSubSystemFromPlayerController_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'NotificationsSubsystem'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable_4",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable_5",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable_6",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable_7",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "Temp_object_Variable",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'SkillPerkData'",
+            "ObjectPath": "/Script/Dominion"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Temp_object_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "Temp_object_Variable_1",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'SkillPerkData'",
+            "ObjectPath": "/Script/Dominion"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwningPlayerController_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetLocalPlayerSubSystemFromPlayerController_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'NotificationsSubsystem'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'PlayerControllerReady__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "IsInputBlockingWidgetOpen",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:IsInputBlockingWidgetOpen'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetWorldSubsystem_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'HUDUISubsystem'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetGenericDialogAPI_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'GenericDialogUIAPI'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetWorldSubsystem_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'HUDUISubsystem'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDialogOpen_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetInputManagerAPI_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'InputManagerUIAPI'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsOpen_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsOpen_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsOpen_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsOpen_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsOpen_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifItemPickupDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:NotifItemPickupDebug'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Exec | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifNewBuildingsDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:NotifNewBuildingsDebug'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Exec | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifNewRecipesDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:NotifNewRecipesDebug'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Exec | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifPlayerJoinDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifPlayerLeaveDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifSkillUpDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:NotifSkillUpDebug'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Exec | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifTextDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:NotifTextDebug'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Exec | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifTextWithSecondaryTextDebug",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:NotifTextWithSecondaryTextDebug'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Exec | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ResetHUD",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerHUD:ResetHUD'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ShowcaseNotifications",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_HUD_MainHUD_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.16"
+      },
+      "VariableGUID": "31C0F70A-4C664FB1-A00685A4-05FB7F8B",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_HUD_MainHUD_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_HUD_MainHUD_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.17"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_HUD_MainHUD_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.17"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_HUD_MainHUD_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/UI/HUD/BP_HUD_MainHUD.17"
+      }
+    }
+  }
+]

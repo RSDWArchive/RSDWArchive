@@ -1,0 +1,544 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_SwitchableDoor_PressurePlate_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.13"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:ExecuteUbergraph_BP_SwitchableDoor_PressurePlate'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'WorldActor'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:Should Door be Open'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.9"
+      },
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:SetClosed'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.7"
+      },
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:SetOpen'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.8"
+      },
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:NotifySwitchPositionChanged'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.4"
+      },
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.6"
+      },
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:Open'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.5"
+      },
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:Close'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.2"
+      },
+      {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:ExecuteUbergraph_BP_SwitchableDoor_PressurePlate'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Door",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PressurePlateToOpen",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_PressurePlateDefault_C'",
+          "ObjectPath": "/FutureMajorVersion/Gameplay/World/Dungeon/Traps/Proto/BP_PressurePlateDefault"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "TripWiresToClose",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "TripWiresToClose",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Tripwire_Puzzle_C'",
+            "ObjectPath": "/FutureMajorVersion/Gameplay/World/Dungeon/Traps/Proto/BP_Tripwire_Puzzle"
+          }
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_SwitchableDoor_PressurePlate": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:ExecuteUbergraph_BP_SwitchableDoor_PressurePlate'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.3"
+      },
+      "Close": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:Close'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.2"
+      },
+      "Open": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:Open'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.5"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.6"
+      },
+      "NotifySwitchPositionChanged": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:NotifySwitchPositionChanged'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.4"
+      },
+      "SetOpen": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:SetOpen'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.8"
+      },
+      "SetClosed": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:SetClosed'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.7"
+      },
+      "Should Door be Open": {
+        "ObjectName": "Function'BP_SwitchableDoor_PressurePlate_C:Should Door be Open'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.9"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'Switchable'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SwitchableDoor_PressurePlate_C'Default__BP_SwitchableDoor_PressurePlate_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=\"/Script/CoreUObject.Class'/Script/Dominion.Switchable'\"))"
+    }
+  },
+  {
+    "Type": "BP_SwitchableDoor_PressurePlate_C",
+    "Name": "Default__BP_SwitchableDoor_PressurePlate_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.BP_SwitchableDoor_PressurePlate_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "DisplayName": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "Door",
+        "SourceString": "Door",
+        "LocalizedString": "Door"
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "Close",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_SwitchableDoor_PressurePlate",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Function'BP_PressurePlateDefault_C:PlatePressed__DelegateSignature'",
+          "ObjectPath": "/FutureMajorVersion/Gameplay/World/Dungeon/Traps/Proto/BP_PressurePlateDefault"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Function'BP_Tripwire_Puzzle_C:TripwireTriggered__DelegateSignature'",
+          "ObjectPath": "/FutureMajorVersion/Gameplay/World/Dungeon/Traps/Proto/BP_Tripwire_Puzzle"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_SwitchPosition",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bIsRecentChange",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Tripwire_Puzzle_C'",
+          "ObjectPath": "/FutureMajorVersion/Gameplay/World/Dungeon/Traps/Proto/BP_Tripwire_Puzzle"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifySwitchPositionChanged",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "SwitchPosition",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsRecentChange",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Open",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetClosed",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetOpen",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Should Door be Open",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "SwitchPosition",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ShouldBeOpen",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_SwitchableDoor_PressurePlate_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.10"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SwitchableDoor_PressurePlate_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.12"
+        }
+      ],
+      "VariableGUID": "E48F6CB0-48E9C973-A8911FBA-4AFB59ED",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_SwitchableDoor_PressurePlate_C:Door_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.14"
+      },
+      "VariableGUID": "77076CE2-49182F4F-9548AF9B-BA4506BD",
+      "InternalVariableName": "Door"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SwitchableDoor_PressurePlate_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.11"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SwitchableDoor_PressurePlate_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.11"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SwitchableDoor_PressurePlate_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.12"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_SwitchableDoor_PressurePlate_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Mechanisms/Proto/BP_SwitchableDoor_PressurePlate.11"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Door_GEN_VARIABLE",
+    "Outer": "BP_SwitchableDoor_PressurePlate_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Cube'",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_FlatColor_02'",
+          "ObjectPath": "RSDragonwilds/Content/Art/Item/Shared/Placeholder/MI_FlatColor_02.0"
+        }
+      ],
+      "BodyInstance": {
+        "CollisionProfileName": "BlockAllWorldActor",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Footstep",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "FeetIK",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "AudioOcclusion",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 150.0
+      },
+      "RelativeScale3D": {
+        "X": 0.3,
+        "Y": 2.0,
+        "Z": 3.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  }
+]

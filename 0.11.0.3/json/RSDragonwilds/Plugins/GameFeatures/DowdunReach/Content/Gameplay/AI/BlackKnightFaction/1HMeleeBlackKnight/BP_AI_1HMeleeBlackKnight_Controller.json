@@ -1,0 +1,344 @@
+[
+  {
+    "Type": "AIAlertnessComponent",
+    "Name": "Ai Alertness Component",
+    "Outer": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'AIAlertnessComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AINoiseEmitterComponent",
+    "Name": "Noise Emitter Component",
+    "Outer": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'AINoiseEmitterComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NoiseData": {
+        "ObjectName": "NoiseData'NoiseData'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/NoiseData.0"
+      }
+    }
+  },
+  {
+    "Type": "AIPatrollingComponent",
+    "Name": "Patrolling Component",
+    "Outer": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'AIPatrollingComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AIPerceptionComponent",
+    "Name": "AIPerception_GEN_VARIABLE",
+    "Outer": "BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'AIPerceptionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SensesConfig": [
+        {
+          "ObjectName": "AISenseConfig_Sight'BP_AI_1HMeleeBlackKnight_Controller_C:AIPerception_GEN_VARIABLE.AISenseConfig_Sight_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.5"
+        },
+        {
+          "ObjectName": "AISenseConfig_Hearing'BP_AI_1HMeleeBlackKnight_Controller_C:AIPerception_GEN_VARIABLE.AISenseConfig_Hearing_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.4"
+        }
+      ],
+      "DominantSense": {
+        "ObjectName": "Class'AISense_Hearing'",
+        "ObjectPath": "/Script/AIModule"
+      }
+    }
+  },
+  {
+    "Type": "AISenseConfig_Hearing",
+    "Name": "AISenseConfig_Hearing_0",
+    "Outer": "AIPerception_GEN_VARIABLE",
+    "Class": "UScriptClass'AISenseConfig_Hearing'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HearingRange": 1500.0,
+      "MaxAge": 10.0
+    }
+  },
+  {
+    "Type": "AISenseConfig_Sight",
+    "Name": "AISenseConfig_Sight_0",
+    "Outer": "AIPerception_GEN_VARIABLE",
+    "Class": "UScriptClass'AISenseConfig_Sight'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SightRadius": 1500.0,
+      "LoseSightRadius": 2000.0,
+      "MaxAge": 10.0
+    }
+  },
+  {
+    "Type": "AiThreatEmitterComponent",
+    "Name": "Threat Emitter Component",
+    "Outer": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'AiThreatEmitterComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiThreatSystem",
+    "Name": "ThreatSystem",
+    "Outer": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'AiThreatSystem'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.19"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'DominionAIController'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_BlackKnightMelee_AIAmbientMovementComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BlackKnightMelee_AIAmbientMovementComponent_C'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/Components/BP_BlackKnightMelee_AIAmbientMovementComponent"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_BlackKnight_CombatStrategyComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BlackKnight_CombatStrategyComponent_C'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/BP_BlackKnight_CombatStrategyComponent"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AIPerception",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AIPerceptionComponent'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_NotPlaceable | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_1HMeleeBlackKnight_Controller_C'Default__BP_AI_1HMeleeBlackKnight_Controller_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.9"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Name": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.BP_AI_1HMeleeBlackKnight_Controller_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PatrollingComponent": {
+        "ObjectName": "AIPatrollingComponent'Default__BP_AI_1HMeleeBlackKnight_Controller_C:Patrolling Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.2"
+      },
+      "AIAlertnessComponent": {
+        "ObjectName": "AIAlertnessComponent'Default__BP_AI_1HMeleeBlackKnight_Controller_C:Ai Alertness Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.0"
+      },
+      "ThreatSystem": {
+        "ObjectName": "AiThreatSystem'Default__BP_AI_1HMeleeBlackKnight_Controller_C:ThreatSystem'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.7"
+      },
+      "ThreatEmitterComponent": {
+        "ObjectName": "AiThreatEmitterComponent'Default__BP_AI_1HMeleeBlackKnight_Controller_C:Threat Emitter Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.6"
+      },
+      "NoiseEmitterComponent": {
+        "ObjectName": "AINoiseEmitterComponent'Default__BP_AI_1HMeleeBlackKnight_Controller_C:Noise Emitter Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.1"
+      },
+      "PathFollowingComponent": {
+        "ObjectName": "DominionPathFollowingComponent'Default__BP_AI_1HMeleeBlackKnight_Controller_C:PathFollowingComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.12"
+      },
+      "TransformComponent": {
+        "ObjectName": "SceneComponent'Default__BP_AI_1HMeleeBlackKnight_Controller_C:TransformComponent0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.14"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_AI_1HMeleeBlackKnight_Controller_C:TransformComponent0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.14"
+      }
+    }
+  },
+  {
+    "Type": "UObject",
+    "Name": "BP_BlackKnight_CombatStrategyComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "UObject",
+    "Name": "BP_BlackKnightMelee_AIAmbientMovementComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionPathFollowingComponent",
+    "Name": "PathFollowingComponent",
+    "Outer": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'DominionPathFollowingComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "TransformComponent0",
+    "Outer": "Default__BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_1HMeleeBlackKnight_Controller_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.13"
+      },
+      "VariableGUID": "AD857441-453A3399-0797988B-FB241342",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AIPerceptionComponent'",
+        "ObjectPath": "/Script/AIModule"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AIPerceptionComponent'BP_AI_1HMeleeBlackKnight_Controller_C:AIPerception_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.3"
+      },
+      "VariableGUID": "136515DC-4F08F7E1-D5DB5AA9-92219D0F",
+      "InternalVariableName": "AIPerception"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_BlackKnight_CombatStrategyComponent_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/BP_BlackKnight_CombatStrategyComponent"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_BlackKnight_CombatStrategyComponent_C'BP_AI_1HMeleeBlackKnight_Controller_C:BP_BlackKnight_CombatStrategyComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.10"
+      },
+      "VariableGUID": "2646617C-461DAB81-140024BF-A17D0317",
+      "InternalVariableName": "BP_BlackKnight_CombatStrategyComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_BlackKnightMelee_AIAmbientMovementComponent_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/Components/BP_BlackKnightMelee_AIAmbientMovementComponent"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_BlackKnightMelee_AIAmbientMovementComponent_C'BP_AI_1HMeleeBlackKnight_Controller_C:BP_BlackKnightMelee_AIAmbientMovementComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.11"
+      },
+      "VariableGUID": "875682D7-43535094-2C3534A2-88C2D201",
+      "InternalVariableName": "BP_BlackKnightMelee_AIAmbientMovementComponent"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_1HMeleeBlackKnight_Controller_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.18"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.18"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_1HMeleeBlackKnight_Controller_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/1HMeleeBlackKnight/BP_AI_1HMeleeBlackKnight_Controller.15"
+      }
+    }
+  }
+]
