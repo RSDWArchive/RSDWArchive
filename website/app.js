@@ -55,7 +55,7 @@ let currentMatches = [];
 let selectedMatchIndex = -1;
 let debounceTimer = null;
 let currentQueryTokens = [];
-let showFullPaths = true;
+let showFullPaths = false;
 let currentOpenPath = null;
 const DEFAULT_REPO_CONTEXT = { owner: "RSDWArchive", repo: "RSDWArchive" };
 
@@ -650,4 +650,5 @@ if (toolsToggleBtn && toolsDropdownEl) {
 }
 
 updateContentActionState();
+applyPathDisplayMode();
 init();

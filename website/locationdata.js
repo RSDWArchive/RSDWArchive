@@ -21,6 +21,9 @@ const includeNamesInput = document.getElementById("include-names");
 const includeZInput = document.getElementById("include-z");
 const combinerCancelBtn = document.getElementById("combiner-cancel");
 const combinerCreateBtn = document.getElementById("combiner-create");
+const togglePreviewFormatBtn = document.getElementById("toggle-preview-format");
+const copyPreviewBtn = document.getElementById("copy-preview");
+const copyToastEl = document.getElementById("copy-toast");
 
 let locations = [];
 let currentMatches = [];
@@ -29,6 +32,9 @@ let selectedMatchIndex = -1;
 let currentActiveBtn = null;
 let debounceTimer = null;
 let lastQuery = "";
+let previewMode = "wiki";
+let currentOpenEntry = null;
+let copyToastTimer = null;
 
 siteLogo.addEventListener("error", () => {
   siteLogo.style.opacity = "0.5";
@@ -68,6 +74,50 @@ function setCombinerModal(open) {
   combinerModal.hidden = !open;
 }
 
+function updatePreviewControlsState() {
+  const hasSelection = Boolean(currentOpenEntry);
+  togglePreviewFormatBtn.disabled = !hasSelection;
+  copyPreviewBtn.disabled = !hasSelection;
+}
+
+function getPreviewText(entry) {
+  if (previewMode === "coords") {
+    return `${entry.x} ${entry.y} ${entry.z}`;
+  }
+
+  const previewData = {
+    x: toNumberOrString(entry.x),
+    y: toNumberOrString(entry.y),
+    z: toNumberOrString(entry.z)
+  };
+  return `${JSON.stringify(previewData, null, 2)}\n`;
+}
+
+function updatePreviewModeButtonLabel() {
+  togglePreviewFormatBtn.textContent = previewMode === "wiki" ? "Wiki" : "Coords";
+}
+
+function showCopyToast(message, isError = false) {
+  if (!copyToastEl) {
+    return;
+  }
+  if (copyToastTimer) {
+    clearTimeout(copyToastTimer);
+  }
+  copyToastEl.textContent = message;
+  copyToastEl.classList.toggle("error", isError);
+  copyToastEl.hidden = false;
+  requestAnimationFrame(() => {
+    copyToastEl.classList.add("show");
+  });
+  copyToastTimer = setTimeout(() => {
+    copyToastEl.classList.remove("show");
+    setTimeout(() => {
+      copyToastEl.hidden = true;
+    }, 200);
+  }, 1800);
+}
+
 function updateCombineButtonState() {
   const count = currentFiltered.length;
   combineBtn.disabled = count === 0;
@@ -102,9 +152,10 @@ function setSelectedMatch(index) {
 }
 
 function openLocation(entry) {
+  currentOpenEntry = entry;
   selectedPathEl.textContent = entry.name;
-  const pretty = `X: ${entry.x}\nY: ${entry.y}\nZ: ${entry.z}`;
-  fileContentEl.textContent = pretty;
+  fileContentEl.textContent = getPreviewText(entry);
+  updatePreviewControlsState();
 }
 
 function openMatchByIndex(index) {
@@ -200,12 +251,14 @@ function filterAndRender() {
     currentMatches = [];
     currentFiltered = [];
     selectedMatchIndex = -1;
+    currentOpenEntry = null;
     setActiveButton(null);
     resultsViewer.classList.remove("visible");
     setLandingVisible(true);
     resultsEl.innerHTML = "";
     selectedPathEl.textContent = "Select a location";
     fileContentEl.textContent = "Search and click a location to preview XYZ coordinates.";
+    updatePreviewControlsState();
     updateCombineButtonState();
     return;
   }
@@ -233,6 +286,36 @@ function triggerDebouncedSearch() {
     clearTimeout(debounceTimer);
   }
   debounceTimer = setTimeout(filterAndRender, SEARCH_DEBOUNCE_MS);
+}
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.opacity = "0";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textArea);
+}
+
+async function handleCopyPreview() {
+  if (!currentOpenEntry) {
+    return;
+  }
+
+  try {
+    await copyTextToClipboard(getPreviewText(currentOpenEntry));
+    showCopyToast("Copied to clipboard.");
+  } catch {
+    showCopyToast("Unable to copy preview text.", true);
+  }
 }
 
 function handleSearchKeyDown(event) {
@@ -334,6 +417,18 @@ combinerCreateBtn.addEventListener("click", () => {
   setCombinerModal(false);
 });
 
+togglePreviewFormatBtn.addEventListener("click", () => {
+  previewMode = previewMode === "wiki" ? "coords" : "wiki";
+  updatePreviewModeButtonLabel();
+  if (currentOpenEntry) {
+    fileContentEl.textContent = getPreviewText(currentOpenEntry);
+  }
+});
+
+copyPreviewBtn.addEventListener("click", () => {
+  void handleCopyPreview();
+});
+
 combinerModal.addEventListener("click", (event) => {
   if (event.target === combinerModal) {
     setCombinerModal(false);
@@ -346,4 +441,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+updatePreviewModeButtonLabel();
+updatePreviewControlsState();
 init();

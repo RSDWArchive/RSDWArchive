@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RSDW Archive - LocationData</title>
+  <title>RSDW Archive - LootData</title>
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png" />
@@ -21,8 +21,8 @@
       <a class="brand-home-link brand-title" href="./index.html">RSDW Archive</a>
     </div>
     <div class="header-search">
-      <label class="sr-only" for="file-search">Search Locations</label>
-      <input id="file-search" type="search" placeholder="Search Locations..." autocomplete="off" />
+      <label class="sr-only" for="file-search">Search Loot Data</label>
+      <input id="file-search" type="search" placeholder="Search Enemies..." autocomplete="off" />
     </div>
     <div class="header-actions">
       <a class="github-link" href="https://github.com/RSDWArchive/RSDWArchive" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
@@ -42,58 +42,57 @@
 
   <main>
     <section id="landing-message" class="landing-message">
-      <p id="home-status" aria-live="polite">Loading LocationData...</p>
-      <p id="home-subtitle" class="landing-subtitle">Browse locations</p>
+      <p id="home-status" aria-live="polite">Loading LootData...</p>
+      <p id="home-subtitle" class="landing-subtitle">Browse enemy drops, chests, and item lookups</p>
     </section>
 
-    <p id="status" aria-live="polite">Loading LocationData...</p>
+    <p id="status" aria-live="polite">Loading LootData...</p>
 
     <section class="results-viewer">
       <aside>
         <div class="panel-header">
-          <h2>Location</h2>
-          <button id="combine-btn" type="button" class="panel-action-btn" disabled>Combine</button>
+          <h2 id="list-title">Enemies</h2>
+          <div class="view-tabs" role="tablist" aria-label="Loot data views">
+            <button id="tab-enemies" class="panel-action-btn view-tab-btn active" type="button" role="tab" aria-selected="true">Enemies</button>
+            <button id="tab-chests" class="panel-action-btn view-tab-btn" type="button" role="tab" aria-selected="false">Chests</button>
+            <button id="tab-items" class="panel-action-btn view-tab-btn" type="button" role="tab" aria-selected="false">Items</button>
+          </div>
         </div>
         <ul id="results"></ul>
       </aside>
       <article>
         <div class="panel-header">
-          <h2>Coordinates</h2>
+          <h2>Preview</h2>
           <div class="content-actions">
-            <button id="toggle-preview-format" type="button" class="panel-action-btn" disabled>Wiki</button>
+            <button id="toggle-preview-format" type="button" class="panel-action-btn" disabled>JSON</button>
+            <button id="filter-names-btn" type="button" class="panel-action-btn" hidden>Filter Names</button>
             <button id="copy-preview" type="button" class="panel-action-btn preview-copy-btn" aria-label="Copy preview to clipboard" title="Copy preview to clipboard" disabled>
               <img src="./clipboard.png" alt="" />
             </button>
           </div>
         </div>
-        <p id="selected-path">Select a location</p>
-        <pre id="file-content">Search and click a location to preview XYZ coordinates.</pre>
+        <p id="selected-path">Select an entry</p>
+        <pre id="file-content">Search and click an entry to preview compiled loot data.</pre>
       </article>
     </section>
   </main>
-  <div id="combiner-modal" class="combiner-modal" hidden>
-    <div class="combiner-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="combiner-title">
-      <h3 id="combiner-title">Location Combiner</h3>
-      <label class="combiner-check">
-        <input id="include-names" type="checkbox" />
-        <span>Names</span>
-      </label>
-      <label class="combiner-check">
-        <input id="include-z" type="checkbox" />
-        <span>Z-Location</span>
-      </label>
-      <div class="combiner-actions">
-        <button id="combiner-cancel" type="button" class="panel-action-btn">Cancel</button>
-        <button id="combiner-create" type="button" class="panel-action-btn">Create LocationData</button>
-      </div>
-    </div>
-  </div>
   <footer class="site-footer">
     <p>All of these game files are the property of Jagex.</p>
     <p>RSDW Archive created by: Hi im Tat</p>
   </footer>
+  <div id="name-filter-modal" class="combiner-modal" hidden>
+    <div class="combiner-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="name-filter-title">
+      <h3 id="name-filter-title">Filter Names</h3>
+      <label class="name-filter-label" for="name-filter-input">Comma-separated values to remove from name=</label>
+      <input id="name-filter-input" class="name-filter-input" type="text" value="ITEM_," />
+      <div class="combiner-actions">
+        <button id="name-filter-cancel" type="button" class="panel-action-btn">Cancel</button>
+        <button id="name-filter-apply" type="button" class="panel-action-btn">Apply</button>
+      </div>
+    </div>
+  </div>
   <div id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden></div>
 
-  <script src="./locationdata.js" defer></script>
+  <script src="./lootdata.js" defer></script>
 </body>
 </html>
