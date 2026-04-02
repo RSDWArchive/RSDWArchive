@@ -1,6 +1,6 @@
 # RSDWArchive
 
-A repository to archive json/texture files of different RSDW versions to give easy access to modders. 
+A repository to archive json/texture files of different RSDW versions.
 
 All of these game files are the property of Jagex.
 
