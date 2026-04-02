@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSDW Archive</title>
+  <link rel="preload" href="https://fonts.gstatic.com/s/sofiasans/v20/Yq6T-LCVXSLy9uPBwlATrORKkzApcb8.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a class="brand-home-link logo-wrap" href="./index.html" aria-label="Go to homepage">
+        <img id="site-logo" src="./logo.png" alt="RSDW Archive logo" />
+      </a>
+      <a class="brand-home-link brand-title" href="./index.html">RSDW Archive</a>
+    </div>
+    <div class="header-search">
+      <label class="sr-only" for="file-search">Search Files</label>
+      <input id="file-search" type="search" placeholder="Search Files..." autocomplete="off" />
+    </div>
+    <div class="header-actions">
+      <a class="github-link" href="https://github.com/RSDWArchive/RSDWArchive" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+        <img src="./github.svg" alt="" />
+      </a>
+      <div class="tools-menu">
+        <button id="tools-toggle" class="panel-action-btn tools-toggle" type="button" aria-haspopup="menu" aria-expanded="false">Tools</button>
+        <div id="tools-dropdown" class="tools-dropdown" role="menu" hidden>
+          <a href="./LocationData.html" role="menuitem">LocationData</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="landing-message" class="landing-message">
+      <p id="home-status" aria-live="polite">Loading file index...</p>
+      <p id="home-subtitle" class="landing-subtitle">Search for Anything</p>
+    </section>
+
+    <p id="status" aria-live="polite">Loading file index...</p>
+
+    <section class="results-viewer">
+      <aside>
+        <div class="panel-header">
+          <h2>Path</h2>
+          <button id="toggle-paths" type="button">Hide Paths</button>
+        </div>
+        <ul id="results"></ul>
+      </aside>
+      <article>
+        <div class="panel-header">
+          <h2>Content</h2>
+          <div class="content-actions">
+            <button id="copy-github-url" type="button" class="panel-action-btn" disabled>Github URL</button>
+            <button id="copy-raw-url" type="button" class="panel-action-btn" disabled>Raw</button>
+            <button id="download-file" type="button" class="panel-action-btn" disabled>Download</button>
+          </div>
+        </div>
+        <p id="selected-path">Select a file</p>
+        <pre id="file-content">Search and click a file to preview its content.</pre>
+      </article>
+    </section>
+  </main>
+  <footer class="site-footer">
+    All of these game files are the property of Jagex.
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSDW Archive - LocationData</title>
+  <link rel="preload" href="https://fonts.gstatic.com/s/sofiasans/v20/Yq6T-LCVXSLy9uPBwlATrORKkzApcb8.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a class="brand-home-link logo-wrap" href="./index.html" aria-label="Go to homepage">
+        <img id="site-logo" src="./logo.png" alt="RSDW Archive logo" />
+      </a>
+      <a class="brand-home-link brand-title" href="./index.html">RSDW Archive</a>
+    </div>
+    <div class="header-search">
+      <label class="sr-only" for="file-search">Search Locations</label>
+      <input id="file-search" type="search" placeholder="Search Locations..." autocomplete="off" />
+    </div>
+    <div class="header-actions">
+      <a class="github-link" href="https://github.com/RSDWArchive/RSDWArchive" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+        <img src="./github.svg" alt="" />
+      </a>
+      <div class="tools-menu">
+        <button id="tools-toggle" class="panel-action-btn tools-toggle" type="button" aria-haspopup="menu" aria-expanded="false">Tools</button>
+        <div id="tools-dropdown" class="tools-dropdown" role="menu" hidden>
+          <a href="./LocationData.html" role="menuitem">LocationData</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="landing-message" class="landing-message">
+      <p id="home-status" aria-live="polite">Loading LocationData...</p>
+      <p id="home-subtitle" class="landing-subtitle">Browse locations</p>
+    </section>
+
+    <p id="status" aria-live="polite">Loading LocationData...</p>
+
+    <section class="results-viewer">
+      <aside>
+        <div class="panel-header">
+          <h2>Location</h2>
+          <button id="combine-btn" type="button" class="panel-action-btn" disabled>Combine</button>
+        </div>
+        <ul id="results"></ul>
+      </aside>
+      <article>
+        <div class="panel-header">
+          <h2>Coordinates</h2>
+        </div>
+        <p id="selected-path">Select a location</p>
+        <pre id="file-content">Search and click a location to preview XYZ coordinates.</pre>
+      </article>
+    </section>
+  </main>
+  <div id="combiner-modal" class="combiner-modal" hidden>
+    <div class="combiner-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="combiner-title">
+      <h3 id="combiner-title">Location Combiner</h3>
+      <label class="combiner-check">
+        <input id="include-names" type="checkbox" />
+        <span>Names</span>
+      </label>
+      <label class="combiner-check">
+        <input id="include-z" type="checkbox" />
+        <span>Z-Location</span>
+      </label>
+      <div class="combiner-actions">
+        <button id="combiner-cancel" type="button" class="panel-action-btn">Cancel</button>
+        <button id="combiner-create" type="button" class="panel-action-btn">Create LocationData</button>
+      </div>
+    </div>
+  </div>
+  <footer class="site-footer">
+    All of these game files are the property of Jagex.
+  </footer>
+
+  <script src="./locationdata.js" defer></script>
+</body>
+</html>
