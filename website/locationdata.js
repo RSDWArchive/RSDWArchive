@@ -2,6 +2,7 @@ const DATA_URL = "./tools/LocationData/LocationData.json";
 const ROOT_FOLDER = "0.11.0.3";
 const MAX_RESULTS = 400;
 const SEARCH_DEBOUNCE_MS = 90;
+const MAX_MAP_MARKERS = 500;
 
 const searchInput = document.getElementById("file-search");
 const statusEl = document.getElementById("status");
@@ -24,6 +25,8 @@ const combinerCreateBtn = document.getElementById("combiner-create");
 const togglePreviewFormatBtn = document.getElementById("toggle-preview-format");
 const copyPreviewBtn = document.getElementById("copy-preview");
 const copyToastEl = document.getElementById("copy-toast");
+const locationMapEl = document.getElementById("location-map");
+const toggleMapModeBtn = document.getElementById("toggle-map-mode");
 
 let locations = [];
 let currentMatches = [];
@@ -35,6 +38,9 @@ let lastQuery = "";
 let previewMode = "wiki";
 let currentOpenEntry = null;
 let copyToastTimer = null;
+let locationMap = null;
+let locationMarkersLayer = null;
+let mapMode = "selected";
 
 siteLogo.addEventListener("error", () => {
   siteLogo.style.opacity = "0.5";
@@ -124,6 +130,95 @@ function updateCombineButtonState() {
   combineBtn.textContent = count > 0 ? `Combine (${count.toLocaleString()})` : "Combine";
 }
 
+function updateMapModeButtonLabel() {
+  if (!toggleMapModeBtn) {
+    return;
+  }
+  toggleMapModeBtn.textContent = mapMode === "selected" ? "Map: Selected" : "Map: Filtered";
+}
+
+function initLocationMap() {
+  if (!locationMapEl || typeof window.L === "undefined") {
+    return;
+  }
+  if (locationMap) {
+    return;
+  }
+
+  const bounds = [{ lon: 0, lat: -100800 }, { lon: 302400, lat: 201600 }];
+  const mult = 6144 / 302400 / 16;
+  const dragonwildsCRS = window.L.extend({}, window.L.CRS.Simple, {
+    projection: window.L.Projection.LonLat,
+    transformation: new window.L.Transformation(mult, 0, mult, mult * 100800)
+  });
+
+  locationMap = window.L.map(locationMapEl, {
+    crs: dragonwildsCRS,
+    maxBounds: bounds,
+    zoom: 2,
+    minZoom: 0.5,
+    maxZoom: 4,
+    zoomSnap: 0.5,
+    attributionControl: false
+  });
+
+  window.L.tileLayer("https://maps.runescape.wiki/dw/tiles/{z}/{x}_{y}.png").addTo(locationMap);
+  locationMarkersLayer = window.L.layerGroup().addTo(locationMap);
+  locationMap.fitBounds(bounds);
+}
+
+function entryToLatLng(entry) {
+  const x = Number.parseFloat(String(entry.x));
+  const y = Number.parseFloat(String(entry.y));
+  if (!Number.isFinite(x) || !Number.isFinite(y)) {
+    return null;
+  }
+  // Dragonwilds map works as lat=y, lng=x (same axis swap used by wiki center examples).
+  return [y, x];
+}
+
+function syncMapMarkers() {
+  if (!locationMap || !locationMarkersLayer) {
+    return;
+  }
+
+  locationMarkersLayer.clearLayers();
+  const sourceEntries = mapMode === "filtered"
+    ? currentFiltered.slice(0, MAX_MAP_MARKERS)
+    : (currentOpenEntry ? [currentOpenEntry] : []);
+  const bounds = [];
+
+  for (const entry of sourceEntries) {
+    const latLng = entryToLatLng(entry);
+    if (!latLng) {
+      continue;
+    }
+    bounds.push(latLng);
+    const marker = window.L.marker(latLng);
+    marker.bindPopup(
+      `<strong class="map-popup-title">${escapeHtml(entry.name)}</strong><br/>X: ${escapeHtml(String(entry.x))}<br/>Y: ${escapeHtml(String(entry.y))}`
+    );
+    marker.addTo(locationMarkersLayer);
+  }
+
+  if (!bounds.length) {
+    return;
+  }
+
+  if (mapMode === "selected") {
+    const [lat, lng] = bounds[0];
+    locationMap.setView([lat, lng], Math.max(locationMap.getZoom(), 2.5));
+    const firstMarker = locationMarkersLayer.getLayers()[0];
+    if (firstMarker) {
+      firstMarker.openPopup();
+    }
+  } else {
+    locationMap.fitBounds(bounds, { padding: [24, 24] });
+  }
+
+  locationMap.invalidateSize();
+}
+
 function setActiveButton(buttonEl) {
   if (currentActiveBtn) {
     currentActiveBtn.classList.remove("active");
@@ -156,6 +251,7 @@ function openLocation(entry) {
   selectedPathEl.textContent = entry.name;
   fileContentEl.textContent = getPreviewText(entry);
   updatePreviewControlsState();
+  syncMapMarkers();
 }
 
 function openMatchByIndex(index) {
@@ -260,6 +356,7 @@ function filterAndRender() {
     fileContentEl.textContent = "Search and click a location to preview XYZ coordinates.";
     updatePreviewControlsState();
     updateCombineButtonState();
+    syncMapMarkers();
     return;
   }
 
@@ -276,6 +373,7 @@ function filterAndRender() {
   const capped = matches.length > MAX_RESULTS ? ` (showing first ${MAX_RESULTS.toLocaleString()})` : "";
   updateStatus(`${matches.length.toLocaleString()} matches${capped}.`);
   updateCombineButtonState();
+  syncMapMarkers();
 }
 
 function triggerDebouncedSearch() {
@@ -351,6 +449,8 @@ function handleSearchKeyDown(event) {
 
 async function init() {
   try {
+    initLocationMap();
+
     const response = await fetch(DATA_URL);
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
@@ -384,6 +484,14 @@ async function init() {
     updateHomeStatus(errorText);
     updateHomeSubtitle(`Browse Locations in ${ROOT_FOLDER}`);
     setLandingVisible(true);
+  }
+
+  // Leaflet may still be loading when this script starts.
+  if (!locationMap && locationMapEl) {
+    window.setTimeout(() => {
+      initLocationMap();
+      syncMapMarkers();
+    }, 300);
   }
 }
 
@@ -425,6 +533,12 @@ togglePreviewFormatBtn.addEventListener("click", () => {
   }
 });
 
+toggleMapModeBtn.addEventListener("click", () => {
+  mapMode = mapMode === "selected" ? "filtered" : "selected";
+  updateMapModeButtonLabel();
+  syncMapMarkers();
+});
+
 copyPreviewBtn.addEventListener("click", () => {
   void handleCopyPreview();
 });
@@ -442,5 +556,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 updatePreviewModeButtonLabel();
+updateMapModeButtonLabel();
 updatePreviewControlsState();
 init();
