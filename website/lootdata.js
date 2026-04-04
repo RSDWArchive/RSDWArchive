@@ -19,13 +19,8 @@ const tabEnemiesBtn = document.getElementById("tab-enemies");
 const tabChestsBtn = document.getElementById("tab-chests");
 const tabItemsBtn = document.getElementById("tab-items");
 const togglePreviewFormatBtn = document.getElementById("toggle-preview-format");
-const filterNamesBtn = document.getElementById("filter-names-btn");
 const copyPreviewBtn = document.getElementById("copy-preview");
 const copyToastEl = document.getElementById("copy-toast");
-const nameFilterModal = document.getElementById("name-filter-modal");
-const nameFilterInput = document.getElementById("name-filter-input");
-const nameFilterCancelBtn = document.getElementById("name-filter-cancel");
-const nameFilterApplyBtn = document.getElementById("name-filter-apply");
 
 const VIEW_ENEMIES = "enemies";
 const VIEW_CHESTS = "chests";
@@ -44,7 +39,6 @@ let currentActiveBtn = null;
 let currentOpenEntry = null;
 let debounceTimer = null;
 let previewFormat = PREVIEW_FORMAT_JSON;
-let nameFilters = ["ITEM_"];
 let copyToastTimer = null;
 
 siteLogo.addEventListener("error", () => {
@@ -80,56 +74,8 @@ function updatePreviewControlsState() {
   copyPreviewBtn.disabled = !hasSelection;
 }
 
-function setNameFilterModal(open) {
-  nameFilterModal.hidden = !open;
-  if (open) {
-    nameFilterInput.focus();
-    nameFilterInput.select();
-  }
-}
-
-function parseFiltersFromInput(inputText) {
-  return inputText
-    .split(",")
-    .map((value) => value.trim())
-    .filter((value) => value.length > 0);
-}
-
-function updateFilterButtonState() {
-  filterNamesBtn.classList.toggle("active", nameFilters.length > 0);
-}
-
-function getNameFilterInputText() {
-  if (nameFilters.length === 0) {
-    return "";
-  }
-  return `${nameFilters.join(", ")},`;
-}
-
-function applyNameFiltersFromModal() {
-  nameFilters = parseFiltersFromInput(nameFilterInput.value);
-  updateFilterButtonState();
-  if (currentOpenEntry && previewFormat === PREVIEW_FORMAT_WIKI) {
-    fileContentEl.textContent = renderEntryPreview(currentOpenEntry);
-  }
-}
-
-function openNameFilterModal() {
-  nameFilterInput.value = getNameFilterInputText();
-  setNameFilterModal(true);
-}
-
-function closeNameFilterModal() {
-  setNameFilterModal(false);
-}
-
 function updatePreviewModeButtonLabel() {
   togglePreviewFormatBtn.textContent = previewFormat === PREVIEW_FORMAT_JSON ? "JSON" : "Wiki";
-}
-
-function updateSimplifyNamesVisibility() {
-  const show = previewFormat === PREVIEW_FORMAT_WIKI;
-  filterNamesBtn.hidden = !show;
 }
 
 function showCopyToast(message, isError = false) {
@@ -188,7 +134,7 @@ function buildEnemyEntries() {
     searchBlob: [
       name,
       ...value.sources.map((source) => `${source.fromTable} ${source.targetTable} ${source.targetRow}`),
-      ...value.drops.map((drop) => `${drop.itemId} ${drop.itemObjectName}`)
+      ...value.drops.map((drop) => `${drop.itemId} ${drop.itemDisplayName || ""} ${drop.itemObjectName}`)
     ].join(" ").toLowerCase()
   }));
 }
@@ -203,7 +149,7 @@ function buildChestEntries() {
       value.prefabRef?.row || "",
       ...(value.guaranteedSetRows || []),
       ...(value.additionalSetRows || []).map((entry) => entry.setRow || ""),
-      ...(value.resolvedItems || []).map((entry) => entry.item?.itemId || "")
+      ...(value.resolvedItems || []).map((entry) => `${entry.item?.itemId || ""} ${entry.item?.itemDisplayName || ""}`)
     ].join(" ").toLowerCase()
   }));
 }
@@ -341,24 +287,18 @@ function escapeWikiValue(value) {
   return String(value ?? "").replaceAll("|", "&#124;");
 }
 
-function simplifyItemId(itemId) {
-  let simplified = String(itemId);
-  for (const filterValue of nameFilters) {
-    simplified = simplified.split(filterValue).join("");
-  }
-  return simplified;
-}
-
 function buildWikiDropLinesFromEnemy(entry) {
-  return entry.data.drops.map((drop) => (
-    `{{DropsLine|name=${escapeWikiValue(simplifyItemId(drop.itemId))}|quantity=${toQuantityText(drop.minimumDropAmount, drop.maximumDropAmount)}|rarity=${toRarityText(drop.dropChance)}}}`
-  ));
+  return entry.data.drops.map((drop) => {
+    const itemName = drop.itemDisplayName || drop.itemId;
+    return `{{DropsLine|name=${escapeWikiValue(itemName)}|quantity=${toQuantityText(drop.minimumDropAmount, drop.maximumDropAmount)}|rarity=${toRarityText(drop.dropChance)}}}`;
+  });
 }
 
 function buildWikiDropLinesFromChest(entry) {
   return entry.data.resolvedItems.map((resolved) => {
     const item = resolved.item || {};
-    return `{{DropsLine|name=${escapeWikiValue(simplifyItemId(item.itemId))}|quantity=${toQuantityText(item.minimumDropAmount, item.maximumDropAmount)}|rarity=${toRarityText(item.dropChance)}}}`;
+    const itemName = item.itemDisplayName || item.itemId;
+    return `{{DropsLine|name=${escapeWikiValue(itemName)}|quantity=${toQuantityText(item.minimumDropAmount, item.maximumDropAmount)}|rarity=${toRarityText(item.dropChance)}}}`;
   });
 }
 
@@ -602,43 +542,15 @@ tabItemsBtn.addEventListener("click", () => {
 togglePreviewFormatBtn.addEventListener("click", () => {
   previewFormat = previewFormat === PREVIEW_FORMAT_JSON ? PREVIEW_FORMAT_WIKI : PREVIEW_FORMAT_JSON;
   updatePreviewModeButtonLabel();
-  updateSimplifyNamesVisibility();
   if (currentOpenEntry) {
     fileContentEl.textContent = renderEntryPreview(currentOpenEntry);
   }
-});
-
-filterNamesBtn.addEventListener("click", () => {
-  openNameFilterModal();
 });
 
 copyPreviewBtn.addEventListener("click", () => {
   void handleCopyPreview();
 });
 
-nameFilterCancelBtn.addEventListener("click", () => {
-  closeNameFilterModal();
-});
-
-nameFilterApplyBtn.addEventListener("click", () => {
-  applyNameFiltersFromModal();
-  closeNameFilterModal();
-});
-
-nameFilterModal.addEventListener("click", (event) => {
-  if (event.target === nameFilterModal) {
-    closeNameFilterModal();
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !nameFilterModal.hidden) {
-    closeNameFilterModal();
-  }
-});
-
 updatePreviewModeButtonLabel();
-updateSimplifyNamesVisibility();
-updateFilterButtonState();
 updatePreviewControlsState();
 init();

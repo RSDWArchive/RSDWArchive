@@ -1,5 +1,7 @@
 import json
 import os
+import re
+import argparse
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -8,7 +10,8 @@ from typing import Any
 
 INDENT = 2
 SOURCE_DIR_ENV_VAR = "RSDW_LOOT_SOURCE_DIR"
-TARGET_VERSION_FOLDER = "0.11.0.3"
+JSON_ROOT_ENV_VAR = "RSDW_JSON_ROOT"
+DEFAULT_TARGET_VERSION_FOLDER = "0.11.0.3"
 
 TABLE_FILENAMES = {
     "DT_CompositeEnemyLootDropTable": "DT_CompositeEnemyLootDropTable.json",
@@ -22,29 +25,6 @@ TABLE_FILENAMES = {
     "DT_LootDropTable_DowdunReach": "DT_LootDropTable_DowdunReach.json",
 }
 
-BASE_LOOT_RELATIVE_DIR = Path(
-    TARGET_VERSION_FOLDER,
-    "json",
-    "RSDragonwilds",
-    "Content",
-    "Gameplay",
-    "Items",
-    "LootDropTables",
-)
-
-DOWNDUN_LOOT_RELATIVE_DIR = Path(
-    TARGET_VERSION_FOLDER,
-    "json",
-    "RSDragonwilds",
-    "Plugins",
-    "GameFeatures",
-    "DowdunReach",
-    "Content",
-    "Gameplay",
-    "Items",
-    "LootDropTables",
-)
-
 TABLE_SOURCE_GROUP = {
     "DT_CompositeEnemyLootDropTable": "base",
     "DT_EnemyLootDropTable": "base",
@@ -56,6 +36,22 @@ TABLE_SOURCE_GROUP = {
     "DT_EnemyLootDropTable_DowdunReach": "dowdun",
     "DT_LootDropTable_DowdunReach": "dowdun",
 }
+
+
+def load_item_name_table(source_root: Path) -> dict[str, str]:
+    matches = list(source_root.rglob("ST_ItemNames.json"))
+    if not matches:
+        return {}
+    try:
+        raw = json.loads(matches[0].read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return {}
+    if not isinstance(raw, list) or not raw or not isinstance(raw[0], dict):
+        return {}
+    entries = raw[0].get("StringTable", {}).get("KeysToEntries", {})
+    if not isinstance(entries, dict):
+        return {}
+    return {str(key): str(value) for key, value in entries.items()}
 
 
 def parse_table_name(object_name: str) -> str:
@@ -88,19 +84,77 @@ def read_export_table(path: Path) -> tuple[dict[str, Any] | None, str | None]:
 def resolve_source_root(repo_root: Path) -> Path:
     source_override = os.getenv(SOURCE_DIR_ENV_VAR, "").strip()
     if source_override:
-        return Path(source_override)
+        candidate = Path(source_override)
+        if (candidate / "RSDragonwilds").exists():
+            return candidate
+        if (candidate / "json" / "RSDragonwilds").exists():
+            return candidate / "json"
+        return candidate
+
+    json_override = os.getenv(JSON_ROOT_ENV_VAR, "").strip()
+    if json_override:
+        candidate = Path(json_override)
+        if (candidate / "RSDragonwilds").exists():
+            return candidate
+        if (candidate / "json" / "RSDragonwilds").exists():
+            return candidate / "json"
+        return candidate
+
+    candidates: list[tuple[tuple[int, ...], Path]] = []
+    for json_dir in repo_root.glob("*/json"):
+        if not json_dir.is_dir():
+            continue
+        if not (json_dir / "RSDragonwilds").exists():
+            continue
+        version_name = json_dir.parent.name
+        if re.fullmatch(r"\d+(?:\.\d+)+", version_name):
+            parsed = tuple(int(part) for part in version_name.split("."))
+            candidates.append((parsed, json_dir))
+    if candidates:
+        candidates.sort(key=lambda entry: entry[0], reverse=True)
+        return candidates[0][1]
+
+    fallback = repo_root / DEFAULT_TARGET_VERSION_FOLDER / "json"
+    if (fallback / "RSDragonwilds").exists():
+        return fallback
+
     return repo_root
 
 
 def resolve_table_paths(source_root: Path) -> dict[str, Path]:
     paths: dict[str, Path] = {}
-    base_dir = source_root / BASE_LOOT_RELATIVE_DIR
-    dowdun_dir = source_root / DOWNDUN_LOOT_RELATIVE_DIR
     for table_name, file_name in TABLE_FILENAMES.items():
-        group = TABLE_SOURCE_GROUP[table_name]
-        parent = base_dir if group == "base" else dowdun_dir
-        paths[table_name] = parent / file_name
+        matches = list(source_root.rglob(file_name))
+        if not matches:
+            paths[table_name] = source_root / file_name
+            continue
+
+        expected_group = TABLE_SOURCE_GROUP[table_name]
+
+        def score(path: Path) -> tuple[int, int]:
+            value = 0
+            as_posix = path.as_posix()
+            if "/LootDropTables/" in as_posix:
+                value += 100
+            if expected_group == "dowdun":
+                if "DowdunReach" in as_posix:
+                    value += 100
+            else:
+                if "DowdunReach" not in as_posix:
+                    value += 50
+            # Prefer shorter paths when score ties.
+            return value, -len(as_posix)
+
+        matches.sort(key=score, reverse=True)
+        paths[table_name] = matches[0]
     return paths
+
+
+def derive_version_label(source_root: Path) -> str:
+    name = source_root.parent.name
+    if re.fullmatch(r"\d+(?:\.\d+)+", name):
+        return name
+    return "unknown"
 
 
 def get_table_handle_name(handle: dict[str, Any]) -> str | None:
@@ -113,15 +167,95 @@ def get_table_handle_name(handle: dict[str, Any]) -> str | None:
     return parse_table_name(object_name)
 
 
-def get_set_entries(set_row: dict[str, Any]) -> list[dict[str, Any]]:
+def get_display_name_from_object_path(
+    source_root: Path,
+    object_path: str,
+    expected_name: str,
+    st_item_names: dict[str, str],
+    cache: dict[str, str | None],
+) -> str | None:
+    if not object_path:
+        return None
+    package_path = object_path.rsplit(".", 1)[0]
+    json_path = source_root / f"{package_path}.json"
+    cache_key = str(json_path)
+    if cache_key in cache:
+        return cache[cache_key]
+    if not json_path.exists():
+        cache[cache_key] = None
+        return None
+    try:
+        raw = json.loads(json_path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        cache[cache_key] = None
+        return None
+    if not isinstance(raw, list):
+        cache[cache_key] = None
+        return None
+
+    target_export = None
+    for entry in raw:
+        if not isinstance(entry, dict):
+            continue
+        name = entry.get("Name")
+        if name == expected_name:
+            target_export = entry
+            break
+    if target_export is None and raw and isinstance(raw[0], dict):
+        target_export = raw[0]
+    if not isinstance(target_export, dict):
+        cache[cache_key] = None
+        return None
+
+    props = target_export.get("Properties", {})
+    if not isinstance(props, dict):
+        cache[cache_key] = None
+        return None
+    name_obj = props.get("Name", {})
+    if not isinstance(name_obj, dict):
+        cache[cache_key] = None
+        return None
+
+    localized = name_obj.get("LocalizedString")
+    if isinstance(localized, str) and localized.strip():
+        cache[cache_key] = localized.strip()
+        return cache[cache_key]
+    source = name_obj.get("SourceString")
+    if isinstance(source, str) and source.strip():
+        cache[cache_key] = source.strip()
+        return cache[cache_key]
+    key = name_obj.get("Key")
+    if isinstance(key, str) and key in st_item_names:
+        cache[cache_key] = st_item_names[key]
+        return cache[cache_key]
+
+    cache[cache_key] = None
+    return None
+
+
+def get_set_entries(
+    set_row: dict[str, Any],
+    source_root: Path,
+    st_item_names: dict[str, str],
+    item_display_name_cache: dict[str, str | None],
+) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for item in set_row.get("SpawnableItems", []):
         spawned = item.get("SpawnedItemData") or {}
         object_name = spawned.get("ObjectName", "")
         object_path = spawned.get("ObjectPath", "")
+        item_id = parse_item_id(str(object_name))
+        item_display_name = get_display_name_from_object_path(
+            source_root,
+            str(object_path),
+            item_id,
+            st_item_names,
+            item_display_name_cache,
+        )
         out.append(
             {
-                "itemId": parse_item_id(str(object_name)),
+                "itemId": item_id,
+                "itemDisplayName": item_display_name,
                 "itemObjectName": object_name,
                 "itemObjectPath": object_path,
                 "minimumDropAmount": item.get("MinimumDropAmount"),
@@ -142,12 +276,20 @@ def sorted_dict(value: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Compile loot tables into a normalized JSON payload.")
+    parser.add_argument(
+        "--output",
+        default=str(Path(__file__).resolve().parent / "LootData.json"),
+        help="Output path for compiled loot data JSON",
+    )
+    args = parser.parse_args()
+
     print("[DEBUG] CompileLootData started", flush=True)
     here = Path(__file__).resolve().parent
     repo_root = here.parents[2]
     source_root = resolve_source_root(repo_root)
     table_paths = resolve_table_paths(source_root)
-    out_path = here / "LootData.json"
+    out_path = Path(args.output)
 
     print(f"[DEBUG] Source root: {source_root}", flush=True)
     print(f"[DEBUG] Output: {out_path}", flush=True)
@@ -184,6 +326,8 @@ def main() -> None:
     table_rows: dict[str, dict[str, Any]] = {
         name: tbl.get("Rows", {}) for name, tbl in tables.items()
     }
+    st_item_names = load_item_name_table(source_root)
+    item_display_name_cache: dict[str, str | None] = {}
 
     enemies: dict[str, Any] = {}
     resolved_drop_handles_by_enemy: dict[str, set[tuple[str, str, Any]]] = defaultdict(set)
@@ -246,11 +390,20 @@ def main() -> None:
                         spawned = resource.get("SpawnedItemData") or {}
                         object_name = spawned.get("ObjectName", "")
                         object_path = spawned.get("ObjectPath", "")
+                        item_id = parse_item_id(str(object_name))
+                        item_display_name = get_display_name_from_object_path(
+                            source_root,
+                            str(object_path),
+                            item_id,
+                            st_item_names,
+                            item_display_name_cache,
+                        )
                         enemy_entry["drops"].append(
                             {
                                 "sourceTable": target_table,
                                 "sourceRow": target_row,
-                                "itemId": parse_item_id(str(object_name)),
+                                "itemId": item_id,
+                                "itemDisplayName": item_display_name,
                                 "itemObjectName": object_name,
                                 "itemObjectPath": object_path,
                                 "minimumDropAmount": resource.get("MinimumDropAmount"),
@@ -275,7 +428,10 @@ def main() -> None:
     chest_sets = table_rows.get("DT_LootChest_Sets", {})
 
     chests: dict[str, Any] = {}
-    item_sets: dict[str, Any] = {set_name: get_set_entries(row) for set_name, row in chest_sets.items()}
+    item_sets: dict[str, Any] = {
+        set_name: get_set_entries(row, source_root, st_item_names, item_display_name_cache)
+        for set_name, row in chest_sets.items()
+    }
 
     for profile_name, profile_row in chest_profiles.items():
         loot_roll_handle = profile_row.get("LootRollHandle") or {}
@@ -386,7 +542,7 @@ def main() -> None:
         item_to_chest_profiles[item_id].sort()
 
     compiled = {
-        "version": TARGET_VERSION_FOLDER,
+        "version": derive_version_label(source_root),
         "generatedAtUtc": datetime.now(timezone.utc).isoformat(),
         "sourceRoot": str(source_root),
         "tables": sorted_dict(table_meta),

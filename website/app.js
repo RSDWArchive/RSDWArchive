@@ -1,6 +1,7 @@
 const INDEX_URL = "./file-index.json";
-const BRANCH = "main";
-const ROOT_FOLDER = "0.11.0.3";
+const CONFIG_URL = "./data.config.json";
+let BRANCH = "main";
+let ROOT_FOLDER = "0.11.0.3";
 const MAX_RESULTS = 300;
 const SEARCH_DEBOUNCE_MS = 100;
 const TEXT_EXTENSIONS = new Set([
@@ -77,6 +78,27 @@ function escapeRegex(str) {
 
 function normalizeFilePath(path) {
   return path.replaceAll("\\", "/").replace(/^(\.\/|\.\.\/)+/, "").replace(/^\/+/, "");
+}
+
+async function loadWebsiteConfig() {
+  try {
+    const response = await fetch(CONFIG_URL, { cache: "no-store" });
+    if (!response.ok) {
+      return;
+    }
+    const parsed = await response.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return;
+    }
+    if (typeof parsed.repoBranch === "string" && parsed.repoBranch.trim()) {
+      BRANCH = parsed.repoBranch.trim();
+    }
+    if (typeof parsed.datasetVersion === "string" && parsed.datasetVersion.trim()) {
+      ROOT_FOLDER = parsed.datasetVersion.trim();
+    }
+  } catch {
+    // Keep defaults if config cannot be loaded.
+  }
 }
 
 function getRepoContext() {
@@ -583,6 +605,7 @@ function handleSearchKeyDown(event) {
 }
 
 async function init() {
+  await loadWebsiteConfig();
   try {
     const response = await fetch(INDEX_URL);
     if (!response.ok) {

@@ -1,0 +1,72 @@
+{{documentation}}
+This template displays the map, loaded from [https://maps.runescape.wiki maps.runescape.wiki/dw/tiles].
+
+==Usage==
+This template can be used by entering the following on an item, object, or NPC's page.
+
+<pre>
+{{Map
+|entity
+|width =
+|height =
+|center =
+|zoom =
+}}
+</pre>
+
+==Parameters==
+
+{| class="wikitable"
+|+ Parameters and usage
+|-
+! Parameter !! Description !! Example
+|-
+| entity || The name of the item, object, or NPC. This name will retrieve the name from <code>Module:Map/entity.json</code>. || {{T|Map|chests}} calls the Module:Map/chests.json page and retrieves the location parameters.
+|-
+| width || The width of the map, followed by px. 250px is the standard used for single-entity spawns in a page. Use discretion when incorporating the with parameter if there are multiple points on the map. If multiple points are spread apart, consider ignoring this parameter. || 250px is used for [[Dust-covered Sketchbook]]. <pre>{{Map|Dust-covered Sketchbook|width=250px|height=250px}}</pre>
+|-
+| height || The height of the map, followed by px. 250px is the standard used for single-entity spawns in a page. Use discretion when incorporating the with parameter if there are multiple points on the map. If multiple points are spread apart, consider ignoring this parameter.|| 250px is used for [[Dust-covered Sketchbook]]. <pre>{{Map|Dust-covered Sketchbook|width=250px|height=250px}}</pre>
+|-
+| center || The center of the map in x,y format. For single-item spawns, go to its page, and the x,y values in the .json page will be used, where center=x is the y value, and center=y is the .json x value. For multiple points, use the multiple-point centroid formula to calculate the approximate center value.<br><br>The default value for <code>center</code> is 50400,151200.|| The [[Bloodblight Cape]]'s [[Module:Map/Bloodblight Cape.json|location]] is: "x": 125281, "y": 170452. Inputting the center values in {{T|Map}} will be: <pre>{{Map|Bloodblight Cape|center=170452,125281}}</pre> For Ancient Tomes in [[What Remains is Written]], the centroid for all five points is 214719.23,-32169.32, but make sure to flip these values for the center parameter: <pre>{{Map|Ancient Tomes|center=-32169.32,214719.23}}</pre>
+|-
+| zoom || The zoom level from 1 (default) to 4. ||
+Zoom 1 = {{Map|Duke's Diary|width=200px|height=200px|center=159500,61000|zoom=1}} 
+Zoom 2 = {{Map|Duke's Diary|width=200px|height=200px|center=159500,61000|zoom=2}} 
+Zoom 3 = {{Map|Duke's Diary|width=200px|height=200px|center=159500,61000|zoom=3}} 
+Zoom 4 = {{Map|Duke's Diary|width=200px|height=200px|center=159500,61000|zoom=4}}
+|}
+
+<templatedata>
+{
+	"params": {
+		"entity": {
+			"type": "wiki-page-name",
+            "required": true,
+			"suggested": true
+		},
+		"width": {
+			"type": "content",
+			"suggested": true
+		},
+		"height": {
+			"type": "content",
+			"suggested": true
+		},
+		"center": {
+			"type": "wiki-page-name",
+            "suggested": true
+		},
+		"zoom": {
+			"type": "number",
+            "suggested": true
+		}
+	},
+	"paramOrder": [
+		"entity",
+		"width",
+		"height",
+		"center",
+		"zoom"
+	]
+}
+</templatedata>

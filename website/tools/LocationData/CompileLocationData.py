@@ -1,5 +1,7 @@
 import json
 import os
+import argparse
+import re
 from pathlib import Path
 from typing import Any, Iterable
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -10,9 +12,18 @@ MAX_WORKERS = 16
 INDENT = 2
 OVERWRITE = True
 SOURCE_DIR_ENV_VAR = "RSDW_LOCATION_SOURCE_DIR"
-TARGET_VERSION_FOLDER = "0.11.0.3"
-REPO_RELATIVE_SOURCE = Path(
-    TARGET_VERSION_FOLDER,
+JSON_ROOT_ENV_VAR = "RSDW_JSON_ROOT"
+DEFAULT_TARGET_VERSION_FOLDER = "0.11.0.3"
+MAP_RELATIVE_SOURCE = Path(
+    "RSDragonwilds",
+    "Content",
+    "Maps",
+    "World",
+    "L_World",
+    "_Generated_",
+)
+REPO_RELATIVE_SOURCE_FALLBACK = Path(
+    DEFAULT_TARGET_VERSION_FOLDER,
     "json",
     "RSDragonwilds",
     "Content",
@@ -21,6 +32,46 @@ REPO_RELATIVE_SOURCE = Path(
     "L_World",
     "_Generated_",
 )
+
+
+def resolve_source_dir(repo_root: Path, here: Path) -> Path:
+    source_override = os.getenv(SOURCE_DIR_ENV_VAR, "").strip()
+    if source_override:
+        candidate = Path(source_override)
+        if (candidate / "RSDragonwilds").exists():
+            return candidate / MAP_RELATIVE_SOURCE
+        if (candidate / "json" / "RSDragonwilds").exists():
+            return candidate / "json" / MAP_RELATIVE_SOURCE
+        return candidate
+
+    json_override = os.getenv(JSON_ROOT_ENV_VAR, "").strip()
+    if json_override:
+        candidate = Path(json_override)
+        if (candidate / "RSDragonwilds").exists():
+            return candidate / MAP_RELATIVE_SOURCE
+        if (candidate / "json" / "RSDragonwilds").exists():
+            return candidate / "json" / MAP_RELATIVE_SOURCE
+        return candidate
+
+    candidates: list[tuple[tuple[int, ...], Path]] = []
+    for json_dir in repo_root.glob("*/json"):
+        if not json_dir.is_dir():
+            continue
+        if not (json_dir / "RSDragonwilds").exists():
+            continue
+        version_name = json_dir.parent.name
+        if re.fullmatch(r"\d+(?:\.\d+)+", version_name):
+            parsed = tuple(int(part) for part in version_name.split("."))
+            candidates.append((parsed, json_dir / MAP_RELATIVE_SOURCE))
+    if candidates:
+        candidates.sort(key=lambda entry: entry[0], reverse=True)
+        return candidates[0][1]
+
+    fallback = repo_root / REPO_RELATIVE_SOURCE_FALLBACK
+    if fallback.exists():
+        return fallback
+
+    return here / "_Generated_"
 
 
 def load_json(path: Path) -> Any | None:
@@ -95,18 +146,20 @@ def process_file(path: Path) -> tuple[dict[str, str], int]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Compile location chunk data into LocationData.json")
+    parser.add_argument(
+        "--output",
+        default=str(Path(__file__).resolve().parent / "LocationData.json"),
+        help="Output path for compiled location data JSON",
+    )
+    args = parser.parse_args()
+
     print("[DEBUG] Script started", flush=True)
 
     here = Path(__file__).resolve().parent
     repo_root = here.parents[2]
-    source_override = os.getenv(SOURCE_DIR_ENV_VAR, "").strip()
-    if source_override:
-        source_dir = Path(source_override)
-    else:
-        source_dir = repo_root / REPO_RELATIVE_SOURCE
-        if not source_dir.exists():
-            source_dir = here / "_Generated_"
-    out_path = here / "LocationData.json"
+    source_dir = resolve_source_dir(repo_root, here)
+    out_path = Path(args.output)
 
     print(f"[DEBUG] Source: {source_dir}", flush=True)
     print(f"[DEBUG] Output: {out_path}", flush=True)

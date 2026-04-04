@@ -1,5 +1,6 @@
 const DATA_URL = "./tools/LocationData/LocationData.json";
-const ROOT_FOLDER = "0.11.0.3";
+const CONFIG_URL = "./data.config.json";
+let ROOT_FOLDER = "0.11.0.3";
 const MAX_RESULTS = 400;
 const SEARCH_DEBOUNCE_MS = 90;
 const MAX_MAP_MARKERS = 500;
@@ -52,6 +53,24 @@ function escapeHtml(str) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+async function loadWebsiteConfig() {
+  try {
+    const response = await fetch(CONFIG_URL, { cache: "no-store" });
+    if (!response.ok) {
+      return;
+    }
+    const parsed = await response.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return;
+    }
+    if (typeof parsed.datasetVersion === "string" && parsed.datasetVersion.trim()) {
+      ROOT_FOLDER = parsed.datasetVersion.trim();
+    }
+  } catch {
+    // Keep defaults if config cannot be loaded.
+  }
 }
 
 function updateStatus(text) {
@@ -448,6 +467,7 @@ function handleSearchKeyDown(event) {
 }
 
 async function init() {
+  await loadWebsiteConfig();
   try {
     initLocationMap();
 

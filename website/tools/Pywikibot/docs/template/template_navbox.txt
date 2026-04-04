@@ -1,0 +1,381 @@
+{{Documentation|Template:Navbox}}
+<!----Do not add this category to *every* navbox
+       added explicitly to {{Navbox}} at the end of documentation----->
+__TOC__<!--Needed to prevent TOC appearing in the navbox itself if it has a heading.-->
+==Usage==
+This template can be used to make a standard navigation box. It is intended for use within another template that standardises the title and contents of the box. This template should not be used directly within articles, as it creates a maintenance burden to do so whenever the contents of the box have to be updated.
+
+The purpose of this template is to standardise the attributes of all navigation boxes, for example, their colours and other CSS attributes. The template is fairly simple, and could be extended to add other features in the future. Using this template allows changes to be implemented much quicker and easier than editing each template separately.
+
+==Syntax==
+<pre>
+{{Navbox
+|state = uncollapsed, collapsed, plain, autocollapse (default)
+|name = mandatory - name of the template
+|style = optional - style for the whole table
+|title = mandatory - navbox header
+|gtitleN = optional - title of N-th group of items
+|gNcatP = optional - categories to add to each item in the group
+|styleN = optional - style for groupN; i.e. text-align
+|groupN = mandatory - list of groups of items
+|fstyle = optional - style for footer ; i.e. text-align
+|footer = optional - navbox footer
+}}
+</pre>
+
+* '''Groups:''' Currently there is no technical limit to the maximum number of groups.
+** Groups of items can be added as parameters: ''group1'', ''group2'', ''group3'', ... up to ''groupN''. 
+* '''Group title:''' Each group has its own title parameter: ''gtitle1'', ''gtitle2'', ''gtitle3'', ... up to ''gtitleN''.  Note that the default width for the first column is 15%.
+* '''Group category:''' Each group can have a category parameter: ''g1cat1'', ''g1cat2'', ''g1cat3'', ... up to ''g1catP''. Each parameter can have multiple category names delimited by comma.
+* '''Group style:''' Style may also be customised to each group in: ''style1'', ''style2'', ''style3'', ... up to ''styleN''. 
+** Note that neither the title nor the items have any wiki-links built into the template.  As a result, users of the template are free to use wiki-links as they wish. 
+* '''Line breaks:''' Line-breaks (<code><nowiki><br></nowiki></code>) are '''unnecessary''', as text wrapping is done automatically by the template. This also includes links and text in ''gtitleN'' and ''groupN''.
+* '''Bullets:''' Create unordered lists with lines beginning with *.
+
+==States==
+* '''Autocollapse:''' By default, the state of a navbox is "autocollapsed". This means that if the number of navboxes in a page exceeds the maximum allocation of the collapsible navboxes, then the remaining navboxes are collapsed automatically. For more information (or to change the setting), see [[MediaWiki:Gadget-autocollapse.js]].
+** Currently, the ''autocollapse'' allocation is '''<span style="color:red">2</span>'''. This means that if there are 3 navboxes in a page, the third and subsequent navboxes will be collapsed automatically. 
+* '''Uncollapsed:''' Forces the navbox to be displayed.
+** All of the navboxes in this documentation are in the ''uncollapsed'' state.
+* '''Collapsed:''' The reverse of ''uncollapsed''. Forces the navbox to be hidden instead.
+** Navboxes with a height of more than 300 pixels will also be collapsed automatically. For more information (or to change the setting), see [[MediaWiki:Gadget-autocollapse.js]].
+* '''Plain:''' Removes the "show/hide" link. 
+
+==Sub-groups==
+* For larger navboxes, it may be necessary to include sub-groups within a particular group of items. It is also possible to collapsible navboxes within the parent navbox, see [[#Collapsible sub-groups|Collapsible sub-groups]].
+* To create sub-groups within <code><nowiki>{{Navbox}}</nowiki></code>, certain parameters are to be included:
+** The parent navbox group (i.e. ''group2'' in the example below) requires the type parameter (''gtype2 = subgroup'').
+** The nested navbox (sub-group) requires the inclusion of the sub-group parameter (''subgroup = yes'').  This enables the template to differentiate between the sub-group and the parent navbox.
+
+<pre>{{Navbox
+|name = 
+|title = 
+|gtitle1 = 
+|group1 =
+|gtitle2 = 
+|gtype2 = subgroup (mandatory)
+|group2 =
+  {{Navbox
+  |subgroup = yes (mandatory)
+  |gtitle1 = 
+  |group1 =
+  |gtitle2 = 
+  |group2 =
+  }}
+}}</pre>
+
+==Collapsible sub-groups==
+* For extremely long navboxes, it is recommended to use collapsible navboxes within the parent navbox. Further sub-groups can then be added to these collapsible navboxes.
+* To create collapsible sub-groups within <code><nowiki>{{Navbox}}</nowiki></code>, these parameters need to be included:
+** The parent navbox is almost always uncollapsed (''state=uncollapsed'').
+** The parent navbox group (i.e. ''group1'' in the example below) requires the type parameter (''gtype1 = subgroup'').
+** The nested collapsible navbox requires the inclusion of the collapsible parameter (''collapsible = yes''). This enables the template to differentiate between the collapsible navbox and the parent navbox.
+** The nested collapsible navbox is forcefully collapsed (''state=collapsed'').
+
+<pre>{{Navbox
+|state = uncollapsed
+|name = 
+|gtype1 = subgroup
+|group1 = 
+  {{Navbox
+  |collapsible = yes
+  |state = collapsed
+  |title = 
+  |gtitle1 = 
+  |group1 =
+  |gtitle2 = 
+  |group2 =
+  }}
+}}</pre>
+
+==Use of images==
+* The use of images in navboxes is permitted, but please resize the images to keep them small. Inventory-sized images (25-30 pixels) are recommended.
+* Please use {{t|plink}} to create links with images. Use {{t|plinkp}} for any case where text is not desired after the link. It functions the same as {{t|plink}}, but it does not produce a wikilink in text. Use {{t|chatl}} to link chatheads. These templates create links for both the image and text (except for {{t|plinkp}}) using far less wikicode than the standard syntax. Use {{t|Emote link}} to link emote icons.
+
+Link and file share the same name
+<pre>{{plink|Item}}</pre>
+
+File name differs from the link
+<pre>{{plink|Item|pic=File}}</pre>
+
+Link and file share the same name, but different text is desired to display
+<pre>{{plink|Item|txt=Text}}</pre>
+
+File name differs from the link and different text is desired to display
+<pre>{{plink|Item|pic=File|txt=Text}}</pre>
+
+{|class="wikitable"
+|+ Examples
+!Code
+!Standard syntax
+|-
+|<code><nowiki>{{plink|Abyssal whip}}</nowiki></code>
+|<code><nowiki>[[File:Abyssal whip.png|link=Abyssal whip]] [[Abyssal whip]]</nowiki></code>
+|-
+|<code><nowiki>{{plink|Granite maul|pic=Abyssal whip}}</nowiki></code>
+|<code><nowiki>[[File:Abyssal whip.png|link=Granite maul]] [[Granite maul]]</nowiki></code>
+|-
+|<code><nowiki>{{plink|Abyssal whip|txt=Whip}}</nowiki></code>
+|<code><nowiki>[[File:Abyssal whip.png|link=Abyssal whip]] [[Abyssal whip|Whip]]</nowiki></code>
+|-
+|<code><nowiki>{{plink|Granite maul|pic=Abyssal whip|txt=Whip}}</nowiki></code>
+|<code><nowiki>[[File:Abyssal whip.png|link=Granite maul]] [[Granite maul|Whip]]</nowiki></code>
+|-
+|<code><nowiki>{{plinkp|Abyssal whip}}</nowiki></code>
+|<code><nowiki>[[File:Abyssal whip.png|link=Abyssal whip]]</nowiki></code>
+|-
+|<code><nowiki>{{plinkp|Granite maul|pic=Abyssal whip}}</nowiki></code>
+|<code><nowiki>[[File:Abyssal whip.png|link=Granite maul]]</nowiki></code>
+|-
+|}
+
+==Categorising==
+Navboxes are very useful for transcluding categories onto a large number of pages that share both a trait and the navigation box.
+
+There are 3 methods of categorising pages with navboxes:
+
+The first way is with '''{{t|Ctg}}'''. This is the preferred method, and can be used in most cases. The rules and operations for the Category handler template are very simple; however, they are enough to produce the desired results on most pages.
+
+The second method is using the ''gNcatP'' parameter, where ''N'' is the number of the group and ''P'' is the number of the category. It takes a category name and adds that category to the items found within the group it's used on, including its subgroups.
+
+The third method is using '''{{t|Mainonly|rules}}''' and providing more complex rules with parser functions.
+
+Categorisation should only be used on a template for large-scale addition. It is unhelpful, for  example, to use a rule that only applies to 1 page.
+
+==Examples==
+{{#ifeq:{{BASEPAGENAME}}|Navbox||To see the following navboxes in action, see [[Template:Navbox]].}}
+
+===Single line navbox with centered list===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|{{Navbox
+|state = uncollapsed
+|name = Navbox
+|title = Single line navbox
+|style1 = text-align:center
+|group1 =
+ * Lorem ipsum dolor sit amet
+ * Consectetur adipisicing elit
+ * sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+}}}}
+<pre>{{Navbox
+|name = 
+|title = 
+|style1 = text-align:center
+|group1 =
+}}</pre>
+
+===Navbox with standard footer===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|<!--
+-->{{Navbox
+|state = uncollapsed
+|name = Navbox
+|title = Navbox with footer
+|style1 = text-align:center
+|group1 =
+ * Lorem ipsum dolor sit amet
+ * Consectetur adipisicing elit
+ * sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+|footer = Centered footer
+}}}}
+<pre>{{Navbox
+|name = 
+|title = 
+|gtitle1 = 
+|group1 =
+|footer = Centered footer
+}}</pre>
+
+===Navbox with styled footer===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|<!--
+-->{{Navbox
+|state = uncollapsed
+|name = Navbox
+|title = Navbox with footer
+|style1 = text-align:center
+|group1 =
+ * Lorem ipsum dolor sit amet
+ * Consectetur adipisicing elit
+ * sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+|fstyle = text-align:right
+|footer = Right-aligned footer
+}}}}
+<pre>{{Navbox
+|name = 
+|title = 
+|gtitle1 = 
+|group1 =
+|fstyle = text-align:right
+|footer = Right-aligned footer
+}}</pre>
+
+===Multiple line navbox===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|<!--
+-->{{Navbox
+|state = uncollapsed
+|name = Navbox
+|title = Multiple line navbox
+|gtitle1 = Group title 1
+|group1 = Lorem ipsum dolor sit amet...
+|gtitle2 = Group title 2
+|group2 = Consectetur adipisicing elit...
+|gtitle3 = Group title 3
+|group3 = Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+}}}}
+<pre>{{Navbox
+|name = 
+|title = 
+|gtitle1 = Group title 1
+|group1 =
+|gtitle2 = Group title 2
+|group2 =
+|gtitle3 = Group title 3
+|group3 =
+}}</pre>
+
+===Collapsed navbox===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|<!--
+-->{{Navbox
+|state = collapsed
+|name = Navbox
+|title = Collapsed navbox
+|style1 = text-align:center
+|group1 = Lorem?
+}}}}
+<pre>{{Navbox
+|state = collapsed
+|name = 
+|title = 
+|style1 = text-align:center
+|group1 =
+}}</pre>
+
+===Plain navbox with Tnavbar===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|<!--
+-->{{Navbox
+|state = plain
+|name = Navbox
+|title = Plain navbox with Tnavbar
+|style1 = text-align:center
+|group1 = [<small>show</small>]/[<small>hide</small>] links hidden (see Top-right corner).
+}}}}
+<pre>{{Navbox
+|state = plain
+|name = 
+|title = 
+|style1 = text-align:center
+|group1 =
+}}</pre>
+
+===Plain navbox without Tnavbar===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|<!--
+-->{{Navbox
+|state = plain
+|title = Plain navbox without Tnavbar
+|style1 = text-align:center
+|group1 = [<small>show</small>]/[<small>hide</small>] links hidden (see Top-right corner).<br><small>v {{*}} d {{*}} e</small> links also hidden (see Top-left corner). This is done by removing the ''name'' parameter.
+}}}}
+<pre>{{Navbox
+|state = plain
+|title = 
+|style1 = text-align:center
+|group1 =
+}}</pre>
+
+===Complicated navbox===
+{{#ifeq:{{BASEPAGENAME}}|Navbox|<!--
+-->{{Navbox
+|state = uncollapsed
+|name = Navbox
+|title = Complicated navbox
+|gtitle1 = Level 1 Title 1
+|group1 = Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu sem eget nisi bibendum viverra a eget leo. Integer velit arcu, accumsan vel rhoncus eget, auctor a tellus. Nullam mollis turpis sollicitudin justo hendrerit ac volutpat nibh placerat. 
+|gtitle2 = Level 1 Title 2
+|group2 = Curabitur posuere vestibulum dolor, quis faucibus justo tristique in. Nulla facilisi. Nunc iaculis erat nec ligula rutrum vel porta dolor posuere. Maecenas venenatis sapien id sapien pellentesque mollis. 
+|gtitle3 = Level 1 Title 3
+|group3 = Sed ac sapien risus, in pharetra purus. 
+|gtitle4 = Level 1 Title 4
+|group4 = Curabitur eu metus elit, a eleifend est. Aliquam vestibulum mollis metus, ut facilisis justo tincidunt non. Donec vel felis ut purus molestie facilisis consectetur a est. Nulla velit nisi, aliquet at condimentum non, varius ac nibh. Praesent fringilla nisi nibh. Morbi quis dapibus nulla. 
+|gtitle5 = Level 1 Title 5
+|gtype5 = subgroup
+|group5 = 
+  {{Navbox
+  |subgroup = yes
+  |gtitle1 = Level 2 Title 1
+  |group1 = Nam cursus, leo sit amet congue porttitor, ante ligula mattis ante, ut rhoncus nisi augue eget mi. Etiam scelerisque, nunc et sagittis consequat, augue turpis gravida massa, quis blandit lectus orci vel sem.
+  |gtitle2 = Level 2 Title 2
+  |group2 = Aliquam tortor est, luctus et consectetur eget, dapibus lobortis ante. 
+  |gtitle3 = Level 2 Title 3
+  |gtype3 = subgroup
+  |group3 =
+    {{Navbox
+    |subgroup = yes
+    |gtitle1 = Level 3 Title 1
+    |group1 = Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum eu lacus ut sapien tristique fringilla tincidunt vitae risus. 
+    |gtitle2 = Level 3 Title 2
+    |group2 = Donec in libero lorem. Vestibulum consequat tincidunt imperdiet. 
+    }}
+  |gtitle4 = Level 2 Title 4
+  |group4 = Vivamus odio mi, ullamcorper vitae rutrum sed, bibendum vel mauris. Proin sed libero ac sapien pellentesque dapibus. Nulla et ipsum libero. Integer vitae euismod eros. Ut enim purus, consectetur congue fermentum nec, pharetra non dui. Mauris mollis sapien at massa commodo rutrum. Donec non risus ut dui ultrices molestie non a quam.
+  }}
+|gtitle6 = Level 1 Title 6
+|group6 = Duis vel ligula tellus, sed rutrum augue. Cras varius consectetur ligula, vitae accumsan nisl vehicula vitae. Integer mi nunc, cursus sit amet mattis vitae, porta nec ligula. 
+|gtitle7 = Level 1 Title 7
+|group7 = Etiam vulputate nisl eget sapien mattis ultrices. Vestibulum et eros vitae arcu condimentum porta. Cras fringilla, erat quis consequat sollicitudin, est tortor tempor massa, quis euismod risus nisi vel massa. Phasellus in risus ac metus pharetra sodales vel at velit. Nulla ullamcorper, orci ac ultrices sollicitudin, ante erat scelerisque eros, auctor pretium felis nibh bibendum purus.
+|fstyle = text-align:right
+|footer = Quisque ut nisl arcu. Integer tincidunt, turpis pharetra consectetur consectetur, felis ipsum sagittis turpis, vel interdum eros mauris sed odio. <br> Aenean scelerisque rhoncus leo, a cursus neque vehicula sed.
+}}}}
+<pre>{{Navbox
+|state = uncollapsed
+|name = 
+|title = 
+|gtitle1 = Level 1 Title 1
+|group1 =
+|gtitle2 = Level 1 Title 2
+|group2 =
+|gtitle3 = Level 1 Title 3
+|group3 =
+|gtitle4 = Level 1 Title 4
+|group4 =
+|gtitle5 = Level 1 Title 5
+|gtype5 = subgroup
+|group5 =
+  {{Navbox
+  |subgroup = yes
+  |gtitle1 = Level 2 Title 1
+  |group1 =
+  |gtitle2 = Level 2 Title 2
+  |group2 =
+  |gtitle3 = Level 2 Title 3
+  |gtype3 = subgroup
+  |group3 =
+    {{Navbox
+    |subgroup = yes
+    |gtitle1 = Level 3 Title 1
+    |group1 =
+    |gtitle2 = Level 3 Title 2
+    |group2 =
+    }}
+  |gtitle4 = Level 2 Title 4
+  |group4 =
+  }}
+|gtitle6 = Level 1 Title 6
+|group6 =
+|gtitle7 = Level 1 Title 7
+|group7 =
+|fstyle = 
+|footer = 
+}}</pre>
+
+==Preventing unwanted documentation==
+The [[Template:Navbox/doc|Navbox template's documentation]] is automatically transcluded under the navbox on any Template namespace page. It is not transcluded when used as a sub-group or collapsible sub-group template (''subgroup= yes'' or ''collapsible=yes''). 
+
+Should the documentation appear when it is unwanted, it can be hidden by setting the doc parameter ''doc=no'' on the template. In most cases, the doc parameter is not used and the parameter is removed completely.
+
+On a similar note, the automatically-added category [[:Category:Navigational templates]] can be suppressed by adding ''hidecat=yes''.
+
+<noinclude>[[Category:Navigational templates|*{{PAGENAME}}]]</noinclude>
+<includeonly>[[Category:Navigational templates|*]]
+{{#ifeq:{{PAGENAME}}|Navbox|[[Category:Lua-based templates]]}}<!---
+  This should be kept separate to prevent *every* nav box from
+  Being marked as Lua based, simply for the sake of
+  keeping the category easy to navigate ---->
+</includeonly>
