@@ -1,0 +1,645 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_MovingPillar_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_MovingPillar_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.15"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_MovingPillar_C:ExecuteUbergraph_BP_MovingPillar'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Actor'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_MovingPillar_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.4"
+      },
+      {
+        "ObjectName": "Function'BP_MovingPillar_C:ActivateMovement'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.2"
+      },
+      {
+        "ObjectName": "Function'BP_MovingPillar_C:ExecuteUbergraph_BP_MovingPillar'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_Vault_4m_Floor_01_v1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_Vault_4m_Wall_04",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_Vault_4m_Wall_03",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_Vault_4m_Wall_02",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_Vault_4m_Wall_01",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InterpToMovement",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'InterpToMovementComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cube",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "StartPosition",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 24,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "EndPosition",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 24,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_MovingPillar": {
+        "ObjectName": "Function'BP_MovingPillar_C:ExecuteUbergraph_BP_MovingPillar'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.3"
+      },
+      "ActivateMovement": {
+        "ObjectName": "Function'BP_MovingPillar_C:ActivateMovement'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.2"
+      },
+      "UserConstructionScript": {
+        "ObjectName": "Function'BP_MovingPillar_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.4"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_MovingPillar_C'Default__BP_MovingPillar_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_MovingPillar_C",
+    "Name": "Default__BP_MovingPillar_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.BP_MovingPillar_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "StartPosition": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "EndPosition": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ActivateMovement",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_MovingPillar",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorRotation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "UserConstructionScript",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:UserConstructionScript'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "InterpToMovementComponent",
+    "Name": "InterpToMovement_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'InterpToMovementComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Duration": 2.0,
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_MovingPillar_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.6"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.8"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.11"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.14"
+        }
+      ],
+      "VariableGUID": "ACA98C4E-4E9797BE-E681F0B8-A0474E8C",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_MovingPillar_C:Cube_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.16"
+      },
+      "VariableGUID": "200C7B31-41DB31AC-8F1E5B92-2413C380",
+      "InternalVariableName": "Cube"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'InterpToMovementComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "InterpToMovementComponent'BP_MovingPillar_C:InterpToMovement_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.5"
+      },
+      "VariableGUID": "40B4D262-4DEACA1F-1670B3B7-28D351DA",
+      "InternalVariableName": "InterpToMovement"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_MovingPillar_C:SM_Vault_4m_Wall_01_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.18"
+      },
+      "VariableGUID": "8836E161-4D142C74-B131A2BB-83691D6C",
+      "InternalVariableName": "SM_Vault_4m_Wall_01"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_MovingPillar_C:SM_Vault_4m_Wall_02_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.19"
+      },
+      "VariableGUID": "AEF916C8-49EB84E3-F1D6C68A-91F6B959",
+      "InternalVariableName": "SM_Vault_4m_Wall_02"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_MovingPillar_C:SM_Vault_4m_Wall_03_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.20"
+      },
+      "VariableGUID": "62705803-40440E58-9C37EAB1-24F2AEC9",
+      "InternalVariableName": "SM_Vault_4m_Wall_03"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_MovingPillar_C:SM_Vault_4m_Wall_04_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.21"
+      },
+      "VariableGUID": "54155F22-4C858FDF-2695C796-5A23CEE7",
+      "InternalVariableName": "SM_Vault_4m_Wall_04"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_MovingPillar_C:SM_Vault_4m_Floor_01_v1_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.17"
+      },
+      "VariableGUID": "B460E71A-4CA413AE-65A54EB0-F881F4BD",
+      "InternalVariableName": "SM_Vault_4m_Floor_01_v1"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.7"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.9"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.7"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.8"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.9"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.11"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.14"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_MovingPillar_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/World/Dungeon/Traps/Proto/BP_MovingPillar.7"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Cube_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 80.0
+      },
+      "RelativeScale3D": {
+        "X": 2.4375,
+        "Y": 2.4375,
+        "Z": 3.25
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_Vault_4m_Floor_01_v1_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Vault_4m_Floor_01_v1'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Architecture/Dragonkin/Vault/Floors/SM_Vault_4m_Floor_01_v1.2"
+      },
+      "RelativeLocation": {
+        "X": 130.28366,
+        "Y": -120.27909,
+        "Z": 295.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_Vault_4m_Wall_01_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Vault_4m_Wall_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Architecture/Dragonkin/Vault/Walls/SM_Vault_4m_Wall_01.2"
+      },
+      "RelativeLocation": {
+        "X": -271.0,
+        "Y": 283.0,
+        "Z": -85.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_Vault_4m_Wall_02_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Vault_4m_Wall_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Architecture/Dragonkin/Vault/Walls/SM_Vault_4m_Wall_01.2"
+      },
+      "RelativeLocation": {
+        "X": -272.0,
+        "Y": -118.99999,
+        "Z": -85.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 180.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_Vault_4m_Wall_03_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Vault_4m_Wall_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Architecture/Dragonkin/Vault/Walls/SM_Vault_4m_Wall_01.2"
+      },
+      "RelativeLocation": {
+        "X": 129.0,
+        "Y": -121.00001,
+        "Z": -85.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 270.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_Vault_4m_Wall_04_GEN_VARIABLE",
+    "Outer": "BP_MovingPillar_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Vault_4m_Wall_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Architecture/Dragonkin/Vault/Walls/SM_Vault_4m_Wall_01.2"
+      },
+      "RelativeLocation": {
+        "X": 130.00002,
+        "Y": 280.0,
+        "Z": -85.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 360.0,
+        "Roll": 0.0
+      }
+    }
+  }
+]

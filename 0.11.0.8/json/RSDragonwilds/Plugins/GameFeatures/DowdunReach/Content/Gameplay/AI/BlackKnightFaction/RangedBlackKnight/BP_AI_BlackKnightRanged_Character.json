@@ -1,0 +1,1308 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Ranged"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Fire"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AIAudioManagerComponent",
+    "Name": "AIAudioManager_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'AIAudioManagerComponent'",
+    "Template": {
+      "ObjectName": "AIAudioManagerComponent'BP_DominionAICharacter_C:AIAudioManager_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "IdleSoundToPlay": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Cr_Vox_BlackKnightM_Archer_Distant_Idle_Call'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Creatures/Distant_Idle/MSS_Cr_Vox_BlackKnightM_Archer_Distant_Idle_Call.0"
+      },
+      "CharacterAudioManagerData": {
+        "ObjectName": "CharacterAudioManagerData'ADA_GoblinCharacterData'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/DataAssets/Characters/ADA_GoblinCharacterData.0"
+      }
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxHealth": 200.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SpeedFactorIfMovingBackwards": {
+        "ObjectName": "CurveFloat'Curve_RangedGoblin_BackwardsAccelleration'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Curve_RangedGoblin_BackwardsAccelleration.0"
+      },
+      "MoveSpeedMultiplierWhenFullySlowed": 0.42,
+      "bEnableLocomotionAnimation": true,
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightRanged_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Turns/DT_BlackKnightRanged_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightRanged_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Turns/DT_BlackKnightRanged_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightRanged_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Turns/DT_BlackKnightRanged_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightRanged_RotationAlert'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Turns/DT_BlackKnightRanged_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightRanged_RotationAlert'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Turns/DT_BlackKnightRanged_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightRanged_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Turns/DT_BlackKnightRanged_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightRanged_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Turns/DT_BlackKnightRanged_Rotation"
+          }
+        }
+      ],
+      "MaxAcceleration": 1000.0,
+      "RotationRate": {
+        "Pitch": 0.0,
+        "Yaw": 260.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Faction_Ranged_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.36"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_BlackKnightRanged_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.27"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ExecuteUbergraph_BP_AI_BlackKnightRanged_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.19"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Faction_Ranged_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.4"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ToggleResetBow'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.22"
+      },
+      {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ToggleStringSnapToHand'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.23"
+      },
+      {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ToggleArrowVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.21"
+      },
+      {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.20"
+      },
+      {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ExecuteUbergraph_BP_AI_BlackKnightRanged_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.19"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Head",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_GoblinRangedAttackComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GoblinRanged_AttackComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_GoblinRanged_AttackComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_RangedGoblinAttackOpportunityComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_AttackOpportunityComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_AttackOpportunityComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_RangedGoblin_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Bow",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_BlackKnightRanged_Character": {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ExecuteUbergraph_BP_AI_BlackKnightRanged_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.19"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.20"
+      },
+      "ToggleArrowVisibility": {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ToggleArrowVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.21"
+      },
+      "ToggleStringSnapToHand": {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ToggleStringSnapToHand'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.23"
+      },
+      "ToggleResetBow": {
+        "ObjectName": "Function'BP_AI_BlackKnightRanged_Character_C:ToggleResetBow'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.22"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_BlackKnightRanged_Character_C'Default__BP_AI_BlackKnightRanged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.6"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_BlackKnightRanged_Character_C",
+    "Name": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.BP_AI_BlackKnightRanged_Character_C'",
+    "Template": {
+      "ObjectName": "BP_AI_Biped_Faction_Ranged_Base_C'Default__BP_AI_Biped_Faction_Ranged_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.5"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "AIDataClass": {
+        "AssetPathName": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Data.BP_AI_BlackKnightRanged_Data_C",
+        "SubPathString": ""
+      },
+      "bCanBeSpawnedByDebugMenu": true,
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_BlackKnightRanged_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.15"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_BlackKnightRanged_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.2"
+      },
+      "HitRecipientAudioTag": {
+        "TagName": "Audio.Leather.Reinforced"
+      },
+      "TargetingAttachToBone": "spine_03",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_BlackKnightRanged_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_BlackKnightRanged_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_BlackKnightRanged_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.41"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_BlackKnightRanged_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.18"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_BlackKnightRanged_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.16"
+      },
+      "LockOnTargetingBoneName": "spine_03",
+      "AIName": {
+        "Namespace": "",
+        "Key": "EECEFCE94D217A22CF1C699F60E3A65F",
+        "SourceString": "Bow Goblin",
+        "LocalizedString": "Bow Goblin"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_BlackKnightRanged_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.24"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_BlackKnightRanged_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.38"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_BlackKnightRanged_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.3"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_BlackKnightRanged_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.13"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_BlackKnightRanged_Controller_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Controller"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_BlackKnightRanged_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.13"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'BP_AI_Biped_Base_C:BP_AiDeathComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.9"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_BlackKnightRanged_Death_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/Actions/Death/DAA_BlackKnightRanged_Death"
+      },
+      "MeshesToDropOnDeath": [
+        {
+          "MeshComponentReference": {
+            "OtherActor": null,
+            "ComponentProperty": "Weapon",
+            "PathToComponent": ""
+          },
+          "ImpulseStrengthAwayfromCharacter": 300.0,
+          "ImpulseStrengthVertical": 150.0,
+          "bForceVisible": false
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiHealthBarComponent_C",
+    "Name": "BP_AiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.BP_AiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_Biped_Base_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.11"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 1.2003953E-11,
+        "Y": 0.0,
+        "Z": 240.0
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_BlackKnightRanged_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.25"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_BlackKnightRanged_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.26"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_GoblinRanged_AttackComponent_C",
+    "Name": "BP_GoblinRangedAttackComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_GoblinRanged_AttackComponent.BP_GoblinRanged_AttackComponent_C'",
+    "Template": {
+      "ObjectName": "BP_GoblinRanged_AttackComponent_C'Default__BP_GoblinRanged_AttackComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_GoblinRanged_AttackComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_RangedGoblin_AiCombatModeInitiator_C",
+    "Name": "BP_RangedGoblin_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AiCombatModeInitiator.BP_RangedGoblin_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_RangedGoblin_AiCombatModeInitiator_C'Default__BP_RangedGoblin_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_BlackKnightRanged_Character_C:BP_RangedGoblin_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.14"
+      }
+    }
+  },
+  {
+    "Type": "BP_RangedGoblin_AttackOpportunityComponent_C",
+    "Name": "BP_RangedGoblinAttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_AttackOpportunityComponent.BP_RangedGoblin_AttackOpportunityComponent_C'",
+    "Template": {
+      "ObjectName": "BP_RangedGoblin_AttackOpportunityComponent_C'Default__BP_RangedGoblin_AttackOpportunityComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_AttackOpportunityComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EarlyOutVertivalAngleMultiplier": 1.8
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.6"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 85.0,
+      "CapsuleRadius": 30.0
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": "BP_RangedGoblin_AiCombatModeInitiator_GEN_VARIABLE",
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_RangedGoblin_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_BlackKnightRanged_Character_C:BP_RangedGoblin_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.17"
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.7"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "CombatModeArea_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_RangedGoblin_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.9"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_BlackKnightRanged_Character",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ToggleArrowVisibility",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Visibility",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ToggleResetBow",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ShouldReset",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAnimInstance_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'AnimInstance'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsABP_Black_Knight_Ranged_Crossbow",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "AnimBlueprintGeneratedClass'ABP_BlackKnightRangedCrossbow_C'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/ABP_BlackKnightRangedCrossbow"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ToggleStringSnapToHand",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Snap",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAnimInstance_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'AnimInstance'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsABP_Black_Knight_Ranged_Crossbow",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "AnimBlueprintGeneratedClass'ABP_BlackKnightRangedCrossbow_C'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/ABP_BlackKnightRangedCrossbow"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.10"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Template": {
+      "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.24"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.25
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Template": {
+      "ObjectName": "HitPointTypeModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.25"
+    },
+    "Flags": "RF_Public | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_BlackKnightRanged_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.9"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHitPointsComponent",
+            "AssociatedGuid": "4C173E0F-43676F3E-9ECDF0B3-5A6DE610"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'LootDropComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "LootDropComponent'BP_AI_BlackKnightRanged_Character_C:LootDrop_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.28"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "LootDrop",
+            "AssociatedGuid": "E788FAC4-403B8549-0048D999-D6CFFA57"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiDeathComponent_C'BP_AI_BlackKnightRanged_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiDeathComponent",
+            "AssociatedGuid": "0CC921EB-43120990-5809CDA9-007BAF5B"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StaticMeshComponent'BP_AI_BlackKnightRanged_Character_C:Weapon_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.40"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "Weapon",
+            "AssociatedGuid": "3A7ED551-4C0089F7-85CE76AD-FBBF5A2C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'AIAudioManagerComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "AIAudioManagerComponent'BP_AI_BlackKnightRanged_Character_C:AIAudioManager_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+            },
+            "SCSVariableName": "AIAudioManager",
+            "AssociatedGuid": "A67185B4-4154555F-CC1F3980-144D6B0F"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHealthBarComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_BlackKnightRanged_Character_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHealthBarComponent",
+            "AssociatedGuid": "6A8FB227-4EDA65EE-1F2AF5A1-22343270"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Template": {
+      "ObjectName": "LootDropComponent'BP_AI_Biped_Faction_Ranged_Base_C:LootDrop_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable_DowdunReach'",
+          "ObjectPath": "/DowdunReach/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable_DowdunReach"
+        },
+        "RowName": "Ranger_Black"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_BlackKnightRanged_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.29"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'BP_AI_BlackKnightRanged_Character_C:Bow_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.37"
+      },
+      "AttachToName": "prop_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "F58734CA-489A182B-B0258FAD-E1056F7D",
+      "InternalVariableName": "Bow"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_BlackKnightRanged_Character_C:WeakPoint_Head_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.39"
+      },
+      "AttachToName": "head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "810F00EF-46994A24-C4AC5E88-69C3007B",
+      "InternalVariableName": "WeakPoint_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_RangedGoblin_AiCombatModeInitiator_C'BP_AI_BlackKnightRanged_Character_C:BP_RangedGoblin_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.11"
+      },
+      "VariableGUID": "10A1967E-49F92258-F1F57FBA-A26FDC8E",
+      "InternalVariableName": "BP_RangedGoblin_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_AttackOpportunityComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_AttackOpportunityComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_RangedGoblin_AttackOpportunityComponent_C'BP_AI_BlackKnightRanged_Character_C:BP_RangedGoblinAttackOpportunityComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.12"
+      },
+      "VariableGUID": "31F3B095-4AE6D182-1FB19496-862E1E31",
+      "InternalVariableName": "BP_RangedGoblinAttackOpportunityComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_GoblinRanged_AttackComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_GoblinRanged_AttackComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_GoblinRanged_AttackComponent_C'BP_AI_BlackKnightRanged_Character_C:BP_GoblinRangedAttackComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.10"
+      },
+      "VariableGUID": "784F3615-41889440-83B2148A-80A2704A",
+      "InternalVariableName": "BP_GoblinRangedAttackComponent"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.32"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.31"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.34"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.32"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_BlackKnightRanged_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.30"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "Bow_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_Crossbow_Bronze_1H_01_C'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/Weapons/Ranged/Crossbow_Bronze_1H_01/ABP_Crossbow_Bronze_1H_01.1"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Black_Knight_Ranged_Crossbow_1H_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/Weapons/Faction/M_MED_Black_Knight_Ranged_Crossbow_1H_01/SK_M_MED_Black_Knight_Ranged_Crossbow_1H_01"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Black_Knight_Ranged_Crossbow_1H_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/Weapons/Faction/M_MED_Black_Knight_Ranged_Crossbow_1H_01/SK_M_MED_Black_Knight_Ranged_Crossbow_1H_01"
+      },
+      "OverrideMaterials": [
+        null
+      ]
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.16"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_U_MED_BlackKnightCrossbow_01_C'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Black_Knight_Ranged_01/ABP_U_MED_BlackKnightCrossbow_01"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Black_Knight_Ranged_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Black_Knight_Ranged_01/SK_M_MED_Black_Knight_Ranged_01"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Black_Knight_Ranged_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Black_Knight_Ranged_01/SK_M_MED_Black_Knight_Ranged_01"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_BlackKnightRanged_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/RangedBlackKnight/BP_AI_BlackKnightRanged_Character.13"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -85.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Head_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 29.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 5.0,
+        "Y": 5.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Weapon_GEN_VARIABLE",
+    "Outer": "BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'BP_AI_Biped_Faction_Ranged_Base_C:Weapon_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.17"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "StaticMesh": null
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_BlackKnightRanged_Character_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.18"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SlowEffectConfig": {
+        "MaximumValue": 0.4
+      }
+    }
+  }
+]

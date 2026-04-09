@@ -1,0 +1,3034 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Air"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Fire"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Slash"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Ranged"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AIAudioManagerComponent",
+    "Name": "AIAudioManager_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'AIAudioManagerComponent'",
+    "Template": {
+      "ObjectName": "AIAudioManagerComponent'BP_DominionAICharacter_C:AIAudioManager_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "IdleSoundToPlay": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Cr_Vox_ZamorakMage_Distant_Idle_Call'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Creatures/Distant_Idle/MSS_Cr_Vox_ZamorakMage_Distant_Idle_Call.0"
+      }
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MoveSpeedMultiplierWhenFullySlowed": 0.36,
+      "bEnableLocomotionAnimation": true,
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_ZamorakianMage_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Turns/DT_ZamorakianMage_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_ZamorakianMage_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Turns/DT_ZamorakianMage_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_ZamorakianMage_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Turns/DT_ZamorakianMage_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_ZamorakianMage_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Turns/DT_ZamorakianMage_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_ZamorakianMage_RotationAlert'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Turns/DT_ZamorakianMage_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_ZamorakianMage_RotationAlert'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Turns/DT_ZamorakianMage_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_ZamorakianMage_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Turns/DT_ZamorakianMage_Rotation"
+          }
+        }
+      ],
+      "MaxWalkSpeed": 200.0
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiTeleportMovementComponent",
+    "Name": "AiTeleportMovement_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'AiTeleportMovementComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetRadius": 900.0,
+      "MinimumDistance": 400,
+      "bTrackTarget": true,
+      "DisappearVFX": {
+        "ObjectName": "NiagaraSystem'NS_ZamMage_Teleport_Initial'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/Zam_Mage/Teleport/NS_ZamMage_Teleport_Initial"
+      },
+      "DisappearVFX_AttachName": "root",
+      "DisappearTime": 2.8,
+      "bMoveCharacterToDestinationOnPreReappear": true,
+      "PreReappearingVFX": {
+        "ObjectName": "NiagaraSystem'NS_ZamMage_Teleport_End'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/Zam_Mage/Teleport/NS_ZamMage_Teleport_End"
+      },
+      "ReappearVFX_AttachName": "root",
+      "ReappearTime": 1.0,
+      "CollisionEnableState": "ECollisionEnableState::OnReappearing"
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Faction_Ranged_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport_Template'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.72"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.67"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_MageOfZamorak_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.46"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:ExecuteUbergraph_BP_AI_MageOfZamorak_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.32"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Faction_Ranged_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.4"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:AssignOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.28"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:GetAliveCount'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.33"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnRaiseDead'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.35"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.39"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.41"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__Invisible__EventFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.40"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__Visible__EventFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.42"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnLoaded_E48A72FC4B1D4C144E17F584763AAFFE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.34"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.38"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.30"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnTeleportTrigger_Event'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.37"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Event_LoadOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.31"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:BP_OnAlertnessStateChanged'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.29"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:ExecuteUbergraph_BP_AI_MageOfZamorak_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.32"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnTeleportTrigger__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.36"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_alertStatus_Eye_ZamorakMage_02",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_alertStatus_Staff_ZamorakMage",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_alertStatus_Eye_ZamorakMage",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AiTeleportMovement",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AiTeleportMovementComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ShapeCollection",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'ShapeCollectionComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DrainEffectManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DrainEffectManagerComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Staff",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Core",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Head",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_MagicBeast_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_MagicBeast_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_MagicBeast_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_MagicBeastOpportunisticOperationComp",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_MagicBeast_OpportunisticOperationComp_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_OpportunisticOperationComp.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_MagicBeast_RangedAttackComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_MagicBeast_RangedAttackComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_RangedAttackComponent.0"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_Teleport_GlowWidth_0F59CEFF4801ECA18CBF679E3900C3C7",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_Teleport_GlowIntensity_0F59CEFF4801ECA18CBF679E3900C3C7",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_Teleport_Dissolve_0F59CEFF4801ECA18CBF679E3900C3C7",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_Teleport__Direction_0F59CEFF4801ECA18CBF679E3900C3C7",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_Teleport",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "SummonedAllies",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "SummonedAllies",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'DominionAICharacter'",
+            "ObjectPath": "/Script/Dominion"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Count",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "MulticastInlineDelegateProperty",
+        "Name": "OnTeleportTrigger",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 24,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | BlueprintAssignable | BlueprintCallable",
+        "SignatureFunction": {
+          "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnTeleportTrigger__DelegateSignature'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.36"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Outfits",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Inner": {
+          "Type": "SoftObjectProperty",
+          "Name": "Outfits",
+          "Flags": "RF_Public",
+          "ElementSize": 48,
+          "PropertyClass": {
+            "ObjectName": "Class'SkeletalMesh'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "Override Outfit",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 48,
+        "PropertyFlags": "Edit | BlueprintVisible | ExposeOnSpawn",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "OnTeleportTrigger__DelegateSignature": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnTeleportTrigger__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.36"
+      },
+      "ExecuteUbergraph_BP_AI_MageOfZamorak_Character": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:ExecuteUbergraph_BP_AI_MageOfZamorak_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.32"
+      },
+      "BP_OnAlertnessStateChanged": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:BP_OnAlertnessStateChanged'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.29"
+      },
+      "Event_LoadOutfit": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Event_LoadOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.31"
+      },
+      "OnTeleportTrigger_Event": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnTeleportTrigger_Event'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.37"
+      },
+      "BP_OnDeath": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.30"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.38"
+      },
+      "OnLoaded_E48A72FC4B1D4C144E17F584763AAFFE": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnLoaded_E48A72FC4B1D4C144E17F584763AAFFE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.34"
+      },
+      "Timeline_Teleport__Visible__EventFunc": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__Visible__EventFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.42"
+      },
+      "Timeline_Teleport__Invisible__EventFunc": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__Invisible__EventFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.40"
+      },
+      "Timeline_Teleport__UpdateFunc": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.41"
+      },
+      "Timeline_Teleport__FinishedFunc": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:Timeline_Teleport__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.39"
+      },
+      "OnRaiseDead": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnRaiseDead'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.35"
+      },
+      "GetAliveCount": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:GetAliveCount'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.33"
+      },
+      "AssignOutfit": {
+        "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:AssignOutfit'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.28"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_MageOfZamorak_Character_C'Default__BP_AI_MageOfZamorak_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.7"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_MageOfZamorak_Character_C",
+    "Name": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.BP_AI_MageOfZamorak_Character_C'",
+    "Template": {
+      "ObjectName": "BP_AI_Biped_Faction_Ranged_Base_C'Default__BP_AI_Biped_Faction_Ranged_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.5"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "OnTeleportTrigger": {
+        "InvocationList": []
+      },
+      "Outfits": [
+        {
+          "AssetPathName": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Zamorak_Mage_01/SK_M_MED_Zamorak_Mage_01.SK_M_MED_Zamorak_Mage_01",
+          "SubPathString": ""
+        },
+        {
+          "AssetPathName": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Zamorak_Mage_01/SK_M_MED_Zamorak_Mage_02.SK_M_MED_Zamorak_Mage_02",
+          "SubPathString": ""
+        }
+      ],
+      "DeathAttachSocket": "spine_04_C",
+      "AIDataClass": {
+        "AssetPathName": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Data.BP_AI_MageOfZamorak_Data_C",
+        "SubPathString": ""
+      },
+      "bCanBeSpawnedByDebugMenu": true,
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_MageOfZamorak_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.21"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_MageOfZamorak_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.2"
+      },
+      "TargetingAttachToBone": "spine_02",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_MageOfZamorak_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_MageOfZamorak_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_MageOfZamorak_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.73"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_MageOfZamorak_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.27"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_MageOfZamorak_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.22"
+      },
+      "LockOnTargetingBoneName": "spine_02",
+      "AIName": {
+        "Namespace": "",
+        "Key": "BEF6171B4CA90963C150A48791E1926B",
+        "SourceString": "Druid",
+        "LocalizedString": "Druid"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_MageOfZamorak_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.43"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_MageOfZamorak_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.68"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_MageOfZamorak_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.3"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_MageOfZamorak_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.14"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_ZamorakianMage_Controller_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/BP_AI_ZamorakianMage_Controller"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_MageOfZamorak_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.14"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'BP_AI_Biped_Base_C:BP_AiDeathComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.9"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_ZamorakianMage_Death_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/Actions/Death/DAA_ZamorakianMage_Death"
+      },
+      "MeshesToDropOnDeath": [
+        {
+          "MeshComponentReference": {
+            "OtherActor": null,
+            "ComponentProperty": "Weapon",
+            "PathToComponent": ""
+          },
+          "ImpulseStrengthAwayfromCharacter": 200.0,
+          "ImpulseStrengthVertical": 100.0,
+          "bForceVisible": false
+        },
+        {
+          "MeshComponentReference": {
+            "OtherActor": null,
+            "ComponentProperty": "Staff",
+            "PathToComponent": ""
+          },
+          "ImpulseStrengthAwayfromCharacter": 300.0,
+          "ImpulseStrengthVertical": 300.0,
+          "bForceVisible": false
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiHealthBarComponent_C",
+    "Name": "BP_AiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.BP_AiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_Biped_Base_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.11"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 1.2003953E-11,
+        "Y": 0.0,
+        "Z": 226.36363
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_MageOfZamorak_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.44"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_MageOfZamorak_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.45"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_MagicBeast_AiCombatModeInitiator_C",
+    "Name": "BP_MagicBeast_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_MagicBeast_AiCombatModeInitiator.BP_MagicBeast_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_MagicBeast_AiCombatModeInitiator_C'Default__BP_MagicBeast_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_MagicBeast_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_MageOfZamorak_Character_C:BP_MagicBeast_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.15"
+      }
+    }
+  },
+  {
+    "Type": "BP_MagicBeast_OpportunisticOperationComp_C",
+    "Name": "BP_MagicBeastOpportunisticOperationComp_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_OpportunisticOperationComp.BP_MagicBeast_OpportunisticOperationComp_C'",
+    "Template": {
+      "ObjectName": "BP_MagicBeast_OpportunisticOperationComp_C'Default__BP_MagicBeast_OpportunisticOperationComp_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_OpportunisticOperationComp.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EarlyOutVertivalAngleMultiplier": 1.1
+    }
+  },
+  {
+    "Type": "BP_MagicBeast_RangedAttackComponent_C",
+    "Name": "BP_MagicBeast_RangedAttackComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_RangedAttackComponent.BP_MagicBeast_RangedAttackComponent_C'",
+    "Template": {
+      "ObjectName": "BP_MagicBeast_RangedAttackComponent_C'Default__BP_MagicBeast_RangedAttackComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_RangedAttackComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.6"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 80.0,
+      "CapsuleRadius": 33.0,
+      "RelativeScale3D": {
+        "X": 1.1,
+        "Y": 1.1,
+        "Z": 1.1
+      }
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": "BP_MagicBeast_AiCombatModeInitiator_GEN_VARIABLE",
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_MagicBeast_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_MagicBeast_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_MageOfZamorak_Character_C:BP_MagicBeast_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.23"
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5585661,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.962636,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_1",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5831985,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.916096,
+            "Value": 3.8,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_2",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.031332016,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_User",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.5585661,
+            "Value": 0.7992804,
+            "ArriveTangent": -0.020378303,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": -0.020376721,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 3.0119019,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_3",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.558566,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      },
+      "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_4",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Linear",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 2.962636,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      },
+      "bIsEventCurve": true
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.7"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "CombatModeArea_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_MagicBeast_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_MagicBeast_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "ShapeCollection_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Radius": 2000.0
+    }
+  },
+  {
+    "Type": "DominionShape_Wedge",
+    "Name": "DominionShape_Wedge_0",
+    "Outer": "ShapeCollection_GEN_VARIABLE",
+    "Class": "UScriptClass'DominionShape_Wedge'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TopAngle": 80.0,
+      "ZHeight": 200.0,
+      "MinDepth": 350.0,
+      "Depth": 2500.0
+    }
+  },
+  {
+    "Type": "DrainEffectManagerComponent",
+    "Name": "DrainEffectManager_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'DrainEffectManagerComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DrainingGameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'GE_HealthDrain_ZamorakMage_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/StatusEffects/GE_HealthDrain_ZamorakMage.0"
+      },
+      "HealingGameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'GE_AiRegen_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_AiRegen.0"
+      },
+      "bAwaitAnimNotify": true,
+      "DrainVFX": {
+        "ObjectName": "NiagaraSystem'NS_Player_SE_HealthDrain'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/Zam_Mage/HealthDrain/SE_Drain/NS_Player_SE_HealthDrain"
+      },
+      "BeamVFX": {
+        "ObjectName": "NiagaraSystem'NS_ZamMage_HealthDrain_Tether'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/Zam_Mage/HealthDrain/Tether/NS_ZamMage_HealthDrain_Tether"
+      },
+      "VFXTurnSpeed": 5000.0,
+      "BeamEndVFXUserPropertyName": "Position001",
+      "BeamEndVFXOffset": {
+        "X": 2.0,
+        "Y": 0.0,
+        "Z": 55.0
+      },
+      "DistanceToBreakBeam": 2500.0
+    }
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.9"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 56
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "AssignOutfit",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "OverrideOutfit",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValidSoftObjectReference_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_LastIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetRandomStream_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Object'RandomStream'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_RandomIntegerInRangeFromStream_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnAlertnessStateChanged",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:BP_OnAlertnessStateChanged'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.18"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:BP_OnAlertnessStateChanged'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.18"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "State",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnDeath",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Event_LoadOutfit",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "OutfitSoftRef",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_MageOfZamorak_Character",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_Loaded",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_CustomEvent_StartingTeleport",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_K2_GetComponentsByClass_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm | ContainsInstancedReference",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_K2_GetComponentsByClass_ReturnValue",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'MeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'MeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAiHealthBarComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AiHealthBarComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAiHealthBarComponent_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AiHealthBarComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Function'BP_AI_MageOfZamorak_Character_C:OnTeleportTrigger__DelegateSignature'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.36"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'KismetSystemLibrary:OnAssetLoaded__DelegateSignature'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "K2Node_CustomEvent_OutfitSoftRef",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Conv_SoftObjectReferenceToObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValidSoftObjectReference_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSkeletal_Mesh",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMesh'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_State",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetAliveCount",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "Count",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Parm | OutParm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_IntToString_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAiHealthComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AiHealthComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDead_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnLoaded_E48A72FC4B1D4C144E17F584763AAFFE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Loaded",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnRaiseDead",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "AlCharacter",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_AddUnique_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnTeleportTrigger__DelegateSignature",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "StartingTeleport",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_Delegate | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnTeleportTrigger_Event",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "StartingTeleport",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_Teleport__FinishedFunc",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_Teleport__Invisible__EventFunc",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_Teleport__UpdateFunc",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_Teleport__Visible__EventFunc",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.10"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Template": {
+      "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.24"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.25
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Template": {
+      "ObjectName": "HitPointTypeModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.25"
+    },
+    "Flags": "RF_Public | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiDeathComponent_C'BP_AI_MageOfZamorak_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiDeathComponent",
+            "AssociatedGuid": "0CC921EB-43120990-5809CDA9-007BAF5B"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StaticMeshComponent'BP_AI_MageOfZamorak_Character_C:Weapon_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.71"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "Weapon",
+            "AssociatedGuid": "3A7ED551-4C0089F7-85CE76AD-FBBF5A2C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'LootDropComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "LootDropComponent'BP_AI_MageOfZamorak_Character_C:LootDrop_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.47"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "LootDrop",
+            "AssociatedGuid": "E788FAC4-403B8549-0048D999-D6CFFA57"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_MageOfZamorak_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.10"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHitPointsComponent",
+            "AssociatedGuid": "4C173E0F-43676F3E-9ECDF0B3-5A6DE610"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'AIAudioManagerComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "AIAudioManagerComponent'BP_AI_MageOfZamorak_Character_C:AIAudioManager_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+            },
+            "SCSVariableName": "AIAudioManager",
+            "AssociatedGuid": "A67185B4-4154555F-CC1F3980-144D6B0F"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHealthBarComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_MageOfZamorak_Character_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.9"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHealthBarComponent",
+            "AssociatedGuid": "6A8FB227-4EDA65EE-1F2AF5A1-22343270"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Template": {
+      "ObjectName": "LootDropComponent'BP_AI_Biped_Faction_Ranged_Base_C:LootDrop_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable_DowdunReach'",
+          "ObjectPath": "/DowdunReach/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable_DowdunReach"
+        },
+        "RowName": "Zamorak_Mage"
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Core_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LoopDuration",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LoopDuration",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "NormalizedNotifyProgress",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.NormalizedNotifyProgress",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "RibbonAlpha",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.RibbonAlpha",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "RibbonLifetime",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.RibbonLifetime",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "RibbonWidth",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.RibbonWidth",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.LoopDuration",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.NormalizedNotifyProgress",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 8,
+            "Name": "User.RibbonAlpha",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 12,
+            "Name": "User.RibbonLifetime",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.RibbonWidth",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          112,
+          66
+        ]
+      },
+      "RelativeScale3D": {
+        "X": 0.1,
+        "Y": 0.1,
+        "Z": 0.1
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_alertStatus_Eye_ZamorakMage_02_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_alertStatus_Eye_ZamorakMage'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/Zam_Mage/NS_alertStatus_Eye_ZamorakMage"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -2.0,
+        "Z": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 1.0
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_alertStatus_Eye_ZamorakMage_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_alertStatus_Eye_ZamorakMage'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/Zam_Mage/NS_alertStatus_Eye_ZamorakMage"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": 2.8101698E-07,
+        "Y": -2.0,
+        "Z": 0.0
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_alertStatus_Staff_ZamorakMage_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_alertStatus_Staff_ZamorakMage'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/Zam_Mage/NS_alertStatus_Staff_ZamorakMage"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": -1.8677744E-12,
+        "Y": 5.9261748E-08,
+        "Z": 72.67325
+      },
+      "RelativeRotation": {
+        "Pitch": 1.2163145E-34,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_MageOfZamorak_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.52"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DrainEffectManagerComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DrainEffectManagerComponent'BP_AI_MageOfZamorak_Character_C:DrainEffectManager_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.26"
+      },
+      "VariableGUID": "0940EA20-41DC8A70-FB92638F-C74E5E71",
+      "InternalVariableName": "DrainEffectManager"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_MageOfZamorak_Character_C:NS_alertStatus_Eye_ZamorakMage_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.50"
+      },
+      "AttachToName": "eye_l",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "C3ABE49C-4A857920-70E1E4AF-BB50C3DD",
+      "InternalVariableName": "NS_alertStatus_Eye_ZamorakMage"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_MageOfZamorak_Character_C:NS_alertStatus_Eye_ZamorakMage_02_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.49"
+      },
+      "AttachToName": "eye_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "344E1A70-4D545DC0-72A9D789-E137413C",
+      "InternalVariableName": "NS_alertStatus_Eye_ZamorakMage_02"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_MageOfZamorak_Character_C:NS_alertStatus_Staff_ZamorakMage_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.51"
+      },
+      "VariableGUID": "9C09D93F-42D45474-73E0CC96-07AD905C",
+      "InternalVariableName": "NS_alertStatus_Staff_ZamorakMage"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_MagicBeast_RangedAttackComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_RangedAttackComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_MagicBeast_RangedAttackComponent_C'BP_AI_MageOfZamorak_Character_C:BP_MagicBeast_RangedAttackComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.13"
+      },
+      "VariableGUID": "299AF9A9-4F89DC49-D310C0AD-D1CD16BC",
+      "InternalVariableName": "BP_MagicBeast_RangedAttackComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_MagicBeast_OpportunisticOperationComp_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MagicBeast/Attacks/BP_MagicBeast_OpportunisticOperationComp.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_MagicBeast_OpportunisticOperationComp_C'BP_AI_MageOfZamorak_Character_C:BP_MagicBeastOpportunisticOperationComp_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.12"
+      },
+      "VariableGUID": "3A89D40C-4DA411A9-B755399C-AE00EB53",
+      "InternalVariableName": "BP_MagicBeastOpportunisticOperationComp"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_MagicBeast_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_MagicBeast_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_MagicBeast_AiCombatModeInitiator_C'BP_AI_MageOfZamorak_Character_C:BP_MagicBeast_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.11"
+      },
+      "VariableGUID": "71808634-48E31D54-53A427B8-949076A2",
+      "InternalVariableName": "BP_MagicBeast_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_MageOfZamorak_Character_C:Core_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.48"
+      },
+      "AttachToName": "spine_03",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "3DC12C6C-402217C7-257EFFB7-9F234EA5",
+      "InternalVariableName": "Core"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_AI_MageOfZamorak_Character_C:Staff_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.70"
+      },
+      "AttachToName": "prop_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.57"
+        }
+      ],
+      "VariableGUID": "4875FFA5-4A644C41-765C70A4-0318F0E8",
+      "InternalVariableName": "Staff"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_MageOfZamorak_Character_C:WeakPoint_Head_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.69"
+      },
+      "AttachToName": "head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "A9EA08C1-44168B2A-3FBFBE99-6649F896",
+      "InternalVariableName": "WeakPoint_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AiTeleportMovementComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AiTeleportMovementComponent'BP_AI_MageOfZamorak_Character_C:AiTeleportMovement_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.5"
+      },
+      "VariableGUID": "DA14D3B5-46150375-77A13992-E7BEEF84",
+      "InternalVariableName": "AiTeleportMovement"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ShapeCollectionComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ShapeCollectionComponent'BP_AI_MageOfZamorak_Character_C:ShapeCollection_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.66"
+      },
+      "VariableGUID": "01232DC1-4E57F1E8-7CD4B6B5-48514DC9",
+      "InternalVariableName": "ShapeCollection"
+    }
+  },
+  {
+    "Type": "ShapeCollectionComponent",
+    "Name": "ShapeCollection_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'ShapeCollectionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shapes": [
+        {
+          "Key": "ShapeCollectionOption4",
+          "Value": {
+            "ObjectName": "DominionShape_Wedge'BP_AI_MageOfZamorak_Character_C:ShapeCollection_GEN_VARIABLE.DominionShape_Wedge_0'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.25"
+          }
+        },
+        {
+          "Key": "ShapeCollectionOption7",
+          "Value": {
+            "ObjectName": "DominionShape_Sphere'BP_AI_MageOfZamorak_Character_C:ShapeCollection_GEN_VARIABLE.DominionShape_Sphere_0'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.24"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.56"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.59"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.60"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.63"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.61"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.62"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.65"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.64"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.56"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_MageOfZamorak_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.53"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.16"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_U_MED_ZamorakianMage_C'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Zamorak_Mage_01/ZamorakianMage/ABP_U_MED_ZamorakianMage"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Zamorak_Mage_02'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Zamorak_Mage_01/SK_M_MED_Zamorak_Mage_02"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Zamorak_Mage_02'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Zamorak_Mage_01/SK_M_MED_Zamorak_Mage_02"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_MageOfZamorak_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.14"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -80.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Head_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 30.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 3.0,
+        "Y": 3.0,
+        "Z": 6.015869E-25
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 1.2722219E-14,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Staff_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_M_MED_Zamorak_Mage_Battlestaff_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/Weapons/Faction/M_MED_Zamorak_Mage_Battlestaff_01/SM_M_MED_Zamorak_Mage_Battlestaff_01"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "BodyInstance": {
+        "CollisionProfileName": "FloorCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": -0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Weapon_GEN_VARIABLE",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'BP_AI_Biped_Faction_Ranged_Base_C:Weapon_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.17"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_M_MED_Zamorak_Mage_Battlestaff_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/Weapons/Faction/M_MED_Zamorak_Mage_Battlestaff_01/SM_M_MED_Zamorak_Mage_Battlestaff_01"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 82.12486,
+        "Z": -8.9741866E-07
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_Teleport_Template",
+    "Outer": "BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 3.0,
+      "EventTracks": [
+        {
+          "FunctionName": "Timeline_Teleport__Visible__EventFunc",
+          "CurveKeys": {
+            "ObjectName": "CurveFloat'BP_AI_MageOfZamorak_Character_C:CurveFloat_3'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.19"
+          },
+          "TrackName": "Visible",
+          "bIsExternalCurve": false
+        },
+        {
+          "FunctionName": "Timeline_Teleport__Invisible__EventFunc",
+          "CurveKeys": {
+            "ObjectName": "CurveFloat'BP_AI_MageOfZamorak_Character_C:CurveFloat_4'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.20"
+          },
+          "TrackName": "Invisible",
+          "bIsExternalCurve": false
+        }
+      ],
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_MageOfZamorak_Character_C:CurveFloat_0'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.16"
+          },
+          "PropertyName": "Timeline_Teleport_Dissolve_0F59CEFF4801ECA18CBF679E3900C3C7",
+          "TrackName": "Dissolve",
+          "bIsExternalCurve": false
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_MageOfZamorak_Character_C:CurveFloat_1'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.17"
+          },
+          "PropertyName": "Timeline_Teleport_GlowIntensity_0F59CEFF4801ECA18CBF679E3900C3C7",
+          "TrackName": "GlowIntensity",
+          "bIsExternalCurve": false
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_MageOfZamorak_Character_C:CurveFloat_2'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/ZamorakianMageFaction/ZamorakianMage/BP_AI_MageOfZamorak_Character.18"
+          },
+          "PropertyName": "Timeline_Teleport_GlowWidth_0F59CEFF4801ECA18CBF679E3900C3C7",
+          "TrackName": "GlowWidth",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "0F59CEFF-4801ECA1-8CBF679E-3900C3C7",
+      "VariableName": "Timeline_Teleport",
+      "DirectionPropertyName": "Timeline_Teleport__Direction_0F59CEFF4801ECA18CBF679E3900C3C7",
+      "UpdateFunctionName": "Timeline_Teleport__UpdateFunc",
+      "FinishedFunctionName": "Timeline_Teleport__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_MageOfZamorak_Character_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Biped_Faction_Ranged_Base_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Faction_Ranged_Base.18"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 251,
+      "SlowEffectConfig": {
+        "MaximumValue": 0.4
+      }
+    }
+  }
+]
