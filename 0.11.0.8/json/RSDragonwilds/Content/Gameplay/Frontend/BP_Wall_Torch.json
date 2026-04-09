@@ -1,0 +1,1302 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_BaseBuilding_BaseActor_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'BP_Wall_Torch_C:Flickering_Template'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.28"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Wall_Torch_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.26"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_Wall_Torch_C:ExecuteUbergraph_BP_Wall_Torch'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.6"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_BaseBuilding_BaseActor_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.0"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:IsBurning'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.11"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:PlayInstantanousExtinguishFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.12"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:PlayInstantanousIgniteFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.13"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:UpdateBurningState'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.14"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:Flickering__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.8"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:Flickering__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.9"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:Extinguish'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.7"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:Ignite'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.10"
+      },
+      {
+        "ObjectName": "Function'BP_Wall_Torch_C:ExecuteUbergraph_BP_Wall_Torch'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.6"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DiegeticEmitterPoint",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DiegeticEmitterPointComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PointLight",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PointLightComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Niagara",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Flickering_intensity_point_A794B3714CF0F1559C7126A37DFCBA3C",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Flickering_intensity_A794B3714CF0F1559C7126A37DFCBA3C",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Flickering__Direction_A794B3714CF0F1559C7126A37DFCBA3C",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Flickering",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Start Ignited",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_Wall_Torch": {
+        "ObjectName": "Function'BP_Wall_Torch_C:ExecuteUbergraph_BP_Wall_Torch'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.6"
+      },
+      "Ignite": {
+        "ObjectName": "Function'BP_Wall_Torch_C:Ignite'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.10"
+      },
+      "Extinguish": {
+        "ObjectName": "Function'BP_Wall_Torch_C:Extinguish'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.7"
+      },
+      "Flickering__UpdateFunc": {
+        "ObjectName": "Function'BP_Wall_Torch_C:Flickering__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.9"
+      },
+      "Flickering__FinishedFunc": {
+        "ObjectName": "Function'BP_Wall_Torch_C:Flickering__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.8"
+      },
+      "UpdateBurningState": {
+        "ObjectName": "Function'BP_Wall_Torch_C:UpdateBurningState'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.14"
+      },
+      "PlayInstantanousIgniteFX": {
+        "ObjectName": "Function'BP_Wall_Torch_C:PlayInstantanousIgniteFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.13"
+      },
+      "PlayInstantanousExtinguishFX": {
+        "ObjectName": "Function'BP_Wall_Torch_C:PlayInstantanousExtinguishFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.12"
+      },
+      "IsBurning": {
+        "ObjectName": "Function'BP_Wall_Torch_C:IsBurning'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.11"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'Ignitable'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Wall_Torch_C'Default__BP_Wall_Torch_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.2"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=\"/Script/CoreUObject.Class'/Script/Dominion.Ignitable'\"))"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "BoxComponent",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Default__BP_BaseBuilding_BaseActor_C:BoxComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoxExtent": {
+        "X": 7.0,
+        "Y": 5.0,
+        "Z": 22.0
+      },
+      "ShapeColor": {
+        "B": 171,
+        "G": 189,
+        "R": 223,
+        "A": 255,
+        "Hex": "DFBDAB"
+      },
+      "BodyInstance": {
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "OnComponentBeginOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Wall_Torch_C'Default__BP_Wall_Torch_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.2"
+            },
+            "FunctionName": "OnBeginOverlap"
+          }
+        ]
+      },
+      "OnComponentEndOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Wall_Torch_C'Default__BP_Wall_Torch_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.2"
+            },
+            "FunctionName": "OnEndOverlap"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Wall_Torch_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.21"
+      },
+      "RelativeLocation": {
+        "X": 0.5992653,
+        "Y": 0.34408867,
+        "Z": -4.2411235E-09
+      },
+      "RelativeScale3D": {
+        "X": 1.5499991,
+        "Y": 0.69839853,
+        "Z": 1.0
+      }
+    }
+  },
+  {
+    "Type": "BP_Wall_Torch_C",
+    "Name": "Default__BP_Wall_Torch_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.BP_Wall_Torch_C'",
+    "Template": {
+      "ObjectName": "BP_BaseBuilding_BaseActor_C'Default__BP_BaseBuilding_BaseActor_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "Start Ignited": true,
+      "GhostedComponents": [
+        {
+          "OtherActor": null,
+          "ComponentProperty": "LightableFireInteraction",
+          "PathToComponent": ""
+        },
+        {
+          "OtherActor": null,
+          "ComponentProperty": "TimedFire",
+          "PathToComponent": ""
+        }
+      ],
+      "bIgnoreReplicationManager": true,
+      "Collider": {
+        "ObjectName": "BoxComponent'Default__BP_Wall_Torch_C:BoxComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.1"
+      },
+      "StaticMesh": {
+        "ObjectName": "StaticMeshComponent'Default__BP_Wall_Torch_C:Mesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.27"
+      },
+      "PlugVisualizationComponent": {
+        "ObjectName": "InstancedStaticMeshComponent'Default__BP_Wall_Torch_C:PlugVisualizationComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.16"
+      },
+      "BuildingSnapComponent": {
+        "ObjectName": "BuildingSnapComponent'Default__BP_Wall_Torch_C:BuildingSnapComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.4"
+      },
+      "InteractionComponent": {
+        "ObjectName": "InteractionComponent'Default__BP_Wall_Torch_C:CompleteGhostInteractionComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.17"
+      },
+      "HealthComponent": {
+        "ObjectName": "HealthComponent'Default__BP_Wall_Torch_C:HealthComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.15"
+      },
+      "BaseBuildingDamageComponent": {
+        "ObjectName": "BuildingDamageComponent'Default__BP_Wall_Torch_C:BaseBuildingDamageComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.3"
+      },
+      "BuildingDestructionSounds": [
+        {
+          "Key": "EBuildingDestroySound::DestroyedByLocalPlayer",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Wood'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Wood.0"
+          }
+        },
+        {
+          "Key": "EBuildingDestroySound::DestroyedByRemotePlayer",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Wood_Rem'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Wood_Rem.0"
+          }
+        },
+        {
+          "Key": "EBuildingDestroySound::DestroyedByDamage",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Wood_Rem'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Wood_Rem.0"
+          }
+        },
+        {
+          "Key": "EBuildingDestroySound::CollapsedFromInstability",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Wood_Rem'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Wood_Rem.0"
+          }
+        }
+      ],
+      "PlacementProfileRowHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'PlacementProfileDataTable'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/PlacementProfileDataTable.0"
+        },
+        "RowName": "WallPropProfile"
+      },
+      "BuildingPieceLocalBounds": {
+        "Origin": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 50.0
+        },
+        "BoxExtent": {
+          "X": 50.0,
+          "Y": 50.0,
+          "Z": 50.0
+        },
+        "SphereRadius": 86.60254037844386
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_Wall_Torch_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.21"
+      }
+    }
+  },
+  {
+    "Type": "BuildingDamageComponent",
+    "Name": "BaseBuildingDamageComponent",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'BuildingDamageComponent'",
+    "Template": {
+      "ObjectName": "BuildingDamageComponent'Default__BP_BaseBuilding_BaseActor_C:BaseBuildingDamageComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BuildingSnapComponent",
+    "Name": "BuildingSnapComponent",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'BuildingSnapComponent'",
+    "Template": {
+      "ObjectName": "BuildingSnapComponent'Default__BP_BaseBuilding_BaseActor_C:BuildingSnapComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DiegeticEmitterPointComponent",
+    "Name": "DiegeticEmitterPoint_GEN_VARIABLE",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'DiegeticEmitterPointComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AssociatedAudioEvent": {
+        "AssetPathName": "/Game/Audio/MetasoundSources/World/Generic/Fires/MSS_Wo_EmMo_Torch.MSS_Wo_EmMo_Torch",
+        "SubPathString": ""
+      },
+      "DiegeticEmitterTag": {
+        "TagName": "Audio.DiegeticEmitter.Torch"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 30.0,
+        "Z": 80.0
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Wall_Torch",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "Extinguish",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Flickering__FinishedFunc",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Flickering__UpdateFunc",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Ignite",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "IsBurning",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsBurning_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayInstantanousExtinguishFX",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayInstantanousIgniteFX",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateBurningState",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsBurning",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HealthComponent",
+    "Name": "HealthComponent",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'HealthComponent'",
+    "Template": {
+      "ObjectName": "HealthComponent'Default__BP_BaseBuilding_BaseActor_C:HealthComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.10"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InstancedStaticMeshComponent",
+    "Name": "PlugVisualizationComponent",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'InstancedStaticMeshComponent'",
+    "Template": {
+      "ObjectName": "InstancedStaticMeshComponent'Default__BP_BaseBuilding_BaseActor_C:PlugVisualizationComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.11"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "StaticMeshComponent'Default__BP_Wall_Torch_C:Mesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.27"
+      }
+    }
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "CompleteGhostInteractionComponent",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Template": {
+      "ObjectName": "InteractionComponent'Default__BP_BaseBuilding_BaseActor_C:CompleteGhostInteractionComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OnInteractionEvent": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Wall_Torch_C'Default__BP_Wall_Torch_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.2"
+            },
+            "FunctionName": "OnInteract"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Wall_Torch_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.21"
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_GEN_VARIABLE",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_Item_Torch_Wall_Frontend'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Item/NS_Item_Torch_Wall_Frontend.39"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color_Fire",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color_Fire",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color_Mesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color_Mesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color_Smoke",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color_Smoke",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color_Sparks",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color_Sparks",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Movement Simulation",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'Vector3f'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Movement Simulation",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'Vector3f'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "MySpawnRate",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.MySpawnRate",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "New Material Interface",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'MaterialInterface'",
+                  "ObjectPath": "/Script/Engine"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.New Material Interface",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'MaterialInterface'",
+                  "ObjectPath": "/Script/Engine"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Color_Fire",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.Color_Mesh",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 32,
+            "Name": "User.Color_Smoke",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 48,
+            "Name": "User.Color_Sparks",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 64,
+            "Name": "User.Movement Simulation",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'Vector3f'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 76,
+            "Name": "User.MySpawnRate",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.New Material Interface",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'MaterialInterface'",
+                "ObjectPath": "/Script/Engine"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          0,
+          66,
+          252,
+          255,
+          191,
+          64,
+          208,
+          204,
+          204,
+          63,
+          0,
+          0,
+          160,
+          64,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          171,
+          170,
+          170,
+          61,
+          22,
+          202,
+          171,
+          60,
+          166,
+          170,
+          42,
+          60,
+          0,
+          0,
+          0,
+          64,
+          0,
+          0,
+          128,
+          66,
+          0,
+          100,
+          168,
+          64,
+          0,
+          215,
+          163,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          160,
+          65
+        ],
+        "UObjects": [
+          null
+        ]
+      },
+      "RelativeLocation": {
+        "X": 3.5527137E-15,
+        "Y": 27.560974,
+        "Z": 77.628265
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 0.0,
+        "Roll": 12.178776
+      }
+    }
+  },
+  {
+    "Type": "PointLightComponent",
+    "Name": "PointLight_GEN_VARIABLE",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'PointLightComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceRadius": 19.199997,
+      "SoftSourceRadius": 211.19868,
+      "IntensityUnits": "ELightUnits::Candelas",
+      "AttenuationRadius": 333.61926,
+      "intensity": 8.0,
+      "LightColor": {
+        "B": 35,
+        "G": 158,
+        "R": 255,
+        "A": 255,
+        "Hex": "FF9E23"
+      },
+      "RelativeLocation": {
+        "X": 1.4210855E-14,
+        "Y": 31.245234,
+        "Z": 97.51822
+      }
+    },
+    "IntensityNits": 6.781686305999756,
+    "bUseInverseSquaredFalloff": true
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Default__BP_BaseBuilding_BaseActor_C:Root'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Wall_Torch_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.20"
+      },
+      "VariableGUID": "5013F56F-4D197D5D-94D079AF-96E2FD54",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DiegeticEmitterPointComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DiegeticEmitterPointComponent'BP_Wall_Torch_C:DiegeticEmitterPoint_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.5"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "8F994200-4A24D7B3-B3C3A5AE-B09825A5",
+      "InternalVariableName": "DiegeticEmitterPoint"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Wall_Torch_C:Niagara_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.18"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "51A650D5-4A7CC096-52D7FC97-B628665E",
+      "InternalVariableName": "Niagara"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PointLightComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PointLightComponent'BP_Wall_Torch_C:PointLight_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.19"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "A0F32997-4F56F636-E8FFA58C-BC7918B3",
+      "InternalVariableName": "PointLight"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Wall_Torch_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Wall_Torch_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Wall_Torch_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.23"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Wall_Torch_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Wall_Torch_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Wall_Torch_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.23"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Wall_Torch_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.22"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Mesh",
+    "Outer": "Default__BP_Wall_Torch_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'Default__BP_BaseBuilding_BaseActor_C:Mesh'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.17"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Box_E254DCC1'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/_GENERATED/MikeRutter/Box_E254DCC1.2"
+      },
+      "bEvaluateWorldPositionOffsetInRayTracing": true,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material'M_Red_Emissive'",
+          "ObjectPath": "RSDragonwilds/Content/Marketplace/ParagonProps/Monolith/Ruins/Materials/M_Red_Emissive.0"
+        }
+      ],
+      "CastShadow": false,
+      "LightingChannels": {
+        "bChannel1": true
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Wall_Torch_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Frontend/BP_Wall_Torch.21"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -1.8926008E-07,
+        "Z": -20.685835
+      }
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Flickering_Template",
+    "Outer": "BP_Wall_Torch_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bAutoPlay": true,
+      "bLoop": true,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'intensity_Dungeon_torch'",
+            "ObjectPath": "RSDragonwilds/Content/Art/Env/Lighting/Intensity_Curves/intensity_Dungeon_torch.0"
+          },
+          "PropertyName": "Flickering_intensity_A794B3714CF0F1559C7126A37DFCBA3C",
+          "TrackName": "intensity",
+          "bIsExternalCurve": true
+        },
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'intensity_DungeonTorch_point'",
+            "ObjectPath": "RSDragonwilds/Content/Art/Env/Lighting/Intensity_Curves/intensity_DungeonTorch_point.0"
+          },
+          "PropertyName": "Flickering_intensity_point_A794B3714CF0F1559C7126A37DFCBA3C",
+          "TrackName": "intensity_point",
+          "bIsExternalCurve": true
+        }
+      ],
+      "TimelineGuid": "A794B371-4CF0F155-9C7126A3-7DFCBA3C",
+      "VariableName": "Flickering",
+      "DirectionPropertyName": "Flickering__Direction_A794B3714CF0F1559C7126A37DFCBA3C",
+      "UpdateFunctionName": "Flickering__UpdateFunc",
+      "FinishedFunctionName": "Flickering__FinishedFunc"
+    }
+  }
+]

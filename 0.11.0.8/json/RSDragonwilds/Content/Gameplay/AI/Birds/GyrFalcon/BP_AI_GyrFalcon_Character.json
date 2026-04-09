@@ -1,0 +1,1069 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_DominionAICharacter_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AIAudioManagerComponent",
+    "Name": "AIAudioManager_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'AIAudioManagerComponent'",
+    "Template": {
+      "ObjectName": "AIAudioManagerComponent'BP_DominionAICharacter_C:AIAudioManager_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "IdleSoundToPlay": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Cr_Vox_GyrFalcon_Distant_Idle_Call'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Creatures/Distant_Idle/MSS_Cr_Vox_GyrFalcon_Distant_Idle_Call.0"
+      },
+      "CharacterAudioManagerData": {
+        "ObjectName": "CharacterAudioManagerData'ADA_FalconCharacterData'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/DataAssets/Characters/ADA_FalconCharacterData.0"
+      },
+      "bCanOnlyUseOneAudioComponent": true,
+      "bNeedsSurfaceData": false
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_DominionAICharacter_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModifyHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyHealth.0"
+      },
+      "ModifyMaxHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyMaxHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyMaxHealth.0"
+      },
+      "MaxHealth": 1.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_DominionAICharacter_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NavAgentName": "Default",
+      "WalkableFloorAngle": 45.0,
+      "WalkableFloorZ": 0.70710677,
+      "MaxWalkSpeed": 133.0,
+      "MaxAcceleration": 400.0,
+      "bOrientRotationToMovement": true,
+      "NavMovementProperties": {
+        "bUpdateNavAgentWithOwnersCollision": false
+      },
+      "NavAgentProps": {
+        "AgentRadius": 30.0,
+        "AgentHeight": 150.0,
+        "PreferredNavData": {
+          "AssetPathName": "/Script/NavigationSystem.RecastNavMesh",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_DominionAICharacter_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.30"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_GyrFalcon_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.18"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "LootDrop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'LootDropComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Targetable",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'TargetableComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Collision_Body",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitPointsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiAnimationManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitReactionsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDamageComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDeathComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Max Run Speed",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Max Walk Speed",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CurrentAlertState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CombatAlertState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "MinTime",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "MaxTime",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_GyrFalcon_Character_C'Default__BP_AI_GyrFalcon_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.7"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "Collision_Body_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoxExtent": {
+        "X": 20.0,
+        "Y": 20.0,
+        "Z": 30.0
+      },
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bGenerateOverlapEvents": false,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 30.0
+      }
+    }
+  },
+  {
+    "Type": "BP_AI_GyrFalcon_Character_C",
+    "Name": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.BP_AI_GyrFalcon_Character_C'",
+    "Template": {
+      "ObjectName": "BP_DominionAICharacter_C'Default__BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.7"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatAlertState": "EAlertnessState::TRANSITION_TO_COMBAT",
+      "MinTime": 3.0,
+      "MaxTime": 7.0,
+      "AIDataClass": {
+        "AssetPathName": "/Game/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Data.BP_AI_GyrFalcon_Data_C",
+        "SubPathString": ""
+      },
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_GyrFalcon_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.14"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_GyrFalcon_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.2"
+      },
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_GyrFalcon_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_GyrFalcon_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_GyrFalcon_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.33"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_GyrFalcon_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.16"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_GyrFalcon_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.15"
+      },
+      "LockOnTargetingBoneName": "spine_01_C",
+      "AIName": {
+        "Namespace": "",
+        "Key": "E0CED42846B2FDA10F1917B34F5E7CF2",
+        "SourceString": "GyrFalcon",
+        "LocalizedString": "GyrFalcon"
+      },
+      "bOverrideWorldCullableDefaults": true,
+      "DesiredActivationRange": 6000.0,
+      "DesiredDeactivationRange": 6000.0,
+      "DesiredCullRange": 6000.0,
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_GyrFalcon_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.17"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_GyrFalcon_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.31"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_GyrFalcon_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.3"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_GyrFalcon_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.13"
+      },
+      "bUseControllerRotationYaw": false,
+      "AutoPossessAI": "EAutoPossessAI::PlacedInWorldOrSpawned",
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_GyrFalcon_Controller_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Controller.8"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_GyrFalcon_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.13"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiAnimationManager_C",
+    "Name": "BP_AiAnimationManager_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.BP_AiAnimationManager_C'",
+    "Template": {
+      "ObjectName": "BP_AiAnimationManager_C'Default__BP_AiAnimationManager_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiDamageComponent_C",
+    "Name": "BP_AiDamageComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.BP_AiDamageComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDamageComponent_C'Default__BP_AiDamageComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'Default__BP_AiDeathComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DespawnVFX_Socket": "spine_C0_3_jnt",
+      "DespawnVFX_SizeScale": 1.5,
+      "DespawnTime": 3.0,
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_GyrFalcon_Death_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/Actions/Death/DAA_GyrFalcon_Death.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'Default__BP_AiHitPointsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "Collision_Body",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 0,
+            "G": 255,
+            "R": 255,
+            "A": 255,
+            "Hex": "FFFF00"
+          },
+          "bDrawDebugText": false,
+          "Specs": []
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiHitReactionsComponent_C",
+    "Name": "BP_AiHitReactionsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.BP_AiHitReactionsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitReactionsComponent_C'Default__BP_AiHitReactionsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LightForceThreshold": 9999.0,
+      "HeavyForceThreshold": 9999.0,
+      "KnockDownForceThreshold": 9999.0
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 30.0,
+      "CapsuleRadius": 25.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel3",
+        "CollisionProfileName": "Ai",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "TriggerVolume",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_DominionAICharacter_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_DominionAICharacter_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.13"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_DominionAICharacter_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelevantStatusEffects": 62
+    }
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_DominionAICharacter_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.27"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'AIAudioManagerComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "AIAudioManagerComponent'BP_AI_GyrFalcon_Character_C:AIAudioManager_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+            },
+            "SCSVariableName": "AIAudioManager",
+            "AssociatedGuid": "A67185B4-4154555F-CC1F3980-144D6B0F"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable.0"
+        },
+        "RowName": "Wildlife_GF_Bird"
+      },
+      "DefaultResourceClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RuntimeSpawnedWorldItem_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/WorldItems/BP_RuntimeSpawnedWorldItem.0"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_GyrFalcon_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.20"
+      },
+      "VariableGUID": "0CB7E422-4B3F096D-A185C281-3229E203",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'LootDropComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "LootDropComponent'BP_AI_GyrFalcon_Character_C:LootDrop_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.19"
+      },
+      "VariableGUID": "58940FA5-41243301-F0515487-2535F478",
+      "InternalVariableName": "LootDrop"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'TargetableComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TargetableComponent'BP_AI_GyrFalcon_Character_C:Targetable_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.32"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "522B56B3-42382434-EEC5FD89-D65E3E84",
+      "InternalVariableName": "Targetable"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiAnimationManager_C'BP_AI_GyrFalcon_Character_C:BP_AiAnimationManager_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.8"
+      },
+      "VariableGUID": "64127E72-4198E8EB-4B238D9F-9F975108",
+      "InternalVariableName": "BP_AiAnimationManager"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDeathComponent_C'BP_AI_GyrFalcon_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.10"
+      },
+      "VariableGUID": "B01D483C-426E85E1-B77B9B84-882C0667",
+      "InternalVariableName": "BP_AiDeathComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDamageComponent_C'BP_AI_GyrFalcon_Character_C:BP_AiDamageComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.9"
+      },
+      "VariableGUID": "E597ADC8-4099110A-95F74D89-B4D61274",
+      "InternalVariableName": "BP_AiDamageComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitReactionsComponent_C'BP_AI_GyrFalcon_Character_C:BP_AiHitReactionsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.12"
+      },
+      "VariableGUID": "0CB03B89-4761A80F-0B689EAA-FA741728",
+      "InternalVariableName": "BP_AiHitReactionsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_GyrFalcon_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.11"
+      },
+      "VariableGUID": "17EC0983-4E53A160-D645DDA4-D58729F5",
+      "InternalVariableName": "BP_AiHitPointsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'BP_AI_GyrFalcon_Character_C:Collision_Body_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.6"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "93A611F8-444AB559-BE57A19C-EB1405E6",
+      "InternalVariableName": "Collision_Body"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.22"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.25"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.26"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.27"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.24"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.28"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.29"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.23"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.22"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_GyrFalcon_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.21"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_DominionAICharacter_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.33"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_Magpie_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/Magpie/ABP_Magpie.1"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_Falcon_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Avian/Falcon_01/SK_Falcon_01.1"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_Falcon_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Avian/Falcon_01/SK_Falcon_01.1"
+      },
+      "bCastCapsuleDirectShadow": true,
+      "bCastCapsuleIndirectShadow": true,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_GyrFalcon_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Birds/GyrFalcon/BP_AI_GyrFalcon_Character.13"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -30.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 1.75,
+        "Y": 1.75,
+        "Z": 1.75
+      }
+    }
+  },
+  {
+    "Type": "TargetableComponent",
+    "Name": "Targetable_GEN_VARIABLE",
+    "Outer": "BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'TargetableComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetingDistance": 5000.0
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_GyrFalcon_Character_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_DominionAICharacter_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.35"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

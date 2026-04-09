@@ -1,0 +1,765 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PoisonRock_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NumReplicatedProperties": 1,
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_PoisonRock_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.18"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_PoisonRock_C:ExecuteUbergraph_BP_PoisonRock'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Actor'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_PoisonRock_C:OnRep_IsDispersed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.4"
+      },
+      {
+        "ObjectName": "Function'BP_PoisonRock_C:Stop Dispersion'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.6"
+      },
+      {
+        "ObjectName": "Function'BP_PoisonRock_C:ResetEndDispersionTimer'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.5"
+      },
+      {
+        "ObjectName": "Function'BP_PoisonRock_C:TryToDisperse'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.7"
+      },
+      {
+        "ObjectName": "Function'BP_PoisonRock_C:ExecuteUbergraph_BP_PoisonRock'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PoisonEmitterSphere",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PoisonEmitterSphere'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DiegeticEmitterPoint_01",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DiegeticEmitterPointComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PointLight",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PointLightComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Cloud",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_RockMesh",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "SecondsForDispersionToLast",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "IsDispersed",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | Net | DisableEditOnInstance | RepNotify",
+        "RepNotifyFunc": "OnRep_IsDispersed",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "EndDispersionTimerHandle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Object'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_PoisonRock": {
+        "ObjectName": "Function'BP_PoisonRock_C:ExecuteUbergraph_BP_PoisonRock'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.3"
+      },
+      "TryToDisperse": {
+        "ObjectName": "Function'BP_PoisonRock_C:TryToDisperse'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.7"
+      },
+      "ResetEndDispersionTimer": {
+        "ObjectName": "Function'BP_PoisonRock_C:ResetEndDispersionTimer'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.5"
+      },
+      "Stop Dispersion": {
+        "ObjectName": "Function'BP_PoisonRock_C:Stop Dispersion'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.6"
+      },
+      "OnRep_IsDispersed": {
+        "ObjectName": "Function'BP_PoisonRock_C:OnRep_IsDispersed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.4"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'Dispersible'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PoisonRock_C'Default__BP_PoisonRock_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=\"/Script/CoreUObject.Class'/Script/Dominion.Dispersible'\"))"
+    }
+  },
+  {
+    "Type": "BP_PoisonRock_C",
+    "Name": "Default__BP_PoisonRock_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.BP_PoisonRock_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "SecondsForDispersionToLast": 5.0,
+      "EndDispersionTimerHandle": {
+        "Handle": 0
+      },
+      "bReplicates": true,
+      "NetDormancy": "ENetDormancy::DORM_DormantAll",
+      "Tags": [
+        "ToxicSwampPoison"
+      ]
+    }
+  },
+  {
+    "Type": "DiegeticEmitterPointComponent",
+    "Name": "DiegeticEmitterPoint_01_GEN_VARIABLE",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'DiegeticEmitterPointComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AssociatedAudioEvent": {
+        "AssetPathName": "/Game/Audio/MetasoundSources/World/Generic/PoisonPyres/MSS_Wo_AmbMo_PoisonPyre_Loop.MSS_Wo_AmbMo_PoisonPyre_Loop",
+        "SubPathString": ""
+      },
+      "DiegeticEmitterTag": {
+        "TagName": "Audio.DiegeticEmitter.PoisonRock"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 170.0
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_PoisonRock",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnRep_IsDispersed",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ResetEndDispersionTimer",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'TimerDynamicDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimerDelegate_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Object'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_K2_SetTimerDelegate_Time_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Stop Dispersion",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "TryToDisperse",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintAuthorityOnly | FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Cloud_GEN_VARIABLE",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_PoisonRock_Looping'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Env/Hazard/PoisonRock/NS_PoisonRock_Looping.22"
+      },
+      "OverrideParameters": {},
+      "LDMaxDrawDistance": 20000.0,
+      "CachedMaxDrawDistance": 20000.0,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 10.0
+      },
+      "RelativeScale3D": {
+        "X": 0.99999994,
+        "Y": 1.0,
+        "Z": 1.0
+      }
+    }
+  },
+  {
+    "Type": "PointLightComponent",
+    "Name": "PointLight_GEN_VARIABLE",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'PointLightComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bUseInverseSquaredFalloff": false,
+      "LightFalloffExponent": 30.0,
+      "SourceRadius": 30.0,
+      "SourceLength": 30.0,
+      "AttenuationRadius": 500.0,
+      "MaxDrawDistance": 1500.0,
+      "MaxDistanceFadeRange": 500.0,
+      "intensity": 3.0,
+      "LightColor": {
+        "B": 0,
+        "G": 200,
+        "R": 80,
+        "A": 255,
+        "Hex": "50C800"
+      },
+      "IndirectLightingIntensity": 5.0,
+      "VolumetricScatteringIntensity": 8.0,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 150.0
+      }
+    },
+    "IntensityNits": 3.1415927410125732,
+    "bUseInverseSquaredFalloff": false
+  },
+  {
+    "Type": "PoisonEmitterSphere",
+    "Name": "PoisonEmitterSphere_GEN_VARIABLE",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'PoisonEmitterSphere'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MagnitudeSetting": {
+        "bUseValue": true,
+        "Magnitude": "EGameplayEffectMagnitude::Weak",
+        "Value": 40.0
+      },
+      "MagnitudeFalloffCurve": {
+        "ExternalCurve": {
+          "ObjectName": "CurveFloat'CF_Constant'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/CF_Constant.0"
+        }
+      },
+      "PowerLevel": 4,
+      "SphereRadius": 530.0,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel8",
+        "CollisionProfileName": "AreaEffect",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 2.6069888E-06,
+        "Y": -2.2737368E-13,
+        "Z": 88.76181
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_PoisonRock_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.11"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.16"
+        }
+      ],
+      "VariableGUID": "74840DAF-4650D19A-FABF8A85-C64F0584",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_PoisonRock_C:SM_RockMesh_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.19"
+      },
+      "VariableGUID": "DB825BDE-4847A584-ED95F4AD-86AEB18B",
+      "InternalVariableName": "SM_RockMesh"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_PoisonRock_C:VFX_Cloud_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.8"
+      },
+      "VariableGUID": "7B039887-46D9BA72-62D6C28E-ADB8447E",
+      "InternalVariableName": "VFX_Cloud"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PointLightComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PointLightComponent'BP_PoisonRock_C:PointLight_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.9"
+      },
+      "VariableGUID": "272E46A5-44D0A2F8-AC76A198-13B54903",
+      "InternalVariableName": "PointLight"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PoisonEmitterSphere'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PoisonEmitterSphere'BP_PoisonRock_C:PoisonEmitterSphere_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.10"
+      },
+      "VariableGUID": "D99D0C58-496B1F39-0BFA1B8A-0EF4DF99",
+      "InternalVariableName": "PoisonEmitterSphere"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DiegeticEmitterPointComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DiegeticEmitterPointComponent'BP_PoisonRock_C:DiegeticEmitterPoint_01_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.2"
+      },
+      "VariableGUID": "C40AD3A2-46210879-D5CCD590-AAB35AA5",
+      "InternalVariableName": "DiegeticEmitterPoint_01"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.12"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.16"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_PoisonRock_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Obstacles/BP_PoisonRock.12"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_RockMesh_GEN_VARIABLE",
+    "Outer": "BP_PoisonRock_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Poison_Rock'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Props/Gameplay_Props/Posion_Rock/SM_Poison_Rock.2"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "LDMaxDrawDistance": 20000.0,
+      "CachedMaxDrawDistance": 20000.0,
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Footstep",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_PathTrace",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "FeetIK",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "AudioOcclusion",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        },
+        "MaxAngularVelocity": 3599.9998
+      },
+      "Mobility": "EComponentMobility::Stationary"
+    }
+  }
+]

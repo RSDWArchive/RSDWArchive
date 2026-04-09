@@ -1,0 +1,3348 @@
+[
+  {
+    "Type": "BedComponent",
+    "Name": "Bed_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'BedComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bRequiresClaimingToSleepIn": false,
+      "RestingMontage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_Bed_Sleep'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Animation/PlayerM/Interact/AM_PlayerM_Bed_Sleep.0"
+      },
+      "RestLoopSectionName": "SleepLoop",
+      "RestingCameraProfile": {
+        "ObjectName": "CameraProfile'SummonShelterRestingModeCameraProfile'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Data/SummonShelterRestingModeCameraProfile.0"
+      },
+      "OnRestSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Inventory_ItemSelect'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Inventory/MSS_UI_Mn_Inventory_ItemSelect.0"
+      },
+      "PlayerRestingTransformSettings": {
+        "RestAnimHeightOffset": 90.0,
+        "RestAnimForwardOffset": 0.0,
+        "RestAnimYawOffset": 0.0
+      }
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'BP_Magic_SummonShelter_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.5"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Magic_SummonShelter_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.57"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ExecuteUbergraph_BP_Magic_SummonShelter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.16"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'UtilitySpell'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:CanHitMultipleComponents'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.13"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetDamageComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.18"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetHitPointsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.20"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetHitReactionComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.21"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:IsCurrentlyTargetableByAI'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.23"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:CanAdditionalDescriptionTextContainUsername'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.12"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetAdditionalDescriptionText'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.17"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.19"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:InitializeSpellAlphaForRelease'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.22"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:Update ParticleSystems'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.31"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:Update Mesh Visuals'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.30"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:RegenNavmesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.28"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:IsFullyConstructed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.24"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ToggleRestingOrSleeping'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.29"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ActivateGameplayEffects'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.6"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:UpdateLifetimeFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.32"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:DeactivateGameplayEffects'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.14"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.10"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:Leave'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.25"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.27"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_Bed_K2Node_ComponentBoundEvent_1_OnCurrentRestingPlayerChangedDynamic__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.8"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ActivateGameplayEffectsOnClient'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.7"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:DeactivateGameplayEffectsOnClient'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.15"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_2_OnInteractionPromptDisplayChange__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.11"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_BP_WorldActorDamageComponent_K2Node_ComponentBoundEvent_3_OnDamageReceivedSignatureDynamic__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.9"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:OnPassNightInShelter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.26"
+      },
+      {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ExecuteUbergraph_BP_Magic_SummonShelter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.16"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GrassMask",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_MagicParticles_B",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_MagicParticles",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BuildVFX",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ChannelVFX",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_WorldActorDamageComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_WorldActorDamageComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Components/BP_WorldActorDamageComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Pillow",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Bedroll",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InteractionCollider",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Bed",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BedComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Interaction",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'InteractionComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StaticMeshTentBody",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StaticMeshCollisionOnly",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "ReleaseAlpha",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SizeCurve",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'CurveFloat'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_Magic_SummonShelter": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ExecuteUbergraph_BP_Magic_SummonShelter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.16"
+      },
+      "OnPassNightInShelter": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:OnPassNightInShelter'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.26"
+      },
+      "BndEvt__BP_Magic_SummonShelter_BP_WorldActorDamageComponent_K2Node_ComponentBoundEvent_3_OnDamageReceivedSignatureDynamic__DelegateSignature": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_BP_WorldActorDamageComponent_K2Node_ComponentBoundEvent_3_OnDamageReceivedSignatureDynamic__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.9"
+      },
+      "BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_2_OnInteractionPromptDisplayChange__DelegateSignature": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_2_OnInteractionPromptDisplayChange__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.11"
+      },
+      "DeactivateGameplayEffectsOnClient": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:DeactivateGameplayEffectsOnClient'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.15"
+      },
+      "ActivateGameplayEffectsOnClient": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ActivateGameplayEffectsOnClient'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.7"
+      },
+      "BndEvt__BP_Magic_SummonShelter_Bed_K2Node_ComponentBoundEvent_1_OnCurrentRestingPlayerChangedDynamic__DelegateSignature": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_Bed_K2Node_ComponentBoundEvent_1_OnCurrentRestingPlayerChangedDynamic__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.8"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.27"
+      },
+      "Leave": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:Leave'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.25"
+      },
+      "BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.10"
+      },
+      "DeactivateGameplayEffects": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:DeactivateGameplayEffects'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.14"
+      },
+      "UpdateLifetimeFX": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:UpdateLifetimeFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.32"
+      },
+      "ActivateGameplayEffects": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ActivateGameplayEffects'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.6"
+      },
+      "ToggleRestingOrSleeping": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:ToggleRestingOrSleeping'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.29"
+      },
+      "IsFullyConstructed": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:IsFullyConstructed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.24"
+      },
+      "RegenNavmesh": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:RegenNavmesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.28"
+      },
+      "Update Mesh Visuals": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:Update Mesh Visuals'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.30"
+      },
+      "Update ParticleSystems": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:Update ParticleSystems'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.31"
+      },
+      "InitializeSpellAlphaForRelease": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:InitializeSpellAlphaForRelease'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.22"
+      },
+      "GetDisplayName": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.19"
+      },
+      "GetAdditionalDescriptionText": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetAdditionalDescriptionText'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.17"
+      },
+      "CanAdditionalDescriptionTextContainUsername": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:CanAdditionalDescriptionTextContainUsername'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.12"
+      },
+      "IsCurrentlyTargetableByAI": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:IsCurrentlyTargetableByAI'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.23"
+      },
+      "GetHitReactionComponent": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetHitReactionComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.21"
+      },
+      "GetHitPointsComponent": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetHitPointsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.20"
+      },
+      "GetDamageComponent": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:GetDamageComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.18"
+      },
+      "CanHitMultipleComponents": {
+        "ObjectName": "Function'BP_Magic_SummonShelter_C:CanHitMultipleComponents'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.13"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'WorldActorInterface'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      },
+      {
+        "Class": {
+          "ObjectName": "Class'RestingArea'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      },
+      {
+        "Class": {
+          "ObjectName": "Class'AITargetableStructure'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      },
+      {
+        "Class": {
+          "ObjectName": "Class'Damageable'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Magic_SummonShelter_C'Default__BP_Magic_SummonShelter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.2"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=\"/Script/CoreUObject.Class'/Script/Dominion.WorldActorInterface'\"),(Interface=\"/Script/CoreUObject.Class'/Script/Dominion.RestingArea'\"),(Interface=\"/Script/CoreUObject.Class'/Script/Dominion.AITargetableStructure'\"),(Interface=\"/Script/CoreUObject.Class'/Script/Dominion.Damageable'\"))"
+    }
+  },
+  {
+    "Type": "BP_Magic_SummonShelter_C",
+    "Name": "Default__BP_Magic_SummonShelter_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.BP_Magic_SummonShelter_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "ReleaseAlpha": 0.4,
+      "SizeCurve": {
+        "ObjectName": "CurveFloat'CF_SummonShelterSize'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/CF_SummonShelterSize.0"
+      },
+      "SpellCollider": {
+        "ObjectName": "CapsuleComponent'Default__BP_Magic_SummonShelter_C:SpellCollider'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.4"
+      },
+      "StartingDuration": 3.974,
+      "EffectDuration": 300.0,
+      "EndingDuration": 2.0,
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_Magic_SummonShelter_C:SpellCollider'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.4"
+      }
+    }
+  },
+  {
+    "Type": "BP_WorldActorDamageComponent_C",
+    "Name": "BP_WorldActorDamageComponent_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Components/BP_WorldActorDamageComponent.BP_WorldActorDamageComponent_C'",
+    "Template": {
+      "ObjectName": "BP_WorldActorDamageComponent_C'Default__BP_WorldActorDamageComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Components/BP_WorldActorDamageComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "SpellCollider",
+    "Outer": "Default__BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BodyInstance": {
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building_SnapDetection",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building_PropPlacement",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Building_Prop",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "BP_WorldActorDamageComponent",
+          "DelegatePropertyName": "OnDamageReceivedDynamic",
+          "FunctionNameToBind": "BndEvt__BP_Magic_SummonShelter_BP_WorldActorDamageComponent_K2Node_ComponentBoundEvent_3_OnDamageReceivedSignatureDynamic__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "Interaction",
+          "DelegatePropertyName": "OnShowInteractionPrompt",
+          "FunctionNameToBind": "BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_2_OnInteractionPromptDisplayChange__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "Bed",
+          "DelegatePropertyName": "OnCurrentRestingPlayerChangedDynamic",
+          "FunctionNameToBind": "BndEvt__BP_Magic_SummonShelter_Bed_K2Node_ComponentBoundEvent_1_OnCurrentRestingPlayerChangedDynamic__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "Interaction",
+          "DelegatePropertyName": "OnInteractionEvent",
+          "FunctionNameToBind": "BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ActivateGameplayEffects",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UtilitySpell:ActivateGameplayEffects'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ActivateGameplayEffectsOnClient",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UtilitySpell:ActivateGameplayEffectsOnClient'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_Magic_SummonShelter_Bed_K2Node_ComponentBoundEvent_1_OnCurrentRestingPlayerChangedDynamic__DelegateSignature",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CurrentRestingPlayer",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_Magic_SummonShelter_BP_WorldActorDamageComponent_K2Node_ComponentBoundEvent_3_OnDamageReceivedSignatureDynamic__DelegateSignature",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Target",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "DamageEvent",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'DominionDamageEvent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_HasOutParms | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_Magic_SummonShelter_Interaction_K2Node_ComponentBoundEvent_2_OnInteractionPromptDisplayChange__DelegateSignature",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CanAdditionalDescriptionTextContainUsername",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CanHitMultipleComponents",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "DeactivateGameplayEffects",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UtilitySpell:DeactivateGameplayEffects'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DeactivateGameplayEffectsOnClient",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UtilitySpell:DeactivateGameplayEffectsOnClient'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Magic_SummonShelter",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_Player_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Controller'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECollisionResponse'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_Alpha",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanSleep_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECanRestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingPlayer_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_CurrentRestingPlayer",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocallyControlled_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_IsCollisionEnabled_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsFullyConstructed_FullyConstructed",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocallyControlled_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECollisionResponse'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanSleep_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECanRestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECollisionResponse'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_MakeLiteralText_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_MakeLiteralText_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanRest_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECanRestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "K2Node_Select_Default_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_4",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_Target",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_ComponentBoundEvent_DamageEvent",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ConstParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'DominionDamageEvent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_5",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetGameMode_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'GameModeBase'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'OnAllPlayersSleeping__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Game_Mode",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionGameMode'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Update_Mesh_Visuals_Alpha_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Update_ParticleSystems_Alpha_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetAdditionalDescriptionText",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "TextProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetDamageComponent",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm | ReturnParm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'DamageComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetDisplayName",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "TextProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetHitPointsComponent",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm | ReturnParm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'HitPointsComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetHitReactionComponent",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm | ReturnParm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'HitReactionsComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "InitializeSpellAlphaForRelease",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeLiteralDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Divide_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_FClamp_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Divide_DoubleDouble_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "IsCurrentlyTargetableByAI",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsFullyConstructed_FullyConstructed",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "IsFullyConstructed",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "FullyConstructed",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_IsCollisionEnabled_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "Leave",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnPassNightInShelter",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "RegenNavmesh",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetComponentBounds_Origin",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetComponentBounds_BoxExtent",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetComponentBounds_SphereRadius",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeBoxSphereBounds_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 56,
+        "Struct": {
+          "ObjectName": "Object'BoxSphereBounds'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ToggleRestingOrSleeping",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "StartedRestingOrSleeping",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerRestComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerRestComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingAreaActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsResting_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetIsSleeping_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanSleep_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECanRestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Update Mesh Visuals",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Alpha",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetFloatValue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Conv_DoubleToVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Multiply_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetFloatValue_InTime_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_EqualEqual_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_NotEqual_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_DoubleToVector_InDouble_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Update ParticleSystems",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Alpha",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GreaterEqual_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GreaterEqual_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateLifetimeFX",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'UtilitySpell:UpdateLifetimeFX'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "Alpha",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "Interaction_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InteractionPrompt": {
+        "Namespace": "",
+        "Key": "CFB5ED7941639B63682C08B8567AA481",
+        "SourceString": "Sleep",
+        "LocalizedString": "Sleep"
+      },
+      "RelativeLocation": {
+        "X": 4.7369515E-14,
+        "Y": -1.4802973E-15,
+        "Z": -2.3684757E-14
+      },
+      "RelativeScale3D": {
+        "X": 1.6666666,
+        "Y": 1.6666666,
+        "Z": 1.6666666
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "BuildVFX_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_SummonShelter_Build'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/SummonShelter/NS_SummonShelter_Build.16"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 65.0
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "ChannelVFX_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_SummonShelter_Channel_Looping'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/SummonShelter/NS_SummonShelter_Channel_Looping.58"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 65.0
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_MagicParticles_B_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_Shelter_Magic_B'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/SummonShelter/NS_Shelter_Magic_B.21"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Static Mesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Static Mesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Static Mesh",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          }
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceStaticMesh'BP_Magic_SummonShelter_C:NS_MagicParticles_B_GEN_VARIABLE.NiagaraDataInterfaceStaticMesh_0'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.38"
+          }
+        ]
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_MagicParticles_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_Shelter_Magic_A'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/SummonShelter/NS_Shelter_Magic_A.16"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Static Mesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Static Mesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Static Mesh",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          }
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceStaticMesh'BP_Magic_SummonShelter_C:NS_MagicParticles_GEN_VARIABLE.NiagaraDataInterfaceStaticMesh_1'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.41"
+          }
+        ]
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_0",
+    "Outer": "NS_MagicParticles_B_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceMode": "ENDIStaticMesh_SourceMode::AttachParent",
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_1",
+    "Outer": "NS_MagicParticles_B_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceMode": "ENDIStaticMesh_SourceMode::AttachParent",
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_0",
+    "Outer": "NS_MagicParticles_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceMode": "ENDIStaticMesh_SourceMode::AttachParent",
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_1",
+    "Outer": "NS_MagicParticles_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceMode": "ENDIStaticMesh_SourceMode::AttachParent",
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Magic_SummonShelter_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.42"
+      },
+      "VariableGUID": "B5B64C8D-49C712D0-9D683799-D67C321A",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Magic_SummonShelter_C:StaticMeshCollisionOnly_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.62"
+      },
+      "ParentComponentOrVariableName": "SpellCollider",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.51"
+        }
+      ],
+      "VariableGUID": "A846217D-45CA7144-5E910C8E-9214E7D9",
+      "InternalVariableName": "StaticMeshCollisionOnly"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Magic_SummonShelter_C:ChannelVFX_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.35"
+      },
+      "ParentComponentOrVariableName": "SpellCollider",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "75400D6E-4D1088C4-9734DFAE-3544CC4D",
+      "InternalVariableName": "ChannelVFX"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Magic_SummonShelter_C:BuildVFX_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.34"
+      },
+      "ParentComponentOrVariableName": "SpellCollider",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "01374DEA-48CD765B-EFB3F99D-7EEE3C35",
+      "InternalVariableName": "BuildVFX"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Magic_SummonShelter_C:NS_MagicParticles_B_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.36"
+      },
+      "VariableGUID": "620C706C-4340E571-A301878D-FC30D15B",
+      "InternalVariableName": "NS_MagicParticles_B"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Magic_SummonShelter_C:GrassMask_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.59"
+      },
+      "VariableGUID": "140D078E-40CEAC8E-D8E0D4A1-62F7BAC4",
+      "InternalVariableName": "GrassMask"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BedComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BedComponent'BP_Magic_SummonShelter_C:Bed_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.0"
+      },
+      "VariableGUID": "50254445-4D56E3C6-BED031A8-3BCB95B7",
+      "InternalVariableName": "Bed"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Magic_SummonShelter_C:Bedroll_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.58"
+      },
+      "ParentComponentOrVariableName": "SpellCollider",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.52"
+        }
+      ],
+      "VariableGUID": "560E8F5E-4DB87F33-EFB1A6BF-386E51C8",
+      "InternalVariableName": "Bedroll"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Magic_SummonShelter_C:StaticMeshTentBody_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.63"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.48"
+        }
+      ],
+      "VariableGUID": "09C4BFB5-44FE8AEB-19D35CA1-69D8622A",
+      "InternalVariableName": "StaticMeshTentBody"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Magic_SummonShelter_C:Pillow_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.61"
+      },
+      "VariableGUID": "C88F383B-49C89C45-AEB590A0-AE162542",
+      "InternalVariableName": "Pillow"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Magic_SummonShelter_C:NS_MagicParticles_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.37"
+      },
+      "VariableGUID": "5F15DA2B-41788BF9-D1A92AAC-D9DD6DB2",
+      "InternalVariableName": "NS_MagicParticles"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Magic_SummonShelter_C:InteractionCollider_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.60"
+      },
+      "VariableGUID": "754DA71F-442A8365-068125A5-C0750A53",
+      "InternalVariableName": "InteractionCollider"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_WorldActorDamageComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Components/BP_WorldActorDamageComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_WorldActorDamageComponent_C'BP_Magic_SummonShelter_C:BP_WorldActorDamageComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.3"
+      },
+      "VariableGUID": "FF18AA0C-4FCB6D4E-B3A845BC-3BAA47BC",
+      "InternalVariableName": "BP_WorldActorDamageComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'InteractionComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "InteractionComponent'BP_Magic_SummonShelter_C:Interaction_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.33"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.54"
+        }
+      ],
+      "VariableGUID": "004BF1AD-4968070F-A3A28B8B-66F0A061",
+      "InternalVariableName": "Interaction"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.46"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.52"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.48"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Magic_SummonShelter_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/UtilityMagic/PerkSpells/SummonShelter/BP_Magic_SummonShelter.43"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Bedroll_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Cube'",
+        "ObjectPath": "RSDragonwilds/Content/Marketplace/MultiplayerCraftingSystem/StaticMeshs/SM_Cube.2"
+      },
+      "bEvaluateWorldPositionOffsetInRayTracing": true,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_FlatColor_35'",
+          "ObjectPath": "RSDragonwilds/Content/Art/Item/Shared/Placeholder/MI_FlatColor_35.0"
+        }
+      ],
+      "CustomPrimitiveData": {
+        "Data": [
+          0.0
+        ]
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -10.776575,
+        "Y": -1.3112769E-07,
+        "Z": 0.7282012
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.9,
+        "Y": 2.5999527,
+        "Z": 0.1
+      },
+      "ComponentTags": [
+        "BuildingMesh"
+      ],
+      "bReplicates": true
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "GrassMask_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'1x1x1BoxCenterAligned'",
+        "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/SupportFiles/1x1x1BoxCenterAligned.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material'M_GrassRVTErasingVolume_LWorld'",
+          "ObjectPath": "RSDragonwilds/Content/Materials/Landscape/M_GrassRVTErasingVolume_LWorld.0"
+        }
+      ],
+      "bEnableAutoLODGeneration": false,
+      "bGenerateOverlapEvents": false,
+      "bVisibleInReflectionCaptures": false,
+      "bVisibleInRealTimeSkyCaptures": false,
+      "bVisibleInRayTracing": false,
+      "bRenderInMainPass": false,
+      "bRenderInDepthPass": false,
+      "bReceivesDecals": false,
+      "bUseAsOccluder": false,
+      "CastShadow": false,
+      "bAffectDistanceFieldLighting": false,
+      "RuntimeVirtualTextures": [
+        {
+          "ObjectName": "RuntimeVirtualTexture'RVT_World_ColRoughSpec'",
+          "ObjectPath": "RSDragonwilds/Content/Materials/Landscape/RVT/RVT_World_ColRoughSpec.0"
+        }
+      ],
+      "VirtualTextureRenderPassType": "ERuntimeVirtualTextureMainPassType::Never",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 180.0,
+        "Roll": -0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "InteractionCollider_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_TriangularPrism'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Placeholder/Assets/SM_TriangularPrism.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material'BasicShapeMaterial'",
+          "ObjectPath": "Engine/Content/BasicShapes/BasicShapeMaterial.0"
+        }
+      ],
+      "BodyInstance": {
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -1.280237,
+        "Y": 94.72457,
+        "Z": 73.146065
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 91.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 0.24980682,
+        "Y": 1.6312336,
+        "Z": 1.7146446
+      },
+      "bHiddenInGame": true
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Pillow_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Cylinder'",
+        "ObjectPath": "Engine/Content/BasicShapes/Cylinder.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_FlatColor_35'",
+          "ObjectPath": "RSDragonwilds/Content/Art/Item/Shared/Placeholder/MI_FlatColor_35.0"
+        }
+      ],
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -1.53112E-13,
+        "Y": -40.950687,
+        "Z": 86.66251
+      },
+      "RelativeRotation": {
+        "Pitch": 80.0,
+        "Yaw": 90.0,
+        "Roll": 90.0
+      },
+      "RelativeScale3D": {
+        "X": 0.123456664,
+        "Y": 0.1329474,
+        "Z": 6.7510657
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMeshCollisionOnly_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Summon_Tent_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Props/Gameplay_Props/Narrative_Stations/SM_Summon_Tent_01.2"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel14",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Footstep",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "FeetIK",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "AudioOcclusion",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMeshTentBody_GEN_VARIABLE",
+    "Outer": "BP_Magic_SummonShelter_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Summon_Tent_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Props/Gameplay_Props/Narrative_Stations/SM_Summon_Tent_01.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material'M_SummonShelter_Tent'",
+          "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/SummonShelter/M_SummonShelter_Tent.0"
+        }
+      ],
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 6.814911
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 1.0
+      }
+    }
+  }
+]

@@ -1,0 +1,1172 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'BP_Dungeon_LightingSwitcher_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.3"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.18"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:ExecuteUbergraph_BP_Dungeon_LightingSwitcher'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.7"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'DungeonLightingSwitcher'",
+      "ObjectPath": "/Script/Dungeon"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.9"
+      },
+      {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.5"
+      },
+      {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:ReceiveTick'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.8"
+      },
+      {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:BndEvt__Box_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.6"
+      },
+      {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:ExecuteUbergraph_BP_Dungeon_LightingSwitcher'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.7"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BoxLightOccluder",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DungeonExponentialHeightFog",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'ExponentialHeightFogComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DungeonSkyLight",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkyLightComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DungeonlPostProcess",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'PostProcessComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InteractionBox",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "MainPostProcessActor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate",
+        "PropertyClass": {
+          "ObjectName": "Class'PostProcessVolume'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "SkyLightEnabled",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Alpha",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "SecondsToBlendIn",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "SecondsToBlendOut",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "RTNiagaraSprites0",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "RTNiagaraSprites1",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_Dungeon_LightingSwitcher": {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:ExecuteUbergraph_BP_Dungeon_LightingSwitcher'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.7"
+      },
+      "BndEvt__Box_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature": {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:BndEvt__Box_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.6"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:ReceiveTick'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.8"
+      },
+      "BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature": {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.5"
+      },
+      "UserConstructionScript": {
+        "ObjectName": "Function'BP_Dungeon_LightingSwitcher_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.9"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Dungeon_LightingSwitcher_C'Default__BP_Dungeon_LightingSwitcher_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.2"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "InteractionBox_GEN_VARIABLE",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoxExtent": {
+        "X": 50.0,
+        "Y": 50.0,
+        "Z": 50.0
+      },
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "bApplyImpulseOnDamage": false,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        },
+        "bEnableGravity": false
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false,
+        "bAllowTickOnDedicatedServer": false
+      }
+    }
+  },
+  {
+    "Type": "BP_Dungeon_LightingSwitcher_C",
+    "Name": "Default__BP_Dungeon_LightingSwitcher_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.BP_Dungeon_LightingSwitcher_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "SkyLightEnabled": true,
+      "Alpha": 1.0,
+      "SecondsToBlendIn": 1.0,
+      "SecondsToBlendOut": 3.0,
+      "RTNiagaraSprites0": "r.RayTracing.Geometry.NiagaraSprites 0",
+      "RTNiagaraSprites1": "r.RayTracing.Geometry.NiagaraSprites 1",
+      "PrimaryActorTick": {
+        "bAllowTickOnDedicatedServer": false
+      },
+      "bCanBeDamaged": false,
+      "bGenerateOverlapEventsDuringLevelStreaming": true,
+      "bEnableAutoLODGeneration": false,
+      "bReplicates": true,
+      "UpdateOverlapsMethodDuringLevelStreaming": "EActorUpdateOverlapsMethod::AlwaysUpdate",
+      "NetDormancy": "ENetDormancy::DORM_DormantAll"
+    }
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "InteractionBox",
+          "DelegatePropertyName": "OnComponentBeginOverlap",
+          "FunctionNameToBind": "BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "InteractionBox",
+          "DelegatePropertyName": "OnComponentEndOverlap",
+          "FunctionNameToBind": "BndEvt__Box_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ExponentialHeightFogComponent",
+    "Name": "DungeonExponentialHeightFog_GEN_VARIABLE",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'ExponentialHeightFogComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FogDensity": 0.002,
+      "FogHeightFalloff": 0.001,
+      "SecondFogData": {
+        "FogHeightFalloff": 0.001
+      },
+      "FogInscatteringLuminance": {
+        "R": 0.447,
+        "G": 0.638,
+        "B": 1.0,
+        "A": 1.0,
+        "Hex": "B3D1FF"
+      },
+      "DirectionalInscatteringLuminance": {
+        "R": 0.25,
+        "G": 0.25,
+        "B": 0.125,
+        "A": 1.0,
+        "Hex": "898963"
+      },
+      "FogMaxOpacity": 0.04,
+      "FogCutoffDistance": 10000.0,
+      "bEnableVolumetricFog": true,
+      "VolumetricFogAlbedo": {
+        "B": 255,
+        "G": 231,
+        "R": 184,
+        "A": 255,
+        "Hex": "B8E7FF"
+      },
+      "VolumetricFogEmissive": {
+        "R": 0.266822,
+        "G": 0.324506,
+        "B": 0.619792,
+        "A": 0.0,
+        "Hex": "8D9ACF"
+      },
+      "VolumetricFogExtinctionScale": 0.18,
+      "VolumetricFogDistance": 10000.0,
+      "bOverrideLightColorsWithFogInscatteringColors": true,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -20.0,
+        "Z": -70.0
+      },
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "OverlappedComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherComp",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "OtherBodyIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bFromSweep",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "SweepResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_HasOutParms | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__Box_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "OverlappedComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherComp",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "OtherBodyIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Dungeon_LightingSwitcher",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OverlappedComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherComp",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherBodyIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Player_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/BP_PlayerCharacter.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_K2_GetPawn_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Pawn'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Player_Character_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/BP_PlayerCharacter.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OverlappedComponent_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherActor_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherComp_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_ComponentBoundEvent_OtherBodyIndex_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_ComponentBoundEvent_bFromSweep",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_ComponentBoundEvent_SweepResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ConstParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerController_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveTick'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UserConstructionScript",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:UserConstructionScript'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "CallFunc_Conv_ObjectToSoftObjectReference_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "UObjectWrapper",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "CallFunc_Conv_ObjectToSoftObjectReference_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "PropertyFlags": "UObjectWrapper",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "PostProcessComponent",
+    "Name": "DungeonlPostProcess_GEN_VARIABLE",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'PostProcessComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Settings": {
+        "bOverride_FilmSlope": true,
+        "bOverride_BloomMethod": true,
+        "bOverride_BloomIntensity": true,
+        "bOverride_AutoExposureMethod": true,
+        "bOverride_AutoExposureLowPercent": true,
+        "bOverride_AutoExposureHighPercent": true,
+        "bOverride_AutoExposureMinBrightness": true,
+        "bOverride_AutoExposureMaxBrightness": true,
+        "bOverride_AutoExposureSpeedUp": true,
+        "bOverride_AutoExposureSpeedDown": true,
+        "bOverride_AutoExposureBias": true,
+        "bOverride_HistogramLogMin": true,
+        "bOverride_HistogramLogMax": true,
+        "bOverride_LensFlareBokehSize": true,
+        "bOverride_AmbientOcclusionIntensity": true,
+        "bOverride_AmbientOcclusionRadius": true,
+        "bOverride_ColorGradingIntensity": true,
+        "bOverride_ColorGradingLUT": true,
+        "bOverride_ScreenSpaceReflectionIntensity": true,
+        "bOverride_ScreenSpaceReflectionQuality": true,
+        "bOverride_ScreenSpaceReflectionMaxRoughness": true,
+        "FilmSlope": 0.86,
+        "BloomIntensity": 2.3,
+        "IndirectLightingColor": {
+          "R": 0.45315,
+          "G": 0.632111,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "B4D1FF"
+        },
+        "IndirectLightingIntensity": 2.368,
+        "LumenFinalGatherQuality": 0.796,
+        "ReflectionMethod": "EReflectionMethod::ScreenSpace",
+        "AutoExposureBias": 0.0,
+        "AutoExposureLowPercent": 80.0,
+        "AutoExposureHighPercent": 70.0,
+        "AutoExposureMinBrightness": -5.0,
+        "AutoExposureMaxBrightness": -4.5,
+        "AutoExposureSpeedUp": 5.0,
+        "HistogramLogMin": 0.0,
+        "HistogramLogMax": 10.0,
+        "LensFlareIntensity": 0.15,
+        "LensFlareBokehSize": 10.683999,
+        "AmbientOcclusionIntensity": 0.88,
+        "AmbientOcclusionRadius": 424.0152,
+        "ColorGradingIntensity": 0.2,
+        "ColorGradingLUT": {
+          "ObjectName": "Texture2D'T_LUT_DungeonTemp'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/T_LUT_DungeonTemp.0"
+        }
+      },
+      "bEnabled": false
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Dungeon_LightingSwitcher_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.11"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.17"
+        }
+      ],
+      "VariableGUID": "0E248652-48F6964D-07EDB799-3B2E1C26",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'BP_Dungeon_LightingSwitcher_C:InteractionBox_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.1"
+      },
+      "VariableGUID": "BB76A6A9-4D9EE1F7-A10FA992-3144A074",
+      "InternalVariableName": "InteractionBox"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'PostProcessComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "PostProcessComponent'BP_Dungeon_LightingSwitcher_C:DungeonlPostProcess_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.10"
+      },
+      "VariableGUID": "FDD4F5DA-499DE275-8B4FE2B3-3D2DDD86",
+      "InternalVariableName": "DungeonlPostProcess"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkyLightComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkyLightComponent'BP_Dungeon_LightingSwitcher_C:DungeonSkyLight_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.19"
+      },
+      "VariableGUID": "F039C5AB-4C176A42-33A1C3BA-FA014246",
+      "InternalVariableName": "DungeonSkyLight"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ExponentialHeightFogComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ExponentialHeightFogComponent'BP_Dungeon_LightingSwitcher_C:DungeonExponentialHeightFog_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.4"
+      },
+      "VariableGUID": "383497B7-46F4165D-E0CDB9B6-7297CE7B",
+      "InternalVariableName": "DungeonExponentialHeightFog"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Dungeon_LightingSwitcher_C:BoxLightOccluder_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.20"
+      },
+      "VariableGUID": "C0BB4548-4A109537-5C2B60A1-B1FB2A40",
+      "InternalVariableName": "BoxLightOccluder"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.12"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.17"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Dungeon_LightingSwitcher_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/BP_Dungeon_LightingSwitcher.12"
+      }
+    }
+  },
+  {
+    "Type": "SkyLightComponent",
+    "Name": "DungeonSkyLight_GEN_VARIABLE",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'SkyLightComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceType": "ESkyLightSourceType::SLS_SpecifiedCubemap",
+      "Cubemap": {
+        "ObjectName": "TextureCube'TC_Dungeon_Cubemap'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Misc/ShaderBall/Textures/TC_Dungeon_Cubemap.0"
+      },
+      "intensity": 0.05,
+      "LightColor": {
+        "B": 124,
+        "G": 124,
+        "R": 124,
+        "A": 255,
+        "Hex": "7C7C7C"
+      },
+      "CastShadows": false,
+      "CastStaticShadows": false,
+      "CastRaytracedShadow": "ECastRayTracedShadow::Disabled",
+      "IndirectLightingIntensity": 2.0,
+      "VolumetricScatteringIntensity": 0.25,
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "BoxLightOccluder_GEN_VARIABLE",
+    "Outer": "BP_Dungeon_LightingSwitcher_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Cube'",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_DungeonSky'",
+          "ObjectPath": "RSDragonwilds/Content/Materials/Dungeons/MI_DungeonSky.0"
+        }
+      ],
+      "bGenerateOverlapEvents": false,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  }
+]
