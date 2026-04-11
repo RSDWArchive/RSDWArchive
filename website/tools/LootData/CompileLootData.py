@@ -1,12 +1,17 @@
+import argparse
 import json
 import os
 import re
-import argparse
+import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+_TOOLS = Path(__file__).resolve().parent.parent
+if str(_TOOLS) not in sys.path:
+    sys.path.insert(0, str(_TOOLS))
+from compiledata import ItemDisplayCache, resolve_item_display_from_object_path
 
 INDENT = 2
 SOURCE_DIR_ENV_VAR = "RSDW_LOOT_SOURCE_DIR"
@@ -172,72 +177,19 @@ def get_display_name_from_object_path(
     object_path: str,
     expected_name: str,
     st_item_names: dict[str, str],
-    cache: dict[str, str | None],
+    cache: ItemDisplayCache,
 ) -> str | None:
-    if not object_path:
-        return None
-    package_path = object_path.rsplit(".", 1)[0]
-    json_path = source_root / f"{package_path}.json"
-    cache_key = str(json_path)
-    if cache_key in cache:
-        return cache[cache_key]
-    if not json_path.exists():
-        cache[cache_key] = None
-        return None
-    try:
-        raw = json.loads(json_path.read_text(encoding="utf-8"))
-    except Exception:  # noqa: BLE001
-        cache[cache_key] = None
-        return None
-    if not isinstance(raw, list):
-        cache[cache_key] = None
-        return None
-
-    target_export = None
-    for entry in raw:
-        if not isinstance(entry, dict):
-            continue
-        name = entry.get("Name")
-        if name == expected_name:
-            target_export = entry
-            break
-    if target_export is None and raw and isinstance(raw[0], dict):
-        target_export = raw[0]
-    if not isinstance(target_export, dict):
-        cache[cache_key] = None
-        return None
-
-    props = target_export.get("Properties", {})
-    if not isinstance(props, dict):
-        cache[cache_key] = None
-        return None
-    name_obj = props.get("Name", {})
-    if not isinstance(name_obj, dict):
-        cache[cache_key] = None
-        return None
-
-    localized = name_obj.get("LocalizedString")
-    if isinstance(localized, str) and localized.strip():
-        cache[cache_key] = localized.strip()
-        return cache[cache_key]
-    source = name_obj.get("SourceString")
-    if isinstance(source, str) and source.strip():
-        cache[cache_key] = source.strip()
-        return cache[cache_key]
-    key = name_obj.get("Key")
-    if isinstance(key, str) and key in st_item_names:
-        cache[cache_key] = st_item_names[key]
-        return cache[cache_key]
-
-    cache[cache_key] = None
-    return None
+    disp, _src = resolve_item_display_from_object_path(
+        source_root, object_path, expected_name, st_item_names, cache
+    )
+    return disp
 
 
 def get_set_entries(
     set_row: dict[str, Any],
     source_root: Path,
     st_item_names: dict[str, str],
-    item_display_name_cache: dict[str, str | None],
+    item_display_name_cache: ItemDisplayCache,
 ) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for item in set_row.get("SpawnableItems", []):
@@ -327,7 +279,7 @@ def main() -> None:
         name: tbl.get("Rows", {}) for name, tbl in tables.items()
     }
     st_item_names = load_item_name_table(source_root)
-    item_display_name_cache: dict[str, str | None] = {}
+    item_display_name_cache: ItemDisplayCache = {}
 
     enemies: dict[str, Any] = {}
     resolved_drop_handles_by_enemy: dict[str, set[tuple[str, str, Any]]] = defaultdict(set)

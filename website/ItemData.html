@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSDW Archive - ItemData</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png" />
+  <link rel="icon" href="./favicon_io/favicon.ico" />
+  <link rel="manifest" href="./favicon_io/site.webmanifest" />
+  <link rel="preload" href="https://fonts.gstatic.com/s/sofiasans/v20/Yq6T-LCVXSLy9uPBwlATrORKkzApcb8.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a class="brand-home-link logo-wrap" href="./index.html" aria-label="Go to homepage">
+        <img id="site-logo" src="./logo.png" alt="RSDW Archive logo" />
+      </a>
+      <a class="brand-home-link brand-title" href="./index.html">RSDW Archive</a>
+    </div>
+    <div class="header-search">
+      <label class="sr-only" for="file-search">Search Item Data</label>
+      <input id="file-search" type="search" placeholder="Search items..." autocomplete="off" />
+    </div>
+    <div class="header-actions">
+      <a class="github-link" href="https://github.com/RSDWArchive/RSDWArchive" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+        <img src="./github.svg" alt="" />
+      </a>
+      <div class="tools-menu">
+        <button id="tools-toggle" class="panel-action-btn tools-toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Open tools menu" title="Tools">
+          <img src="./locationdata.png" alt="" />
+        </button>
+        <div id="tools-dropdown" class="tools-dropdown" role="menu" hidden>
+          <a href="./LocationData.html" role="menuitem">LocationData</a>
+          <a href="./LootData.html" role="menuitem">LootData</a>
+          <a href="./NameData.html" role="menuitem">NameData</a>
+          <a href="./NPCData.html" role="menuitem">NPCData</a>
+          <a href="./ItemData.html" role="menuitem">ItemData</a>
+          <a href="./PlanData.html" role="menuitem">PlanData</a>
+          <a href="./ProgressionData.html" role="menuitem">ProgressionData</a>
+          <a href="./RecipeData.html" role="menuitem">RecipeData</a>
+          <a href="./SpellData.html" role="menuitem">SpellData</a>
+          <a href="./VestigeData.html" role="menuitem">VestigeData</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="landing-message" class="landing-message">
+      <p id="home-status" aria-live="polite">Loading ItemData...</p>
+      <p id="home-subtitle" class="landing-subtitle">Browse items — names, tags, and enrichments for wiki infoboxes</p>
+    </section>
+
+    <p id="status" aria-live="polite">Loading ItemData...</p>
+
+    <section class="results-viewer">
+      <aside>
+        <div class="panel-header">
+          <h2>Items</h2>
+          <button id="toggle-filenames" type="button" class="panel-action-btn" aria-pressed="false">Show File Names</button>
+        </div>
+        <ul id="results"></ul>
+      </aside>
+      <article>
+        <div class="panel-header">
+          <h2>Preview</h2>
+          <div class="content-actions">
+            <button id="toggle-preview-format" type="button" class="panel-action-btn" disabled>JSON</button>
+            <button id="copy-preview" type="button" class="panel-action-btn preview-copy-btn" aria-label="Copy preview to clipboard" title="Copy preview to clipboard" disabled>
+              <img src="./clipboard.png" alt="" />
+            </button>
+          </div>
+        </div>
+        <p id="selected-path">Select an entry</p>
+        <pre id="file-content">Search and click an entry to preview compiled item data.</pre>
+      </article>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>All of these game files are the property of Jagex.</p>
+    <p>RSDW Archive created by: Hi im Tat</p>
+  </footer>
+  <div id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./dataset-viewer.js" defer></script>
+  <script src="./itemdata.js" defer></script>
+</body>
+</html>

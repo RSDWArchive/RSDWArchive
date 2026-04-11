@@ -21,6 +21,9 @@ Display Names, Descriptions, Journal Text, etc. (This is most displayed text in 
 ### **ITEM_**
 DamageMultiplier, CriticalHitChanceIncrease, Weight, PowerLevel, BaseDurability, etc (This is item data)
 
+### **USD_**
+UtilitySpellData, ItemsCostInfo, etc (This is Spell data)
+
 ### **RECIPE_**
 ItemsConsumed, ItemsCreated, OnCraftXpEvent, etc (Players ability to make things and item requirements)
 
@@ -32,28 +35,3 @@ RecipesToUnlock, MaxStackSize, PersistenceID, etc (Consumable item that unlocks 
 
 ### **DT_Progression_**
 NumberOfMatchesRequired, UnlockedBuildings, UnlockedRecipes, etc (This is what items are required for the player to unlock a recipe)
-
-## Location Data
-Location Data for actors is in chunks. I've compiled them here:
-
-### Location Data Tool:
-https://rsdwarchive.com/LocationData.html
-
-### ADVANCED: Location Data Path
-https://github.com/RSDWArchive/RSDWArchive/tree/main/0.11.0.3/json/RSDragonwilds/Content/Maps/World/L_World/_Generated_
-
-Script for compiling Location Data to LocationData.json
-https://github.com/RSDWArchive/RSDWArchive/tree/main/website/tools/LocationData
-
-## Loot Data
-Loot Data is in multiple files. I've compiled them here:
-
-### Loot Data Tool:
-https://rsdwarchive.com/LootData.html
-
-### ADVANCED: Loot Data Paths
-https://github.com/RSDWArchive/RSDWArchive/tree/main/0.11.0.3/json/RSDragonwilds/Content/Gameplay/Items/LootDropTables
-https://github.com/RSDWArchive/RSDWArchive/tree/main/0.11.0.3/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/Items/LootDropTables
-
-Script for compiling Loot Data to LootData.json
-https://github.com/RSDWArchive/RSDWArchive/tree/main/website/tools/LootData

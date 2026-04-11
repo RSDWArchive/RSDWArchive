@@ -418,7 +418,14 @@ function setView(view) {
     button.setAttribute("aria-selected", String(active));
   }
 
-  updateHomeSubtitle(`Browse ${getCurrentEntries().length.toLocaleString()} ${label}`);
+  const ver = (lootData && lootData.version) || "unknown";
+  updateHomeSubtitle(
+    `Browse ${getCurrentEntries().length.toLocaleString()} ${label} (dataset ${ver}).`
+  );
+  const n = getCurrentEntries().length;
+  const hero = `${n.toLocaleString()} ${label.toLowerCase()}`;
+  updateHomeStatus(hero);
+  updateStatus(hero);
   handleSearch();
 }
 
@@ -502,8 +509,6 @@ async function init() {
     chestEntries = buildChestEntries();
     itemEntries = buildItemEntries();
 
-    updateHomeStatus("Loot Data Loaded.");
-    updateStatus("Loot Data Loaded.");
     setView(VIEW_ENEMIES);
   } catch (error) {
     const errorText = `Failed to load LootData: ${error instanceof Error ? error.message : "Unknown error"}`;

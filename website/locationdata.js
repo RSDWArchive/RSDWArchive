@@ -493,7 +493,7 @@ async function init() {
       };
     });
 
-    const loaded = "Location Data Loaded.";
+    const loaded = `${locations.length.toLocaleString()} locations`;
     updateStatus(loaded);
     updateHomeStatus(loaded);
     updateHomeSubtitle(`Browse ${locations.length.toLocaleString()} Locations in ${ROOT_FOLDER}`);

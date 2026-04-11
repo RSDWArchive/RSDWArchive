@@ -727,6 +727,7 @@ def main() -> None:
     data_paths = sorted(source_root.rglob("BP_AI_*_Data.json"))
     character_paths = sorted(source_root.rglob("BP_AI_*_Character.json"))
     string_table_paths = sorted(source_root.rglob("ST_AI_Names*.json"))
+    # Fauna-only: full exports contain many more JOURNAL_*.json files (quests, world lore).
     journal_paths = sorted(source_root.rglob("JOURNAL_World_Fauna*.json"))
     spawn_paths = sorted(source_root.rglob("BP_SpawnPoint_*.json"))
     ai_data_table_paths = sorted(source_root.rglob("DT_AIData*.json"))

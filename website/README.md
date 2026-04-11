@@ -30,12 +30,18 @@ python .\website\updatewebsite.py
 
 This command:
 
-1. runs `website/tools/compiledata.py`
-2. compiles:
-   - `website/tools/LocationData/LocationData.json`
-   - `website/tools/LootData/LootData.json`
-   - `website/tools/NPCData/NPCData.json`
-3. rebuilds `website/file-index.json` from the configured dataset root
+1. Runs `website/tools/compiledata.py` (see that file for the authoritative step list). It compiles, in order:
+   - `ItemData/ItemData.json`
+   - `LocationData/LocationData.json`
+   - `LootData/LootData.json`
+   - `NameData/NameData.json`
+   - `NPCData/NPCData.json`
+   - `PlanData/PlanData.json`
+   - `ProgressionData/ProgressionData.json`
+   - `RecipeData/RecipeData.json`
+   - `SpellData/SpellData.json`
+   - `VestigeData/VestigeData.json`
+2. Rebuilds `website/file-index.json` from the configured dataset root (all files under that version folder).
 
 ## Quick Commands
 
@@ -57,15 +63,12 @@ Skip file-index and only compile data:
 python .\website\updatewebsite.py --skip-file-index
 ```
 
-## What Is Dynamic Now
+## What Reads `data.config.json`
 
-- `website/app.js` reads `data.config.json` for:
-  - `datasetVersion`
-  - `repoBranch`
-- `website/locationdata.js` reads `data.config.json` for:
-  - `datasetVersion`
+- **`website/app.js`** (main file index): `datasetVersion`, `repoBranch`
+- **`website/locationdata.js`**: `datasetVersion` (map tiles / folder label)
 
-`website/lootdata.js` currently reads `LootData.json` directly and does not show version label text from config yet.
+Dataset HTML pages load compiled JSON under `website/tools/…` (each file embeds its own `version` from the compiler). They do not need a separate `updatewebsite.py` change when compiler logic changes—only when you add a new compile step to `compiledata.py` (then document it here and in `compiledata.py`’s `main()` list).
 
 ## Scope Note
 
