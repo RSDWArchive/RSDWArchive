@@ -18,6 +18,24 @@
     };
   }
 
+  /** Same token-AND semantics as app.js / search-match.js (order-free). */
+  function haystackMatchesQuery(haystack, queryRaw) {
+    const fn = global.rsdwHaystackMatchesQuery;
+    if (typeof fn === "function") {
+      return fn(haystack, queryRaw);
+    }
+    const tokens = String(queryRaw || "")
+      .trim()
+      .toLowerCase()
+      .split(/\s+/)
+      .filter(Boolean);
+    if (tokens.length === 0) {
+      return true;
+    }
+    const h = String(haystack || "").toLowerCase();
+    return tokens.every((t) => h.includes(t));
+  }
+
   async function copyTextToClipboard(text) {
     if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(text);
@@ -256,11 +274,11 @@
     }
 
     function runFilter() {
-      const q = (searchInput && searchInput.value ? searchInput.value : "").trim().toLowerCase();
-      if (!q) {
+      const qRaw = (searchInput && searchInput.value ? searchInput.value : "").trim();
+      if (!qRaw) {
         filteredRows = allRows.slice();
       } else {
-        filteredRows = allRows.filter((r) => r.haystack.toLowerCase().includes(q));
+        filteredRows = allRows.filter((r) => haystackMatchesQuery(r.haystack, qRaw));
       }
       selectedIndex = -1;
       currentPayload = null;

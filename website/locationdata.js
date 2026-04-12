@@ -358,6 +358,16 @@ function renderResults(matches) {
   resultsEl.appendChild(fragment);
 }
 
+function locationEntryMatchesQuery(entry, queryRaw) {
+  const fn = window.rsdwHaystackMatchesQuery;
+  const hay = `${entry.nameLower} ${entry.coordsLower}`;
+  if (typeof fn === "function") {
+    return fn(hay, queryRaw);
+  }
+  const query = String(queryRaw || "").trim().toLowerCase();
+  return entry.nameLower.includes(query) || entry.coordsLower.includes(query);
+}
+
 function filterAndRender() {
   const queryRaw = searchInput.value.trim();
   const query = queryRaw.toLowerCase();
@@ -379,9 +389,7 @@ function filterAndRender() {
     return;
   }
 
-  const matches = locations.filter((entry) => (
-    entry.nameLower.includes(query) || entry.coordsLower.includes(query)
-  ));
+  const matches = locations.filter((entry) => locationEntryMatchesQuery(entry, queryRaw));
   currentFiltered = matches;
   currentMatches = matches.slice(0, MAX_RESULTS);
   renderResults(currentMatches);

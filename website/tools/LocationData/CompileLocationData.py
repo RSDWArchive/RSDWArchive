@@ -33,6 +33,12 @@ REPO_RELATIVE_SOURCE_FALLBACK = Path(
     "_Generated_",
 )
 
+# World-placed Anima Vent actors share a UAID outer; element is on the actor (AnimaVentData) or InteractionComponent prompt.
+ANIMA_VENT_OUTER_PREFIX = "BP_AnimaVent_C_UAID_"
+ANIMA_VENT_ACTOR_TYPE = "BP_AnimaVent_C"
+ANIMA_VENT_DATA_NAME_RE = re.compile(r"^AnimaVentData'AVD_(.+)'$")
+ANIMA_VENT_INTERACTION_KEY_RE = re.compile(r"^AnimaVent\.InteractionPrompt\.(.+)$")
+
 
 def resolve_source_dir(repo_root: Path, here: Path) -> Path:
     source_override = os.getenv(SOURCE_DIR_ENV_VAR, "").strip()
@@ -95,6 +101,69 @@ def iter_nodes(data: Any) -> Iterable[dict[str, Any]]:
             yield from iter_nodes(item)
 
 
+def parse_anima_vent_element_from_data_object_name(object_name: str | None) -> str | None:
+    if not isinstance(object_name, str):
+        return None
+    m = ANIMA_VENT_DATA_NAME_RE.match(object_name.strip())
+    return m.group(1) if m else None
+
+
+def parse_anima_vent_element_from_interaction_key(key: str | None) -> str | None:
+    if not isinstance(key, str):
+        return None
+    m = ANIMA_VENT_INTERACTION_KEY_RE.match(key.strip())
+    return m.group(1) if m else None
+
+
+def collect_bp_anima_vent_elements(data: Any) -> dict[str, str]:
+    """
+    Map actor outer name (BP_AnimaVent_C_UAID_...) -> element suffix (e.g. Nature, Fire).
+    Prefer AnimaVentData'AVD_*' on the BP actor; fall back to InteractionPrompt.Key on InteractionComponent.
+    """
+    preferred: dict[str, str] = {}
+    fallback: dict[str, str] = {}
+
+    for node in iter_nodes(data):
+        if not isinstance(node, dict):
+            continue
+
+        if node.get("Type") == ANIMA_VENT_ACTOR_TYPE:
+            name = node.get("Name")
+            if not isinstance(name, str) or not name.startswith(ANIMA_VENT_OUTER_PREFIX):
+                continue
+            props = node.get("Properties") or {}
+            avd = props.get("AnimaVentData")
+            if isinstance(avd, dict):
+                el = parse_anima_vent_element_from_data_object_name(avd.get("ObjectName"))
+                if el:
+                    preferred[name] = el
+            continue
+
+        if node.get("Type") == "InteractionComponent":
+            outer = node.get("Outer")
+            if not isinstance(outer, str) or not outer.startswith(ANIMA_VENT_OUTER_PREFIX):
+                continue
+            props = node.get("Properties") or {}
+            ip = props.get("InteractionPrompt")
+            if not isinstance(ip, dict):
+                continue
+            el = parse_anima_vent_element_from_interaction_key(ip.get("Key"))
+            if el and outer not in fallback:
+                fallback[outer] = el
+
+    out = dict(fallback)
+    out.update(preferred)
+    return out
+
+
+def location_key_for_outer(outer: str, anima_elements: dict[str, str]) -> str:
+    if outer.startswith(ANIMA_VENT_OUTER_PREFIX):
+        el = anima_elements.get(outer)
+        if el:
+            return f"{outer}_{el}"
+    return outer
+
+
 def extract_outer_xyz(node: dict[str, Any]) -> tuple[str | None, str | None]:
     outer = node.get("Outer")
     if not outer:
@@ -129,6 +198,8 @@ def process_file(path: Path) -> tuple[dict[str, str], int]:
     if data is None:
         return results, skipped
 
+    anima_elements = collect_bp_anima_vent_elements(data)
+
     for node in iter_nodes(data):
         if not isinstance(node, dict):
             skipped += 1
@@ -139,8 +210,9 @@ def process_file(path: Path) -> tuple[dict[str, str], int]:
             skipped += 1
             continue
 
-        # Last one in this file wins for the same Outer
-        results[outer] = xyz
+        key = location_key_for_outer(outer, anima_elements)
+        # Last one in this file wins for the same key
+        results[key] = xyz
 
     return results, skipped
 

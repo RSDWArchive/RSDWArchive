@@ -368,12 +368,21 @@ function openMatchByIndex(index) {
   updatePreviewControlsState();
 }
 
+function entryMatchesSearchQuery(entry, queryRaw) {
+  const fn = window.rsdwHaystackMatchesQuery;
+  if (typeof fn === "function") {
+    return fn(entry.searchBlob, queryRaw);
+  }
+  const q = String(queryRaw || "").trim().toLowerCase();
+  return !q || entry.searchBlob.includes(q);
+}
+
 function handleSearch() {
-  const query = searchInput.value.trim().toLowerCase();
+  const queryRaw = searchInput.value.trim();
   const entries = getCurrentEntries();
   const label = getLabelForView();
-  const filtered = query
-    ? entries.filter((entry) => entry.searchBlob.includes(query))
+  const filtered = queryRaw
+    ? entries.filter((entry) => entryMatchesSearchQuery(entry, queryRaw))
     : entries;
 
   currentMatches = filtered.slice(0, MAX_RESULTS);
