@@ -11,13 +11,14 @@ RSDWArchive.com reads the data from this repo. It allows you to quickly navigate
 
 ## Archived Versions
 Can be found at:
-https://github.com/RSDWArchive?tab=repositories
 
-### **Tag Style Searching**
-You can type: **black png crossbow** and it will find files like **T_Icon_Black_Sniper_Crossbow.png**
+https://github.com/RSDWArchive?tab=repositories
 
 ## Tips for Searching:
 Commonly used keywords to help you find what you're looking for. Search for:
+
+### **Tag Style Searching**
+You can type: **black png crossbow** and it will find files like **T_Icon_Black_Sniper_Crossbow.png**
 
 ### **ST_**
 Display Names, Descriptions, Journal Text, etc. (This is most displayed text in game)
