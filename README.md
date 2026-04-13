@@ -9,6 +9,10 @@ https://rsdwarchive.com
 
 RSDWArchive.com reads the data from this repo. It allows you to quickly navigate files.
 
+## Archived Versions
+Can be found at:
+https://github.com/RSDWArchive?tab=repositories
+
 ### **Tag Style Searching**
 You can type: **black png crossbow** and it will find files like **T_Icon_Black_Sniper_Crossbow.png**
 
