@@ -12,8 +12,8 @@ JSON_REPORT = os.path.join(BASE_DIR, "json_name_status_report.txt")
 TEXTURES_REPORT = os.path.join(BASE_DIR, "textures_name_status_report.txt")
 OUTPUT_REPORT = os.path.join(BASE_DIR, "clean_diff_report.txt")
 
-OLD_VERSION = "0.11.0.3"
-NEW_VERSION = "0.11.0.8"
+OLD_VERSION = "0.11.0.8"
+NEW_VERSION = "0.11.0.10"
 
 
 def clean_path(path: str) -> str:

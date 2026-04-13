@@ -1,0 +1,1278 @@
+Change #0002
+Type: Modified
+Old Path: RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.json
+New Path: RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.json
+Added Lines: 524
+Removed Lines: 376
+
+================================================================================
+diff --git a/E:/Github/0.11.0.8/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.json b/E:/Github/RSDWArchive/0.11.0.10/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.json
+index 7f74d9c1c..6a721f8ad 100644
+--- a/E:/Github/0.11.0.8/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.json
++++ b/E:/Github/RSDWArchive/0.11.0.10/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.json
+@@ -17,11 +17,11 @@
+       ],
+       "SimpleConstructionScript": {
+         "ObjectName": "SimpleConstructionScript'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.31"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.32"
+       },
+       "InheritableComponentHandler": {
+         "ObjectName": "InheritableComponentHandler'BP_BaseBuilding_CapeRack_C:InheritableComponentHandler'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.20"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.21"
+       },
+       "UberGraphFunction": {
+         "ObjectName": "Function'BP_BaseBuilding_CapeRack_C:ExecuteUbergraph_BP_BaseBuilding_CapeRack'",
+@@ -33,6 +33,10 @@
+       "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.0"
+     },
+     "Children": [
++      {
++        "ObjectName": "Function'BP_BaseBuilding_CapeRack_C:TrySwitchingCapes'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.19"
++      },
+       {
+         "ObjectName": "Function'BP_BaseBuilding_CapeRack_C:GetAdditionalDescriptionText'",
+         "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.16"
+@@ -190,6 +194,10 @@
+       "GetAdditionalDescriptionText": {
+         "ObjectName": "Function'BP_BaseBuilding_CapeRack_C:GetAdditionalDescriptionText'",
+         "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.16"
++      },
++      "TrySwitchingCapes": {
++        "ObjectName": "Function'BP_BaseBuilding_CapeRack_C:TrySwitchingCapes'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.19"
+       }
+     },
+     "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+@@ -247,7 +255,7 @@
+       },
+       "AttachParent": {
+         "ObjectName": "SceneComponent'Default__BP_BaseBuilding_CapeRack_C:Root'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.25"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.26"
+       },
+       "RelativeLocation": {
+         "X": 0.0,
+@@ -278,11 +286,11 @@
+       },
+       "StaticMesh": {
+         "ObjectName": "StaticMeshComponent'Default__BP_BaseBuilding_CapeRack_C:Mesh'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.33"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.34"
+       },
+       "PlugVisualizationComponent": {
+         "ObjectName": "InstancedStaticMeshComponent'Default__BP_BaseBuilding_CapeRack_C:PlugVisualizationComponent'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.21"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.22"
+       },
+       "BuildingSnapComponent": {
+         "ObjectName": "BuildingSnapComponent'Default__BP_BaseBuilding_CapeRack_C:BuildingSnapComponent'",
+@@ -290,11 +298,11 @@
+       },
+       "InteractionComponent": {
+         "ObjectName": "InteractionComponent'Default__BP_BaseBuilding_CapeRack_C:CompleteGhostInteractionComponent'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.22"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.23"
+       },
+       "HealthComponent": {
+         "ObjectName": "HealthComponent'Default__BP_BaseBuilding_CapeRack_C:HealthComponent'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.19"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.20"
+       },
+       "BaseBuildingDamageComponent": {
+         "ObjectName": "BuildingDamageComponent'Default__BP_BaseBuilding_CapeRack_C:BaseBuildingDamageComponent'",
+@@ -319,7 +327,7 @@
+       },
+       "RootComponent": {
+         "ObjectName": "SceneComponent'Default__BP_BaseBuilding_CapeRack_C:Root'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.25"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.26"
+       }
+     }
+   },
+@@ -414,6 +422,11 @@
+           "DelegatePropertyName": "OnInventoryChanged",
+           "FunctionNameToBind": "BndEvt__BP_BaseBuilding_WeaponRack_BP_Components_WorldItemInventory_K2Node_ComponentBoundEvent_0_InventoryChangedEvent__DelegateSignature"
+         },
++        {
++          "ComponentPropertyName": "Interaction",
++          "DelegatePropertyName": "OnSecondaryInteractionEvent",
++          "FunctionNameToBind": "BndEvt__BP_BaseBuilding_ArmourMannequin_BP_ArmourMannequin_InteractionComponent_K2Node_ComponentBoundEvent_4_OnInteraction__DelegateSignature"
++        },
+         {
+           "ComponentPropertyName": "BP_Components_WorldItemInventory",
+           "DelegatePropertyName": "OnInventoryLoadedFromSave",
+@@ -423,11 +436,6 @@
+           "ComponentPropertyName": "Interaction",
+           "DelegatePropertyName": "OnInteractionEvent",
+           "FunctionNameToBind": "BndEvt__BP_BaseBuilding_Chest_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature"
+-        },
+-        {
+-          "ComponentPropertyName": "Interaction",
+-          "DelegatePropertyName": "OnSecondaryInteractionEvent",
+-          "FunctionNameToBind": "BndEvt__BP_BaseBuilding_ArmourMannequin_BP_ArmourMannequin_InteractionComponent_K2Node_ComponentBoundEvent_4_OnInteraction__DelegateSignature"
+         }
+       ]
+     }
+@@ -731,20 +739,9 @@
+         "ElementSize": 4,
+         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+       },
+-      {
+-        "Type": "StructProperty",
+-        "Name": "CallFunc_GetTransform_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 96,
+-        "PropertyFlags": "ConstParm",
+-        "Struct": {
+-          "ObjectName": "Object'Transform'",
+-          "ObjectPath": "/Script/CoreUObject"
+-        }
+-      },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "K2Node_ComponentBoundEvent_Player",
++        "Name": "K2Node_ComponentBoundEvent_Player_1",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+         "PropertyClass": {
+@@ -762,26 +759,14 @@
+           "ObjectPath": "/Script/Engine"
+         }
+       },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_IsPlayerWearingACape_Result",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller",
++        "Name": "K2Node_DynamicCast_AsBP_Player_Controller",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+         "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerController'",
+-          "ObjectPath": "/Script/Dominion"
++          "ObjectName": "BlueprintGeneratedClass'BP_PlayerController_C'",
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/BP_PlayerController.1"
+         }
+       },
+       {
+@@ -797,40 +782,10 @@
+         "bIsNativeBool": true
+       },
+       {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_DoesCapeRackHaveACape_Result",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_IsLockedByAnotherActor_IsLockedByAnotherActor",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_BooleanAND_ReturnValue",
++        "Type": "IntProperty",
++        "Name": "CallFunc_Subtract_IntInt_ReturnValue",
+         "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
++        "ElementSize": 4
+       },
+       {
+         "Type": "StructProperty",
+@@ -843,48 +798,15 @@
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetLoadout_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+-        "PropertyClass": {
+-          "ObjectName": "Class'LoadoutComponent'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetEquipmentFromSlot_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'Equipment'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+       {
+         "Type": "IntProperty",
+         "Name": "Temp_int_Variable",
+         "Flags": "RF_Public",
+         "ElementSize": 4
+       },
+-      {
+-        "Type": "IntProperty",
+-        "Name": "CallFunc_GetSlotForItem_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 4
+-      },
+-      {
+-        "Type": "IntProperty",
+-        "Name": "CallFunc_Add_IntInt_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 4
+-      },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_DoesCapeRackHaveACape_Result_1",
++        "Name": "CallFunc_IsPrivatelyLockedFromPlayer_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -896,7 +818,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_IsPlayerWearingACape_Result_1",
++        "Name": "CallFunc_Not_PreBool_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -908,7 +830,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_DropItem_ReturnValue",
++        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -920,97 +842,34 @@
+       },
+       {
+         "Type": "IntProperty",
+-        "Name": "CallFunc_Subtract_IntInt_ReturnValue",
++        "Name": "CallFunc_Add_IntInt_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 4
+       },
+       {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetInventoryController_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+-        "PropertyClass": {
+-          "ObjectName": "Class'InventoryController'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetLoadout_ReturnValue_1",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+-        "PropertyClass": {
+-          "ObjectName": "Class'LoadoutComponent'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetLoadout_ReturnValue_2",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+-        "PropertyClass": {
+-          "ObjectName": "Class'LoadoutComponent'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_MoveItemBetweenInventoriesAnySlot_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetEquipmentFromSlot_ReturnValue_1",
++        "Type": "StructProperty",
++        "Name": "CallFunc_GetTransform_ReturnValue",
+         "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'Equipment'",
+-          "ObjectPath": "/Script/Dominion"
++        "ElementSize": 96,
++        "PropertyFlags": "ConstParm",
++        "Struct": {
++          "ObjectName": "Object'Transform'",
++          "ObjectPath": "/Script/CoreUObject"
+         }
+       },
+-      {
+-        "Type": "IntProperty",
+-        "Name": "CallFunc_GetSlotForItem_ReturnValue_1",
+-        "Flags": "RF_Public",
+-        "ElementSize": 4
+-      },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetInventoryController_ReturnValue_1",
++        "Name": "K2Node_ComponentBoundEvent_Player",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+         "PropertyClass": {
+-          "ObjectName": "Class'InventoryController'",
++          "ObjectName": "Class'DominionPlayerCharacter'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_MoveItemBetweenInventoriesAnySlot_ReturnValue_1",
++        "Name": "CallFunc_DropItem_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1022,29 +881,28 @@
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetInventoryController_ReturnValue_2",
++        "Name": "K2Node_Event_ConstructingPlayerController",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+         "PropertyClass": {
+-          "ObjectName": "Class'InventoryController'",
++          "ObjectName": "Class'DominionPlayerController'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+       {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetLoadout_ReturnValue_3",
++        "Type": "StructProperty",
++        "Name": "CallFunc_GetCharacterGuid_ReturnValue_1",
+         "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+-        "PropertyClass": {
+-          "ObjectName": "Class'LoadoutComponent'",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm",
++        "Struct": {
++          "ObjectName": "Object'DomCharacterGuid'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_HasAuthority_ReturnValue",
++        "Name": "CallFunc_RequestLock_LockGranted",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1056,7 +914,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_MoveItemBetweenInventories_ReturnValue",
++        "Name": "CallFunc_RequestLock_AlreadyHadLock",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1068,58 +926,451 @@
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "K2Node_Event_ConstructingPlayerController",
++        "Name": "K2Node_ComponentBoundEvent_Inventory",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
+         "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectName": "Class'InventoryComponent'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+       {
+-        "Type": "StructProperty",
+-        "Name": "CallFunc_GetCharacterGuid_ReturnValue_1",
++        "Type": "ArrayProperty",
++        "Name": "K2Node_ComponentBoundEvent_AddedItems",
+         "Flags": "RF_Public",
+         "ElementSize": 16,
+-        "PropertyFlags": "ConstParm",
+-        "Struct": {
+-          "ObjectName": "Object'DomCharacterGuid'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
++        "PropertyFlags": "ConstParm | ReferenceParm",
++        "Inner": {
++          "Type": "StructProperty",
++          "Name": "K2Node_ComponentBoundEvent_AddedItems",
++          "Flags": "RF_Public",
++          "ElementSize": 16,
++          "Struct": {
++            "ObjectName": "Object'InventorySlotChange'",
++            "ObjectPath": "/Script/Dominion"
++          }
++        }
++      },
++      {
++        "Type": "ArrayProperty",
++        "Name": "K2Node_ComponentBoundEvent_RemovedItems",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm | ReferenceParm",
++        "Inner": {
++          "Type": "StructProperty",
++          "Name": "K2Node_ComponentBoundEvent_RemovedItems",
++          "Flags": "RF_Public",
++          "ElementSize": 16,
++          "Struct": {
++            "ObjectName": "Object'InventorySlotChange'",
++            "ObjectPath": "/Script/Dominion"
++          }
++        }
++      },
++      {
++        "Type": "ArrayProperty",
++        "Name": "K2Node_ComponentBoundEvent_ChangedItems",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm | ReferenceParm",
++        "Inner": {
++          "Type": "StructProperty",
++          "Name": "K2Node_ComponentBoundEvent_ChangedItems",
++          "Flags": "RF_Public",
++          "ElementSize": 16,
++          "Struct": {
++            "ObjectName": "Object'InventorySlotChange'",
++            "ObjectPath": "/Script/Dominion"
++          }
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_HasAuthority_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      }
++    ],
++    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
++  },
++  {
++    "Type": "Function",
++    "Name": "GetAdditionalDescriptionText",
++    "Outer": "BP_BaseBuilding_CapeRack_C",
++    "Class": "UScriptClass'Function'",
++    "Super": {
++      "ObjectName": "Function'BP_BaseBuilding_BaseActor_C:GetAdditionalDescriptionText'",
++      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.6"
++    },
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "SuperStruct": {
++      "ObjectName": "Function'BP_BaseBuilding_BaseActor_C:GetAdditionalDescriptionText'",
++      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.6"
++    },
++    "ChildProperties": [
++      {
++        "Type": "TextProperty",
++        "Name": "ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetItemFromSlot_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'Item'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "IntProperty",
++        "Name": "CallFunc_GetNumFilledSlots_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
++      {
++        "Type": "TextProperty",
++        "Name": "CallFunc_GetPlayerFacingName_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 16
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_Greater_IntInt_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      }
++    ],
++    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
++  },
++  {
++    "Type": "Function",
++    "Name": "GetDisplayName",
++    "Outer": "BP_BaseBuilding_CapeRack_C",
++    "Class": "UScriptClass'Function'",
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "SuperStruct": {
++      "ObjectName": "Object'WorldActorInterface:GetDisplayName'",
++      "ObjectPath": "/Script/Dominion"
++    },
++    "ChildProperties": [
++      {
++        "Type": "TextProperty",
++        "Name": "ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
++      }
++    ],
++    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
++  },
++  {
++    "Type": "Function",
++    "Name": "ResetCapeMesh",
++    "Outer": "BP_BaseBuilding_CapeRack_C",
++    "Class": "UScriptClass'Function'",
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
++  },
++  {
++    "Type": "Function",
++    "Name": "TrySwitchingCapes",
++    "Outer": "BP_BaseBuilding_CapeRack_C",
++    "Class": "UScriptClass'Function'",
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "ChildProperties": [
++      {
++        "Type": "ObjectProperty",
++        "Name": "PlayerCharacter",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerCharacter'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "PlayerController",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate",
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "StructProperty",
++        "Name": "Temp_struct_Variable",
++        "Flags": "RF_Public",
++        "ElementSize": 12,
++        "Struct": {
++          "ObjectName": "Object'GameplayTag'",
++          "ObjectPath": "/Script/GameplayTags"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsPlayerWearingACape_Result",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_DoesCapeRackHaveACape_Result",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetItemFromSlot_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'Item'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_BP_GetItemData_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'ItemData'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "InterfaceProperty",
++        "Name": "K2Node_DynamicCast_AsUsable_Item_Interface",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "InterfaceClass": {
++          "ObjectName": "Class'UsableItemInterface'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "K2Node_DynamicCast_bSuccess",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetLoadout_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'LoadoutComponent'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "StructProperty",
++        "Name": "CallFunc_CanUseItem_OutCannotUseReason",
++        "Flags": "RF_Public",
++        "ElementSize": 12,
++        "Struct": {
++          "ObjectName": "Object'GameplayTag'",
++          "ObjectPath": "/Script/GameplayTags"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_CanUseItem_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetLoadout_ReturnValue_1",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'LoadoutComponent'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetLoadout_ReturnValue_2",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'LoadoutComponent'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetLoadout_ReturnValue_3",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'LoadoutComponent'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetEquipmentFromSlot_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'Equipment'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "IntProperty",
++        "Name": "CallFunc_GetSlotForItem_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetInventoryController_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'InventoryController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetInventoryController_ReturnValue_1",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'InventoryController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetLoadout_ReturnValue_4",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'LoadoutComponent'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
+         "Type": "ObjectProperty",
+-        "Name": "K2Node_ComponentBoundEvent_Player_1",
++        "Name": "CallFunc_GetEquipmentFromSlot_ReturnValue_1",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+         "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerCharacter'",
++          "ObjectName": "Class'Equipment'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetController_ReturnValue_1",
++        "Name": "CallFunc_GetLoadout_ReturnValue_5",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
+         "PropertyClass": {
+-          "ObjectName": "Class'Controller'",
+-          "ObjectPath": "/Script/Engine"
++          "ObjectName": "Class'LoadoutComponent'",
++          "ObjectPath": "/Script/Dominion"
+         }
+       },
++      {
++        "Type": "IntProperty",
++        "Name": "CallFunc_GetSlotForItem_ReturnValue_1",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "K2Node_DynamicCast_AsBP_Player_Controller",
++        "Name": "CallFunc_GetInventoryController_ReturnValue_2",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
+         "PropertyClass": {
+-          "ObjectName": "BlueprintGeneratedClass'BP_PlayerController_C'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/BP_PlayerController.1"
++          "ObjectName": "Class'InventoryController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "StructProperty",
++        "Name": "CallFunc_GetCharacterGuid_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm",
++        "Struct": {
++          "ObjectName": "Object'DomCharacterGuid'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetController_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'Controller'",
++          "ObjectPath": "/Script/Engine"
+         }
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "K2Node_DynamicCast_bSuccess_1",
++        "Name": "CallFunc_IsLockedByAnotherActor_IsLockedByAnotherActor",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1129,9 +1380,19 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
++      {
++        "Type": "ObjectProperty",
++        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_RequestLock_LockGranted",
++        "Name": "K2Node_DynamicCast_bSuccess_1",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1143,7 +1404,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_RequestLock_AlreadyHadLock",
++        "Name": "Temp_bool_Variable",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1153,79 +1414,6 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
+-      {
+-        "Type": "StructProperty",
+-        "Name": "CallFunc_GetCharacterGuid_ReturnValue_2",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm",
+-        "Struct": {
+-          "ObjectName": "Object'DomCharacterGuid'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "K2Node_ComponentBoundEvent_Inventory",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+-        "PropertyClass": {
+-          "ObjectName": "Class'InventoryComponent'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "ArrayProperty",
+-        "Name": "K2Node_ComponentBoundEvent_AddedItems",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm | ReferenceParm",
+-        "Inner": {
+-          "Type": "StructProperty",
+-          "Name": "K2Node_ComponentBoundEvent_AddedItems",
+-          "Flags": "RF_Public",
+-          "ElementSize": 16,
+-          "Struct": {
+-            "ObjectName": "Object'InventorySlotChange'",
+-            "ObjectPath": "/Script/Dominion"
+-          }
+-        }
+-      },
+-      {
+-        "Type": "ArrayProperty",
+-        "Name": "K2Node_ComponentBoundEvent_RemovedItems",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm | ReferenceParm",
+-        "Inner": {
+-          "Type": "StructProperty",
+-          "Name": "K2Node_ComponentBoundEvent_RemovedItems",
+-          "Flags": "RF_Public",
+-          "ElementSize": 16,
+-          "Struct": {
+-            "ObjectName": "Object'InventorySlotChange'",
+-            "ObjectPath": "/Script/Dominion"
+-          }
+-        }
+-      },
+-      {
+-        "Type": "ArrayProperty",
+-        "Name": "K2Node_ComponentBoundEvent_ChangedItems",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm | ReferenceParm",
+-        "Inner": {
+-          "Type": "StructProperty",
+-          "Name": "K2Node_ComponentBoundEvent_ChangedItems",
+-          "Flags": "RF_Public",
+-          "ElementSize": 16,
+-          "Struct": {
+-            "ObjectName": "Object'InventorySlotChange'",
+-            "ObjectPath": "/Script/Dominion"
+-          }
+-        }
+-      },
+       {
+         "Type": "BoolProperty",
+         "Name": "CallFunc_IsPrivatelyLockedFromPlayer_ReturnValue",
+@@ -1240,7 +1428,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_IsPrivatelyLockedFromPlayer_ReturnValue_1",
++        "Name": "CallFunc_Not_PreBool_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1252,7 +1440,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_Not_PreBool_ReturnValue",
++        "Name": "CallFunc_HasAuthority_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1264,7 +1452,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_Not_PreBool_ReturnValue_1",
++        "Name": "CallFunc_MoveItemBetweenInventoriesAnySlot_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1273,57 +1461,46 @@
+         "FieldMask": 255,
+         "BoolSize": 1,
+         "bIsNativeBool": true
+-      }
+-    ],
+-    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+-  },
+-  {
+-    "Type": "Function",
+-    "Name": "GetAdditionalDescriptionText",
+-    "Outer": "BP_BaseBuilding_CapeRack_C",
+-    "Class": "UScriptClass'Function'",
+-    "Super": {
+-      "ObjectName": "Function'BP_BaseBuilding_BaseActor_C:GetAdditionalDescriptionText'",
+-      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.6"
+-    },
+-    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+-    "SuperStruct": {
+-      "ObjectName": "Function'BP_BaseBuilding_BaseActor_C:GetAdditionalDescriptionText'",
+-      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_BaseActor.6"
+-    },
+-    "ChildProperties": [
+-      {
+-        "Type": "TextProperty",
+-        "Name": "ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
+       },
+       {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetItemFromSlot_ReturnValue",
++        "Type": "BoolProperty",
++        "Name": "CallFunc_MoveItemBetweenInventoriesAnySlot_ReturnValue_1",
+         "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'Item'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
+       },
+       {
+-        "Type": "IntProperty",
+-        "Name": "CallFunc_GetNumFilledSlots_ReturnValue",
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsPlayerWearingACape_Result_1",
+         "Flags": "RF_Public",
+-        "ElementSize": 4
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
+       },
+       {
+-        "Type": "TextProperty",
+-        "Name": "CallFunc_GetPlayerFacingName_ReturnValue",
++        "Type": "BoolProperty",
++        "Name": "CallFunc_DoesCapeRackHaveACape_Result_1",
+         "Flags": "RF_Public",
+-        "ElementSize": 16
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_Greater_IntInt_ReturnValue",
++        "Name": "CallFunc_MoveItemBetweenInventories_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -1334,36 +1511,7 @@
+         "bIsNativeBool": true
+       }
+     ],
+-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+-  },
+-  {
+-    "Type": "Function",
+-    "Name": "GetDisplayName",
+-    "Outer": "BP_BaseBuilding_CapeRack_C",
+-    "Class": "UScriptClass'Function'",
+-    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+-    "SuperStruct": {
+-      "ObjectName": "Object'WorldActorInterface:GetDisplayName'",
+-      "ObjectPath": "/Script/Dominion"
+-    },
+-    "ChildProperties": [
+-      {
+-        "Type": "TextProperty",
+-        "Name": "ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
+-      }
+-    ],
+-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+-  },
+-  {
+-    "Type": "Function",
+-    "Name": "ResetCapeMesh",
+-    "Outer": "BP_BaseBuilding_CapeRack_C",
+-    "Class": "UScriptClass'Function'",
+-    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+-    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
++    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+   },
+   {
+     "Type": "HealthComponent",
+@@ -1396,7 +1544,7 @@
+     "Properties": {
+       "AttachParent": {
+         "ObjectName": "StaticMeshComponent'Default__BP_BaseBuilding_CapeRack_C:Mesh'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.33"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.34"
+       }
+     },
+     "PerInstanceSMData": [
+@@ -1459,7 +1607,7 @@
+       },
+       "AttachParent": {
+         "ObjectName": "SceneComponent'Default__BP_BaseBuilding_CapeRack_C:Root'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.25"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.26"
+       }
+     }
+   },
+@@ -1504,7 +1652,7 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "SceneComponent'BP_BaseBuilding_CapeRack_C:DefaultSceneRoot_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.24"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.25"
+       },
+       "VariableGUID": "9B184EC3-4FDAF571-24876981-587F3A13",
+       "InternalVariableName": "DefaultSceneRoot"
+@@ -1542,7 +1690,7 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "SkeletalMeshComponent'BP_BaseBuilding_CapeRack_C:CapeMesh_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.32"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.33"
+       },
+       "ParentComponentOrVariableName": "Root",
+       "bIsParentComponentNative": true,
+@@ -1563,7 +1711,7 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "OwnershipComponent'BP_BaseBuilding_CapeRack_C:OwnershipComponent_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.23"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.24"
+       },
+       "VariableGUID": "E3E4F908-4D8E651C-C5D48781-F1EE7359",
+       "InternalVariableName": "OwnershipComponent"
+@@ -1600,42 +1748,42 @@
+       "RootNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_1'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.27"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.28"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_15'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.28"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.29"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_3'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.30"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.31"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_2'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.29"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.30"
+         }
+       ],
+       "AllNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_1'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.27"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.28"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_15'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.28"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.29"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_3'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.30"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.31"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_2'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.29"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.30"
+         }
+       ],
+       "DefaultSceneRootNode": {
+         "ObjectName": "SCS_Node'BP_BaseBuilding_CapeRack_C:SimpleConstructionScript_0.SCS_Node_0'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.26"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.27"
+       }
+     }
+   },
+@@ -1682,7 +1830,7 @@
+       ],
+       "AttachParent": {
+         "ObjectName": "SceneComponent'Default__BP_BaseBuilding_CapeRack_C:Root'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.25"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_CapeRack.26"
+       },
+       "RelativeLocation": {
+         "X": 0.0,

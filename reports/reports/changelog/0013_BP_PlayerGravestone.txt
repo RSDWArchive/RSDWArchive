@@ -1,0 +1,757 @@
+Change #0013
+Type: Modified
+Old Path: RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.json
+New Path: RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.json
+Added Lines: 325
+Removed Lines: 148
+
+================================================================================
+diff --git a/E:/Github/0.11.0.8/json/RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.json b/E:/Github/RSDWArchive/0.11.0.10/json/RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.json
+index 9d6a2432a..54f180200 100644
+--- a/E:/Github/0.11.0.8/json/RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.json
++++ b/E:/Github/RSDWArchive/0.11.0.10/json/RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.json
+@@ -14,7 +14,7 @@
+       ],
+       "SimpleConstructionScript": {
+         "ObjectName": "SimpleConstructionScript'BP_PlayerGravestone_C:SimpleConstructionScript_0'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.36"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.38"
+       },
+       "UberGraphFunction": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:ExecuteUbergraph_BP_PlayerGravestone'",
+@@ -27,12 +27,20 @@
+     },
+     "Children": [
+       {
+-        "ObjectName": "Function'BP_PlayerGravestone_C:Set Owning Player Has Left Session'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.14"
++        "ObjectName": "Function'BP_PlayerGravestone_C:UpdateOwningPlayerHasLeftSession'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.21"
++      },
++      {
++        "ObjectName": "Function'BP_PlayerGravestone_C:TrySetOwningPlayerHasLeftSession'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.20"
++      },
++      {
++        "ObjectName": "Function'BP_PlayerGravestone_C:GetOwningPlayerController'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.7"
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnRep_bOwningPlayerHasLeftSession'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.12"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.13"
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:ShouldTakeAllOnInteract'",
+@@ -44,7 +52,7 @@
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:GetSpudRespawnMode'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.7"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.8"
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:ShouldSkipRestoreTransform'",
+@@ -64,7 +72,7 @@
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:ReceiveBeginPlay'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.13"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.14"
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:BndEvt__BP_Gravestone_Actor_Interaction_K2Node_ComponentBoundEvent_0_OnInteractionPromptDisplayChange__DelegateSignature'",
+@@ -72,19 +80,19 @@
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnDestroyed_Event'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.8"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.9"
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnOwningCharacterGuidUpdated'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.9"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.10"
+       },
+       {
+-        "ObjectName": "Function'BP_PlayerGravestone_C:OnPlayerLoggedIn_Event'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.10"
++        "ObjectName": "Function'BP_PlayerGravestone_C:OnPlayerControllerReady_Event'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.11"
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnPlayerLoggedOut_Event'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.11"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.12"
+       },
+       {
+         "ObjectName": "Function'BP_PlayerGravestone_C:ExecuteUbergraph_BP_PlayerGravestone'",
+@@ -233,19 +241,19 @@
+       },
+       "OnPlayerLoggedOut_Event": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnPlayerLoggedOut_Event'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.11"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.12"
+       },
+-      "OnPlayerLoggedIn_Event": {
+-        "ObjectName": "Function'BP_PlayerGravestone_C:OnPlayerLoggedIn_Event'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.10"
++      "OnPlayerControllerReady_Event": {
++        "ObjectName": "Function'BP_PlayerGravestone_C:OnPlayerControllerReady_Event'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.11"
+       },
+       "OnOwningCharacterGuidUpdated": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnOwningCharacterGuidUpdated'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.9"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.10"
+       },
+       "OnDestroyed_Event": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnDestroyed_Event'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.8"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.9"
+       },
+       "BndEvt__BP_Gravestone_Actor_Interaction_K2Node_ComponentBoundEvent_0_OnInteractionPromptDisplayChange__DelegateSignature": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:BndEvt__BP_Gravestone_Actor_Interaction_K2Node_ComponentBoundEvent_0_OnInteractionPromptDisplayChange__DelegateSignature'",
+@@ -253,7 +261,7 @@
+       },
+       "ReceiveBeginPlay": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:ReceiveBeginPlay'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.13"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.14"
+       },
+       "BndEvt__Interaction_K2Node_ComponentBoundEvent_1_OnInteraction__DelegateSignature": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:BndEvt__Interaction_K2Node_ComponentBoundEvent_1_OnInteraction__DelegateSignature'",
+@@ -273,7 +281,7 @@
+       },
+       "GetSpudRespawnMode": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:GetSpudRespawnMode'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.7"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.8"
+       },
+       "ToggleInventoryOrTakeAll": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:ToggleInventoryOrTakeAll'",
+@@ -285,11 +293,19 @@
+       },
+       "OnRep_bOwningPlayerHasLeftSession": {
+         "ObjectName": "Function'BP_PlayerGravestone_C:OnRep_bOwningPlayerHasLeftSession'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.12"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.13"
+       },
+-      "Set Owning Player Has Left Session": {
+-        "ObjectName": "Function'BP_PlayerGravestone_C:Set Owning Player Has Left Session'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.14"
++      "GetOwningPlayerController": {
++        "ObjectName": "Function'BP_PlayerGravestone_C:GetOwningPlayerController'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.7"
++      },
++      "TrySetOwningPlayerHasLeftSession": {
++        "ObjectName": "Function'BP_PlayerGravestone_C:TrySetOwningPlayerHasLeftSession'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.20"
++      },
++      "UpdateOwningPlayerHasLeftSession": {
++        "ObjectName": "Function'BP_PlayerGravestone_C:UpdateOwningPlayerHasLeftSession'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.21"
+       }
+     },
+     "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+@@ -433,16 +449,6 @@
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+-      {
+-        "Type": "DelegateProperty",
+-        "Name": "K2Node_CreateDelegate_OutputDelegate",
+-        "Flags": "RF_Public",
+-        "ElementSize": 32,
+-        "SignatureFunction": {
+-          "ObjectName": "Object'ActorDestroyedSignature__DelegateSignature'",
+-          "ObjectPath": "/Script/Engine"
+-        }
+-      },
+       {
+         "Type": "ObjectProperty",
+         "Name": "CallFunc_GetController_ReturnValue",
+@@ -487,18 +493,6 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_CanPlayerAccessGravestone_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+       {
+         "Type": "BoolProperty",
+         "Name": "CallFunc_RequestLock_LockGranted",
+@@ -525,7 +519,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_HasAuthority_ReturnValue_1",
++        "Name": "CallFunc_CanPlayerAccessGravestone_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -599,6 +593,18 @@
+           "ObjectPath": "/Script/Engine"
+         }
+       },
++      {
++        "Type": "BoolProperty",
++        "Name": "Temp_bool_Variable",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
+       {
+         "Type": "BoolProperty",
+         "Name": "CallFunc_IsValid_ReturnValue",
+@@ -611,6 +617,25 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
++      {
++        "Type": "TextProperty",
++        "Name": "K2Node_Select_Default",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm"
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_HasAuthority_ReturnValue_1",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
+       {
+         "Type": "ObjectProperty",
+         "Name": "CallFunc_DomPlayAudioEvent_ReturnValue",
+@@ -709,9 +734,19 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
++      {
++        "Type": "DelegateProperty",
++        "Name": "K2Node_CreateDelegate_OutputDelegate",
++        "Flags": "RF_Public",
++        "ElementSize": 32,
++        "SignatureFunction": {
++          "ObjectName": "Object'ActorDestroyedSignature__DelegateSignature'",
++          "ObjectPath": "/Script/Engine"
++        }
++      },
+       {
+         "Type": "BoolProperty",
+-        "Name": "Temp_bool_Variable",
++        "Name": "CallFunc_HasAuthority_ReturnValue_2",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -721,13 +756,6 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
+-      {
+-        "Type": "TextProperty",
+-        "Name": "K2Node_Select_Default",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm"
+-      },
+       {
+         "Type": "ObjectProperty",
+         "Name": "CallFunc_GetGameMode_ReturnValue",
+@@ -803,6 +831,123 @@
+     ],
+     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+   },
++  {
++    "Type": "Function",
++    "Name": "GetOwningPlayerController",
++    "Outer": "BP_PlayerGravestone_C",
++    "Class": "UScriptClass'Function'",
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "ChildProperties": [
++      {
++        "Type": "ObjectProperty",
++        "Name": "PlayerController",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "Parm | OutParm",
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "IntProperty",
++        "Name": "Temp_int_Array_Index_Variable",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
++      {
++        "Type": "IntProperty",
++        "Name": "Temp_int_Loop_Counter_Variable",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
++      {
++        "Type": "IntProperty",
++        "Name": "CallFunc_Add_IntInt_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
++      {
++        "Type": "ArrayProperty",
++        "Name": "CallFunc_GetAllPlayerCharacters_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ReferenceParm",
++        "Inner": {
++          "Type": "ObjectProperty",
++          "Name": "CallFunc_GetAllPlayerCharacters_ReturnValue",
++          "Flags": "RF_Public",
++          "ElementSize": 8,
++          "PropertyClass": {
++            "ObjectName": "Class'DominionPlayerCharacter'",
++            "ObjectPath": "/Script/Dominion"
++          }
++        }
++      },
++      {
++        "Type": "StructProperty",
++        "Name": "CallFunc_GetOwningCharacterGuid_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm",
++        "Struct": {
++          "ObjectName": "Object'DomCharacterGuid'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_Array_Get_Item",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerCharacter'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "IntProperty",
++        "Name": "CallFunc_Array_Length_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetDominionPlayerController_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_Less_IntInt_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsCharacterGuidEqual_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      }
++    ],
++    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
++  },
+   {
+     "Type": "Function",
+     "Name": "GetSpudRespawnMode",
+@@ -870,7 +1015,7 @@
+   },
+   {
+     "Type": "Function",
+-    "Name": "OnPlayerLoggedIn_Event",
++    "Name": "OnPlayerControllerReady_Event",
+     "Outer": "BP_PlayerGravestone_C",
+     "Class": "UScriptClass'Function'",
+     "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+@@ -956,75 +1101,6 @@
+     },
+     "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+   },
+-  {
+-    "Type": "Function",
+-    "Name": "Set Owning Player Has Left Session",
+-    "Outer": "BP_PlayerGravestone_C",
+-    "Class": "UScriptClass'Function'",
+-    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+-    "ChildProperties": [
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "PlayerController",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+-        "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerControllerBase'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "bHasLeftSession",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_IsValid_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+-      {
+-        "Type": "StructProperty",
+-        "Name": "CallFunc_GetOwningCharacterGuid_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm",
+-        "Struct": {
+-          "ObjectName": "Object'DomCharacterGuid'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_IsCharacterGuidEqual_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      }
+-    ],
+-    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+-  },
+   {
+     "Type": "Function",
+     "Name": "ShouldSkipRestoreTransform",
+@@ -1313,6 +1389,107 @@
+     ],
+     "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+   },
++  {
++    "Type": "Function",
++    "Name": "TrySetOwningPlayerHasLeftSession",
++    "Outer": "BP_PlayerGravestone_C",
++    "Class": "UScriptClass'Function'",
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "ChildProperties": [
++      {
++        "Type": "ObjectProperty",
++        "Name": "PlayerController",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "HasLeftSession",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsValid_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "StructProperty",
++        "Name": "CallFunc_GetOwningCharacterGuid_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 16,
++        "PropertyFlags": "ConstParm",
++        "Struct": {
++          "ObjectName": "Object'DomCharacterGuid'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsCharacterGuidEqual_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      }
++    ],
++    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
++  },
++  {
++    "Type": "Function",
++    "Name": "UpdateOwningPlayerHasLeftSession",
++    "Outer": "BP_PlayerGravestone_C",
++    "Class": "UScriptClass'Function'",
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "ChildProperties": [
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetOwningPlayerController_PlayerController",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsValid_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      }
++    ],
++    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
++  },
+   {
+     "Type": "InteractionComponent",
+     "Name": "Interaction_GEN_VARIABLE",
+@@ -1602,15 +1779,15 @@
+         "DataInterfaces": [
+           {
+             "ObjectName": "NiagaraDataInterfaceArrayColor'BP_PlayerGravestone_C:VFX_GEN_VARIABLE.NiagaraDataInterfaceArrayColor_1'",
+-            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.23"
++            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.25"
+           },
+           {
+             "ObjectName": "NiagaraDataInterfaceColorCurve'BP_PlayerGravestone_C:VFX_GEN_VARIABLE.NiagaraDataInterfaceColorCurve_2'",
+-            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.26"
++            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.28"
+           },
+           {
+             "ObjectName": "NiagaraDataInterfaceColorCurve'BP_PlayerGravestone_C:VFX_GEN_VARIABLE.NiagaraDataInterfaceColorCurve_3'",
+-            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.27"
++            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.29"
+           }
+         ],
+         "OriginalPositionData": [
+@@ -2849,16 +3026,16 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "SceneComponent'BP_PlayerGravestone_C:DefaultSceneRoot_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.28"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.30"
+       },
+       "ChildNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_3'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.32"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.34"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_2'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.31"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.33"
+         }
+       ],
+       "VariableGUID": "7AE5C4FE-4FA292B7-D4218A95-79B04DDD",
+@@ -2878,7 +3055,7 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "StaticMeshComponent'BP_PlayerGravestone_C:VFX_Mesh_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.39"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.41"
+       },
+       "VariableGUID": "92AEA2D6-4D4DAAA6-4350F993-29BB3B25",
+       "InternalVariableName": "VFX_Mesh"
+@@ -2897,12 +3074,12 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "StaticMeshComponent'BP_PlayerGravestone_C:Base_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.37"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.39"
+       },
+       "ChildNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_8'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.35"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.37"
+         }
+       ],
+       "VariableGUID": "6A4EF72D-483C3DD3-4BE38CB8-60B60064",
+@@ -2922,7 +3099,7 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "InteractionComponent'BP_PlayerGravestone_C:Interaction_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.20"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.22"
+       },
+       "VariableGUID": "BA90CA59-459EC57C-70A49F99-F55D30E9",
+       "InternalVariableName": "Interaction"
+@@ -2960,12 +3137,12 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "NiagaraComponent'BP_PlayerGravestone_C:VFX_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.21"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.23"
+       },
+       "ChildNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_1'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.30"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.32"
+         }
+       ],
+       "VariableGUID": "5C1A8CCF-4C6FD78B-91756B87-CDD74D69",
+@@ -2985,12 +3162,12 @@
+       },
+       "ComponentTemplate": {
+         "ObjectName": "StaticMeshComponent'BP_PlayerGravestone_C:Headstone_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.38"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.40"
+       },
+       "ChildNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_7'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.34"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.36"
+         }
+       ],
+       "VariableGUID": "54A9152D-41B24AE6-775104BC-92C5979F",
+@@ -3007,46 +3184,46 @@
+       "RootNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_0'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.29"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.31"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_4'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.33"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.35"
+         }
+       ],
+       "AllNodes": [
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_0'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.29"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.31"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_3'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.32"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.34"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_4'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.33"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.35"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_2'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.31"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.33"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_8'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.35"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.37"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_7'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.34"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.36"
+         },
+         {
+           "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_1'",
+-          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.30"
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.32"
+         }
+       ],
+       "DefaultSceneRootNode": {
+         "ObjectName": "SCS_Node'BP_PlayerGravestone_C:SimpleConstructionScript_0.SCS_Node_0'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.29"
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/PlayerGravestones/BP_PlayerGravestone.31"
+       }
+     }
+   },
