@@ -1,4 +1,8 @@
-const DATA_URL = "./tools/LocationData/LocationData.json";
+// Coordinates are Unreal world "X Y Z" (same order as in-game).
+// LocationData.json is the single master: chunk LocationData + PCG foliage, wiki-bounds filtered.
+const DATA_URL_CANDIDATES = [
+  "./tools/LocationData/LocationData.json"
+];
 const CONFIG_URL = "./data.config.json";
 let ROOT_FOLDER = "0.11.0.3";
 const MAX_RESULTS = 400;
@@ -474,19 +478,34 @@ function handleSearchKeyDown(event) {
   }
 }
 
+async function loadLocationDataObject() {
+  let lastError = null;
+  for (const url of DATA_URL_CANDIDATES) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) {
+        lastError = new Error(`HTTP ${response.status} ${url}`);
+        continue;
+      }
+      const parsed = await response.json();
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+        lastError = new Error(`Invalid LocationData JSON shape: ${url}`);
+        continue;
+      }
+      return { parsed, url };
+    } catch (e) {
+      lastError = e instanceof Error ? e : new Error(String(e));
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error("No LocationData JSON could be loaded");
+}
+
 async function init() {
   await loadWebsiteConfig();
   try {
     initLocationMap();
 
-    const response = await fetch(DATA_URL);
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-    const parsed = await response.json();
-    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
-      throw new Error("Invalid LocationData JSON shape");
-    }
+    const { parsed } = await loadLocationDataObject();
 
     locations = Object.entries(parsed).map(([name, coords]) => {
       const xyz = parseCoordinates(coords);

@@ -854,7 +854,9 @@ def validate_json_root(json_root: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Compile dataset JSON using website config: Item, Location, Loot, Name, NPC, Plan, "
+            "Compile dataset JSON using website config: Item, Location (chunk actors + PCG "
+            "foliage ISMC, merged + wiki-filtered into LocationData.json), MapData "
+            "(chunk-boundary GeoJSON overlays for Map.html), Loot, Name, NPC, Plan, "
             "Progression, Recipe, Spell, Vestige, Icon."
         )
     )
@@ -894,9 +896,13 @@ def main() -> None:
 
     tools = repo_root / "website" / "tools"
 
+    # LocationData/CompileLocationData.py writes the final wiki-filtered LocationData.json
+    # (chunk actors + BP_InteractableFoliageISMC_* PCG instances from L_World).
+    # MapData/CompileMapData.py writes the chunk-boundary GeoJSON overlays consumed by Map.html.
     steps = [
         tools / "ItemData" / "CompileItemData.py",
         tools / "LocationData" / "CompileLocationData.py",
+        tools / "MapData" / "CompileMapData.py",
         tools / "LootData" / "CompileLootData.py",
         tools / "NameData" / "CompileNameData.py",
         tools / "NPCData" / "CompileNPCData.py",

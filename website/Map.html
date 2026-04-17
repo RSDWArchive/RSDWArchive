@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RSDW Archive - LootData</title>
+  <title>RSDW Archive - World map</title>
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png" />
   <link rel="icon" href="./favicon_io/favicon.ico" />
   <link rel="manifest" href="./favicon_io/site.webmanifest" />
   <link rel="preload" href="https://fonts.gstatic.com/s/sofiasans/v20/Yq6T-LCVXSLy9uPBwlATrORKkzApcb8.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
+<body class="map-page">
   <header class="site-header">
     <div class="brand">
       <a class="brand-home-link logo-wrap" href="./index.html" aria-label="Go to homepage">
@@ -20,10 +21,7 @@
       </a>
       <a class="brand-home-link brand-title" href="./index.html">RSDW Archive</a>
     </div>
-    <div class="header-search">
-      <label class="sr-only" for="file-search">Search Loot Data</label>
-      <input id="file-search" type="search" placeholder="Search Enemies..." autocomplete="off" />
-    </div>
+    <p id="map-status" class="map-toolbar-status" role="status" aria-live="polite">Loading…</p>
     <div class="header-actions">
       <a class="github-link" href="https://github.com/RSDWArchive/RSDWArchive" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
         <img src="./github.svg" alt="" />
@@ -49,48 +47,64 @@
     </div>
   </header>
 
-  <main>
-    <section id="landing-message" class="landing-message">
-      <p id="home-status" aria-live="polite">Loading LootData...</p>
-      <p id="home-subtitle" class="landing-subtitle">Browse enemy drops, chests, and item lookups</p>
-    </section>
-
-    <p id="status" aria-live="polite">Loading LootData...</p>
-
-    <section class="results-viewer">
-      <aside>
-        <div class="panel-header">
-          <h2 id="list-title">Enemies</h2>
-          <div class="view-tabs" role="tablist" aria-label="Loot data views">
-            <button id="tab-enemies" class="panel-action-btn view-tab-btn active" type="button" role="tab" aria-selected="true">Enemies</button>
-            <button id="tab-chests" class="panel-action-btn view-tab-btn" type="button" role="tab" aria-selected="false">Chests</button>
-            <button id="tab-items" class="panel-action-btn view-tab-btn" type="button" role="tab" aria-selected="false">Items</button>
-          </div>
-        </div>
-        <ul id="results"></ul>
-      </aside>
-      <article>
-        <div class="panel-header">
-          <h2>Preview</h2>
-          <div class="content-actions">
-            <button id="toggle-preview-format" type="button" class="panel-action-btn" disabled>JSON</button>
-            <button id="copy-preview" type="button" class="panel-action-btn preview-copy-btn" aria-label="Copy preview to clipboard" title="Copy preview to clipboard" disabled>
-              <img src="./clipboard.png" alt="" />
-            </button>
-          </div>
-        </div>
-        <p id="selected-path">Select an entry</p>
-        <pre id="file-content">Search and click an entry to preview compiled loot data.</pre>
-      </article>
-    </section>
+  <main class="map-page-main">
+    <aside class="map-sidebar" aria-label="Chunk picker">
+      <div class="map-sidebar-head">
+        <label for="map-chunk-search" class="map-sidebar-label">Chunks</label>
+        <input
+          id="map-chunk-search"
+          type="search"
+          class="map-sidebar-search"
+          placeholder="Filter e.g. &quot;maingrid -78RMVK&quot;"
+          title="Space-separated tokens. Prefix a token with - to exclude. Right-click a chunk to hide it."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <p id="map-chunk-count" class="map-sidebar-count" aria-live="polite"></p>
+      </div>
+      <ul id="map-chunk-list" class="map-chunk-list" role="listbox" aria-label="World partition chunks"></ul>
+      <div id="map-chunk-detail" class="map-chunk-detail" hidden></div>
+    </aside>
+    <div id="world-map" role="application" aria-label="Dragonwilds world map with selected chunk highlighted"></div>
   </main>
+
+  <div
+    id="map-context-menu"
+    class="map-context-menu"
+    role="menu"
+    aria-label="Chunk actions"
+    hidden
+  >
+    <div class="map-context-menu-header" id="map-context-menu-header"></div>
+    <button type="button" class="map-context-menu-item" id="map-context-menu-hide" role="menuitem">
+      Hide chunk
+    </button>
+  </div>
+
   <footer class="site-footer">
+    <p>Chunk polygons from <code>L_World.json</code> via <code>tools/MapData/CompileMapData.py</code>. Map tiles from the wiki.</p>
     <p>All of these game files are the property of Jagex.</p>
     <p>RSDW Archive created by: Hi im Tat</p>
   </footer>
-  <div id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden></div>
 
-  <script src="./search-match.js" defer></script>
-  <script src="./lootdata.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+  <script src="./map.js" defer></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("tools-toggle");
+      var menu = document.getElementById("tools-dropdown");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function () {
+        var open = menu.hidden;
+        menu.hidden = !open;
+        btn.setAttribute("aria-expanded", String(open));
+      });
+      document.addEventListener("click", function (e) {
+        if (menu.contains(e.target) || btn.contains(e.target)) return;
+        menu.hidden = true;
+        btn.setAttribute("aria-expanded", "false");
+      });
+    })();
+  </script>
 </body>
 </html>
