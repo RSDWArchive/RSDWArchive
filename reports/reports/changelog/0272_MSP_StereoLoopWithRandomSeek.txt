@@ -1,0 +1,466 @@
+Change #0272
+Type: Modified
+Old Path: RSDragonwilds/Content/Audio/MetasoundPatches/MSP_StereoLoopWithRandomSeek.json
+New Path: RSDragonwilds/Content/Audio/MetasoundPatches/MSP_StereoLoopWithRandomSeek.json
+Added Lines: 143
+Removed Lines: 188
+
+================================================================================
+diff --git a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Audio/MetasoundPatches/MSP_StereoLoopWithRandomSeek.json b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Audio/MetasoundPatches/MSP_StereoLoopWithRandomSeek.json
+index 2f31f347a..7a03d2012 100644
+--- a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Audio/MetasoundPatches/MSP_StereoLoopWithRandomSeek.json
++++ b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Audio/MetasoundPatches/MSP_StereoLoopWithRandomSeek.json
+@@ -122,40 +122,37 @@
+                   "ClassInterfaceOverride": null
+                 },
+                 {
+-                  "ID": "B2AB388C-462F7C50-5606A4AB-A245DDB3",
+-                  "ClassID": "259C8F50-436899F0-7873D097-B50FBC53",
+-                  "Name": "Out",
++                  "ID": "92519215-4B06BBC1-F749A4A2-22E412E2",
++                  "ClassID": "984F9B32-49F718E7-17888287-93C13087",
++                  "Name": "Get Wave Duration",
+                   "Interface": {
+                     "Inputs": [
+                       {
+-                        "Name": "Out",
+-                        "TypeName": "Audio",
+-                        "VertexID": "2ADBE771-4BDD93BA-C71FADA9-4BA873B1"
++                        "Name": "Wave",
++                        "TypeName": "WaveAsset",
++                        "VertexID": "9EF68408-09F8AD84-A4212841-D9BF20F3"
+                       }
+                     ],
+                     "Outputs": [
+                       {
+-                        "Name": "Out",
+-                        "TypeName": "Audio",
+-                        "VertexID": "C7871EF5-4CD2D275-B8F0D2B5-B9D3C15E"
++                        "Name": "Duration",
++                        "TypeName": "Time",
++                        "VertexID": "AEF64655-6DD94562-7CC978F9-C1BB173F"
++                      },
++                      {
++                        "Name": "Name",
++                        "TypeName": "String",
++                        "VertexID": "357E41E6-CE4A11C7-CE658853-CCF0821E"
++                      },
++                      {
++                        "Name": "Path",
++                        "TypeName": "String",
++                        "VertexID": "8D1AE8F5-CC412302-DF1E8BF6-4A6C4955"
+                       }
+                     ],
+                     "Environment": []
+                   },
+-                  "InputLiterals": [
+-                    {
+-                      "VertexID": "2ADBE771-4BDD93BA-C71FADA9-4BA873B1",
+-                      "Value": {
+-                        "Type": "EMetasoundFrontendLiteralType::None",
+-                        "AsNumDefault": 0,
+-                        "AsBoolean": [],
+-                        "AsInteger": [],
+-                        "AsFloat": [],
+-                        "AsString": [],
+-                        "AsUObject": []
+-                      }
+-                    }
+-                  ],
++                  "InputLiterals": [],
+                   "Configuration": null,
+                   "ClassInterfaceOverride": null
+                 },
+@@ -361,32 +358,112 @@
+                   "ClassInterfaceOverride": null
+                 },
+                 {
+-                  "ID": "92519215-4B06BBC1-F749A4A2-22E412E2",
+-                  "ClassID": "984F9B32-49F718E7-17888287-93C13087",
+-                  "Name": "Get Wave Duration",
++                  "ID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
++                  "ClassID": "956A7560-4F084822-F6FA2BA5-7983B56F",
++                  "Name": "Wave Player",
+                   "Interface": {
+                     "Inputs": [
+                       {
+-                        "Name": "Wave",
++                        "Name": "Play",
++                        "TypeName": "Trigger",
++                        "VertexID": "E488C091-52673EB8-F2DC89B9-60A6AF04"
++                      },
++                      {
++                        "Name": "Stop",
++                        "TypeName": "Trigger",
++                        "VertexID": "D63DCB94-DBA2EF9F-78B6B364-B737EEF0"
++                      },
++                      {
++                        "Name": "Wave Asset",
+                         "TypeName": "WaveAsset",
+-                        "VertexID": "9EF68408-09F8AD84-A4212841-D9BF20F3"
++                        "VertexID": "F2D4E208-F33E4270-D01FAC59-B1342A2A"
++                      },
++                      {
++                        "Name": "Start Time",
++                        "TypeName": "Time",
++                        "VertexID": "AAC8C513-5BF05FEE-87E90A30-B04A0F35"
++                      },
++                      {
++                        "Name": "Pitch Shift",
++                        "TypeName": "Float",
++                        "VertexID": "CA25E5E6-F5C486B9-03FE65A0-C8372BF6"
++                      },
++                      {
++                        "Name": "Loop",
++                        "TypeName": "Bool",
++                        "VertexID": "E2FBD8A5-0A918367-B54A096B-072437DE"
++                      },
++                      {
++                        "Name": "Loop Start",
++                        "TypeName": "Time",
++                        "VertexID": "DEC6FAEF-FFDAA5F7-6AD20C9B-69D8A1FE"
++                      },
++                      {
++                        "Name": "Loop Duration",
++                        "TypeName": "Time",
++                        "VertexID": "25E5E4D8-1AC6E9A4-83ADD925-FCC1BA55"
+                       }
+                     ],
+                     "Outputs": [
+                       {
+-                        "Name": "Duration",
+-                        "TypeName": "Time",
+-                        "VertexID": "AEF64655-6DD94562-7CC978F9-C1BB173F"
++                        "Name": "On Play",
++                        "TypeName": "Trigger",
++                        "VertexID": "ECF8266E-AABE8ADE-C208EAD9-AE6F795C"
+                       },
+                       {
+-                        "Name": "Name",
+-                        "TypeName": "String",
+-                        "VertexID": "357E41E6-CE4A11C7-CE658853-CCF0821E"
++                        "Name": "On Finished",
++                        "TypeName": "Trigger",
++                        "VertexID": "8D9B132C-6AF67AD9-1C16DE10-2B0D8769"
+                       },
+                       {
+-                        "Name": "Path",
++                        "Name": "On Nearly Finished",
++                        "TypeName": "Trigger",
++                        "VertexID": "08544E4A-03DF9182-73E5B49C-24338937"
++                      },
++                      {
++                        "Name": "On Looped",
++                        "TypeName": "Trigger",
++                        "VertexID": "E5011FA2-CC5C16CE-838E3F26-2C463260"
++                      },
++                      {
++                        "Name": "On Cue Point",
++                        "TypeName": "Trigger",
++                        "VertexID": "2F042104-3DB78A1A-EB094517-2D35602E"
++                      },
++                      {
++                        "Name": "Cue Point ID",
++                        "TypeName": "Int32",
++                        "VertexID": "6B7904A0-39F81696-6DE03079-CB019521"
++                      },
++                      {
++                        "Name": "Cue Point Label",
+                         "TypeName": "String",
+-                        "VertexID": "8D1AE8F5-CC412302-DF1E8BF6-4A6C4955"
++                        "VertexID": "9B47D829-46E980B8-3CEA5533-2B4D9ECB"
++                      },
++                      {
++                        "Name": "Loop Percent",
++                        "TypeName": "Float",
++                        "VertexID": "F985D4B3-EFF3F261-2EBDA86C-F8FF3736"
++                      },
++                      {
++                        "Name": "Playback Location",
++                        "TypeName": "Float",
++                        "VertexID": "DF978A8F-E1896344-88DF88D0-EA7F695B"
++                      },
++                      {
++                        "Name": "Playback Time",
++                        "TypeName": "Time",
++                        "VertexID": "7262643E-91ADAACC-5FD4365C-81EC7E05"
++                      },
++                      {
++                        "Name": "Out Left",
++                        "TypeName": "Audio",
++                        "VertexID": "1A904EBD-19B1D5B4-DAC9AE8B-FBA82027"
++                      },
++                      {
++                        "Name": "Out Right",
++                        "TypeName": "Audio",
++                        "VertexID": "7A0BBD14-A89598B2-B11B4ACC-1AE0FA9F"
+                       }
+                     ],
+                     "Environment": []
+@@ -676,122 +753,7 @@
+                   "ClassInterfaceOverride": null
+                 },
+                 {
+-                  "ID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
+-                  "ClassID": "956A7560-4F084822-F6FA2BA5-7983B56F",
+-                  "Name": "Wave Player",
+-                  "Interface": {
+-                    "Inputs": [
+-                      {
+-                        "Name": "Play",
+-                        "TypeName": "Trigger",
+-                        "VertexID": "E488C091-52673EB8-F2DC89B9-60A6AF04"
+-                      },
+-                      {
+-                        "Name": "Stop",
+-                        "TypeName": "Trigger",
+-                        "VertexID": "D63DCB94-DBA2EF9F-78B6B364-B737EEF0"
+-                      },
+-                      {
+-                        "Name": "Wave Asset",
+-                        "TypeName": "WaveAsset",
+-                        "VertexID": "F2D4E208-F33E4270-D01FAC59-B1342A2A"
+-                      },
+-                      {
+-                        "Name": "Start Time",
+-                        "TypeName": "Time",
+-                        "VertexID": "AAC8C513-5BF05FEE-87E90A30-B04A0F35"
+-                      },
+-                      {
+-                        "Name": "Pitch Shift",
+-                        "TypeName": "Float",
+-                        "VertexID": "CA25E5E6-F5C486B9-03FE65A0-C8372BF6"
+-                      },
+-                      {
+-                        "Name": "Loop",
+-                        "TypeName": "Bool",
+-                        "VertexID": "E2FBD8A5-0A918367-B54A096B-072437DE"
+-                      },
+-                      {
+-                        "Name": "Loop Start",
+-                        "TypeName": "Time",
+-                        "VertexID": "DEC6FAEF-FFDAA5F7-6AD20C9B-69D8A1FE"
+-                      },
+-                      {
+-                        "Name": "Loop Duration",
+-                        "TypeName": "Time",
+-                        "VertexID": "25E5E4D8-1AC6E9A4-83ADD925-FCC1BA55"
+-                      }
+-                    ],
+-                    "Outputs": [
+-                      {
+-                        "Name": "On Play",
+-                        "TypeName": "Trigger",
+-                        "VertexID": "ECF8266E-AABE8ADE-C208EAD9-AE6F795C"
+-                      },
+-                      {
+-                        "Name": "On Finished",
+-                        "TypeName": "Trigger",
+-                        "VertexID": "8D9B132C-6AF67AD9-1C16DE10-2B0D8769"
+-                      },
+-                      {
+-                        "Name": "On Nearly Finished",
+-                        "TypeName": "Trigger",
+-                        "VertexID": "08544E4A-03DF9182-73E5B49C-24338937"
+-                      },
+-                      {
+-                        "Name": "On Looped",
+-                        "TypeName": "Trigger",
+-                        "VertexID": "E5011FA2-CC5C16CE-838E3F26-2C463260"
+-                      },
+-                      {
+-                        "Name": "On Cue Point",
+-                        "TypeName": "Trigger",
+-                        "VertexID": "2F042104-3DB78A1A-EB094517-2D35602E"
+-                      },
+-                      {
+-                        "Name": "Cue Point ID",
+-                        "TypeName": "Int32",
+-                        "VertexID": "6B7904A0-39F81696-6DE03079-CB019521"
+-                      },
+-                      {
+-                        "Name": "Cue Point Label",
+-                        "TypeName": "String",
+-                        "VertexID": "9B47D829-46E980B8-3CEA5533-2B4D9ECB"
+-                      },
+-                      {
+-                        "Name": "Loop Percent",
+-                        "TypeName": "Float",
+-                        "VertexID": "F985D4B3-EFF3F261-2EBDA86C-F8FF3736"
+-                      },
+-                      {
+-                        "Name": "Playback Location",
+-                        "TypeName": "Float",
+-                        "VertexID": "DF978A8F-E1896344-88DF88D0-EA7F695B"
+-                      },
+-                      {
+-                        "Name": "Playback Time",
+-                        "TypeName": "Time",
+-                        "VertexID": "7262643E-91ADAACC-5FD4365C-81EC7E05"
+-                      },
+-                      {
+-                        "Name": "Out Left",
+-                        "TypeName": "Audio",
+-                        "VertexID": "1A904EBD-19B1D5B4-DAC9AE8B-FBA82027"
+-                      },
+-                      {
+-                        "Name": "Out Right",
+-                        "TypeName": "Audio",
+-                        "VertexID": "7A0BBD14-A89598B2-B11B4ACC-1AE0FA9F"
+-                      }
+-                    ],
+-                    "Environment": []
+-                  },
+-                  "InputLiterals": [],
+-                  "Configuration": null,
+-                  "ClassInterfaceOverride": null
+-                },
+-                {
+-                  "ID": "A8DA0354-4625B965-18A306A3-00251591",
++                  "ID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
+                   "ClassID": "F52AD48B-43CFFE6A-F1C25F9D-52B79CAB",
+                   "Name": "Random Get",
+                   "Interface": {
+@@ -870,13 +832,13 @@
+                 {
+                   "FromNodeID": "ACAF8425-440A4196-26CD53B4-33135710",
+                   "FromVertexID": "F347E24E-4FA93DFF-0F03A186-7F524C3A",
+-                  "ToNodeID": "A8DA0354-4625B965-18A306A3-00251591",
++                  "ToNodeID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
+                   "ToVertexID": "E0F3AE29-DAE08208-FC865CF7-0E60C937"
+                 },
+                 {
+                   "FromNodeID": "B3D6DE92-46ECBF07-E46F6E82-892716EB",
+                   "FromVertexID": "9A97E0A2-4967E334-D832248E-1AF2CD64",
+-                  "ToNodeID": "A8DA0354-4625B965-18A306A3-00251591",
++                  "ToNodeID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
+                   "ToVertexID": "FEC93C3A-3EA8FA7C-531BD6A0-D44A0511"
+                 },
+                 {
+@@ -894,7 +856,7 @@
+                 {
+                   "FromNodeID": "0AFDAC34-4DFBC3C6-BC141BA1-B671036F",
+                   "FromVertexID": "802E74DD-4F5A9E46-323F6C97-B2859972",
+-                  "ToNodeID": "A8DA0354-4625B965-18A306A3-00251591",
++                  "ToNodeID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
+                   "ToVertexID": "9714B6D0-57C9A5B0-7FD91AF7-B2D3A33C"
+                 },
+                 {
+@@ -906,7 +868,7 @@
+                 {
+                   "FromNodeID": "A095DD6B-491D13D9-5AF6E6A6-9209B7D1",
+                   "FromVertexID": "20220C88-44E543E9-EE7C73AA-E9D28F10",
+-                  "ToNodeID": "A8DA0354-4625B965-18A306A3-00251591",
++                  "ToNodeID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
+                   "ToVertexID": "F6BEDABE-B69495CD-A63257DF-B105522F"
+                 },
+                 {
+@@ -952,10 +914,10 @@
+                   "ToVertexID": "5111311D-44FF27AB-3F0DF5A8-6796C5B3"
+                 },
+                 {
+-                  "FromNodeID": "A8DA0354-4625B965-18A306A3-00251591",
+-                  "FromVertexID": "A104B5DD-A65C51BC-AA7FA141-ED8F887D",
+-                  "ToNodeID": "92519215-4B06BBC1-F749A4A2-22E412E2",
+-                  "ToVertexID": "9EF68408-09F8AD84-A4212841-D9BF20F3"
++                  "FromNodeID": "042C01B9-4579FDC4-BE19B2A6-D08F1B56",
++                  "FromVertexID": "8BED0885-4EABE3CC-176A1995-CEE73979",
++                  "ToNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
++                  "ToVertexID": "AAC8C513-5BF05FEE-87E90A30-B04A0F35"
+                 },
+                 {
+                   "FromNodeID": "428EAF4F-44C689BE-BFA67892-395BAABE",
+@@ -964,16 +926,16 @@
+                   "ToVertexID": "943587F1-4B963287-0A2511A0-652F9627"
+                 },
+                 {
+-                  "FromNodeID": "A8DA0354-4625B965-18A306A3-00251591",
+-                  "FromVertexID": "A104B5DD-A65C51BC-AA7FA141-ED8F887D",
++                  "FromNodeID": "8C4C3A0F-49D7CCB9-0DD98AAE-C4FDCD86",
++                  "FromVertexID": "8FE25A3E-42BDD11F-1FB547B0-CD4D207F",
+                   "ToNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
+-                  "ToVertexID": "F2D4E208-F33E4270-D01FAC59-B1342A2A"
++                  "ToVertexID": "CA25E5E6-F5C486B9-03FE65A0-C8372BF6"
+                 },
+                 {
+-                  "FromNodeID": "042C01B9-4579FDC4-BE19B2A6-D08F1B56",
+-                  "FromVertexID": "8BED0885-4EABE3CC-176A1995-CEE73979",
+-                  "ToNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
+-                  "ToVertexID": "AAC8C513-5BF05FEE-87E90A30-B04A0F35"
++                  "FromNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
++                  "FromVertexID": "1A904EBD-19B1D5B4-DAC9AE8B-FBA82027",
++                  "ToNodeID": "F805702C-4718C767-2C08088E-E200D31F",
++                  "ToVertexID": "D75E27EB-46EC2465-CAAB3D97-76CBDE13"
+                 },
+                 {
+                   "FromNodeID": "042C01B9-4579FDC4-BE19B2A6-D08F1B56",
+@@ -982,16 +944,22 @@
+                   "ToVertexID": "E488C091-52673EB8-F2DC89B9-60A6AF04"
+                 },
+                 {
+-                  "FromNodeID": "A8DA0354-4625B965-18A306A3-00251591",
++                  "FromNodeID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
++                  "FromVertexID": "A104B5DD-A65C51BC-AA7FA141-ED8F887D",
++                  "ToNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
++                  "ToVertexID": "F2D4E208-F33E4270-D01FAC59-B1342A2A"
++                },
++                {
++                  "FromNodeID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
+                   "FromVertexID": "F8B1C2F1-F29BC98D-E70114D4-1D747FE7",
+                   "ToNodeID": "8C4C3A0F-49D7CCB9-0DD98AAE-C4FDCD86",
+                   "ToVertexID": "779A18BF-4A98CA06-834D1585-890BAA2C"
+                 },
+                 {
+-                  "FromNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
+-                  "FromVertexID": "1A904EBD-19B1D5B4-DAC9AE8B-FBA82027",
+-                  "ToNodeID": "F805702C-4718C767-2C08088E-E200D31F",
+-                  "ToVertexID": "D75E27EB-46EC2465-CAAB3D97-76CBDE13"
++                  "FromNodeID": "217C5988-44862EF7-D53D9D84-F08A3FF8",
++                  "FromVertexID": "A104B5DD-A65C51BC-AA7FA141-ED8F887D",
++                  "ToNodeID": "92519215-4B06BBC1-F749A4A2-22E412E2",
++                  "ToVertexID": "9EF68408-09F8AD84-A4212841-D9BF20F3"
+                 },
+                 {
+                   "FromNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
+@@ -999,12 +967,6 @@
+                   "ToNodeID": "F805702C-4718C767-2C08088E-E200D31F",
+                   "ToVertexID": "53A49B81-4BF817AF-B3D14284-5484AAF1"
+                 },
+-                {
+-                  "FromNodeID": "8C4C3A0F-49D7CCB9-0DD98AAE-C4FDCD86",
+-                  "FromVertexID": "8FE25A3E-42BDD11F-1FB547B0-CD4D207F",
+-                  "ToNodeID": "3428360F-49AF22CA-2D1B3CAC-4A0E9B61",
+-                  "ToVertexID": "CA25E5E6-F5C486B9-03FE65A0-C8372BF6"
+-                },
+                 {
+                   "FromNodeID": "2DE26FD6-43D2998C-5B3C2F81-EFB838AB",
+                   "FromVertexID": "20220C88-44E543E9-EE7C73AA-E9D28F10",
+@@ -1251,11 +1213,11 @@
+             ],
+             "Outputs": [
+               {
+-                "NodeID": "B2AB388C-462F7C50-5606A4AB-A245DDB3",
++                "NodeID": "D8C0224C-4DC2F44D-4A81DF93-1DE204A8",
+                 "AccessType": "EMetasoundFrontendVertexAccessType::Reference",
+-                "Name": "Out",
++                "Name": "Out R",
+                 "TypeName": "Audio",
+-                "VertexID": "92C6A9B5-4DC43909-B18B28BA-783274D9"
++                "VertexID": "A2A6223E-47FC2009-93F02B83-48510B61"
+               },
+               {
+                 "NodeID": "6589F622-400F81ED-26251398-FB25C0F8",
+@@ -1263,13 +1225,6 @@
+                 "Name": "Out L",
+                 "TypeName": "Audio",
+                 "VertexID": "E972B56F-4BC18E76-C99BD5B4-A38F115D"
+-              },
+-              {
+-                "NodeID": "D8C0224C-4DC2F44D-4A81DF93-1DE204A8",
+-                "AccessType": "EMetasoundFrontendVertexAccessType::Reference",
+-                "Name": "Out R",
+-                "TypeName": "Audio",
+-                "VertexID": "A2A6223E-47FC2009-93F02B83-48510B61"
+               }
+             ]
+           }

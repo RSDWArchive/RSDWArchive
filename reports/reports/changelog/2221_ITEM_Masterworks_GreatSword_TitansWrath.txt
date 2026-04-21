@@ -1,0 +1,103 @@
+Change #2221
+Type: Modified
+Old Path: RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/Character/Player/Equipment/Held/GreatSword/ITEM_Masterworks_GreatSword_TitansWrath.json
+New Path: RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/Character/Player/Equipment/Held/GreatSword/ITEM_Masterworks_GreatSword_TitansWrath.json
+Added Lines: 50
+Removed Lines: 9
+
+================================================================================
+diff --git a/E:/Github/0.11.0.10/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/Character/Player/Equipment/Held/GreatSword/ITEM_Masterworks_GreatSword_TitansWrath.json b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/Character/Player/Equipment/Held/GreatSword/ITEM_Masterworks_GreatSword_TitansWrath.json
+index cbb03cf46..8e5c60117 100644
+--- a/E:/Github/0.11.0.10/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/Character/Player/Equipment/Held/GreatSword/ITEM_Masterworks_GreatSword_TitansWrath.json
++++ b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/Character/Player/Equipment/Held/GreatSword/ITEM_Masterworks_GreatSword_TitansWrath.json
+@@ -18,8 +18,8 @@
+         "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Abilities/Block/PA_Block_2H_Greatsword.0"
+       },
+       "SpecialActionClass": {
+-        "ObjectName": "BlueprintGeneratedClass'PA_Attack_2H_Greatsword_Special_C'",
+-        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Attacks/2H_Greatsword/PA_Attack_2H_Greatsword_Special.0"
++        "ObjectName": "BlueprintGeneratedClass'BP_PA_Attack_TitansWrath_Special_C'",
++        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Attacks/2H_Greatsword/BP_PA_Attack_TitansWrath_Special.0"
+       },
+       "HeldForceFeedback": {
+         "ObjectName": "ForceFeedbackEffect'FF_GreatswordAdaptiveTriggers'",
+@@ -44,6 +44,16 @@
+         "ObjectName": "SkillData'SKILL_Attack'",
+         "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Skills/SKILL_Attack.1"
+       },
++      "GrantedEffects": [
++        {
++          "ObjectName": "BlueprintGeneratedClass'BP_GE_TitansWrath_EnchantWeaponOnFatalHit_Data_C'",
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Equipment/TitansWrath/BP_GE_TitansWrath_EnchantWeaponOnFatalHit_Data.0"
++        },
++        {
++          "ObjectName": "BlueprintGeneratedClass'BP_GE_TitansWrath_RefreshHEED_Data_C'",
++          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Equipment/TitansWrath/BP_GE_TitansWrath_RefreshHEED_Data.0"
++        }
++      ],
+       "SkillUsed": {
+         "ObjectName": "SkillData'SKILL_Artisan'",
+         "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Skills/SKILL_Artisan.1"
+@@ -74,7 +84,8 @@
+         "TagName": "Item.Equipment.Weapon.2H.Sword"
+       },
+       "ItemFilterTags": [
+-        "ItemFilter.Type.Equipment.Weapon.Melee"
++        "ItemFilter.Type.Equipment.Weapon.Melee",
++        "ItemFilter.NoEnchant"
+       ],
+       "AudioSwitchTag": {
+         "TagName": "Audio.Metal.BladeLarge.Titan"
+@@ -87,16 +98,46 @@
+       "BuffDatas": [
+         {
+           "Title": {
+-            "TableId": "/Game/Gameplay/Items/ST_ItemInfo.ST_ItemInfo",
+-            "Key": "SpecialEffect",
+-            "SourceString": "Special Effect",
+-            "LocalizedString": "Special Effect"
++            "TableId": "/Game/Gameplay/Items/ST_ItemBuffs.ST_ItemBuffs",
++            "Key": "titanswrath.title",
++            "SourceString": "Baptism of Fire",
++            "LocalizedString": "Baptism of Fire"
+           },
+           "Description": {
+             "TableId": "/Game/Gameplay/Items/ST_ItemBuffs.ST_ItemBuffs",
+             "Key": "TitansWrath.Description",
+-            "SourceString": "Increased DAMAGE\r\nIncreased CRITICAL HIT chance",
+-            "LocalizedString": "Increased DAMAGE\r\nIncreased CRITICAL HIT chance"
++            "SourceString": "Trigger FIRE AOE around you, dealing DAMAGE to all enemies and triggering BURNING on them. ",
++            "LocalizedString": "Trigger FIRE AOE around you, dealing DAMAGE to all enemies and triggering BURNING on them. "
++          },
++          "BuffIcon": null
++        },
++        {
++          "Title": {
++            "TableId": "/Game/Gameplay/Items/ST_ItemBuffs.ST_ItemBuffs",
++            "Key": "TitansWrathBoon.Title",
++            "SourceString": "Burning Execution",
++            "LocalizedString": "Burning Execution"
++          },
++          "Description": {
++            "TableId": "/Game/Gameplay/Items/ST_ItemBuffs.ST_ItemBuffs",
++            "Key": "TitansWrathBoon.Description",
++            "SourceString": "SPECIAL ATTACK kills cause this weapon to become ENCHANTED with FIRE MAGIC. Kills REFRESH the FIRE ENCHANTMENT effect",
++            "LocalizedString": "SPECIAL ATTACK kills cause this weapon to become ENCHANTED with FIRE MAGIC. Kills REFRESH the FIRE ENCHANTMENT effect"
++          },
++          "BuffIcon": null
++        },
++        {
++          "Title": {
++            "TableId": "/Game/Gameplay/Items/ST_ItemBuffs.ST_ItemBuffs",
++            "Key": "TitansWrathBane.Title",
++            "SourceString": "Enchanted Weapon",
++            "LocalizedString": "Enchanted Weapon"
++          },
++          "Description": {
++            "TableId": "/Game/Gameplay/Items/ST_ItemBuffs.ST_ItemBuffs",
++            "Key": "TitansWrathBane.Description",
++            "SourceString": "You cannot cast additonal ENCHANTMENTS on this weapon.",
++            "LocalizedString": "You cannot cast additonal ENCHANTMENTS on this weapon."
+           },
+           "BuffIcon": null
+         }

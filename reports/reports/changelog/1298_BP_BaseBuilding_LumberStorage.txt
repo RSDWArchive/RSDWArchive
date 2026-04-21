@@ -1,0 +1,190 @@
+Change #1298
+Type: Modified
+Old Path: RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_LumberStorage.json
+New Path: RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_LumberStorage.json
+Added Lines: 44
+Removed Lines: 55
+
+================================================================================
+diff --git a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_LumberStorage.json b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_LumberStorage.json
+index 59b0aaa26..a4f29ef37 100644
+--- a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_LumberStorage.json
++++ b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/BP_BaseBuilding_LumberStorage.json
+@@ -448,15 +448,15 @@
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+       "ComponentDelegateBindings": [
+-        {
+-          "ComponentPropertyName": "BP_Components_WorldItemInventory",
+-          "DelegatePropertyName": "OnInventoryChanged",
+-          "FunctionNameToBind": "BndEvt__BP_BaseBuilding_Chest_BP_Components_WorldItemInventory_K2Node_ComponentBoundEvent_2_InventoryChangedEvent__DelegateSignature"
+-        },
+         {
+           "ComponentPropertyName": "Interaction",
+           "DelegatePropertyName": "OnInteractionEvent",
+           "FunctionNameToBind": "BndEvt__BP_BaseBuilding_Chest_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature"
++        },
++        {
++          "ComponentPropertyName": "BP_Components_WorldItemInventory",
++          "DelegatePropertyName": "OnInventoryChanged",
++          "FunctionNameToBind": "BndEvt__BP_BaseBuilding_Chest_BP_Components_WorldItemInventory_K2Node_ComponentBoundEvent_2_InventoryChangedEvent__DelegateSignature"
+         }
+       ]
+     }
+@@ -605,28 +605,6 @@
+         "ElementSize": 4,
+         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+       },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_HasAuthority_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "K2Node_ComponentBoundEvent_Player",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerCharacter'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+       {
+         "Type": "ObjectProperty",
+         "Name": "K2Node_ComponentBoundEvent_Inventory",
+@@ -689,6 +667,16 @@
+           }
+         }
+       },
++      {
++        "Type": "ObjectProperty",
++        "Name": "K2Node_ComponentBoundEvent_Player",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerCharacter'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
+       {
+         "Type": "ObjectProperty",
+         "Name": "CallFunc_GetController_ReturnValue",
+@@ -767,33 +755,12 @@
+           "ObjectPath": "/Script/CoreUObject"
+         }
+       },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "K2Node_Event_ConstructingPlayerController",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerController'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+       {
+         "Type": "IntProperty",
+         "Name": "CallFunc_Subtract_IntInt_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 4
+       },
+-      {
+-        "Type": "StructProperty",
+-        "Name": "CallFunc_GetCharacterGuid_ReturnValue_1",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16,
+-        "PropertyFlags": "ConstParm",
+-        "Struct": {
+-          "ObjectName": "Object'DomCharacterGuid'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+       {
+         "Type": "IntProperty",
+         "Name": "Temp_int_Variable",
+@@ -802,7 +769,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_DropItem_ReturnValue",
++        "Name": "CallFunc_IsPrivatelyLockedFromPlayer_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -814,7 +781,7 @@
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
++        "Name": "CallFunc_DropItem_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -825,14 +792,20 @@
+         "bIsNativeBool": true
+       },
+       {
+-        "Type": "IntProperty",
+-        "Name": "CallFunc_Add_IntInt_ReturnValue",
++        "Type": "BoolProperty",
++        "Name": "CallFunc_Not_PreBool_ReturnValue",
+         "Flags": "RF_Public",
+-        "ElementSize": 4
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
+       },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_IsPrivatelyLockedFromPlayer_ReturnValue",
++        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -842,9 +815,15 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
++      {
++        "Type": "IntProperty",
++        "Name": "CallFunc_Add_IntInt_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 4
++      },
+       {
+         "Type": "BoolProperty",
+-        "Name": "CallFunc_Not_PreBool_ReturnValue",
++        "Name": "CallFunc_HasAuthority_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 1,
+         "FieldSize": 1,
+@@ -853,6 +832,16 @@
+         "FieldMask": 255,
+         "BoolSize": 1,
+         "bIsNativeBool": true
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "K2Node_Event_ConstructingPlayerController",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerController'",
++          "ObjectPath": "/Script/Dominion"
++        }
+       }
+     ],
+     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"

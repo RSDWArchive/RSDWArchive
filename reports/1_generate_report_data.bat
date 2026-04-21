@@ -4,11 +4,11 @@ setlocal
 REM ============================
 REM Paths
 REM ============================
-set "NEW_JSON=E:\Github\RSDWArchive\0.11.0.10\json"
-set "OLD_JSON=E:\Github\0.11.0.8\json"
+set "NEW_JSON=E:\Github\RSDWArchive\0.11.1\json"
+set "OLD_JSON=E:\Github\0.11.0.10\json"
 
-set "NEW_TEXTURES=E:\Github\RSDWArchive\0.11.0.10\textures"
-set "OLD_TEXTURES=E:\Github\0.11.0.8\textures"
+set "NEW_TEXTURES=E:\Github\RSDWArchive\0.11.1\textures"
+set "OLD_TEXTURES=E:\Github\0.11.0.10\textures"
 
 REM Output folder = same folder as this .bat, inside /reports
 set "OUT_DIR=%~dp0reports"

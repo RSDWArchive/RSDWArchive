@@ -1,0 +1,173 @@
+Change #1995
+Type: Modified
+Old Path: RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.json
+New Path: RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.json
+Added Lines: 61
+Removed Lines: 11
+
+================================================================================
+diff --git a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.json b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.json
+index 23887bb51..175dbad5a 100644
+--- a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.json
++++ b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.json
+@@ -1,4 +1,32 @@
+ [
++  {
++    "Type": "Function",
++    "Name": "SetPanelBackgroundVisibility",
++    "Outer": "WBP_Panel_LorePopup_C",
++    "Class": "UScriptClass'Function'",
++    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
++    "ChildProperties": [
++      {
++        "Type": "EnumProperty",
++        "Name": "Visibility",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
++        "Enum": {
++          "ObjectName": "Object'ESlateVisibility'",
++          "ObjectPath": "/Script/UMG"
++        },
++        "UnderlyingProp": {
++          "Type": "ByteProperty",
++          "Name": "UnderlyingType",
++          "Flags": "RF_Public",
++          "ElementSize": 1,
++          "Enum": null
++        }
++      }
++    ],
++    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
++  },
+   {
+     "Type": "Image",
+     "Name": "Image_48",
+@@ -25,7 +53,7 @@
+       },
+       "Slot": {
+         "ObjectName": "OverlaySlot'WBP_Panel_LorePopup_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.3"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.4"
+       }
+     }
+   },
+@@ -38,7 +66,7 @@
+     "Properties": {
+       "Slot": {
+         "ObjectName": "OverlaySlot'WBP_Panel_LorePopup_C:WidgetTree.Overlay_0.OverlaySlot_2'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.4"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.5"
+       }
+     }
+   },
+@@ -52,11 +80,11 @@
+       "Slots": [
+         {
+           "ObjectName": "OverlaySlot'WBP_Panel_LorePopup_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+-          "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.3"
++          "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.4"
+         },
+         {
+           "ObjectName": "OverlaySlot'WBP_Panel_LorePopup_C:WidgetTree.Overlay_0.OverlaySlot_2'",
+-          "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.4"
++          "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.5"
+         }
+       ]
+     }
+@@ -72,11 +100,11 @@
+       "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+       "Parent": {
+         "ObjectName": "Overlay'WBP_Panel_LorePopup_C:WidgetTree.Overlay_0'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.2"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.3"
+       },
+       "Content": {
+         "ObjectName": "Image'WBP_Panel_LorePopup_C:WidgetTree.Image_48'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.0"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.1"
+       }
+     }
+   },
+@@ -97,11 +125,11 @@
+       "VerticalAlignment": "EVerticalAlignment::VAlign_Fill",
+       "Parent": {
+         "ObjectName": "Overlay'WBP_Panel_LorePopup_C:WidgetTree.Overlay_0'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.2"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.3"
+       },
+       "Content": {
+         "ObjectName": "NamedSlot'WBP_Panel_LorePopup_C:WidgetTree.PanelContent'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.1"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.2"
+       }
+     }
+   },
+@@ -123,19 +151,35 @@
+     "Properties": {
+       "WidgetTree": {
+         "ObjectName": "WidgetTree'WBP_Panel_LorePopup_C:WidgetTree'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.7"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.8"
+       },
+       "NamedSlots": [
+         "PanelContent"
+       ],
+       "InstanceNamedSlots": [
+         "PanelContent"
++      ],
++      "CookedPropertyGuids": [
++        {
++          "Key": "Image_48",
++          "Value": "1289E1BF-740038A8-AA905F3B-2DB4707D"
++        },
++        {
++          "Key": "PanelContent",
++          "Value": "F3B04858-5E563C25-A2DED267-6E5F8EFB"
++        }
+       ]
+     },
+     "SuperStruct": {
+       "ObjectName": "Class'CommonUserWidget'",
+       "ObjectPath": "/Script/CommonUI"
+     },
++    "Children": [
++      {
++        "ObjectName": "Function'WBP_Panel_LorePopup_C:SetPanelBackgroundVisibility'",
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.0"
++      }
++    ],
+     "ChildProperties": [
+       {
+         "Type": "ObjectProperty",
+@@ -160,6 +204,12 @@
+         }
+       }
+     ],
++    "FuncMap": {
++      "SetPanelBackgroundVisibility": {
++        "ObjectName": "Function'WBP_Panel_LorePopup_C:SetPanelBackgroundVisibility'",
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.0"
++      }
++    },
+     "ClassFlags": "CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+     "ClassWithin": {
+       "ObjectName": "Class'Object'",
+@@ -169,7 +219,7 @@
+     "bCooked": true,
+     "ClassDefaultObject": {
+       "ObjectName": "WBP_Panel_LorePopup_C'Default__WBP_Panel_LorePopup_C'",
+-      "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.5"
++      "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.6"
+     },
+     "EditorTags": {
+       "BlueprintType": "BPTYPE_Normal"
+@@ -184,7 +234,7 @@
+     "Properties": {
+       "RootWidget": {
+         "ObjectName": "Overlay'WBP_Panel_LorePopup_C:WidgetTree.Overlay_0'",
+-        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.2"
++        "ObjectPath": "RSDragonwilds/Content/UI/Panels/WBP_Panel_LorePopup.3"
+       }
+     }
+   }

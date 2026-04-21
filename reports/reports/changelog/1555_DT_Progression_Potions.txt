@@ -1,0 +1,155 @@
+Change #1555
+Type: Modified
+Old Path: RSDragonwilds/Content/Gameplay/Progress/DT_Progression_Potions.json
+New Path: RSDragonwilds/Content/Gameplay/Progress/DT_Progression_Potions.json
+Added Lines: 27
+Removed Lines: 49
+
+================================================================================
+diff --git a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Gameplay/Progress/DT_Progression_Potions.json b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Gameplay/Progress/DT_Progression_Potions.json
+index 590096457..f596f2c8b 100644
+--- a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Gameplay/Progress/DT_Progression_Potions.json
++++ b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Gameplay/Progress/DT_Progression_Potions.json
+@@ -613,14 +613,17 @@
+       "T1_Weak_Focused_Fishing": {
+         "bManuallyUnlocked": false,
+         "bMilestoneUnlock": false,
+-        "UnlockQueryString": "ALL ITEMS[  ]    AND    ALL ACTORS[ BP_Crafting_Cauldron_C ]",
++        "UnlockQueryString": "ALL ITEMS[ Sauteed Shrimp ]    AND    ALL ACTORS[ BP_Crafting_Cauldron_C ]",
+         "UnlockQuery": {
+           "FirstOperand": {
+             "UnlockType": "EProgressUnlockType::ItemsPickedUp",
+             "Condition": "EUnlockMatchCondition::AllMatch",
+             "NumberOfMatchesRequired": 2,
+             "Items": [
+-              null
++              {
++                "ObjectName": "BP_Consumables_Food_C'ITEM_Consumable_Fish_Shrimp'",
++                "ObjectPath": "/Fishing/Gameplay/Items/Fishes/Shrimp/ITEM_Consumable_Fish_Shrimp"
++              }
+             ],
+             "Actors": [],
+             "Skill": null,
+@@ -645,7 +648,10 @@
+         },
+         "UnlockedBuildings": [],
+         "UnlockedRecipes": [
+-          null
++          {
++            "ObjectName": "RecipeData'RECIPE_Consumable_Potion_Focused_T1_Weak_Fishing'",
++            "ObjectPath": "/Fishing/Gameplay/Items/Consumables/Magic/RECIPE_Consumable_Potion_Focused_T1_Weak_Fishing"
++          }
+         ],
+         "ChangedQuests": []
+       },
+@@ -1102,14 +1108,17 @@
+       "T2_Lesser_Focused_Fishing": {
+         "bManuallyUnlocked": false,
+         "bMilestoneUnlock": false,
+-        "UnlockQueryString": "ALL ITEMS[  ]",
++        "UnlockQueryString": "ALL ITEMS[ Fried Sardine ]",
+         "UnlockQuery": {
+           "FirstOperand": {
+             "UnlockType": "EProgressUnlockType::ItemsPickedUp",
+             "Condition": "EUnlockMatchCondition::AllMatch",
+             "NumberOfMatchesRequired": 2,
+             "Items": [
+-              null
++              {
++                "ObjectName": "BP_Consumables_Food_C'ITEM_Consumable_Fish_Sardine'",
++                "ObjectPath": "/Fishing/Gameplay/Items/Fishes/Sardine/ITEM_Consumable_Fish_Sardine"
++              }
+             ],
+             "Actors": [],
+             "Skill": null,
+@@ -1129,7 +1138,10 @@
+         },
+         "UnlockedBuildings": [],
+         "UnlockedRecipes": [
+-          null
++          {
++            "ObjectName": "RecipeData'RECIPE_Consumable_Potion_Focused_T2_Lesser_Fishing'",
++            "ObjectPath": "/Fishing/Gameplay/Items/Consumables/Magic/RECIPE_Consumable_Potion_Focused_T2_Lesser_Fishing"
++          }
+         ],
+         "ChangedQuests": []
+       },
+@@ -1456,14 +1468,17 @@
+       "T3_Focused_Fishing": {
+         "bManuallyUnlocked": false,
+         "bMilestoneUnlock": false,
+-        "UnlockQueryString": "ALL ITEMS[  ]",
++        "UnlockQueryString": "ALL ITEMS[ Grilled Trout ]",
+         "UnlockQuery": {
+           "FirstOperand": {
+             "UnlockType": "EProgressUnlockType::ItemsPickedUp",
+             "Condition": "EUnlockMatchCondition::AllMatch",
+             "NumberOfMatchesRequired": 2,
+             "Items": [
+-              null
++              {
++                "ObjectName": "BP_Consumables_Food_C'ITEM_Consumable_Fish_Trout'",
++                "ObjectPath": "/Fishing/Gameplay/Items/Fishes/Trout/ITEM_Consumable_Fish_Trout"
++              }
+             ],
+             "Actors": [],
+             "Skill": null,
+@@ -1483,7 +1498,10 @@
+         },
+         "UnlockedBuildings": [],
+         "UnlockedRecipes": [
+-          null
++          {
++            "ObjectName": "RecipeData'RECIPE_Consumable_Potion_Focused_T3_Fishing'",
++            "ObjectPath": "/Fishing/Gameplay/Items/Consumables/Magic/RECIPE_Consumable_Potion_Focused_T3_Fishing"
++          }
+         ],
+         "ChangedQuests": []
+       },
+@@ -1702,46 +1720,6 @@
+           }
+         ],
+         "ChangedQuests": []
+-      },
+-      "T3_Healing": {
+-        "bManuallyUnlocked": false,
+-        "bMilestoneUnlock": false,
+-        "UnlockQueryString": "ALL ITEMS[ Glass Vessel ]",
+-        "UnlockQuery": {
+-          "FirstOperand": {
+-            "UnlockType": "EProgressUnlockType::ItemsPickedUp",
+-            "Condition": "EUnlockMatchCondition::AllMatch",
+-            "NumberOfMatchesRequired": 2,
+-            "Items": [
+-              {
+-                "ObjectName": "ItemData'ITEM_Resources_Glass_Vessel'",
+-                "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Resources/Glass/ITEM_Resources_Glass_Vessel.0"
+-              }
+-            ],
+-            "Actors": [],
+-            "Skill": null,
+-            "RequiredSkillLevel": 1
+-          },
+-          "bUseSecondOperand": false,
+-          "Operator": "EUnlockMatchOperator::AND",
+-          "SecondOperand": {
+-            "UnlockType": "EProgressUnlockType::ItemsPickedUp",
+-            "Condition": "EUnlockMatchCondition::AllMatch",
+-            "NumberOfMatchesRequired": 2,
+-            "Items": [],
+-            "Actors": [],
+-            "Skill": null,
+-            "RequiredSkillLevel": 1
+-          }
+-        },
+-        "UnlockedBuildings": [],
+-        "UnlockedRecipes": [
+-          {
+-            "ObjectName": "RecipeData'RECIPE_Consumable_Potion_T3_Healing'",
+-            "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Consumables/Magic/RECIPE_Consumable_Potion_T3_Healing.0"
+-          }
+-        ],
+-        "ChangedQuests": []
+       }
+     }
+   }

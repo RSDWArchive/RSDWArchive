@@ -1,0 +1,108 @@
+Change #0238
+Type: Modified
+Old Path: RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.json
+New Path: RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.json
+Added Lines: 82
+Removed Lines: 2
+
+================================================================================
+diff --git a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.json b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.json
+index 6eeaf071f..db0e2567e 100644
+--- a/E:/Github/0.11.0.10/json/RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.json
++++ b/E:/Github/RSDWArchive/0.11.1/json/RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.json
+@@ -1,4 +1,45 @@
+ [
++  {
++    "Type": "BP_PlayerSurfaceCondition_C",
++    "Name": "BP_PlayerSurfaceCondition_C_0",
++    "Outer": "ADA_ShovelEquipmentAudioData",
++    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Audio/Blueprints/Conditions/BP_PlayerSurfaceCondition.BP_PlayerSurfaceCondition_C'",
++    "Template": {
++      "ObjectName": "BP_PlayerSurfaceCondition_C'Default__BP_PlayerSurfaceCondition_C'",
++      "ObjectPath": "RSDragonwilds/Content/Audio/Blueprints/Conditions/BP_PlayerSurfaceCondition.1"
++    },
++    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
++    "Properties": {
++      "SurfaceType": [
++        "SurfaceType4",
++        "SurfaceType8",
++        "SurfaceType21",
++        "SurfaceType23"
++      ]
++    }
++  },
++  {
++    "Type": "BP_PlayerSurfaceCondition_C",
++    "Name": "BP_PlayerSurfaceCondition_C_1",
++    "Outer": "ADA_ShovelEquipmentAudioData",
++    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Audio/Blueprints/Conditions/BP_PlayerSurfaceCondition.BP_PlayerSurfaceCondition_C'",
++    "Template": {
++      "ObjectName": "BP_PlayerSurfaceCondition_C'Default__BP_PlayerSurfaceCondition_C'",
++      "ObjectPath": "RSDragonwilds/Content/Audio/Blueprints/Conditions/BP_PlayerSurfaceCondition.1"
++    },
++    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
++    "Properties": {
++      "SurfaceType": [
++        "SurfaceType5",
++        "SurfaceType17",
++        "SurfaceType16",
++        "SurfaceType28",
++        "SurfaceType27",
++        "SurfaceType26",
++        "SurfaceType19"
++      ]
++    }
++  },
+   {
+     "Type": "PlayerEquipmentAnimationAudioData",
+     "Name": "ADA_ShovelEquipmentAudioData",
+@@ -17,8 +58,47 @@
+               "ObjectName": "DominionMetaSoundSource'MSS_Pl_Fa_ShovelDig_Wood_Rem'",
+               "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/Farming/Shovel_Dig/Wood/MSS_Pl_Fa_ShovelDig_Wood_Rem.0"
+             },
+-            "ConditionalSoundsSoundRule": "ESoundPlayRules::Additive",
+-            "ConditionalSounds": [],
++            "ConditionalSoundsSoundRule": "ESoundPlayRules::OverrideBase",
++            "ConditionalSounds": [
++              {
++                "CharacterConditionsForPlaying": [
++                  {
++                    "ObjectName": "BP_PlayerSurfaceCondition_C'ADA_ShovelEquipmentAudioData:BP_PlayerSurfaceCondition_C_0'",
++                    "ObjectPath": "RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.0"
++                  }
++                ],
++                "SoundToPlay": {
++                  "SoundDelay": 0.0,
++                  "LocalSound": {
++                    "ObjectName": "DominionMetaSoundSource'MSS_Co_ImpactSoft_Warhammer_WaterImpact'",
++                    "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Combat/Melee/Impacts_Special/MSS_Co_ImpactSoft_Warhammer_WaterImpact.0"
++                  },
++                  "RemoteSound": {
++                    "ObjectName": "DominionMetaSoundSource'MSS_Co_ImpactSoft_Warhammer_WaterImpact_Rem'",
++                    "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Combat/Melee/Impacts_Special/MSS_Co_ImpactSoft_Warhammer_WaterImpact_Rem.0"
++                  }
++                }
++              },
++              {
++                "CharacterConditionsForPlaying": [
++                  {
++                    "ObjectName": "BP_PlayerSurfaceCondition_C'ADA_ShovelEquipmentAudioData:BP_PlayerSurfaceCondition_C_1'",
++                    "ObjectPath": "RSDragonwilds/Content/Audio/DataAssets/Equipment/ADA_ShovelEquipmentAudioData.1"
++                  }
++                ],
++                "SoundToPlay": {
++                  "SoundDelay": 0.0,
++                  "LocalSound": {
++                    "ObjectName": "DominionMetaSoundSource'MSS_Pl_WC_TooHard_StoneBone'",
++                    "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/WoodCutting/MSS_Pl_WC_TooHard_StoneBone.0"
++                  },
++                  "RemoteSound": {
++                    "ObjectName": "DominionMetaSoundSource'MSS_Pl_WC_TooHard_StoneBone_Rem'",
++                    "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/WoodCutting/MSS_Pl_WC_TooHard_StoneBone_Rem.0"
++                  }
++                }
++              }
++            ],
+             "bIsAffectedByAmmo": false,
+             "MaterialSoundRule": "ESoundPlayRules::OverrideBase",
+             "MaterialToSoundMap": [
