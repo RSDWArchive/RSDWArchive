@@ -1,0 +1,289 @@
+[
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "SpellModule_Shape_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Radius": 500.0
+    }
+  },
+  {
+    "Type": "DominionSpellData",
+    "Name": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'DominionSpellData'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Modules": {
+        "Modules": [
+          {
+            "Module": {
+              "ObjectName": "SpellModule_PlayMontage'DA_ZamorakStaff_Special:SpellModule_PlayMontage_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.8"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_SpawnActor'DA_ZamorakStaff_Special:SpellModule_SpawnActor_1'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.10"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Cast'DA_ZamorakStaff_Special:SpellModule_Cast_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.2"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_ExpireAfterDuration'DA_ZamorakStaff_Special:SpellModule_ExpireAfterDuration_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.6"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_CostStamina'DA_ZamorakStaff_Special:SpellModule_CostStamina_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.4"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Transform'DA_ZamorakStaff_Special:SpellModule_Transform_1'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.11"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Shape'DA_ZamorakStaff_Special:SpellModule_Shape_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.9"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Collision'DA_ZamorakStaff_Special:SpellModule_Collision_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.3"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Damage'DA_ZamorakStaff_Special:SpellModule_Damage_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.5"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_GameplayEffect'DA_ZamorakStaff_Special:SpellModule_GameplayEffect_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.7"
+            }
+          }
+        ]
+      },
+      "PersistenceID": "2y7AmkGR0gwVzMeiUSObnQ",
+      "InternalName": "special_zamorakstaff"
+    }
+  },
+  {
+    "Type": "SpellModule_Cast",
+    "Name": "SpellModule_Cast_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_Cast'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModuleName": "Cast",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_AttackDamagePoint_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_AttackDamagePoint.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Collision",
+    "Name": "SpellModule_Collision_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_Collision'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Profile": {
+        "Name": "Spell"
+      },
+      "TargetedProfile": {
+        "Name": "SpellTargeting"
+      },
+      "DebugDrawDuration": 1.0,
+      "OptionalSpawnActorModule": {
+        "ModuleName": "SpawnActor"
+      },
+      "OptionalShapeModule": {
+        "ModuleName": "AOEShape"
+      },
+      "ModuleName": "AOECollision",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_CostStamina",
+    "Name": "SpellModule_CostStamina_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_CostStamina'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Amount": 60.0,
+      "ModuleName": "CostStamina",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Damage",
+    "Name": "SpellModule_Damage_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_Damage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageAmount": 18.0,
+      "DamageTypes": [
+        "DamageType.Magical.Fire"
+      ],
+      "AttackPropertyFlags": 7,
+      "Force": 500.0,
+      "CollisionModule": {
+        "ModuleName": "AOECollision"
+      },
+      "ModuleName": "AOEDamage",
+      "Triggers": {
+        "CollisionRef": {
+          "ModuleName": "AOECollision"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_ExpireAfterDuration",
+    "Name": "SpellModule_ExpireAfterDuration_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_ExpireAfterDuration'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Duration": 5.0,
+      "ModuleName": "ExpireAfterDuration",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_GameplayEffect",
+    "Name": "SpellModule_GameplayEffect_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_GameplayEffect'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'GE_AddBurning_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/StatusEffects/GE_AddBurning.0"
+      },
+      "GameplayEffectSpellTarget": "EGameplayEffectSpellTarget::CollisionTarget",
+      "ShapeModule": {
+        "ModuleName": "Shape"
+      },
+      "ObjectTypeQueries": [
+        "ObjectTypeQuery8"
+      ],
+      "bIgnoreSpellOwner": true,
+      "bRemoveEffectsWithSameDataBeforeApplying": true,
+      "ModuleName": "GameplayEffect",
+      "Triggers": {
+        "StateTrigger": "ESpellStateTrigger::StartedExpiring",
+        "CollisionRef": {
+          "ModuleName": "AOECollision"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_PlayMontage",
+    "Name": "SpellModule_PlayMontage_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_PlayMontage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Montage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_Masterworks_Staff_FlamesofZamorak'",
+        "ObjectPath": "/DowdunReach/Art/Animation/Animations/PlayerM/Masterworks/AM_PlayerM_Masterworks_Staff_FlamesofZamorak"
+      },
+      "bShouldRotateToCameraForward": false,
+      "ModuleName": "PlayMontage",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Shape",
+    "Name": "SpellModule_Shape_0",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_Shape'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'DA_ZamorakStaff_Special:SpellModule_Shape_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/DA_ZamorakStaff_Special.0"
+      },
+      "ModuleName": "AOEShape",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_SpawnActor",
+    "Name": "SpellModule_SpawnActor_1",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_SpawnActor'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ActorClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Zamorak_Staff_Special_AOE_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Specials/ZamorakStaff/BP_Zamorak_Staff_Special_AOE.0"
+      },
+      "SpawnMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
+      "OptionalTransformModule": {
+        "ModuleName": "AOETransform"
+      },
+      "ModuleName": "SpawnActor",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Transform",
+    "Name": "SpellModule_Transform_1",
+    "Outer": "DA_ZamorakStaff_Special",
+    "Class": "UScriptClass'SpellModule_Transform'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TraceProfile": {
+        "Name": "NoCollision"
+      },
+      "ModuleName": "AOETransform",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  }
+]
