@@ -86,16 +86,75 @@
   <div id="combiner-modal" class="combiner-modal" hidden>
     <div class="combiner-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="combiner-title">
       <h3 id="combiner-title">Location Combiner</h3>
-      <label class="combiner-check">
-        <input id="include-names" type="checkbox" />
-        <span>Names</span>
-      </label>
+      <p class="combiner-map-docs">
+        <a
+          href="https://dragonwilds.runescape.wiki/w/Template:Map"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Module Map Docs
+        </a>
+      </p>
       <label class="combiner-check">
         <input id="include-z" type="checkbox" />
-        <span>Z-Location</span>
+        <span>Include Z-Location</span>
       </label>
+      <div class="combiner-field">
+        <label for="combine-name">Name (optional)</label>
+        <input
+          id="combine-name"
+          type="text"
+          class="combiner-text"
+          placeholder=""
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <div class="combiner-field">
+        <label for="combine-description">Description (optional)</label>
+        <textarea
+          id="combine-description"
+          class="combiner-text"
+          rows="2"
+          placeholder=""
+          autocomplete="off"
+          spellcheck="false"
+        ></textarea>
+      </div>
+      <div class="combiner-field">
+        <label for="combine-icon">Icon (optional)</label>
+        <input
+          id="combine-icon"
+          type="text"
+          class="combiner-text"
+          placeholder=""
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <div class="combiner-field">
+        <label for="combine-icon-size">IconSize (optional)</label>
+        <input
+          id="combine-icon-size"
+          type="text"
+          class="combiner-text"
+          placeholder=""
+          inputmode="numeric"
+          pattern="[0-9]+,[0-9]+"
+          autocomplete="off"
+          title="Width and height in pixels, e.g. 60,50"
+        />
+      </div>
       <div class="combiner-actions">
         <button id="combiner-cancel" type="button" class="panel-action-btn">Cancel</button>
+        <button
+          id="combiner-copy-center"
+          type="button"
+          class="panel-action-btn"
+          title="Copy wiki fragment |center=Y,X (map order; adds ,Z when Include Z-Location is checked) for Map module"
+        >
+          Copy Center Loc
+        </button>
         <button id="combiner-create" type="button" class="panel-action-btn">Create LocationData</button>
       </div>
     </div>

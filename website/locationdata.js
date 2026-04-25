@@ -23,9 +23,13 @@ const toolsToggleBtn = document.getElementById("tools-toggle");
 const toolsDropdownEl = document.getElementById("tools-dropdown");
 const combineBtn = document.getElementById("combine-btn");
 const combinerModal = document.getElementById("combiner-modal");
-const includeNamesInput = document.getElementById("include-names");
 const includeZInput = document.getElementById("include-z");
+const combineNameInput = document.getElementById("combine-name");
+const combineDescriptionInput = document.getElementById("combine-description");
+const combineIconInput = document.getElementById("combine-icon");
+const combineIconSizeInput = document.getElementById("combine-icon-size");
 const combinerCancelBtn = document.getElementById("combiner-cancel");
+const combinerCopyCenterBtn = document.getElementById("combiner-copy-center");
 const combinerCreateBtn = document.getElementById("combiner-create");
 const togglePreviewFormatBtn = document.getElementById("toggle-preview-format");
 const copyPreviewBtn = document.getElementById("copy-preview");
@@ -304,9 +308,48 @@ function sanitizeForFilename(input) {
   return cleaned || "combined";
 }
 
+const DEFAULT_ICON_SIZE_PAIR = [50, 50];
+
+/**
+ * Parse "60, 60" / "50,50" into [w, h]. Non-positive or invalid input falls back to DEFAULT_ICON_SIZE_PAIR.
+ * @param {string} raw
+ * @returns {[number, number]}
+ */
+function parseIconSizeString(raw) {
+  const s = String(raw || "").trim();
+  if (!s) {
+    return [...DEFAULT_ICON_SIZE_PAIR];
+  }
+  const parts = s.split(/[,;]/u).map((p) => p.trim()).filter((p) => p.length > 0);
+  if (parts.length !== 2) {
+    return [...DEFAULT_ICON_SIZE_PAIR];
+  }
+  const w = Number.parseInt(parts[0], 10);
+  const h = Number.parseInt(parts[1], 10);
+  if (!Number.isFinite(w) || !Number.isFinite(h) || w < 1 || h < 1) {
+    return [...DEFAULT_ICON_SIZE_PAIR];
+  }
+  return [w, h];
+}
+
+/**
+ * Keep icon size field to digits, commas, and spaces so users cannot type letters.
+ * @param {string} value
+ * @returns {string}
+ */
+function filterIconSizeInputValue(value) {
+  return value.replaceAll(/[^0-9,;\s]/gu, "");
+}
+
 function downloadCombinedLocationData() {
-  const includeNames = includeNamesInput.checked;
   const includeZ = includeZInput.checked;
+  const nameRaw = combineNameInput && combineNameInput.value.trim();
+  const descriptionRaw = combineDescriptionInput && combineDescriptionInput.value.trim();
+  const iconNameRaw = combineIconInput && combineIconInput.value.trim();
+  const iconSizePair = parseIconSizeString(
+    combineIconSizeInput ? combineIconSizeInput.value : ""
+  );
+  const includeIcon = Boolean(iconNameRaw);
 
   const payload = currentFiltered.map((entry) => {
     const out = {
@@ -316,8 +359,15 @@ function downloadCombinedLocationData() {
     if (includeZ) {
       out.z = toNumberOrString(entry.z);
     }
-    if (includeNames) {
-      out.name = entry.name;
+    if (nameRaw) {
+      out.name = nameRaw;
+    }
+    if (descriptionRaw) {
+      out.description = descriptionRaw;
+    }
+    if (includeIcon) {
+      out.icon = iconNameRaw;
+      out.iconSize = iconSizePair;
     }
     return out;
   });
@@ -415,6 +465,83 @@ function triggerDebouncedSearch() {
     clearTimeout(debounceTimer);
   }
   debounceTimer = setTimeout(filterAndRender, SEARCH_DEBOUNCE_MS);
+}
+
+/**
+ * Unreal-style coordinate string for clipboard (same order as in-game: X Y Z).
+ * @param {number} n
+ * @returns {string}
+ */
+function formatLocationNumberForClipboard(n) {
+  if (!Number.isFinite(n)) {
+    return "0";
+  }
+  const s = n.toFixed(6).replace(/\.?0+$/u, "");
+  return s || "0";
+}
+
+/**
+ * Component-wise mean of all filtered points, as a wiki `Map` module fragment.
+ * The `center` parameter is **Y then X** (map/wiki order), not Unreal `X Y` order.
+ * @param {boolean} includeZ
+ * @returns {string | null} e.g. `|center=139237.686757,61172.214662` (Y,X), or null if nothing valid.
+ */
+function computeFilteredCenterLocationString(includeZ) {
+  const entries = currentFiltered;
+  if (entries.length === 0) {
+    return null;
+  }
+  let sumX = 0;
+  let sumY = 0;
+  let sumZ = 0;
+  let nX = 0;
+  let nY = 0;
+  let nZ = 0;
+  for (const e of entries) {
+    const x = Number.parseFloat(String(e.x));
+    const y = Number.parseFloat(String(e.y));
+    const z = Number.parseFloat(String(e.z));
+    if (Number.isFinite(x)) {
+      sumX += x;
+      nX += 1;
+    }
+    if (Number.isFinite(y)) {
+      sumY += y;
+      nY += 1;
+    }
+    if (Number.isFinite(z)) {
+      sumZ += z;
+      nZ += 1;
+    }
+  }
+  if (nX === 0 || nY === 0) {
+    return null;
+  }
+  const cx = sumX / nX;
+  const cy = sumY / nY;
+  const fx = formatLocationNumberForClipboard(cx);
+  const fy = formatLocationNumberForClipboard(cy);
+  if (!includeZ || nZ === 0) {
+    return `|center=${fy},${fx}`;
+  }
+  const cz = sumZ / nZ;
+  const fz = formatLocationNumberForClipboard(cz);
+  return `|center=${fy},${fx},${fz}`;
+}
+
+async function copyFilteredCenterLocation() {
+  const includeZ = Boolean(includeZInput && includeZInput.checked);
+  const text = computeFilteredCenterLocationString(includeZ);
+  if (text == null) {
+    showCopyToast("No valid coordinates to average.", true);
+    return;
+  }
+  try {
+    await copyTextToClipboard(text);
+    showCopyToast("Center location copied to clipboard.");
+  } catch {
+    showCopyToast("Unable to copy to clipboard.", true);
+  }
 }
 
 async function copyTextToClipboard(text) {
@@ -558,14 +685,40 @@ document.addEventListener("click", (event) => {
 });
 
 combineBtn.addEventListener("click", () => {
-  includeNamesInput.checked = false;
   includeZInput.checked = false;
+  if (combineNameInput) {
+    combineNameInput.value = "";
+  }
+  if (combineDescriptionInput) {
+    combineDescriptionInput.value = "";
+  }
+  if (combineIconInput) {
+    combineIconInput.value = "";
+  }
+  if (combineIconSizeInput) {
+    combineIconSizeInput.value = "";
+  }
   setCombinerModal(true);
 });
+
+if (combineIconSizeInput) {
+  combineIconSizeInput.addEventListener("input", () => {
+    const next = filterIconSizeInputValue(combineIconSizeInput.value);
+    if (next !== combineIconSizeInput.value) {
+      combineIconSizeInput.value = next;
+    }
+  });
+}
 
 combinerCancelBtn.addEventListener("click", () => {
   setCombinerModal(false);
 });
+
+if (combinerCopyCenterBtn) {
+  combinerCopyCenterBtn.addEventListener("click", () => {
+    void copyFilteredCenterLocation();
+  });
+}
 
 combinerCreateBtn.addEventListener("click", () => {
   downloadCombinedLocationData();
