@@ -51,7 +51,13 @@ def build_file_index(repo_root: Path, dataset_root: Path, out_path: Path) -> Non
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Master website update pipeline using website/data.config.json"
+        description=(
+            "Master website update pipeline using website/data.config.json. "
+            "By default runs website/tools/compiledata.py, which builds "
+            "ItemData, LocationData, MapData, BPData, LootData, NameData, NPCData, "
+            "PlanData, ProgressionData, RecipeData, SpellData, VestigeData, and IconData. "
+            "Use --skip-compile-data to skip that step."
+        )
     )
     parser.add_argument(
         "--config",
@@ -61,7 +67,10 @@ def main() -> None:
     parser.add_argument(
         "--skip-compile-data",
         action="store_true",
-        help="Skip running website/tools/compiledata.py",
+        help=(
+            "Skip website/tools/compiledata.py (Item, Location, Map, BP, Loot, Name, "
+            "NPC, Plan, Progression, Recipe, Spell, Vestige, Icon data)."
+        ),
     )
     parser.add_argument(
         "--skip-file-index",
@@ -86,6 +95,7 @@ def main() -> None:
         raise FileNotFoundError(f"Invalid dataset root/json root from config: {dataset_root}")
 
     if not args.skip_compile_data:
+        # Full dataset compilers (includes BPData via website/tools/compiledata.py).
         run_step(
             [
                 "python",
