@@ -1,0 +1,85 @@
+[
+  {
+    "Type": "DominionSpellData",
+    "Name": "DA_MissedCast",
+    "Class": "UScriptClass'DominionSpellData'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Modules": {
+        "Modules": [
+          {
+            "Module": {
+              "ObjectName": "SpellModule_PlayMontage'DA_MissedCast:SpellModule_PlayMontage_1'",
+              "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/Character/Player/Spells/Fishing/DA_MissedCast.3"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_ExpireAfterDuration'DA_MissedCast:SpellModule_ExpireAfterDuration_0'",
+              "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/Character/Player/Spells/Fishing/DA_MissedCast.2"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Cast'DA_MissedCast:SpellModule_Cast_0'",
+              "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/Character/Player/Spells/Fishing/DA_MissedCast.1"
+            }
+          }
+        ]
+      },
+      "PersistenceID": "X5EOp0hqIbDUTMWDBGO8uw",
+      "InternalName": "special_fishing_missedcast"
+    }
+  },
+  {
+    "Type": "SpellModule_Cast",
+    "Name": "SpellModule_Cast_0",
+    "Outer": "DA_MissedCast",
+    "Class": "UScriptClass'SpellModule_Cast'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModuleName": "Cast",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_EndCast_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_EndCast.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_ExpireAfterDuration",
+    "Name": "SpellModule_ExpireAfterDuration_0",
+    "Outer": "DA_MissedCast",
+    "Class": "UScriptClass'SpellModule_ExpireAfterDuration'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Duration": 3.0,
+      "ModuleName": "ExpireAfterDuration",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_PlayMontage",
+    "Name": "SpellModule_PlayMontage_1",
+    "Outer": "DA_MissedCast",
+    "Class": "UScriptClass'SpellModule_PlayMontage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Montage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_Fishing_CastMissed'",
+        "ObjectPath": "/Fishing/Art/Animation/Animations/PlayerM/Skills/Fishing/AM_PlayerM_Fishing_CastMissed"
+      },
+      "bShouldRotateToCameraForward": false,
+      "ModuleName": "PlayMontage",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  }
+]

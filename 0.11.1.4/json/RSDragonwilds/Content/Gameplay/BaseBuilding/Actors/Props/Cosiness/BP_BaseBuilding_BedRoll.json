@@ -1,0 +1,2482 @@
+[
+  {
+    "Type": "BedComponent",
+    "Name": "Bed_GEN_VARIABLE",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'BedComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RestingMontage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_SleepingMatt_Sleep'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Animation/PlayerM/Interact/AM_PlayerM_SleepingMatt_Sleep.0"
+      },
+      "RestLoopSectionName": "SleepLoop",
+      "RestingCameraProfile": {
+        "ObjectName": "CameraProfile'RestingModeCameraProfile'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Data/RestingModeCameraProfile.0"
+      },
+      "OnRestSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_UI_Mn_Inventory_ItemSelect'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Menu/Inventory/MSS_UI_Mn_Inventory_ItemSelect.0"
+      },
+      "PlayerRestingTransformSettings": {
+        "RestAnimHeightOffset": 113.0
+      },
+      "LeaveActionText": {
+        "TableId": "/Game/UI/ST_UI_Localization.ST_UI_Localization",
+        "Key": "RestingLeaveBed",
+        "SourceString": "Leave Bed",
+        "LocalizedString": "Leave Bed"
+      }
+    }
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_BaseBuilding_PropBase_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'BP_BaseBuilding_BedRoll_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.7"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.41"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_BaseBuilding_BedRoll_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.28"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:ExecuteUbergraph_BP_BaseBuilding_BedRoll'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.16"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_BaseBuilding_PropBase_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.0"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:GetRespawnWorldTransform'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.19"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:UpdatePromptInputActionVisibility'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.25"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:CanAdditionalDescriptionTextContainUsername'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.13"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:UpdateCosiness'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.24"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:CanBeDestroyedByPlayer'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.14"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:ToggleRestingOrSleeping'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.23"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:Claim Bed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.15"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:HandleInteraction'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.20"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.17"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:GetInteractionText'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.18"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:PlayClaimedBedSFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.22"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.9"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_1_OnInteractionPromptDisplayChange__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.10"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BP_OnBuildingConstructed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.11"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BP_OnBuildingDeconstructed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.12"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:Leave'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.21"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BndEvt__BP_BaseBuilding_BedRoll_Bed_K2Node_ComponentBoundEvent_2_BedClaimantGuidChangedEvent__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.8"
+      },
+      {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:ExecuteUbergraph_BP_BaseBuilding_BedRoll'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.16"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Capsule",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RespawnTransform",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Bed",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BedComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BuildingShelter",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BuildingShelterComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Interaction",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'InteractionComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "SaveID",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "CosinessValueMap",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "ByteProperty",
+          "Name": "CosinessValueMap",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        },
+        "ValueProp": {
+          "Type": "DoubleProperty",
+          "Name": "CosinessValueMap_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "BonusRadius",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "In Display Name",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "QuestState",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Enum": {
+          "ObjectName": "Object'EQuestState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_BaseBuilding_BedRoll": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:ExecuteUbergraph_BP_BaseBuilding_BedRoll'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.16"
+      },
+      "BndEvt__BP_BaseBuilding_BedRoll_Bed_K2Node_ComponentBoundEvent_2_BedClaimantGuidChangedEvent__DelegateSignature": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BndEvt__BP_BaseBuilding_BedRoll_Bed_K2Node_ComponentBoundEvent_2_BedClaimantGuidChangedEvent__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.8"
+      },
+      "Leave": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:Leave'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.21"
+      },
+      "BP_OnBuildingDeconstructed": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BP_OnBuildingDeconstructed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.12"
+      },
+      "BP_OnBuildingConstructed": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BP_OnBuildingConstructed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.11"
+      },
+      "BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_1_OnInteractionPromptDisplayChange__DelegateSignature": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_1_OnInteractionPromptDisplayChange__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.10"
+      },
+      "BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.9"
+      },
+      "PlayClaimedBedSFX": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:PlayClaimedBedSFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.22"
+      },
+      "GetInteractionText": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:GetInteractionText'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.18"
+      },
+      "GetDisplayName": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:GetDisplayName'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.17"
+      },
+      "HandleInteraction": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:HandleInteraction'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.20"
+      },
+      "Claim Bed": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:Claim Bed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.15"
+      },
+      "ToggleRestingOrSleeping": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:ToggleRestingOrSleeping'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.23"
+      },
+      "CanBeDestroyedByPlayer": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:CanBeDestroyedByPlayer'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.14"
+      },
+      "UpdateCosiness": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:UpdateCosiness'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.24"
+      },
+      "CanAdditionalDescriptionTextContainUsername": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:CanAdditionalDescriptionTextContainUsername'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.13"
+      },
+      "UpdatePromptInputActionVisibility": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:UpdatePromptInputActionVisibility'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.25"
+      },
+      "GetRespawnWorldTransform": {
+        "ObjectName": "Function'BP_BaseBuilding_BedRoll_C:GetRespawnWorldTransform'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.19"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'RestingArea'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      },
+      {
+        "Class": {
+          "ObjectName": "Class'RespawnerInterface'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_BaseBuilding_BedRoll_C'Default__BP_BaseBuilding_BedRoll_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.3"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=\"/Script/CoreUObject.Class'/Script/Dominion.RestingArea'\"),(Interface=\"/Script/CoreUObject.Class'/Script/Dominion.RespawnerInterface'\"))"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "BoxComponent",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Default__BP_BaseBuilding_PropBase_C:BoxComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoxExtent": {
+        "X": 30.0,
+        "Y": 45.0,
+        "Z": 90.0
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel14",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "OnComponentBeginOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_BaseBuilding_BedRoll_C'Default__BP_BaseBuilding_BedRoll_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.3"
+            },
+            "FunctionName": "OnBeginOverlap"
+          }
+        ]
+      },
+      "OnComponentEndOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_BaseBuilding_BedRoll_C'Default__BP_BaseBuilding_BedRoll_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.3"
+            },
+            "FunctionName": "OnEndOverlap"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_BaseBuilding_BedRoll_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.34"
+      },
+      "RelativeLocation": {
+        "X": 1.1149909E-07,
+        "Y": -9.786269E-08,
+        "Z": 124.183464
+      },
+      "ComponentTags": [
+        "BuildingBlockerVolume"
+      ],
+      "bReplicates": false
+    }
+  },
+  {
+    "Type": "BP_BaseBuilding_BedRoll_C",
+    "Name": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.BP_BaseBuilding_BedRoll_C'",
+    "Template": {
+      "ObjectName": "BP_BaseBuilding_PropBase_C'Default__BP_BaseBuilding_PropBase_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.2"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "BonusRadius": 2000.0,
+      "QuestState": "EQuestState::Complete",
+      "GhostedComponents": [
+        {
+          "OtherActor": null,
+          "ComponentProperty": "Interaction",
+          "PathToComponent": ""
+        }
+      ],
+      "InstigatorBuiltSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Place_Object_Fabric'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Place/MSS_Pl_Bu_Place_Object_Fabric.0"
+      },
+      "NonInstigatorBuiltSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Place_Object_Fabric_Rem'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Place/MSS_Pl_Bu_Place_Object_Fabric_Rem.0"
+      },
+      "Collider": {
+        "ObjectName": "BoxComponent'Default__BP_BaseBuilding_BedRoll_C:BoxComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.2"
+      },
+      "StaticMesh": {
+        "ObjectName": "StaticMeshComponent'Default__BP_BaseBuilding_BedRoll_C:Mesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.42"
+      },
+      "PlugVisualizationComponent": {
+        "ObjectName": "InstancedStaticMeshComponent'Default__BP_BaseBuilding_BedRoll_C:PlugVisualizationComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.29"
+      },
+      "BuildingSnapComponent": {
+        "ObjectName": "BuildingSnapComponent'Default__BP_BaseBuilding_BedRoll_C:BuildingSnapComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.6"
+      },
+      "InteractionComponent": {
+        "ObjectName": "InteractionComponent'Default__BP_BaseBuilding_BedRoll_C:CompleteGhostInteractionComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.31"
+      },
+      "HealthComponent": {
+        "ObjectName": "HealthComponent'Default__BP_BaseBuilding_BedRoll_C:HealthComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.27"
+      },
+      "BaseBuildingDamageComponent": {
+        "ObjectName": "BuildingDamageComponent'Default__BP_BaseBuilding_BedRoll_C:BaseBuildingDamageComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.4"
+      },
+      "BuildingDestructionSounds": [
+        {
+          "Key": "EBuildingDestroySound::DestroyedByLocalPlayer",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Fabric'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Fabric.0"
+          }
+        },
+        {
+          "Key": "EBuildingDestroySound::DestroyedByRemotePlayer",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Fabric_Rem'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Fabric_Rem.0"
+          }
+        },
+        {
+          "Key": "EBuildingDestroySound::DestroyedByDamage",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Fabric_Rem'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Fabric_Rem.0"
+          }
+        },
+        {
+          "Key": "EBuildingDestroySound::CollapsedFromInstability",
+          "Value": {
+            "ObjectName": "DominionMetaSoundSource'MSS_Pl_Bu_Destroy_Furniture_Fabric_Rem'",
+            "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Player/Interactions/BaseBuilding/Furniture_Destruction/MSS_Pl_Bu_Destroy_Furniture_Fabric_Rem.0"
+          }
+        }
+      ],
+      "PlacementProfileRowHandle": {
+        "RowName": "BedProfile"
+      },
+      "BuildingPieceLocalBounds": {
+        "Origin": {
+          "X": -2.9965534,
+          "Y": 0.07625961,
+          "Z": 17.886572
+        },
+        "BoxExtent": {
+          "X": 64.8346,
+          "Y": 112.30296,
+          "Z": 20.168398
+        },
+        "SphereRadius": 126.74447913714188
+      },
+      "BuildingPieceData": {
+        "ObjectName": "BuildingPieceData'BUILDPIECE_Interior_BedRoll'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Data/BuildingPieces/Furniture/Comfort/BUILDPIECE_Interior_BedRoll.0"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_BaseBuilding_BedRoll_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.34"
+      }
+    }
+  },
+  {
+    "Type": "BuildingDamageComponent",
+    "Name": "BaseBuildingDamageComponent",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'BuildingDamageComponent'",
+    "Template": {
+      "ObjectName": "BuildingDamageComponent'Default__BP_BaseBuilding_PropBase_C:BaseBuildingDamageComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BuildingShelterComponent",
+    "Name": "BuildingShelter_GEN_VARIABLE",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'BuildingShelterComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RequiresRoofText": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "RequiresARoof",
+        "SourceString": " requires a roof.",
+        "LocalizedString": " requires a roof."
+      },
+      "RequiresShelterText": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "IsTooExposed",
+        "SourceString": " is too exposed.",
+        "LocalizedString": " is too exposed."
+      },
+      "RoofRays": [
+        {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 6000.0
+        },
+        {
+          "X": 800.0,
+          "Y": 800.0,
+          "Z": 6000.0
+        },
+        {
+          "X": -800.0,
+          "Y": 800.0,
+          "Z": 6000.0
+        },
+        {
+          "X": -800.0,
+          "Y": -800.0,
+          "Z": 6000.0
+        },
+        {
+          "X": 800.0,
+          "Y": -800.0,
+          "Z": 6000.0
+        }
+      ],
+      "RoofTraceExclusionFilter": [
+        "BaseBuilding.PieceType.Prop"
+      ],
+      "ShelterRays": [
+        {
+          "X": 0.0,
+          "Y": 6000.0,
+          "Z": 0.0
+        },
+        {
+          "X": 6000.0,
+          "Y": 6000.0,
+          "Z": 0.0
+        },
+        {
+          "X": 6000.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        {
+          "X": 6000.0,
+          "Y": -6000.0,
+          "Z": 0.0
+        },
+        {
+          "X": 0.0,
+          "Y": -6000.0,
+          "Z": 0.0
+        },
+        {
+          "X": -6000.0,
+          "Y": -6000.0,
+          "Z": 0.0
+        },
+        {
+          "X": -6000.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        {
+          "X": -6000.0,
+          "Y": 6000.0,
+          "Z": 0.0
+        },
+        {
+          "X": 0.0,
+          "Y": 6000.0,
+          "Z": 6000.0
+        },
+        {
+          "X": 6000.0,
+          "Y": 6000.0,
+          "Z": 6000.0
+        },
+        {
+          "X": 6000.0,
+          "Y": 0.0,
+          "Z": 6000.0
+        },
+        {
+          "X": 6000.0,
+          "Y": -6000.0,
+          "Z": 6000.0
+        },
+        {
+          "X": 0.0,
+          "Y": -6000.0,
+          "Z": 6000.0
+        },
+        {
+          "X": -6000.0,
+          "Y": -6000.0,
+          "Z": 6000.0
+        },
+        {
+          "X": -6000.0,
+          "Y": 0.0,
+          "Z": 6000.0
+        },
+        {
+          "X": -6000.0,
+          "Y": 6000.0,
+          "Z": 6000.0
+        }
+      ],
+      "ValidityPercentage": 0.5,
+      "ShelterTraceExclusionFilter": [
+        "BaseBuilding.PieceType.Prop"
+      ]
+    }
+  },
+  {
+    "Type": "BuildingSnapComponent",
+    "Name": "BuildingSnapComponent",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'BuildingSnapComponent'",
+    "Template": {
+      "ObjectName": "BuildingSnapComponent'Default__BP_BaseBuilding_PropBase_C:BuildingSnapComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "Bed",
+          "DelegatePropertyName": "ClaimantGuidChangedEvent",
+          "FunctionNameToBind": "BndEvt__BP_BaseBuilding_BedRoll_Bed_K2Node_ComponentBoundEvent_2_BedClaimantGuidChangedEvent__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "Interaction",
+          "DelegatePropertyName": "OnShowInteractionPrompt",
+          "FunctionNameToBind": "BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_1_OnInteractionPromptDisplayChange__DelegateSignature"
+        },
+        {
+          "ComponentPropertyName": "Interaction",
+          "DelegatePropertyName": "OnInteractionEvent",
+          "FunctionNameToBind": "BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_BaseBuilding_BedRoll_Bed_K2Node_ComponentBoundEvent_2_BedClaimantGuidChangedEvent__DelegateSignature",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "ClaimantGuid",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "Object'DomCharacterGuid'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_Building_Bed_Interaction_K2Node_ComponentBoundEvent_1_OnInteractionPromptDisplayChange__DelegateSignature",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnBuildingConstructed",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'BaseBuildingActor:BP_OnBuildingConstructed'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ConstructingPlayerController",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnBuildingDeconstructed",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'BaseBuildingActor:BP_OnBuildingDeconstructed'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CanAdditionalDescriptionTextContainUsername",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'WorldActorInterface:CanAdditionalDescriptionTextContainUsername'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CanBeDestroyedByPlayer",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'BaseBuildingActor:CanBeDestroyedByPlayer'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "DestroyingPlayerController",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "Enum": {
+          "ObjectName": "Object'EBuildingDestroyRequestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanBeDestroyedByPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EBuildingDestroyRequestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EBuildingDestroyRequestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EBuildingDestroyRequestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EBuildingDestroyRequestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "Claim Bed",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocalController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetProgressComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'ProgressComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_BaseBuilding_BedRoll",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_Player_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_GetInteractionText_InteractionText",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_ConstructingPlayerController",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_GetInteractionText_InteractionText_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDedicatedServer_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_ComponentBoundEvent_ClaimantGuid",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "Object'DomCharacterGuid'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetDisplayName",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'WorldActorInterface:GetDisplayName'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "TextProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm | Parm | OutParm | ReturnParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "Temp_text_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetClaimingCharacterName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsClaimedByAnyPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_FormatArgumentData",
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "Struct": {
+          "ObjectName": "Object'FormatArgumentData'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 72,
+          "Struct": {
+            "ObjectName": "Object'FormatArgumentData'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Format_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_FormatArgumentData_1",
+        "Flags": "RF_Public",
+        "ElementSize": 72,
+        "Struct": {
+          "ObjectName": "Object'FormatArgumentData'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "K2Node_MakeArray_Array_1",
+          "Flags": "RF_Public",
+          "ElementSize": 72,
+          "Struct": {
+            "ObjectName": "Object'FormatArgumentData'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Format_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetInteractionText",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "TextProperty",
+        "Name": "InteractionText",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Parm | OutParm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetLocalPlayerCharacter_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerRestComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerRestComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsClaimedByAnyPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingAreaActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsResting_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanSleep_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECanRestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsClaimedByPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetRespawnWorldTransform",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "PropertyFlags": "Parm | OutParm | ReturnParm",
+        "Struct": {
+          "ObjectName": "Object'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentToWorld_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Object'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "HandleInteraction",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PlayerController",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeLiteralGameplayTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "Object'GameplayTag'",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDominionPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeLiteralGameplayTag_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "Object'GameplayTag'",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeLiteralGameplayTag_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "Object'GameplayTag'",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_StartConversation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'ConversationInstance'",
+          "ObjectPath": "/Script/CommonConversationRuntime"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CharacterHasQuestState_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsClaimedByAnyPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_ToggleRestingOrSleeping_StartedRestingOrSleeping",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsClaimedByPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_GetDisplayName_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanPlayerInteract_Sync_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Leave",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayClaimedBedSFX",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Protected | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ToggleRestingOrSleeping",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "StartedRestingOrSleeping",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerRestComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerRestComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingAreaActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsResting_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetIsSleeping_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanRest_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECanRestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_CanSleep_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ECanRestResult'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateCosiness",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "CharacterGuid",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Struct": {
+          "ObjectName": "Object'DomCharacterGuid'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 16,
+          "Struct": {
+            "ObjectName": "Object'DomCharacterGuid'",
+            "ObjectPath": "/Script/Dominion"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsCharacterGuidValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdatePromptInputActionVisibility",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsClaimedByAnyPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetLocalPlayerCharacter_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsClaimedByPlayer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "FurnitureBonusComponent",
+    "Name": "FurnitureBonus_GEN_VARIABLE",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'FurnitureBonusComponent'",
+    "Template": {
+      "ObjectName": "FurnitureBonusComponent'BP_BaseBuilding_PropBase_C:FurnitureBonus_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.5"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "CosinessValueRowHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_CosinessValues'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/DT_CosinessValues.0"
+        },
+        "RowName": "Low"
+      },
+      "CosinessCategoryRowHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_CosinessCategories'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/DT_CosinessCategories.0"
+        },
+        "RowName": "Bed"
+      },
+      "bAutoRegisterCosinessWhenBuilt": false
+    }
+  },
+  {
+    "Type": "HealthComponent",
+    "Name": "HealthComponent",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'HealthComponent'",
+    "Template": {
+      "ObjectName": "HealthComponent'Default__BP_BaseBuilding_PropBase_C:HealthComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.6"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'FurnitureBonusComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "FurnitureBonusComponent'BP_BaseBuilding_BedRoll_C:FurnitureBonus_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.26"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_BaseBuilding_PropBase_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.0"
+            },
+            "SCSVariableName": "FurnitureBonus",
+            "AssociatedGuid": "6A70E306-4C87CA08-C5998980-0EC58276"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InstancedStaticMeshComponent",
+    "Name": "PlugVisualizationComponent",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'InstancedStaticMeshComponent'",
+    "Template": {
+      "ObjectName": "InstancedStaticMeshComponent'Default__BP_BaseBuilding_PropBase_C:PlugVisualizationComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.7"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "StaticMeshComponent'Default__BP_BaseBuilding_BedRoll_C:Mesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.42"
+      }
+    },
+    "PerInstanceSMData": [
+      {
+        "TransformData": {
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.7059098,
+            "Z": 0.0,
+            "W": 0.7059098,
+            "IsNormalized": true,
+            "Size": 0.99830717,
+            "SizeSquared": 0.99661726
+          },
+          "Translation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Scale3D": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "IsRotationNormalized": true
+        }
+      }
+    ],
+    "PerInstanceSMCustomData": [
+      0.0
+    ]
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "Interaction_GEN_VARIABLE",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeScale3D": {
+        "X": 1.6,
+        "Y": 1.6,
+        "Z": 1.6
+      }
+    }
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "CompleteGhostInteractionComponent",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Template": {
+      "ObjectName": "InteractionComponent'Default__BP_BaseBuilding_PropBase_C:CompleteGhostInteractionComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OnInteractionEvent": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_BaseBuilding_BedRoll_C'Default__BP_BaseBuilding_BedRoll_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.3"
+            },
+            "FunctionName": "OnInteract"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_BaseBuilding_BedRoll_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.34"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 20.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "RespawnTransform_GEN_VARIABLE",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -86.183464
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": -0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Default__BP_BaseBuilding_PropBase_C:Root'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.10"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_BaseBuilding_BedRoll_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.32"
+      },
+      "VariableGUID": "D4494C68-4E25CD2A-31EAF1A4-004C02F8",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BedComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BedComponent'BP_BaseBuilding_BedRoll_C:Bed_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.0"
+      },
+      "VariableGUID": "93C6AB09-45FE99A3-6F2CB4A6-5C4140D5",
+      "InternalVariableName": "Bed"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BuildingShelterComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BuildingShelterComponent'BP_BaseBuilding_BedRoll_C:BuildingShelter_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.5"
+      },
+      "VariableGUID": "A8474001-4C1BB280-F6C273A9-6598F4EC",
+      "InternalVariableName": "BuildingShelter"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_BaseBuilding_BedRoll_C:RespawnTransform_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.33"
+      },
+      "ParentComponentOrVariableName": "BoxComponent",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.39"
+        }
+      ],
+      "VariableGUID": "284F6538-4E41C58B-9F812893-A01CE157",
+      "InternalVariableName": "RespawnTransform"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": null,
+      "VariableGUID": "EF786F2B-4C352939-1A046D9C-600472C1",
+      "InternalVariableName": "Capsule"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'InteractionComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "InteractionComponent'BP_BaseBuilding_BedRoll_C:Interaction_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.30"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "D7BB72DE-4227FE2F-63F2D8BF-9EE3F6C7",
+      "InternalVariableName": "Interaction"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.38"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.39"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_BaseBuilding_BedRoll_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.35"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Mesh",
+    "Outer": "Default__BP_BaseBuilding_BedRoll_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'Default__BP_BaseBuilding_PropBase_C:Mesh'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/BP_BaseBuilding_PropBase.15"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Sleeping_Mat_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Base_Building/Furniture/Cosiness/Sleeping_Mat/SM_Sleeping_Mat_01.2"
+      },
+      "OverrideMaterials": [
+        null,
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_Sleeping_Mat_NoGlint'",
+          "ObjectPath": "RSDragonwilds/Content/Art/Env/Base_Building/Furniture/Cosiness/Sleeping_Mat/Materials/MI_Sleeping_Mat_NoGlint.0"
+        }
+      ],
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_BaseBuilding_BedRoll_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Actors/Props/Cosiness/BP_BaseBuilding_BedRoll.34"
+      }
+    }
+  }
+]

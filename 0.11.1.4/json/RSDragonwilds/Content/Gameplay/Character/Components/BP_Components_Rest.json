@@ -1,0 +1,405 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Components_Rest_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_Components_Rest_C:ExecuteUbergraph_BP_Components_Rest'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.5"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'PlayerRestComponent'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Components_Rest_C:BP_ClientDoSleepTransition'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.2"
+      },
+      {
+        "ObjectName": "Function'BP_Components_Rest_C:BP_ClientDoWakeTransition'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.3"
+      },
+      {
+        "ObjectName": "Function'BP_Components_Rest_C:BP_ClientPlayTooEarlyToSleepAudio'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.4"
+      },
+      {
+        "ObjectName": "Function'BP_Components_Rest_C:Server_RequestWakeUp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.6"
+      },
+      {
+        "ObjectName": "Function'BP_Components_Rest_C:ExecuteUbergraph_BP_Components_Rest'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.5"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SleepWidget",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Sleep_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Sleep/WBP_Sleep.60"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_Components_Rest": {
+        "ObjectName": "Function'BP_Components_Rest_C:ExecuteUbergraph_BP_Components_Rest'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.5"
+      },
+      "Server_RequestWakeUp": {
+        "ObjectName": "Function'BP_Components_Rest_C:Server_RequestWakeUp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.6"
+      },
+      "BP_ClientPlayTooEarlyToSleepAudio": {
+        "ObjectName": "Function'BP_Components_Rest_C:BP_ClientPlayTooEarlyToSleepAudio'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.4"
+      },
+      "BP_ClientDoWakeTransition": {
+        "ObjectName": "Function'BP_Components_Rest_C:BP_ClientDoWakeTransition'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.3"
+      },
+      "BP_ClientDoSleepTransition": {
+        "ObjectName": "Function'BP_Components_Rest_C:BP_ClientDoSleepTransition'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.2"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Components_Rest_C'Default__BP_Components_Rest_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_Components_Rest_C",
+    "Name": "Default__BP_Components_Rest_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_Rest.BP_Components_Rest_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "RestingGEs": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'GE_RestingEnduranceRegen_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/StatusEffects/GE_RestingEnduranceRegen.0"
+        }
+      ],
+      "TryingToSleepNotificationTag": {
+        "TagName": "UI.Notification.Sleep.TryingToSleep"
+      },
+      "TooEarlyToSleepNotificationTag": {
+        "TagName": "UI.Notification.Sleep.TooEarly"
+      },
+      "TryToSleepText": {
+        "TableId": "/Game/UI/Notifications/ST_Notifications.ST_Notifications",
+        "Key": "Resting.TryToSleep",
+        "SourceString": "Resting. Waiting for {PlayersNotInBed}/{TotalPlayers} players to sleep.",
+        "LocalizedString": "Resting. Waiting for {PlayersNotInBed}/{TotalPlayers} players to sleep."
+      },
+      "PlayerWantsToSleepText": {
+        "TableId": "/Game/UI/Notifications/ST_Notifications.ST_Notifications",
+        "Key": "Resting.PlayerWantsToSleep",
+        "SourceString": "{PlayerName} wants to sleep ({PlayersInBed}/{TotalPlayers} players in bed).",
+        "LocalizedString": "{PlayerName} wants to sleep ({PlayersInBed}/{TotalPlayers} players in bed)."
+      },
+      "TooEarlyToSleepText": {
+        "TableId": "/Game/UI/Notifications/ST_Notifications.ST_Notifications",
+        "Key": "Resting.TooEarly",
+        "SourceString": "Taking a nap to recover fatigue, since it's too early to sleep through the night. ",
+        "LocalizedString": "Taking a nap to recover fatigue, since it's too early to sleep through the night. "
+      },
+      "WakeUpPlayerHook": {
+        "ObjectName": "BP_FTUENotificationPlayerHook_C'PH_FirstWakeUpInBed'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/PlayerHooks/FTUE/PH_FirstWakeUpInBed.0"
+      },
+      "PrimaryComponentTick": {
+        "bStartWithTickEnabled": false
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_ClientDoSleepTransition",
+    "Outer": "BP_Components_Rest_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerRestComponent:BP_ClientDoSleepTransition'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_ClientDoWakeTransition",
+    "Outer": "BP_Components_Rest_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerRestComponent:BP_ClientDoWakeTransition'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_ClientPlayTooEarlyToSleepAudio",
+    "Outer": "BP_Components_Rest_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'PlayerRestComponent:BP_ClientPlayTooEarlyToSleepAudio'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Components_Rest",
+    "Outer": "BP_Components_Rest_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetCurrentRestingAreaActor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsResting_Area",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class'RestingArea'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Controller'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Create_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'WBP_Sleep_C'",
+          "ObjectPath": "RSDragonwilds/Content/UI/Sleep/WBP_Sleep.60"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Player_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/BP_PlayerCharacter.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_DomPlayAudioEvent_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocallyControlled_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_3",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "Server_RequestWakeUp",
+    "Outer": "BP_Components_Rest_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Net | FUNC_NetReliable | FUNC_NetServer | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  }
+]

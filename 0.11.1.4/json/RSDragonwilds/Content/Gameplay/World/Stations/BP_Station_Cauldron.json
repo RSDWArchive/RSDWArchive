@@ -1,0 +1,2356 @@
+[
+  {
+    "Type": "ArrowComponent",
+    "Name": "VendPoint_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'ArrowComponent'",
+    "Template": {
+      "ObjectName": "ArrowComponent'BP_Processing_Station_Base_C:VendPoint_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 30.0,
+        "Z": 100.0
+      },
+      "RelativeRotation": {
+        "Pitch": 30.0,
+        "Yaw": 90.0,
+        "Roll": 70.0
+      }
+    }
+  },
+  {
+    "Type": "AudioComponent",
+    "Name": "VendAudioComp_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'AudioComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'BP_Station_Cauldron_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.9"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Station_Cauldron_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.39"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_Station_Cauldron_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.18"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:ExecuteUbergraph_BP_Station_Cauldron'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.14"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BP_OnProcessingStarted'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.12"
+      },
+      {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BP_OnProcessingStopped'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.13"
+      },
+      {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BndEvt__BP_Station_Smelter_ProcessingStation_K2Node_ComponentBoundEvent_1_OnBuffsActive__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.10"
+      },
+      {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BP_OnBuildingPlaced'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.11"
+      },
+      {
+        "ObjectName": "Function'BP_Station_Cauldron_C:OnGhostStateChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.15"
+      },
+      {
+        "ObjectName": "Function'BP_Station_Cauldron_C:SpudPostRestore'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.16"
+      },
+      {
+        "ObjectName": "Function'BP_Station_Cauldron_C:ExecuteUbergraph_BP_Station_Cauldron'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.14"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PlacementGuide",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_Brewing_Superheat",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_Fire_Small",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InteractionBox",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'BoxComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VendAudioComp",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AudioComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_BrewingBarrel_Magic_A",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_Brewing_Barrel_01",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_Station_Cauldron": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:ExecuteUbergraph_BP_Station_Cauldron'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.14"
+      },
+      "SpudPostRestore": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:SpudPostRestore'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.16"
+      },
+      "OnGhostStateChanged": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:OnGhostStateChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.15"
+      },
+      "BP_OnBuildingPlaced": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BP_OnBuildingPlaced'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.11"
+      },
+      "BndEvt__BP_Station_Smelter_ProcessingStation_K2Node_ComponentBoundEvent_1_OnBuffsActive__DelegateSignature": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BndEvt__BP_Station_Smelter_ProcessingStation_K2Node_ComponentBoundEvent_1_OnBuffsActive__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.10"
+      },
+      "BP_OnProcessingStopped": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BP_OnProcessingStopped'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.13"
+      },
+      "BP_OnProcessingStarted": {
+        "ObjectName": "Function'BP_Station_Cauldron_C:BP_OnProcessingStarted'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.12"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Station_Cauldron_C'Default__BP_Station_Cauldron_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.5"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "InteractionBox_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoxExtent": {
+        "X": 60.0,
+        "Y": 40.0,
+        "Z": 80.0
+      },
+      "BodyInstance": {
+        "CollisionProfileName": "TraceOnlyWorldActor",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 80.0
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "BoxComponent",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'BoxComponent'",
+    "Template": {
+      "ObjectName": "BoxComponent'Default__BP_Processing_Station_Base_C:BoxComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoxExtent": {
+        "X": 98.0,
+        "Y": 70.0,
+        "Z": 80.0
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel14",
+        "CollisionProfileName": "BuildingPreview",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "OnComponentBeginOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Station_Cauldron_C'Default__BP_Station_Cauldron_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.5"
+            },
+            "FunctionName": "OnBeginOverlap"
+          }
+        ]
+      },
+      "OnComponentEndOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Station_Cauldron_C'Default__BP_Station_Cauldron_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.5"
+            },
+            "FunctionName": "OnEndOverlap"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Station_Cauldron_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.30"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 80.0
+      },
+      "ComponentTags": [
+        "BuildingBlockerVolume"
+      ]
+    }
+  },
+  {
+    "Type": "BP_Station_Cauldron_C",
+    "Name": "Default__BP_Station_Cauldron_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.BP_Station_Cauldron_C'",
+    "Template": {
+      "ObjectName": "BP_Processing_Station_Base_C'Default__BP_Processing_Station_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.5"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "InteractionName": {
+        "TableId": "/Game/UI/ProcessingStations/ST_ProcessingStation.ST_ProcessingStation",
+        "Key": "BrewingCauldron",
+        "SourceString": "Brewing Cauldron",
+        "LocalizedString": "Brewing Cauldron"
+      },
+      "InstigatorBuiltSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Pl_Cr_BrewingStation_Placement'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Crafting/Placement/MSS_Pl_Cr_BrewingStation_Placement.0"
+      },
+      "NonInstigatorBuiltSound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Pl_Cr_BrewingStation_Placement_Rem'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/UI/Crafting/Placement/MSS_Pl_Cr_BrewingStation_Placement_Rem.0"
+      },
+      "Collider": {
+        "ObjectName": "BoxComponent'Default__BP_Station_Cauldron_C:BoxComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.4"
+      },
+      "StaticMesh": {
+        "ObjectName": "StaticMeshComponent'Default__BP_Station_Cauldron_C:Mesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.41"
+      },
+      "PlugVisualizationComponent": {
+        "ObjectName": "InstancedStaticMeshComponent'Default__BP_Station_Cauldron_C:PlugVisualizationComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.19"
+      },
+      "BuildingSnapComponent": {
+        "ObjectName": "BuildingSnapComponent'Default__BP_Station_Cauldron_C:BuildingSnapComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.8"
+      },
+      "InteractionComponent": {
+        "ObjectName": "InteractionComponent'Default__BP_Station_Cauldron_C:CompleteGhostInteractionComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.20"
+      },
+      "HealthComponent": {
+        "ObjectName": "HealthComponent'Default__BP_Station_Cauldron_C:HealthComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.17"
+      },
+      "BaseBuildingDamageComponent": {
+        "ObjectName": "BuildingDamageComponent'Default__BP_Station_Cauldron_C:BaseBuildingDamageComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.6"
+      },
+      "BuildingPieceLocalBounds": {
+        "Origin": {
+          "X": -0.30953598,
+          "Y": 0.3808384,
+          "Z": 78.088455
+        },
+        "BoxExtent": {
+          "X": 94.53395,
+          "Y": 55.730293,
+          "Z": 97.86987
+        },
+        "SphereRadius": 147.04096608133096
+      },
+      "BuildingPieceData": {
+        "ObjectName": "BuildingPieceData'BUILDPIECE_ProcessingStation_Cauldron'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/BaseBuilding/Data/BuildingPieces/Structures/Crafting/BUILDPIECE_ProcessingStation_Cauldron.0"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_Station_Cauldron_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.30"
+      },
+      "Tags": [
+        "FerociousFurnace"
+      ]
+    }
+  },
+  {
+    "Type": "BuildingDamageComponent",
+    "Name": "BaseBuildingDamageComponent",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'BuildingDamageComponent'",
+    "Template": {
+      "ObjectName": "BuildingDamageComponent'Default__BP_Processing_Station_Base_C:BaseBuildingDamageComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.6"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BuildingShelterComponent",
+    "Name": "BuildingShelter_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'BuildingShelterComponent'",
+    "Template": {
+      "ObjectName": "BuildingShelterComponent'BP_Processing_Station_Base_C:BuildingShelter_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.7"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "InteractionRequirements": "EBuildingRequirements::InteractAnywhere",
+      "RequiresRoofText": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "RequiresBetterRoofCoverage",
+        "SourceString": " requires better roof coverage.",
+        "LocalizedString": " requires better roof coverage."
+      },
+      "RequiresShelterText": {
+        "TableId": "/Game/UI/ST_Localization.ST_Localization",
+        "Key": "NeedsMoreSurroundingShekter",
+        "SourceString": " needs more surrounding shelter.",
+        "LocalizedString": " needs more surrounding shelter."
+      },
+      "ValidityPercentage": 0.0
+    }
+  },
+  {
+    "Type": "BuildingSnapComponent",
+    "Name": "BuildingSnapComponent",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'BuildingSnapComponent'",
+    "Template": {
+      "ObjectName": "BuildingSnapComponent'Default__BP_Processing_Station_Base_C:BuildingSnapComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "ProcessingStation",
+          "DelegatePropertyName": "OnBuffsActive",
+          "FunctionNameToBind": "BndEvt__BP_Station_Smelter_ProcessingStation_K2Node_ComponentBoundEvent_1_OnBuffsActive__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BP_Station_Smelter_ProcessingStation_K2Node_ComponentBoundEvent_1_OnBuffsActive__DelegateSignature",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bActive",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnBuildingPlaced",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'BaseBuildingActor:BP_OnBuildingPlaced'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "PlacingPlayerController",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnProcessingStarted",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Processing_Station_Base_C:BP_OnProcessingStarted'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.18"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_Processing_Station_Base_C:BP_OnProcessingStarted'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.18"
+    },
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnProcessingStopped",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_Processing_Station_Base_C:BP_OnProcessingStopped'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.19"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_Processing_Station_Base_C:BP_OnProcessingStopped'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.19"
+    },
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Station_Cauldron",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Temp_object_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_ComponentBoundEvent_bActive",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_PlacingPlayerController",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bNewGhosted",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_State",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm",
+        "PropertyClass": {
+          "ObjectName": "Class'SpudState'",
+          "ObjectPath": "/Script/SPUD"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnGhostStateChanged",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'BaseBuildingActor:OnGhostStateChanged'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bNewGhosted",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SpudPostRestore",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'SpudObjectCallback:SpudPostRestore'",
+      "ObjectPath": "/Script/SPUD"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "State",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'SpudState'",
+          "ObjectPath": "/Script/SPUD"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "HealthComponent",
+    "Name": "HealthComponent",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'HealthComponent'",
+    "Template": {
+      "ObjectName": "HealthComponent'Default__BP_Processing_Station_Base_C:HealthComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.30"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ProcessingStationComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ProcessingStationComponent'BP_Station_Cauldron_C:ProcessingStation_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.28"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+            },
+            "SCSVariableName": "ProcessingStation",
+            "AssociatedGuid": "C8A96548-4687F402-9E474FBA-EBB9DF8C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ArrowComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ArrowComponent'BP_Station_Cauldron_C:VendPoint_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.0"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+            },
+            "SCSVariableName": "VendPoint",
+            "AssociatedGuid": "946F2A98-453B3421-187989A7-8D599E0F"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ParticleSystemComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ParticleSystemComponent'BP_Station_Cauldron_C:ProcessingVFX02temp_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.26"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+            },
+            "SCSVariableName": "ProcessingVFX02temp",
+            "AssociatedGuid": "5094B9AE-444EDBC0-81B415BD-1032ECB7"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ParticleSystemComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ParticleSystemComponent'BP_Station_Cauldron_C:ProcessingVFX01temp_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.25"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+            },
+            "SCSVariableName": "ProcessingVFX01temp",
+            "AssociatedGuid": "50F753A7-41E2EA1E-08FEA68E-B75F17A4"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'ProcessingStationAudioManagerComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "ProcessingStationAudioManagerComponent'BP_Station_Cauldron_C:ProcessingStationAudioManager_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.27"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+            },
+            "SCSVariableName": "ProcessingStationAudioManager",
+            "AssociatedGuid": "CC3A6C6D-411E8391-7213FDBD-52890907"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'BuildingShelterComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BuildingShelterComponent'BP_Station_Cauldron_C:BuildingShelter_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Processing_Station_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.1"
+            },
+            "SCSVariableName": "BuildingShelter",
+            "AssociatedGuid": "63D36B4C-4F9B8293-4720FB87-D667F5F3"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InstancedStaticMeshComponent",
+    "Name": "PlugVisualizationComponent",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'InstancedStaticMeshComponent'",
+    "Template": {
+      "ObjectName": "InstancedStaticMeshComponent'Default__BP_Processing_Station_Base_C:PlugVisualizationComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.32"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "StaticMeshComponent'Default__BP_Station_Cauldron_C:Mesh'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.41"
+      }
+    },
+    "PerInstanceSMData": [
+      {
+        "TransformData": {
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.7059098,
+            "Z": 0.0,
+            "W": 0.7059098,
+            "IsNormalized": true,
+            "Size": 0.99830717,
+            "SizeSquared": 0.99661726
+          },
+          "Translation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Scale3D": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "IsRotationNormalized": true
+        }
+      }
+    ],
+    "PerInstanceSMCustomData": [
+      0.0
+    ]
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "CompleteGhostInteractionComponent",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Template": {
+      "ObjectName": "InteractionComponent'Default__BP_Processing_Station_Base_C:CompleteGhostInteractionComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.34"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "OnInteractionEvent": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_Station_Cauldron_C'Default__BP_Station_Cauldron_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.5"
+            },
+            "FunctionName": "OnInteract"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Station_Cauldron_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.30"
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Brewing_Barrel_01_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_BrewingBarrel_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Crafting/Brewing_Barrel/NS_BrewingBarrel_01.32"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": -1.265742E-06,
+        "Y": 10.0,
+        "Z": 85.35203
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Brewing_Superheat_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_Brewing_Superheat'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Spells/Superheat/NS_Brewing_Superheat.38"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "AnimationPhase",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.AnimationPhase",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "FireStrength",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.FireStrength",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightColor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightColor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightEnabled",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightEnabled",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightExponent",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightExponent",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightIntensity",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightIntensity",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightRadius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightRadius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Offset",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'Vector3f'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Offset",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'Vector3f'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Pulse",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Pulse",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Wind_Direction_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Wind_Direction_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Wind_Strength_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Wind_Strength_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 56,
+            "Name": "User.AnimationPhase",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.FireStrength",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.LightColor",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.LightEnabled",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraBool'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 24,
+            "Name": "User.LightExponent",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 28,
+            "Name": "User.LightIntensity",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 32,
+            "Name": "User.LightRadius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 64,
+            "Name": "User.Offset",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'Vector3f'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 60,
+            "Name": "User.Pulse",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 36,
+            "Name": "User.Wind_Direction_USer",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 52,
+            "Name": "User.Wind_Strength_USer",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          205,
+          204,
+          76,
+          63,
+          0,
+          0,
+          128,
+          63,
+          174,
+          242,
+          132,
+          61,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          128,
+          63,
+          255,
+          255,
+          255,
+          255,
+          0,
+          0,
+          128,
+          64,
+          0,
+          0,
+          128,
+          63,
+          0,
+          128,
+          59,
+          69,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          200,
+          194
+        ]
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_BrewingBarrel_Magic_A_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_BrewingBarrel_Magic_A'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Crafting/Brewing_Barrel/NS_BrewingBarrel_Magic_A.12"
+      },
+      "OverrideParameters": {},
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_Fire_Small_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_Fire_Small'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Survival/Burning/NS_Fire_Small.36"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "FireStrength",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.FireStrength",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightColor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightColor",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightEnabled",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightEnabled",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraBool'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightExponent",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightExponent",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightIntensity",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightIntensity",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "LightRadius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.LightRadius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Wind_Direction_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Wind_Direction_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Wind_Strength_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Wind_Strength_USer",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.FireStrength",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.LightColor",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.LightEnabled",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraBool'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 24,
+            "Name": "User.LightExponent",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 28,
+            "Name": "User.LightIntensity",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 32,
+            "Name": "User.LightRadius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 36,
+            "Name": "User.Wind_Direction_USer",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 52,
+            "Name": "User.Wind_Strength_USer",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          0,
+          63,
+          0,
+          0,
+          128,
+          63,
+          174,
+          242,
+          132,
+          61,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          128,
+          63,
+          255,
+          255,
+          255,
+          255,
+          0,
+          0,
+          128,
+          64,
+          0,
+          0,
+          128,
+          63,
+          0,
+          128,
+          59,
+          69,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63
+        ]
+      },
+      "RelativeLocation": {
+        "X": 2.1473724E-08,
+        "Y": 0.0,
+        "Z": 11.810974
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "ProcessingVFX01temp_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'ParticleSystemComponent'",
+    "Template": {
+      "ObjectName": "ParticleSystemComponent'BP_Processing_Station_Base_C:ProcessingVFX01temp_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.36"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -42.024998,
+        "Y": 0.0,
+        "Z": 182.02843
+      }
+    }
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "ProcessingVFX02temp_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'ParticleSystemComponent'",
+    "Template": {
+      "ObjectName": "ParticleSystemComponent'BP_Processing_Station_Base_C:ProcessingVFX02temp_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.37"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -42.024998,
+        "Y": 0.0,
+        "Z": 193.06128
+      }
+    }
+  },
+  {
+    "Type": "ProcessingStationAudioManagerComponent",
+    "Name": "ProcessingStationAudioManager_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'ProcessingStationAudioManagerComponent'",
+    "Template": {
+      "ObjectName": "ProcessingStationAudioManagerComponent'BP_Processing_Station_Base_C:ProcessingStationAudioManager_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.38"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "ProcessingAudioComponentRef": {
+        "ComponentProperty": "VendAudioComp"
+      },
+      "ProcessingStationAudioData": {
+        "ObjectName": "ProcessingStationAudioData'ADA_BrewingStation'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/DataAssets/ProcessingStations/ADA_BrewingStation.0"
+      }
+    }
+  },
+  {
+    "Type": "ProcessingStationComponent",
+    "Name": "ProcessingStation_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'ProcessingStationComponent'",
+    "Template": {
+      "ObjectName": "ProcessingStationComponent'BP_Processing_Station_Base_C:ProcessingStation_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.39"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "ProcessingStationRowHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_ProcessingStationDataTable'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/DT_ProcessingStationDataTable.0"
+        },
+        "RowName": "BrewingCauldron"
+      },
+      "StationName": {
+        "Namespace": "",
+        "Key": "4ECD5AB24ABBF0710700159C7FD7842F",
+        "SourceString": "Brewing Cauldron",
+        "LocalizedString": "Brewing Cauldron"
+      },
+      "AcceptedFuelsIncludingRecipeOverrides": [
+        {
+          "ObjectName": "FuelItemData'ITEM_Fuel_Resources_Charcoal'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Resources/Mineral/ITEM_Fuel_Resources_Charcoal.0"
+        },
+        {
+          "ObjectName": "FuelItemData'ITEM_Fuel_Resources_Fuel_Pellet'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Resources/Mineral/ITEM_Fuel_Resources_Fuel_Pellet.0"
+        }
+      ],
+      "AcceptedResources": [
+        {
+          "ObjectName": "ItemData'ITEM_Herb_Harralander'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Resources/Herb/ITEM_Herb_Harralander.0"
+        },
+        {
+          "ObjectName": "ItemData'ITEM_Resources_Glass_Vessel'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Resources/Glass/ITEM_Resources_Glass_Vessel.0"
+        },
+        {
+          "ObjectName": "ItemData'ITEM_Herb_Marrentill'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Resources/Herb/ITEM_Herb_Marrentill.0"
+        },
+        {
+          "ObjectName": "ItemData'ITEM_Herb_Toadflax'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/Resources/Herb/ITEM_Herb_Toadflax.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Default__BP_Processing_Station_Base_C:Root'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.41"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Station_Cauldron_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.29"
+      },
+      "VariableGUID": "ED4C574D-454B6BC2-D3FA8C9E-1BA9B958",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'BoxComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BoxComponent'BP_Station_Cauldron_C:InteractionBox_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.3"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "DA8AB53F-4752710B-2FA88393-1ADDE617",
+      "InternalVariableName": "InteractionBox"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Station_Cauldron_C:NS_Brewing_Barrel_01_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.21"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "1E0764BF-4ECC414C-EBF2AC86-7EC6B09E",
+      "InternalVariableName": "NS_Brewing_Barrel_01"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Station_Cauldron_C:PlacementGuide_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.40"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "04737A8A-4EB53563-16D37FB1-35F84F8C",
+      "InternalVariableName": "PlacementGuide"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Station_Cauldron_C:NS_BrewingBarrel_Magic_A_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.23"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "B9CCEC8E-490DE860-506550A1-807622C6",
+      "InternalVariableName": "NS_BrewingBarrel_Magic_A"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AudioComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AudioComponent'BP_Station_Cauldron_C:VendAudioComp_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.1"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "BC55B012-4B84CBE0-16BE6889-A8EFBDE1",
+      "InternalVariableName": "VendAudioComp"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Station_Cauldron_C:NS_Fire_Small_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.24"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "D7E21E9B-4D1E7C7E-ED5C8D96-EBA50BA5",
+      "InternalVariableName": "NS_Fire_Small"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_Station_Cauldron_C:NS_Brewing_Superheat_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.22"
+      },
+      "ParentComponentOrVariableName": "Mesh",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "95003BBB-4DC00FD4-4EF86A8D-0FC7C488",
+      "InternalVariableName": "NS_Brewing_Superheat"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.34"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.33"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.35"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.32"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.34"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Station_Cauldron_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.31"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "PlacementGuide_GEN_VARIABLE",
+    "Outer": "BP_Station_Cauldron_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Placement'",
+        "ObjectPath": "RSDragonwilds/Content/Art/BaseBuilding/Shared/SM_Placement.2"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 80.0,
+        "Z": 30.0
+      },
+      "bVisible": false,
+      "ComponentTags": [
+        "BuildingMesh"
+      ]
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Mesh",
+    "Outer": "Default__BP_Station_Cauldron_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'Default__BP_Processing_Station_Base_C:Mesh'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Processing_Station_Base.55"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Cauldron_Herblore_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Env/Base_Building/Crafting_Stations/Cauldron_Herblore/SM_Cauldron_Herblore_01.2"
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Station_Cauldron_C:Root'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Stations/BP_Station_Cauldron.30"
+      }
+    }
+  }
+]

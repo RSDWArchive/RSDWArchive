@@ -1,0 +1,439 @@
+[
+  {
+    "Type": "AIAlertnessComponent",
+    "Name": "Ai Alertness Component",
+    "Outer": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'AIAlertnessComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AINoiseEmitterComponent",
+    "Name": "Noise Emitter Component",
+    "Outer": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'AINoiseEmitterComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NoiseData": {
+        "ObjectName": "NoiseData'NoiseData'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/NoiseData.0"
+      }
+    }
+  },
+  {
+    "Type": "AIPatrollingComponent",
+    "Name": "Patrolling Component",
+    "Outer": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'AIPatrollingComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "IdleMontage": {
+        "ObjectName": "AnimMontage'AM_NPC_Skeleton_Ranged_Idle_Alert'",
+        "ObjectPath": "/FutureMajorVersion/Gameplay/AI/SkeletonFaction/RangedSkeleton/AM_NPC_Skeleton_Ranged_Idle_Alert"
+      }
+    }
+  },
+  {
+    "Type": "AIPerceptionComponent",
+    "Name": "AIPerception_GEN_VARIABLE",
+    "Outer": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'AIPerceptionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SensesConfig": [
+        {
+          "ObjectName": "AISenseConfig_Sight'BP_AI_SkeletalArcher_Controller_C:AIPerception_GEN_VARIABLE.AISenseConfig_Sight_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.5"
+        },
+        {
+          "ObjectName": "AISenseConfig_Hearing'BP_AI_SkeletalArcher_Controller_C:AIPerception_GEN_VARIABLE.AISenseConfig_Hearing_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.4"
+        }
+      ],
+      "DominantSense": {
+        "ObjectName": "Class'AISense_Hearing'",
+        "ObjectPath": "/Script/AIModule"
+      }
+    }
+  },
+  {
+    "Type": "AISenseConfig_Hearing",
+    "Name": "AISenseConfig_Hearing_0",
+    "Outer": "AIPerception_GEN_VARIABLE",
+    "Class": "UScriptClass'AISenseConfig_Hearing'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HearingRange": 1500.0,
+      "MaxAge": 10.0
+    }
+  },
+  {
+    "Type": "AISenseConfig_Sight",
+    "Name": "AISenseConfig_Sight_0",
+    "Outer": "AIPerception_GEN_VARIABLE",
+    "Class": "UScriptClass'AISenseConfig_Sight'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SightRadius": 1500.0,
+      "LoseSightRadius": 2000.0,
+      "PeripheralVisionAngleDegrees": 100.0,
+      "MaxAge": 10.0
+    }
+  },
+  {
+    "Type": "AiThreatEmitterComponent",
+    "Name": "Threat Emitter Component",
+    "Outer": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'AiThreatEmitterComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiThreatSystem",
+    "Name": "ThreatSystem",
+    "Outer": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'AiThreatSystem'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.21"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_SkeletalArcher_Controller_C:ExecuteUbergraph_BP_AI_SkeletalArcher_Controller'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.13"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'DominionAIController'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_SkeletalArcher_Controller_C:ReceiveTick'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.14"
+      },
+      {
+        "ObjectName": "Function'BP_AI_SkeletalArcher_Controller_C:ExecuteUbergraph_BP_AI_SkeletalArcher_Controller'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.13"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_RangedGoblinCombatStrategyComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_CombatStrategyComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_CombatStrategyComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_RangedGoblin_AIAmbientMovementComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_AIAmbientMovementComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AIAmbientMovementComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AIPerception",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AIPerceptionComponent'",
+          "ObjectPath": "/Script/AIModule"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_SkeletalArcher_Controller": {
+        "ObjectName": "Function'BP_AI_SkeletalArcher_Controller_C:ExecuteUbergraph_BP_AI_SkeletalArcher_Controller'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.13"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function'BP_AI_SkeletalArcher_Controller_C:ReceiveTick'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.14"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_NotPlaceable | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_SkeletalArcher_Controller_C'Default__BP_AI_SkeletalArcher_Controller_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.9"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_SkeletalArcher_Controller_C",
+    "Name": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.BP_AI_SkeletalArcher_Controller_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "PatrollingComponent": {
+        "ObjectName": "AIPatrollingComponent'Default__BP_AI_SkeletalArcher_Controller_C:Patrolling Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.2"
+      },
+      "AIAlertnessComponent": {
+        "ObjectName": "AIAlertnessComponent'Default__BP_AI_SkeletalArcher_Controller_C:Ai Alertness Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.0"
+      },
+      "ThreatSystem": {
+        "ObjectName": "AiThreatSystem'Default__BP_AI_SkeletalArcher_Controller_C:ThreatSystem'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.7"
+      },
+      "ThreatEmitterComponent": {
+        "ObjectName": "AiThreatEmitterComponent'Default__BP_AI_SkeletalArcher_Controller_C:Threat Emitter Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.6"
+      },
+      "NoiseEmitterComponent": {
+        "ObjectName": "AINoiseEmitterComponent'Default__BP_AI_SkeletalArcher_Controller_C:Noise Emitter Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.1"
+      },
+      "PathFollowingComponent": null,
+      "TransformComponent": {
+        "ObjectName": "SceneComponent'Default__BP_AI_SkeletalArcher_Controller_C:TransformComponent0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.16"
+      },
+      "bReplicates": true,
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_AI_SkeletalArcher_Controller_C:TransformComponent0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.16"
+      }
+    }
+  },
+  {
+    "Type": "BP_RangedGoblin_AIAmbientMovementComponent_C",
+    "Name": "BP_RangedGoblin_AIAmbientMovementComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AIAmbientMovementComponent.BP_RangedGoblin_AIAmbientMovementComponent_C'",
+    "Template": {
+      "ObjectName": "BP_RangedGoblin_AIAmbientMovementComponent_C'Default__BP_RangedGoblin_AIAmbientMovementComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AIAmbientMovementComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_RangedGoblin_CombatStrategyComponent_C",
+    "Name": "BP_RangedGoblinCombatStrategyComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_CombatStrategyComponent.BP_RangedGoblin_CombatStrategyComponent_C'",
+    "Template": {
+      "ObjectName": "BP_RangedGoblin_CombatStrategyComponent_C'Default__BP_RangedGoblin_CombatStrategyComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_CombatStrategyComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionPathFollowingComponent",
+    "Name": "PathFollowingComponent",
+    "Outer": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'DominionPathFollowingComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_SkeletalArcher_Controller",
+    "Outer": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveTick'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "TransformComponent0",
+    "Outer": "Default__BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_SkeletalArcher_Controller_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.15"
+      },
+      "VariableGUID": "C0607488-4D5036D7-B688D78E-5B21680E",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AIPerceptionComponent'",
+        "ObjectPath": "/Script/AIModule"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AIPerceptionComponent'BP_AI_SkeletalArcher_Controller_C:AIPerception_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.3"
+      },
+      "VariableGUID": "7D189A88-4389294E-E615A6BD-270F6F44",
+      "InternalVariableName": "AIPerception"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_AIAmbientMovementComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_RangedGoblin_AIAmbientMovementComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_RangedGoblin_AIAmbientMovementComponent_C'BP_AI_SkeletalArcher_Controller_C:BP_RangedGoblin_AIAmbientMovementComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.10"
+      },
+      "VariableGUID": "F896FA2D-4C781963-EAA325AC-4A4ED3D5",
+      "InternalVariableName": "BP_RangedGoblin_AIAmbientMovementComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedGoblin_CombatStrategyComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/GoblinFaction/RangedGoblin/Attacks/BP_RangedGoblin_CombatStrategyComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_RangedGoblin_CombatStrategyComponent_C'BP_AI_SkeletalArcher_Controller_C:BP_RangedGoblinCombatStrategyComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.11"
+      },
+      "VariableGUID": "0A11146B-48849DD4-FDE93194-38B00025",
+      "InternalVariableName": "BP_RangedGoblinCombatStrategyComponent"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_SkeletalArcher_Controller_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.20"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.19"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.20"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_SkeletalArcher_Controller_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/FutureMajorVersion/Content/Gameplay/AI/SkeletonFaction/RangedSkeleton/BP_AI_SkeletalArcher_Controller.17"
+      }
+    }
+  }
+]

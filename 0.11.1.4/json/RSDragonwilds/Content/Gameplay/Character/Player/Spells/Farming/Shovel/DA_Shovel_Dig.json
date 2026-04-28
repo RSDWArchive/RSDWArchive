@@ -1,0 +1,271 @@
+[
+  {
+    "Type": "DominionShape_Box",
+    "Name": "DominionShape_Box_0",
+    "Outer": "SpellModule_Shape_0",
+    "Class": "UScriptClass'DominionShape_Box'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Extents": {
+        "X": 30.0,
+        "Y": 31.0,
+        "Z": 110.0
+      },
+      "Offset": {
+        "X": 100.0,
+        "Y": 20.0,
+        "Z": -70.0
+      }
+    }
+  },
+  {
+    "Type": "DominionSpellData",
+    "Name": "DA_Shovel_Dig",
+    "Class": "UScriptClass'DominionSpellData'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Modules": {
+        "Modules": [
+          {
+            "Module": {
+              "ObjectName": "SpellModule_InputHoldingTracker'DA_Shovel_Dig:SpellModule_InputHoldingTracker_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.8"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_PlayMontage'DA_Shovel_Dig:SpellModule_PlayMontage_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.9"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Shape'DA_Shovel_Dig:SpellModule_Shape_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.10"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Collision'DA_Shovel_Dig:SpellModule_Collision_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.3"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_CostStamina'DA_Shovel_Dig:SpellModule_CostStamina_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.4"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Dig'DA_Shovel_Dig:SpellModule_Dig_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.6"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Damage'DA_Shovel_Dig:SpellModule_Damage_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.5"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_Cast'DA_Shovel_Dig:SpellModule_Cast_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.2"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_ExpireAfterDuration'DA_Shovel_Dig:SpellModule_ExpireAfterDuration_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.7"
+            }
+          }
+        ]
+      },
+      "PersistenceID": "-9GntEZev_8OuiiQbuv1hw",
+      "InternalName": "special_shoveldig"
+    }
+  },
+  {
+    "Type": "SpellModule_Cast",
+    "Name": "SpellModule_Cast_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_Cast'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModuleName": "Cast",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_EndCast_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_EndCast.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Collision",
+    "Name": "SpellModule_Collision_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_Collision'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Profile": {
+        "Name": "BlockAll"
+      },
+      "TargetedProfile": {
+        "Name": "NoCollision"
+      },
+      "DebugDrawDuration": 0.2,
+      "OptionalShapeModule": {
+        "ModuleName": "Shape"
+      },
+      "ModuleName": "Collision",
+      "Triggers": {
+        "bHasStateTrigger": true,
+        "StateTrigger": "ESpellStateTrigger::FinishedCasting"
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_CostStamina",
+    "Name": "SpellModule_CostStamina_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_CostStamina'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Amount": 10.0,
+      "bStartExpiringWhenOutOfStamina": true,
+      "ModuleName": "CostStamina",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_UseStamina_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_UseStamina.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Damage",
+    "Name": "SpellModule_Damage_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_Damage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageAmount": 25.0,
+      "DamageTypes": [
+        "DamageType.Physical.Crush"
+      ],
+      "DamageClass": "EDamageClass::Melee",
+      "CollisionModule": {
+        "ModuleName": "Collision"
+      },
+      "ModuleName": "Damage",
+      "Triggers": {
+        "CollisionRef": {
+          "ModuleName": "Collision"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Dig",
+    "Name": "SpellModule_Dig_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_Dig'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CollisionModule": {
+        "ModuleName": "Collision"
+      },
+      "bCanHarvestPlants": true,
+      "ModuleName": "Dig",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_UseStamina_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_UseStamina.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_ExpireAfterDuration",
+    "Name": "SpellModule_ExpireAfterDuration_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_ExpireAfterDuration'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Duration": 0.1,
+      "ModuleName": "ExpireAfterDuration",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_EndCast_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_EndCast.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_InputHoldingTracker",
+    "Name": "SpellModule_InputHoldingTracker_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_InputHoldingTracker'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InputHoldingLoopExitType": "EInputHoldingLoopExitType::CancelSpell",
+      "ModuleName": "InputHoldingTracker",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_StartCharging_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_StartCharging.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_PlayMontage",
+    "Name": "SpellModule_PlayMontage_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_PlayMontage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Montage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_Attack_Spade_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Animation/PlayerM/Spade/AM_PlayerM_Attack_Spade_01.0"
+      },
+      "bAllowTriggeringNotifiesMultipleTimes": true,
+      "ModuleName": "PlayMontage",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_Shape",
+    "Name": "SpellModule_Shape_0",
+    "Outer": "DA_Shovel_Dig",
+    "Class": "UScriptClass'SpellModule_Shape'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Box'DA_Shovel_Dig:SpellModule_Shape_0.DominionShape_Box_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Spells/Farming/Shovel/DA_Shovel_Dig.0"
+      },
+      "ModuleName": "Shape"
+    }
+  }
+]

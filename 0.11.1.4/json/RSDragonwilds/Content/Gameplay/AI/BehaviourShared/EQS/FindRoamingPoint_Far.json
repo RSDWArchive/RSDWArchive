@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "AIDataProvider_QueryParams",
+    "Name": "AIDataProvider_QueryParams_0",
+    "Outer": "EnvQueryGenerator_SimpleGrid_0",
+    "Class": "UScriptClass'AIDataProvider_QueryParams'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParamName": "GridSize"
+    }
+  },
+  {
+    "Type": "AIDataProvider_QueryParams",
+    "Name": "AIDataProvider_QueryParams_1",
+    "Outer": "EnvQueryGenerator_SimpleGrid_0",
+    "Class": "UScriptClass'AIDataProvider_QueryParams'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParamName": "GridSpaceBetween"
+    }
+  },
+  {
+    "Type": "EnvQuery",
+    "Name": "FindRoamingPoint_Far",
+    "Class": "UScriptClass'EnvQuery'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "QueryName": "FindRoamingPoint_Far",
+      "Options": [
+        {
+          "ObjectName": "EnvQueryOption'FindRoamingPoint_Far:EnvQueryOption_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/FindRoamingPoint_Far.4"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryGenerator_SimpleGrid",
+    "Name": "EnvQueryGenerator_SimpleGrid_0",
+    "Outer": "FindRoamingPoint_Far",
+    "Class": "UScriptClass'EnvQueryGenerator_SimpleGrid'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GridSize": {
+        "DefaultValue": 5000.0,
+        "DataBinding": {
+          "ObjectName": "AIDataProvider_QueryParams'FindRoamingPoint_Far:EnvQueryGenerator_SimpleGrid_0.AIDataProvider_QueryParams_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/FindRoamingPoint_Far.0"
+        },
+        "DataField": "FloatValue"
+      },
+      "SpaceBetween": {
+        "DefaultValue": 1000.0,
+        "DataBinding": {
+          "ObjectName": "AIDataProvider_QueryParams'FindRoamingPoint_Far:EnvQueryGenerator_SimpleGrid_0.AIDataProvider_QueryParams_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/FindRoamingPoint_Far.1"
+        },
+        "DataField": "FloatValue"
+      },
+      "GenerateAround": {
+        "ObjectName": "BlueprintGeneratedClass'EQSContext_SpawnLocation_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSContext_SpawnLocation.0"
+      },
+      "ProjectionData": {
+        "VersionNum": 1,
+        "SerializedChannel": "ECollisionChannel::ECC_Visibility"
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryOption",
+    "Name": "EnvQueryOption_1",
+    "Outer": "FindRoamingPoint_Far",
+    "Class": "UScriptClass'EnvQueryOption'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Generator": {
+        "ObjectName": "EnvQueryGenerator_SimpleGrid'FindRoamingPoint_Far:EnvQueryGenerator_SimpleGrid_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/FindRoamingPoint_Far.3"
+      },
+      "Tests": [
+        {
+          "ObjectName": "EnvQueryTest_Pathfinding'FindRoamingPoint_Far:EnvQueryTest_Pathfinding_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/FindRoamingPoint_Far.6"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'FindRoamingPoint_Far:EnvQueryTest_Distance_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/FindRoamingPoint_Far.5"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_1",
+    "Outer": "FindRoamingPoint_Far",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TestMode": "EEnvTestDistance::Distance2D",
+      "TestOrder": 1,
+      "FilterType": "EEnvTestFilterType::Minimum",
+      "VerNum": 2
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Pathfinding",
+    "Name": "EnvQueryTest_Pathfinding_1",
+    "Outer": "FindRoamingPoint_Far",
+    "Class": "UScriptClass'EnvQueryTest_Pathfinding'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TestPurpose": "EEnvTestPurpose::Filter",
+      "VerNum": 2
+    }
+  }
+]

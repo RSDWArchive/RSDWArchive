@@ -1,0 +1,115 @@
+[
+  {
+    "Type": "EnvQuery",
+    "Name": "EQSQuery_FindFleePoint",
+    "Class": "UScriptClass'EnvQuery'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "QueryName": "EQSQuery_FindFleePoint",
+      "Options": [
+        {
+          "ObjectName": "EnvQueryOption'EQSQuery_FindFleePoint:EnvQueryOption_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSQuery_FindFleePoint.2"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryGenerator_OnCircle",
+    "Name": "EnvQueryGenerator_OnCircle_0",
+    "Outer": "EQSQuery_FindFleePoint",
+    "Class": "UScriptClass'EnvQueryGenerator_OnCircle'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CircleRadius": {
+        "DefaultValue": 2000.0
+      },
+      "PointOnCircleSpacingMethod": "EPointOnCircleSpacingMethod::ByNumberOfPoints",
+      "SpaceBetween": {
+        "DefaultValue": 400.0
+      },
+      "ArcDirection": {
+        "LineFrom": {
+          "ObjectName": "BlueprintGeneratedClass'EQSContext_Threat_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSContext_Threat.0"
+        },
+        "LineTo": {
+          "ObjectName": "Class'EnvQueryContext_Querier'",
+          "ObjectPath": "/Script/AIModule"
+        },
+        "Rotation": {
+          "ObjectName": "BlueprintGeneratedClass'EQSContext_Threat_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSContext_Threat.0"
+        },
+        "DirMode": "EEnvDirection::Rotation"
+      },
+      "CircleCenter": {
+        "ObjectName": "BlueprintGeneratedClass'EQSContext_FleePoint_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSContext_FleePoint.0"
+      },
+      "TraceData": {
+        "VersionNum": 1,
+        "SerializedChannel": "ECollisionChannel::ECC_Visibility"
+      },
+      "ProjectionData": {
+        "VersionNum": 1,
+        "SerializedChannel": "ECollisionChannel::ECC_Visibility",
+        "TraceMode": "EEnvQueryTrace::Navigation"
+      },
+      "VerNum": 1
+    }
+  },
+  {
+    "Type": "EnvQueryOption",
+    "Name": "EnvQueryOption_0",
+    "Outer": "EQSQuery_FindFleePoint",
+    "Class": "UScriptClass'EnvQueryOption'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Generator": {
+        "ObjectName": "EnvQueryGenerator_OnCircle'EQSQuery_FindFleePoint:EnvQueryGenerator_OnCircle_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSQuery_FindFleePoint.1"
+      },
+      "Tests": [
+        {
+          "ObjectName": "EnvQueryTest_Pathfinding'EQSQuery_FindFleePoint:EnvQueryTest_Pathfinding_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSQuery_FindFleePoint.4"
+        },
+        {
+          "ObjectName": "EnvQueryTest_Distance'EQSQuery_FindFleePoint:EnvQueryTest_Distance_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSQuery_FindFleePoint.3"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Distance",
+    "Name": "EnvQueryTest_Distance_1",
+    "Outer": "EQSQuery_FindFleePoint",
+    "Class": "UScriptClass'EnvQueryTest_Distance'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DistanceTo": {
+        "ObjectName": "BlueprintGeneratedClass'EQSContext_Threat_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/EQS/EQSContext_Threat.0"
+      },
+      "TestOrder": 1,
+      "TestPurpose": "EEnvTestPurpose::Score",
+      "NormalizationType": "EEQSNormalizationType::RelativeToScores",
+      "ScoringFactor": {
+        "DefaultValue": 5.0
+      },
+      "VerNum": 2
+    }
+  },
+  {
+    "Type": "EnvQueryTest_Pathfinding",
+    "Name": "EnvQueryTest_Pathfinding_0",
+    "Outer": "EQSQuery_FindFleePoint",
+    "Class": "UScriptClass'EnvQueryTest_Pathfinding'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "VerNum": 2
+    }
+  }
+]

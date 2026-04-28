@@ -1,0 +1,1049 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_FishingNodeV2_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.19"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:ExecuteUbergraph_BP_FishingNodeV2'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'FishingNodeV2'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:UpdateAudio'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.8"
+      },
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:UpdateRipples'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.10"
+      },
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:ShouldBeShowingRipples'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.7"
+      },
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:OnInterpolateComplete_4EBCD2754696161E6BC047BA028A94D7'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.5"
+      },
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:OnValueUpdate_4EBCD2754696161E6BC047BA028A94D7'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.6"
+      },
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:FadeRipples'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.4"
+      },
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:UpdateNodeFX'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.9"
+      },
+      {
+        "ObjectName": "Function'BP_FishingNodeV2_C:ExecuteUbergraph_BP_FishingNodeV2'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FishingNodeVisualizer",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'FishingNodeVisualizerComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FishingNodeAudioManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'FishingNodeAudioManager'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Ripples",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Silt",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AT_RippleOpacity",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'AsyncAction_DomInterpolateFloat'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "RippleOpacity",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "ShowingRipples",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_FishingNodeV2": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:ExecuteUbergraph_BP_FishingNodeV2'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.3"
+      },
+      "UpdateNodeFX": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:UpdateNodeFX'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.9"
+      },
+      "FadeRipples": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:FadeRipples'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.4"
+      },
+      "OnValueUpdate_4EBCD2754696161E6BC047BA028A94D7": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:OnValueUpdate_4EBCD2754696161E6BC047BA028A94D7'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.6"
+      },
+      "OnInterpolateComplete_4EBCD2754696161E6BC047BA028A94D7": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:OnInterpolateComplete_4EBCD2754696161E6BC047BA028A94D7'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.5"
+      },
+      "ShouldBeShowingRipples": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:ShouldBeShowingRipples'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.7"
+      },
+      "UpdateRipples": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:UpdateRipples'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.10"
+      },
+      "UpdateAudio": {
+        "ObjectName": "Function'BP_FishingNodeV2_C:UpdateAudio'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.8"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_FishingNodeV2_C'Default__BP_FishingNodeV2_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_FishingNodeV2_C",
+    "Name": "Default__BP_FishingNodeV2_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.BP_FishingNodeV2_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "RippleOpacity": 1.0,
+      "ShowingRipples": true,
+      "ResourceRespawnComponent": {
+        "ObjectName": "ResourceRespawnComponent'Default__BP_FishingNodeV2_C:RespawnComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.11"
+      },
+      "ColliderComponent": {
+        "ObjectName": "StaticMeshComponent'Default__BP_FishingNodeV2_C:Collider'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.23"
+      },
+      "BlockingObjectSensorComponent": {
+        "ObjectName": "SphereComponent'Default__BP_FishingNodeV2_C:FishDangerSensor'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.20"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_FishingNodeV2_C:Root'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.13"
+      }
+    }
+  },
+  {
+    "Type": "FishingNodeAudioManager",
+    "Name": "FishingNodeAudioManager_GEN_VARIABLE",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'FishingNodeAudioManager'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_FishingNodeV2",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_CustomEvent_Value",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'OnDomInterpolateFloatDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Temp_real_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_CustomEvent_EndVal",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_CustomEvent_Value_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_AsyncDomInterpolateFloat_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'AsyncAction_DomInterpolateFloat'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'OnDomInterpolateFloatDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetCustomPrimitiveDataFloat_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "FadeRipples",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "EndVal",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnInterpolateComplete_4EBCD2754696161E6BC047BA028A94D7",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Value",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnValueUpdate_4EBCD2754696161E6BC047BA028A94D7",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "DoubleProperty",
+        "Name": "Value",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ShouldBeShowingRipples",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ShouldBeShowing",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsBlocked_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsDepleted_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateAudio",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetEnchantmentTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "ConstParm",
+        "Struct": {
+          "ObjectName": "Object'GameplayTag'",
+          "ObjectPath": "/Script/GameplayTags"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsGameplayTagValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Protected | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateNodeFX",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'FishingNodeV2:UpdateNodeFX'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateRipples",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Has_Been_Initd_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_SelectFloat_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_ShouldBeShowingRipples_ShouldBeShowing",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_BoolBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "ResourceRespawnComponent",
+    "Name": "RespawnComponent",
+    "Outer": "Default__BP_FishingNodeV2_C",
+    "Class": "UScriptClass'ResourceRespawnComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "Root",
+    "Outer": "Default__BP_FishingNodeV2_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_FishingNodeV2_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.12"
+      },
+      "VariableGUID": "D0587B30-461EE03C-155B8C8D-FCCCB717",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_FishingNodeV2_C:VFX_Silt_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.22"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "E14AF246-4CE47FC2-9B61B081-14A9411C",
+      "InternalVariableName": "VFX_Silt"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_FishingNodeV2_C:VFX_Ripples_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.21"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "02996974-461D6C98-03A8DB87-9900712C",
+      "InternalVariableName": "VFX_Ripples"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'FishingNodeAudioManager'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "FishingNodeAudioManager'BP_FishingNodeV2_C:FishingNodeAudioManager_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.2"
+      },
+      "ParentComponentOrVariableName": "Root",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "853EB4E7-4E4925F8-3754CDAD-CFC701FF",
+      "InternalVariableName": "FishingNodeAudioManager"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'FishingNodeVisualizerComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": null,
+      "VariableGUID": "7EE04B98-47247D60-5ADD2B9C-BF23B380",
+      "InternalVariableName": "FishingNodeVisualizer"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.18"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.18"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_FishingNodeV2_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.14"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "FishDangerSensor",
+    "Outer": "Default__BP_FishingNodeV2_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BodyInstance": {
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_FishingNodeV2_C:Root'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.13"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "VFX_Ripples_GEN_VARIABLE",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_VFX_Disc01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Component/Mesh/Primitive/SM_VFX_Disc01.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_VFX_FishingArea_Ripples'",
+          "ObjectPath": "/Fishing/Art/VFX/Fishing/MI_VFX_FishingArea_Ripples"
+        }
+      ],
+      "CustomPrimitiveData": {
+        "Data": [
+          1.0
+        ]
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 1.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 9.597299,
+        "Y": 13.251339,
+        "Z": 13.251339
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "VFX_Silt_GEN_VARIABLE",
+    "Outer": "BP_FishingNodeV2_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Plane'",
+        "ObjectPath": "Engine/Content/BasicShapes/Plane.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_VFX_FishingAreaSilt'",
+          "ObjectPath": "/Fishing/Art/VFX/Fishing/MI_VFX_FishingAreaSilt"
+        }
+      ],
+      "TranslucencySortPriority": 1,
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeScale3D": {
+        "X": 7.763449,
+        "Y": 7.763449,
+        "Z": 1.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Collider",
+    "Outer": "Default__BP_FishingNodeV2_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Cylinder'",
+        "ObjectPath": "Engine/Content/BasicShapes/Cylinder.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material'BlueWireframe'",
+          "ObjectPath": "/PCG/SampleContent/FlatnessDetection/Materials/BlueWireframe"
+        }
+      ],
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_FishingNodeV2_C:Root'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/World/Fishing/FishingNodesV2/BP_FishingNodeV2.13"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -7.0
+      },
+      "RelativeScale3D": {
+        "X": 10.0,
+        "Y": 10.0,
+        "Z": 0.1
+      }
+    }
+  }
+]

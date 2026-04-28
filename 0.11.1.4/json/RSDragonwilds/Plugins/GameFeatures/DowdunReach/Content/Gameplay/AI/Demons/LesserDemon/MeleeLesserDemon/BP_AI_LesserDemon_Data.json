@@ -1,0 +1,191 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_LesserDemon_Data_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Data_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_AI_Data.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Data_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_AI_Data.0"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_LesserDemon_Data_C'Default__BP_AI_LesserDemon_Data_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/BP_AI_LesserDemon_Data.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_LesserDemon_Data_C",
+    "Name": "Default__BP_AI_LesserDemon_Data_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/BP_AI_LesserDemon_Data.BP_AI_LesserDemon_Data_C'",
+    "Template": {
+      "ObjectName": "BP_AI_Data_C'Default__BP_AI_Data_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_AI_Data.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AIName": {
+        "TableId": "/DowdunReach/Gameplay/AI/ST_AI_Names_DowdunReach.ST_AI_Names_DowdunReach",
+        "Key": "LesserDemon",
+        "SourceString": null,
+        "LocalizedString": null
+      },
+      "GameplayTags": [
+        "AI.Aggressive",
+        "AI.Faction.Demons",
+        "AI.Category.Demon"
+      ],
+      "AIDifficultyScalingCategoryTag": {
+        "TagName": "AI.DifficultyCategory.MiniBoss"
+      },
+      "AudioAIIdentifier": {
+        "TagName": "Audio.AI.LesserDemon"
+      },
+      "SpawnActionClass": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_LesserDemon_SummonSpawn_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Actions/Spawn/DAA_LesserDemon_SummonSpawn"
+      },
+      "MoverConfig": {
+        "RunSpeed": 750.0,
+        "WalkSpeed": 230.0,
+        "AngleToleranceToFaceTarget": 3.0
+      },
+      "PreferredDistanceFromTarget": 450.0,
+      "bOverrideMovementMinActivationDistance": true,
+      "MovementMinActivationDistance": 250.0,
+      "CombatMovementConfig": {
+        "WalkRunThreshold": 450.0,
+        "DistToProxyMultiplierForWalkAndStrafe": 1.0
+      },
+      "AmbientConfig": {
+        "SpawnLocationPreferredRoamRadius": 1200.0,
+        "AmbientMovementMinDistance": 600.0,
+        "AmbientMovementMaxDistance": 1200.0,
+        "RoamPointsSelectionWeightCurve": {
+          "ObjectName": "CurveFloat'Curve_RoamTetherSelectionWeight_Float'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Curve_RoamTetherSelectionWeight_Float.0"
+        }
+      },
+      "SuspiciousConfig": {
+        "Strategy": "EAISuspiciousStrategy::Investigate",
+        "InvestigateConfig": {
+          "ActionOptions": {
+            "ObjectName": "DataTable'DT_LesserDemon_SuspiciousActions'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Actions/DT_LesserDemon_SuspiciousActions"
+          }
+        }
+      },
+      "LostTargetConfig": {
+        "Strategy": "EAILostTargetStrategy::GoToLastKnownLocation"
+      },
+      "HitReactionConfig": {
+        "bShowStunBreakOptions": true,
+        "bShowForceTresholds": true,
+        "FrontAdditiveHitReaction": {
+          "ObjectName": "AnimMontage'NPC_LesserDemon_HitRct_Additive_Fnt'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/HitReact/NPC_LesserDemon_HitRct_Additive_Fnt"
+        },
+        "BackAdditiveHitReaction": {
+          "ObjectName": "AnimMontage'NPC_LesserDemon_HitRct_Additive_Bck'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/HitReact/NPC_LesserDemon_HitRct_Additive_Bck"
+        },
+        "OnParryReceivedEffect": {
+          "ObjectName": "BlueprintGeneratedClass'GE_OnParryVulnerable_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_OnParryVulnerable.0"
+        },
+        "LightForceThreshold": 200.0,
+        "HeavyForceThreshold": 500.0,
+        "KnockDownForceThreshold": 2000.0,
+        "IncomingForceReductionLastHitTime": {
+          "ObjectName": "CurveFloat'Curve_ReduceIncomingForce_Garou'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Curve_ReduceIncomingForce_Garou.0"
+        },
+        "HitReactionsDataTable": {
+          "ObjectName": "DataTable'DT_LesserDemon_HitReactions'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/HitReact/DT_LesserDemon_HitReactions"
+        },
+        "StunBreakerAIActions": [
+          {
+            "ObjectName": "BlueprintGeneratedClass'DAA_LesserDemon_StunBreaker_Retaliate_Combo_C'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Actions/Retaliate/DAA_LesserDemon_StunBreaker_Retaliate_Combo"
+          },
+          {
+            "ObjectName": "BlueprintGeneratedClass'DAA_LesserDemon_StunBreaker_Retaliate_Haymaker_C'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Actions/Retaliate/DAA_LesserDemon_StunBreaker_Retaliate_Haymaker"
+          },
+          {
+            "ObjectName": "BlueprintGeneratedClass'DAA_LesserDemon_StunBreaker_Retaliate_Roar_C'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Actions/Retaliate/DAA_LesserDemon_StunBreaker_Retaliate_Roar"
+          }
+        ],
+        "HitReactionToStunBreakerThreshold": 5.0,
+        "MaxStunBreakerValue": 20.0,
+        "StunBreakerValueIncreaseAtNightFactor": 1.2,
+        "StunBreakerValueIncreasePerHitReaction": 7.0,
+        "StunBreakerValueDecreaseRate": 0.2
+      },
+      "ThreatSystemConfig": {
+        "PlayerThreatPriorityRadius": 4000.0,
+        "MemoryDuration": 20.0,
+        "IncreaseInCertaintyBasedOnDistanceCurve": {
+          "ObjectName": "CurveFloat'Curve_CertaintyIncreaseBasedOnDistance'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/Curve_CertaintyIncreaseBasedOnDistance.0"
+        },
+        "CertaintyDecreaseRate": 0.02,
+        "SuspiciousToCombatRequiredCertainty": 0.7,
+        "StealthSightRadiusModifier": 0.7,
+        "StealthPeripheralVisionAngleModifier": 0.7,
+        "TouchRadius": 200.0,
+        "TargetSelectorStrategy": {
+          "ObjectName": "Class'AITargetSelectorStrategy_LoadBalanced'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "TargetSelectorCooldownMin": 3.0,
+        "TargetSelectorCooldownMax": 4.0,
+        "InitialPulseRadius": 1000.0,
+        "PulseRadiusWhileActive": 400.0
+      },
+      "AlertnessConfig": {
+        "TransitionToSuspiciousAIAction": {
+          "ObjectName": "BlueprintGeneratedClass'DAA_LesserDemon_EnterSuspicious_C'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Actions/Alert/DAA_LesserDemon_EnterSuspicious"
+        },
+        "TransitionToAwareAIAction": {
+          "ObjectName": "BlueprintGeneratedClass'DAA_LesserDemon_EnterAwareState_C'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Actions/Alert/DAA_LesserDemon_EnterAwareState"
+        },
+        "TransitionToAmbientAIAction": {
+          "ObjectName": "BlueprintGeneratedClass'DAA_Shared_ReturnToSpawnPoint_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BehaviourShared/AIActions/DAA_Shared_ReturnToSpawnPoint.0"
+        }
+      },
+      "CombatAttacksTable": {
+        "ObjectName": "DataTable'DT_ATK_LesserDemon'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/Demons/LesserDemon/MeleeLesserDemon/Attacks/DT_ATK_LesserDemon"
+      },
+      "ConfuseRequirements": "EAIConfuseRequirements::RequiresGreaterConfusePerk",
+      "CapsulePadding": 10.0,
+      "AIDataTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_AIData_DowdunReach'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/DT_AIData_DowdunReach"
+        },
+        "RowName": "LesserDemon"
+      },
+      "PersistenceID": "HhdT2U4Z3pnsUEqKWGXd0A"
+    }
+  }
+]

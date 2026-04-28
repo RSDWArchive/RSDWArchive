@@ -1,0 +1,3527 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_AI_Biped_Base_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Crush"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Earth"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Slash"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Physical.Stab"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AIAudioManagerComponent",
+    "Name": "AIAudioManager_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'AIAudioManagerComponent'",
+    "Template": {
+      "ObjectName": "AIAudioManagerComponent'BP_DominionAICharacter_C:AIAudioManager_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "IdleSoundToPlay": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Cr_Vox_BlackKnightM_Distant_Idle_Call'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Creatures/Distant_Idle/MSS_Cr_Vox_BlackKnightM_Distant_Idle_Call.0"
+      }
+    }
+  },
+  {
+    "Type": "AIBlockingComponent",
+    "Name": "AIBlockingComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'AIBlockingComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ShieldBrokenAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_BlackKnightMelee_ShieldBroken_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Blocks/DAA_BlackKnightMelee_ShieldBroken"
+      },
+      "BlockTag": {
+        "TagName": "Audio.Metal.Shield"
+      },
+      "ActiveBlockDirectionRef": {
+        "ComponentProperty": "ActiveBlockDirection"
+      },
+      "PassiveBlockDirectionRef": {
+        "ComponentProperty": "PassiveBlockDirection"
+      },
+      "PassiveBlockAngle": 0.0,
+      "ActiveBlockAngle": 25.0,
+      "ActiveBlockSlowDownMultiplier": 0.3,
+      "ActiveBlockRotationRateMultiplier": 0.28,
+      "DamageMitigationMultiplier": 1.0,
+      "MinTirednessRegen": 1.0,
+      "MaxTirednessRegen": 2.0,
+      "MinTirednessIncreaseWhileActiveBlocking": 1.0,
+      "MaxTirednessIncreaseWhileActiveBlocking": 2.0,
+      "TirednessIncreasePerBlock": 4.0,
+      "TirednessThresholdToStopActiveBlocking": 10.0,
+      "TirednessThresholdToStartActiveBlocking": 20.0,
+      "BusyStateDurationAfterEnteringActiveBlock": 0.0,
+      "AttackDelayAfterActiveBlockEnded": 0.5,
+      "MaxTimeAfterAnActionBeforeTimeoutIsConsidered": 4.0,
+      "MinTimeAfterAnActionBeforeTimeoutIsConsidered": 3.0,
+      "RangedTargetDangerDistance": 2500.0,
+      "NonRangedTargetDangerDistance": 500.0,
+      "TimeAfterFailedBlockToProhibitBlocking": 5.0,
+      "MinTimeBetweenActiveBlocks": 10.0,
+      "AttackBlockedVFX": {
+        "ObjectName": "NiagaraSystem'NS_Hoplite_Block'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Library/Character/Skeletons/NS_Hoplite_Block.23"
+      }
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_AI_Biped_Base_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxHealth": 150.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_AI_Biped_Base_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NavAgentName": "Default",
+      "MoveSpeedMultiplierWhenFullySlowed": 0.42,
+      "bEnableLocomotionAnimation": true,
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightMelee_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Turns/DT_BlackKnightMelee_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightMelee_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Turns/DT_BlackKnightMelee_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightMelee_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Turns/DT_BlackKnightMelee_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightMelee_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Turns/DT_BlackKnightMelee_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightMelee_RotationAlert'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Turns/DT_BlackKnightMelee_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightMelee_RotationAlert'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Turns/DT_BlackKnightMelee_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_BlackKnightMelee_Rotation'",
+            "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Turns/DT_BlackKnightMelee_Rotation"
+          }
+        }
+      ],
+      "MaxStepHeight": 100.0,
+      "WalkableFloorAngle": 90.0,
+      "WalkableFloorZ": -4.371139E-08,
+      "MaxAcceleration": 1000.0,
+      "NavMovementProperties": {
+        "bUpdateNavAgentWithOwnersCollision": false
+      },
+      "NavAgentProps": {
+        "AgentRadius": 30.0,
+        "AgentHeight": 150.0,
+        "PreferredNavData": {
+          "AssetPathName": "/Script/NavigationSystem.RecastNavMesh",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Biped_Base_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Timelines": [
+        {
+          "ObjectName": "TimelineTemplate'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup_Template'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.66"
+        },
+        {
+          "ObjectName": "TimelineTemplate'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup_Reverse_Template'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.65"
+        },
+        {
+          "ObjectName": "TimelineTemplate'BP_AI_MeleeBlackKnight_Character_C:Timeline_0_Template'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.67"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.59"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_MeleeBlackKnight_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.37"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:ExecuteUbergraph_BP_AI_MeleeBlackKnight_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.29"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.33"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.22"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.23"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup_Reverse__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.24"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup_Reverse__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.25"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.31"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.32"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:BP_AdjustAiVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.26"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:BP_OnAlertnessStateChanged'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.27"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.30"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.28"
+      },
+      {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:ExecuteUbergraph_BP_AI_MeleeBlackKnight_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.29"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AIBlockingComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'AIBlockingComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_BlackKnight_AttackOpportunityComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BlackKnight_AttackOpportunityComponent_C'",
+          "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/BP_BlackKnight_AttackOpportunityComponent"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ActiveBlockDirection",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "PassiveBlockDirection",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Shield",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_VisorGlint",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Corruption_Aura",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "VFX_Visor_Aura",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_SkeletonMelee_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_SkeletonMelee_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_SkeletonMelee_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WeakPoint_Head",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Timeline_0_NewTrack_0_4416DCB94F3D4BE4C754C3BC8199FFD6",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Timeline_0__Direction_4416DCB94F3D4BE4C754C3BC8199FFD6",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timeline_0",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Aura_Startup_Reverse_NewTrack_0_936A2B5042A1AC1C858C49814777D274",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Aura_Startup_Reverse__Direction_936A2B5042A1AC1C858C49814777D274",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Aura_Startup_Reverse",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Aura_Startup_NewTrack_0_5028829843F86C94EBF30CBB847C48FD",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Aura_Startup__Direction_5028829843F86C94EBF30CBB847C48FD",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'ETimelineDirection'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Aura_Startup",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'TimelineComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ElementalAffinityVFX",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Visor",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Shield_Overlay",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_MeleeBlackKnight_Character": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:ExecuteUbergraph_BP_AI_MeleeBlackKnight_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.29"
+      },
+      "BP_OnDeath": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:BP_OnDeath'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.28"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.30"
+      },
+      "BP_OnAlertnessStateChanged": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:BP_OnAlertnessStateChanged'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.27"
+      },
+      "BP_AdjustAiVisibility": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:BP_AdjustAiVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.26"
+      },
+      "Timeline_0__UpdateFunc": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Timeline_0__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.32"
+      },
+      "Timeline_0__FinishedFunc": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Timeline_0__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.31"
+      },
+      "Aura_Startup_Reverse__UpdateFunc": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup_Reverse__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.25"
+      },
+      "Aura_Startup_Reverse__FinishedFunc": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup_Reverse__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.24"
+      },
+      "Aura_Startup__UpdateFunc": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup__UpdateFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.23"
+      },
+      "Aura_Startup__FinishedFunc": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:Aura_Startup__FinishedFunc'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.22"
+      },
+      "UserConstructionScript": {
+        "ObjectName": "Function'BP_AI_MeleeBlackKnight_Character_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.33"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_MeleeBlackKnight_Character_C'Default__BP_AI_MeleeBlackKnight_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.7"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_MeleeBlackKnight_Character_C",
+    "Name": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.BP_AI_MeleeBlackKnight_Character_C'",
+    "Template": {
+      "ObjectName": "BP_AI_Biped_Base_C'Default__BP_AI_Biped_Base_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.5"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "AIDataClass": {
+        "AssetPathName": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_BlackKnightMelee_Data.BP_AI_BlackKnightMelee_Data_C",
+        "SubPathString": ""
+      },
+      "bCanBeSpawnedByDebugMenu": true,
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_MeleeBlackKnight_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.18"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_MeleeBlackKnight_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.3"
+      },
+      "HitRecipientAudioTag": {
+        "TagName": "Audio.Metal.Armour"
+      },
+      "TargetingAttachToBone": "spine_03",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_MeleeBlackKnight_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.5"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_MeleeBlackKnight_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_MeleeBlackKnight_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.68"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_MeleeBlackKnight_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.21"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_MeleeBlackKnight_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.19"
+      },
+      "LockOnTargetingBoneName": "spine_03",
+      "AIName": {
+        "Namespace": "",
+        "Key": "9CE371D4440704FEE17177A9CE1D50E3",
+        "SourceString": "Axe Goblin",
+        "LocalizedString": "Axe Goblin"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_MeleeBlackKnight_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.34"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_MeleeBlackKnight_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.60"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_MeleeBlackKnight_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.4"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_MeleeBlackKnight_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.13"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_MeleeBlackKnight_Controller_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Controller"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_MeleeBlackKnight_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.13"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'BP_AI_Biped_Base_C:BP_AiDeathComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.9"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_BlackKnightMelee_Death_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/Actions/Death/DAA_BlackKnightMelee_Death"
+      },
+      "MeshesToDropOnDeath": [
+        {
+          "MeshComponentReference": {
+            "OtherActor": null,
+            "ComponentProperty": "Weapon",
+            "PathToComponent": ""
+          },
+          "ImpulseStrengthAwayfromCharacter": 300.0,
+          "ImpulseStrengthVertical": 150.0,
+          "bForceVisible": false
+        },
+        {
+          "MeshComponentReference": {
+            "OtherActor": null,
+            "ComponentProperty": "Shield",
+            "PathToComponent": ""
+          },
+          "ImpulseStrengthAwayfromCharacter": 150.0,
+          "ImpulseStrengthVertical": 100.0,
+          "bForceVisible": false
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiHealthBarComponent_C",
+    "Name": "BP_AiHealthBarComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.BP_AiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_Biped_Base_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.11"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 1.2003953E-11,
+        "Y": 0.0,
+        "Z": 220.90909
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "WeakPoint_Head",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 22,
+            "G": 0,
+            "R": 255,
+            "A": 255,
+            "Hex": "FF0016"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_MeleeBlackKnight_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.35"
+              }
+            },
+            {
+              "Module": {
+                "ObjectName": "HitPointTypeModule'BP_AI_MeleeBlackKnight_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+                "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.36"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "UObject",
+    "Name": "BP_BlackKnight_AttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_SkeletonMelee_AiCombatModeInitiator_C",
+    "Name": "BP_SkeletonMelee_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_SkeletonMelee_AiCombatModeInitiator.BP_SkeletonMelee_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_SkeletonMelee_AiCombatModeInitiator_C'Default__BP_SkeletonMelee_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_SkeletonMelee_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_MeleeBlackKnight_Character_C:BP_SkeletonMelee_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.14"
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_AI_Biped_Base_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 85.0,
+      "CapsuleRadius": 32.0,
+      "RelativeScale3D": {
+        "X": 1.1,
+        "Y": 1.1,
+        "Z": 1.1
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": "BP_SkeletonMelee_AiCombatModeInitiator_GEN_VARIABLE",
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_SkeletonMelee_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_SkeletonMelee_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_MeleeBlackKnight_Character_C:BP_SkeletonMelee_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.20"
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0_3",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "CurveFloat",
+    "Name": "CurveFloat_0_3_4",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'CurveFloat'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "FloatCurve": {
+        "Keys": [
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 0.0,
+            "Value": 0.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          },
+          {
+            "InterpMode": "RCIM_Cubic",
+            "TangentMode": "RCTM_Auto",
+            "TangentWeightMode": "RCTWM_WeightedNone",
+            "Time": 1.0,
+            "Value": 1.0,
+            "ArriveTangent": 0.0,
+            "ArriveTangentWeight": 0.0,
+            "LeaveTangent": 0.0,
+            "LeaveTangentWeight": 0.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Biped_Base_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.15"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Biped_Base_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.16"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "CombatModeArea_0",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_SkeletonMelee_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_SkeletonMelee_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_AI_Biped_Base_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.17"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "Aura_Startup__FinishedFunc",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Aura_Startup__UpdateFunc",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Aura_Startup_Reverse__FinishedFunc",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Aura_Startup_Reverse__UpdateFunc",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_AdjustAiVisibility",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_AdjustAiVisibility'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.15"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_AdjustAiVisibility'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.15"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnAlertnessStateChanged",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:BP_OnAlertnessStateChanged'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.18"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:BP_OnAlertnessStateChanged'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.18"
+    },
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "State",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "BP_OnDeath",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:BP_OnDeath'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.17"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_MeleeBlackKnight_Character",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_FClamp_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Event_State",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EAlertnessState'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_FClamp_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SetScalarParameterValue_Value_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_AI_Biped_Base_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__FinishedFunc",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Timeline_0__UpdateFunc",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UserConstructionScript",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:UserConstructionScript'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOverlayMaterial_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateDynamicMaterialInstance_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetMaterial_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_CreateDynamicMaterialInstance_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_AI_Biped_Base_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.23"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Template": {
+      "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.24"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Multiplier": 1.25
+    }
+  },
+  {
+    "Type": "HitPointTypeModule",
+    "Name": "HitPointTypeModule_0",
+    "Outer": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Class": "UScriptClass'HitPointTypeModule'",
+    "Template": {
+      "ObjectName": "HitPointTypeModule'BP_AI_Biped_Base_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointTypeModule_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.25"
+    },
+    "Flags": "RF_Public | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiDeathComponent_C'BP_AI_MeleeBlackKnight_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiDeathComponent",
+            "AssociatedGuid": "0CC921EB-43120990-5809CDA9-007BAF5B"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StaticMeshComponent'BP_AI_MeleeBlackKnight_Character_C:Weapon_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.64"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "Weapon",
+            "AssociatedGuid": "3A7ED551-4C0089F7-85CE76AD-FBBF5A2C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'LootDropComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "LootDropComponent'BP_AI_MeleeBlackKnight_Character_C:LootDrop_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.38"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "LootDrop",
+            "AssociatedGuid": "E788FAC4-403B8549-0048D999-D6CFFA57"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_MeleeBlackKnight_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.10"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHitPointsComponent",
+            "AssociatedGuid": "4C173E0F-43676F3E-9ECDF0B3-5A6DE610"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiHealthBarComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_MeleeBlackKnight_Character_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.9"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiHealthBarComponent",
+            "AssociatedGuid": "6A8FB227-4EDA65EE-1F2AF5A1-22343270"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'AIAudioManagerComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "AIAudioManagerComponent'BP_AI_MeleeBlackKnight_Character_C:AIAudioManager_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+            },
+            "SCSVariableName": "AIAudioManager",
+            "AssociatedGuid": "A67185B4-4154555F-CC1F3980-144D6B0F"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'LootDropComponent'",
+    "Template": {
+      "ObjectName": "LootDropComponent'BP_AI_Biped_Base_C:LootDrop_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.27"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable_DowdunReach'",
+          "ObjectPath": "/DowdunReach/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable_DowdunReach"
+        },
+        "RowName": "Knight_Black_1H"
+      }
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_Corruption_Aura_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_BlackKnight_Corruption_Method1'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/BlackKnight/Corruption/NS_BlackKnight_Corruption_Method1"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "AnimationPhase",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.AnimationPhase",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "ColorA",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.ColorA",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "ColourCurveA",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceColorCurve'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.ColourCurveA",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceColorCurve'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "ColourCurveB",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceColorCurve'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.ColourCurveB",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceColorCurve'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "RibbonEmissive",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.RibbonEmissive",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "RibbonWidth",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.RibbonWidth",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.AnimationPhase",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.ColorA",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.ColourCurveA",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceColorCurve'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 1,
+            "Name": "User.ColourCurveB",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceColorCurve'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 40,
+            "Name": "User.RibbonEmissive",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 36,
+            "Name": "User.RibbonWidth",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          0,
+          63,
+          205,
+          132,
+          8,
+          63,
+          110,
+          165,
+          192,
+          62,
+          128,
+          35,
+          203,
+          62,
+          0,
+          0,
+          0,
+          63,
+          0,
+          0,
+          32,
+          62,
+          0,
+          0,
+          32,
+          62,
+          0,
+          0,
+          32,
+          62,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          200,
+          66,
+          0,
+          0,
+          200,
+          66
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceColorCurve'BP_AI_MeleeBlackKnight_Character_C:VFX_Corruption_Aura_GEN_VARIABLE.NiagaraDataInterfaceColorCurve_2'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.43"
+          },
+          {
+            "ObjectName": "NiagaraDataInterfaceColorCurve'BP_AI_MeleeBlackKnight_Character_C:VFX_Corruption_Aura_GEN_VARIABLE.NiagaraDataInterfaceColorCurve_3'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.44"
+          }
+        ]
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      },
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "VFX_VisorGlint_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_DeathKnight_Glint'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/BlackKnight/Visor_Glint/NS_DeathKnight_Glint"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": 5.2347436,
+        "Y": 17.69084,
+        "Z": 0.14273013
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceColorCurve",
+    "Name": "NiagaraDataInterfaceColorCurve_0",
+    "Outer": "VFX_Corruption_Aura_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceColorCurve'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ShaderLUT": [
+        0.8879231,
+        0.7912979,
+        0.6866853,
+        0.0,
+        0.8866284,
+        0.74992484,
+        0.6660853,
+        0.0,
+        0.88533366,
+        0.7085518,
+        0.6454852,
+        0.0,
+        0.8840389,
+        0.66717875,
+        0.6248852,
+        0.0,
+        0.8827442,
+        0.6258057,
+        0.6042852,
+        0.0,
+        0.88144946,
+        0.58443266,
+        0.58368516,
+        0.0,
+        0.8801547,
+        0.5430596,
+        0.56308514,
+        0.0,
+        0.87886,
+        0.5016866,
+        0.54248506,
+        0.0,
+        0.87756526,
+        0.46031347,
+        0.52188504,
+        0.0,
+        0.87627053,
+        0.41894042,
+        0.50128496,
+        0.0,
+        0.8749758,
+        0.37756738,
+        0.48068494,
+        0.0,
+        0.87368107,
+        0.33619434,
+        0.46008492,
+        0.0,
+        0.87238634,
+        0.29482132,
+        0.4394849,
+        0.0,
+        0.8641232,
+        0.2597404,
+        0.4216461,
+        0.0,
+        0.83007574,
+        0.24794176,
+        0.4140243,
+        0.0,
+        0.79602826,
+        0.2361431,
+        0.4064025,
+        0.0,
+        0.7619807,
+        0.22434443,
+        0.39878073,
+        0.0,
+        0.7279332,
+        0.2125458,
+        0.39115894,
+        0.0,
+        0.6938856,
+        0.2007471,
+        0.38353714,
+        0.0,
+        0.6598382,
+        0.18894847,
+        0.37591538,
+        0.0,
+        0.6257906,
+        0.17714979,
+        0.36829358,
+        0.0,
+        0.5917431,
+        0.16535115,
+        0.36067182,
+        0.0,
+        0.5576956,
+        0.15355247,
+        0.35305002,
+        0.0,
+        0.5236481,
+        0.14175382,
+        0.34542823,
+        0.0,
+        0.4896006,
+        0.12995517,
+        0.33780646,
+        0.0,
+        0.45555308,
+        0.11815651,
+        0.3301847,
+        0.0,
+        0.42150557,
+        0.10635786,
+        0.3225629,
+        0.0,
+        0.387458,
+        0.09455918,
+        0.3149411,
+        0.0,
+        0.35341054,
+        0.08276053,
+        0.30731934,
+        0.0,
+        0.32204258,
+        0.072068326,
+        0.29958802,
+        0.0,
+        0.3121294,
+        0.07023524,
+        0.29097953,
+        0.0,
+        0.30221626,
+        0.068402156,
+        0.28237107,
+        0.0,
+        0.2923031,
+        0.06656907,
+        0.27376258,
+        0.0,
+        0.28238994,
+        0.06473599,
+        0.26515412,
+        0.0,
+        0.2724768,
+        0.062902905,
+        0.25654566,
+        0.0,
+        0.2625636,
+        0.061069816,
+        0.24793717,
+        0.0,
+        0.2526504,
+        0.059236728,
+        0.23932868,
+        0.0,
+        0.24273726,
+        0.057403646,
+        0.23072022,
+        0.0,
+        0.23282412,
+        0.055570565,
+        0.22211176,
+        0.0,
+        0.22291097,
+        0.053737484,
+        0.2135033,
+        0.0,
+        0.21299776,
+        0.051904388,
+        0.20489478,
+        0.0,
+        0.20308462,
+        0.050071307,
+        0.19628632,
+        0.0,
+        0.19317147,
+        0.048238225,
+        0.18767786,
+        0.0,
+        0.18325832,
+        0.046405144,
+        0.1790694,
+        0.0,
+        0.17334513,
+        0.044572055,
+        0.1704609,
+        0.0,
+        0.163432,
+        0.042738974,
+        0.16185245,
+        0.0,
+        0.15351881,
+        0.040905885,
+        0.15324396,
+        0.0,
+        0.14360566,
+        0.039072804,
+        0.14463548,
+        0.0,
+        0.13369252,
+        0.037239723,
+        0.13602704,
+        0.0,
+        0.12377934,
+        0.035406634,
+        0.12741855,
+        0.0,
+        0.113866195,
+        0.033573557,
+        0.11881009,
+        0.0,
+        0.10395302,
+        0.031740468,
+        0.1102016,
+        0.0,
+        0.09403986,
+        0.029907383,
+        0.10159314,
+        0.0,
+        0.08412668,
+        0.028074294,
+        0.09298465,
+        0.0,
+        0.074213564,
+        0.026241222,
+        0.08437621,
+        0.0
+      ],
+      "LUTMinTime": 0.001,
+      "LUTMaxTime": 0.9687112,
+      "LUTInvTimeRange": 1.0333661,
+      "LUTNumSamplesMinusOne": 54.0
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceColorCurve",
+    "Name": "NiagaraDataInterfaceColorCurve_1",
+    "Outer": "VFX_Corruption_Aura_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceColorCurve'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ShaderLUT": [
+        0.8879231,
+        0.7912979,
+        0.6866853,
+        0.0,
+        0.88669276,
+        0.751981,
+        0.6671091,
+        0.0,
+        0.88546234,
+        0.7126641,
+        0.6475328,
+        0.0,
+        0.884232,
+        0.6733473,
+        0.62795657,
+        0.0,
+        0.88300157,
+        0.6340304,
+        0.6083803,
+        0.0,
+        0.8817712,
+        0.5947135,
+        0.58880407,
+        0.0,
+        0.88054085,
+        0.5553967,
+        0.5692278,
+        0.0,
+        0.8793104,
+        0.5160798,
+        0.5496516,
+        0.0,
+        0.87808007,
+        0.47676286,
+        0.5300753,
+        0.0,
+        0.87684965,
+        0.43744597,
+        0.51049906,
+        0.0,
+        0.8756193,
+        0.3981291,
+        0.49092284,
+        0.0,
+        0.8743889,
+        0.35881224,
+        0.47134662,
+        0.0,
+        0.8731585,
+        0.31949538,
+        0.45177037,
+        0.0,
+        0.87192816,
+        0.2801785,
+        0.4321941,
+        0.0,
+        0.8528944,
+        0.25584924,
+        0.4191324,
+        0.0,
+        0.8189383,
+        0.24408224,
+        0.4115311,
+        0.0,
+        0.78498214,
+        0.23231524,
+        0.40392977,
+        0.0,
+        0.75102603,
+        0.22054824,
+        0.39632845,
+        0.0,
+        0.71706986,
+        0.20878126,
+        0.38872713,
+        0.0,
+        0.68311375,
+        0.19701427,
+        0.3811258,
+        0.0,
+        0.64915764,
+        0.18524729,
+        0.37352446,
+        0.0,
+        0.61520153,
+        0.1734803,
+        0.36592314,
+        0.0,
+        0.5812454,
+        0.16171332,
+        0.35832182,
+        0.0,
+        0.54728925,
+        0.14994633,
+        0.3507205,
+        0.0,
+        0.5133332,
+        0.13817933,
+        0.34311917,
+        0.0,
+        0.47937706,
+        0.12641235,
+        0.33551785,
+        0.0,
+        0.44542095,
+        0.11464538,
+        0.32791653,
+        0.0,
+        0.4114648,
+        0.10287838,
+        0.3203152,
+        0.0,
+        0.3775087,
+        0.09111139,
+        0.3127139,
+        0.0,
+        0.34355265,
+        0.07934444,
+        0.3051126,
+        0.0,
+        0.31923324,
+        0.071548834,
+        0.2971484,
+        0.0,
+        0.30943242,
+        0.069736525,
+        0.2886375,
+        0.0,
+        0.29963163,
+        0.06792422,
+        0.2801266,
+        0.0,
+        0.28983086,
+        0.06611192,
+        0.27161574,
+        0.0,
+        0.28003007,
+        0.06429961,
+        0.26310483,
+        0.0,
+        0.27022928,
+        0.062487308,
+        0.25459394,
+        0.0,
+        0.2604285,
+        0.060675003,
+        0.24608305,
+        0.0,
+        0.25062773,
+        0.058862705,
+        0.2375722,
+        0.0,
+        0.24082693,
+        0.057050396,
+        0.22906129,
+        0.0,
+        0.23102614,
+        0.05523809,
+        0.2205504,
+        0.0,
+        0.22122535,
+        0.05342579,
+        0.21203953,
+        0.0,
+        0.21142457,
+        0.051613484,
+        0.20352864,
+        0.0,
+        0.20162378,
+        0.04980118,
+        0.19501776,
+        0.0,
+        0.191823,
+        0.047988877,
+        0.18650687,
+        0.0,
+        0.18202221,
+        0.04617657,
+        0.17799598,
+        0.0,
+        0.17222144,
+        0.044364266,
+        0.16948509,
+        0.0,
+        0.16242065,
+        0.042551965,
+        0.1609742,
+        0.0,
+        0.15261987,
+        0.04073966,
+        0.15246333,
+        0.0,
+        0.14281909,
+        0.038927354,
+        0.14395244,
+        0.0,
+        0.1330183,
+        0.03711505,
+        0.13544154,
+        0.0,
+        0.12321752,
+        0.035302747,
+        0.12693067,
+        0.0,
+        0.11341673,
+        0.03349044,
+        0.11841978,
+        0.0,
+        0.103615955,
+        0.03167814,
+        0.10990891,
+        0.0,
+        0.09381516,
+        0.029865835,
+        0.101398006,
+        0.0,
+        0.084014386,
+        0.02805353,
+        0.09288713,
+        0.0,
+        0.074213594,
+        0.026241224,
+        0.084376246,
+        0.0
+      ],
+      "LUTMinTime": 0.016,
+      "LUTMaxTime": 0.9755815,
+      "LUTInvTimeRange": 1.0421209,
+      "LUTNumSamplesMinusOne": 55.0
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceColorCurve",
+    "Name": "NiagaraDataInterfaceColorCurve_2",
+    "Outer": "VFX_Corruption_Aura_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceColorCurve'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ShaderLUT": [
+        0.8879231,
+        0.7912979,
+        0.6866853,
+        0.0,
+        0.8866284,
+        0.74992484,
+        0.6660853,
+        0.0,
+        0.88533366,
+        0.7085518,
+        0.6454852,
+        0.0,
+        0.8840389,
+        0.66717875,
+        0.6248852,
+        0.0,
+        0.8827442,
+        0.6258057,
+        0.6042852,
+        0.0,
+        0.88144946,
+        0.58443266,
+        0.58368516,
+        0.0,
+        0.8801547,
+        0.5430596,
+        0.56308514,
+        0.0,
+        0.87886,
+        0.5016866,
+        0.54248506,
+        0.0,
+        0.87756526,
+        0.46031347,
+        0.52188504,
+        0.0,
+        0.87627053,
+        0.41894042,
+        0.50128496,
+        0.0,
+        0.8749758,
+        0.37756738,
+        0.48068494,
+        0.0,
+        0.87368107,
+        0.33619434,
+        0.46008492,
+        0.0,
+        0.87238634,
+        0.29482132,
+        0.4394849,
+        0.0,
+        0.8641232,
+        0.2597404,
+        0.4216461,
+        0.0,
+        0.83007574,
+        0.24794176,
+        0.4140243,
+        0.0,
+        0.79602826,
+        0.2361431,
+        0.4064025,
+        0.0,
+        0.7619807,
+        0.22434443,
+        0.39878073,
+        0.0,
+        0.7279332,
+        0.2125458,
+        0.39115894,
+        0.0,
+        0.6938856,
+        0.2007471,
+        0.38353714,
+        0.0,
+        0.6598382,
+        0.18894847,
+        0.37591538,
+        0.0,
+        0.6257906,
+        0.17714979,
+        0.36829358,
+        0.0,
+        0.5917431,
+        0.16535115,
+        0.36067182,
+        0.0,
+        0.5576956,
+        0.15355247,
+        0.35305002,
+        0.0,
+        0.5236481,
+        0.14175382,
+        0.34542823,
+        0.0,
+        0.4896006,
+        0.12995517,
+        0.33780646,
+        0.0,
+        0.45555308,
+        0.11815651,
+        0.3301847,
+        0.0,
+        0.42150557,
+        0.10635786,
+        0.3225629,
+        0.0,
+        0.387458,
+        0.09455918,
+        0.3149411,
+        0.0,
+        0.35341054,
+        0.08276053,
+        0.30731934,
+        0.0,
+        0.32204258,
+        0.072068326,
+        0.29958802,
+        0.0,
+        0.3121294,
+        0.07023524,
+        0.29097953,
+        0.0,
+        0.30221626,
+        0.068402156,
+        0.28237107,
+        0.0,
+        0.2923031,
+        0.06656907,
+        0.27376258,
+        0.0,
+        0.28238994,
+        0.06473599,
+        0.26515412,
+        0.0,
+        0.2724768,
+        0.062902905,
+        0.25654566,
+        0.0,
+        0.2625636,
+        0.061069816,
+        0.24793717,
+        0.0,
+        0.2526504,
+        0.059236728,
+        0.23932868,
+        0.0,
+        0.24273726,
+        0.057403646,
+        0.23072022,
+        0.0,
+        0.23282412,
+        0.055570565,
+        0.22211176,
+        0.0,
+        0.22291097,
+        0.053737484,
+        0.2135033,
+        0.0,
+        0.21299776,
+        0.051904388,
+        0.20489478,
+        0.0,
+        0.20308462,
+        0.050071307,
+        0.19628632,
+        0.0,
+        0.19317147,
+        0.048238225,
+        0.18767786,
+        0.0,
+        0.18325832,
+        0.046405144,
+        0.1790694,
+        0.0,
+        0.17334513,
+        0.044572055,
+        0.1704609,
+        0.0,
+        0.163432,
+        0.042738974,
+        0.16185245,
+        0.0,
+        0.15351881,
+        0.040905885,
+        0.15324396,
+        0.0,
+        0.14360566,
+        0.039072804,
+        0.14463548,
+        0.0,
+        0.13369252,
+        0.037239723,
+        0.13602704,
+        0.0,
+        0.12377934,
+        0.035406634,
+        0.12741855,
+        0.0,
+        0.113866195,
+        0.033573557,
+        0.11881009,
+        0.0,
+        0.10395302,
+        0.031740468,
+        0.1102016,
+        0.0,
+        0.09403986,
+        0.029907383,
+        0.10159314,
+        0.0,
+        0.08412668,
+        0.028074294,
+        0.09298465,
+        0.0,
+        0.074213564,
+        0.026241222,
+        0.08437621,
+        0.0
+      ],
+      "LUTMinTime": 0.001,
+      "LUTMaxTime": 0.9687112,
+      "LUTInvTimeRange": 1.0333661,
+      "LUTNumSamplesMinusOne": 54.0
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceColorCurve",
+    "Name": "NiagaraDataInterfaceColorCurve_3",
+    "Outer": "VFX_Corruption_Aura_GEN_VARIABLE",
+    "Class": "UScriptClass'NiagaraDataInterfaceColorCurve'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ShaderLUT": [
+        0.8879231,
+        0.7912979,
+        0.6866853,
+        0.0,
+        0.88669276,
+        0.751981,
+        0.6671091,
+        0.0,
+        0.88546234,
+        0.7126641,
+        0.6475328,
+        0.0,
+        0.884232,
+        0.6733473,
+        0.62795657,
+        0.0,
+        0.88300157,
+        0.6340304,
+        0.6083803,
+        0.0,
+        0.8817712,
+        0.5947135,
+        0.58880407,
+        0.0,
+        0.88054085,
+        0.5553967,
+        0.5692278,
+        0.0,
+        0.8793104,
+        0.5160798,
+        0.5496516,
+        0.0,
+        0.87808007,
+        0.47676286,
+        0.5300753,
+        0.0,
+        0.87684965,
+        0.43744597,
+        0.51049906,
+        0.0,
+        0.8756193,
+        0.3981291,
+        0.49092284,
+        0.0,
+        0.8743889,
+        0.35881224,
+        0.47134662,
+        0.0,
+        0.8731585,
+        0.31949538,
+        0.45177037,
+        0.0,
+        0.87192816,
+        0.2801785,
+        0.4321941,
+        0.0,
+        0.8528944,
+        0.25584924,
+        0.4191324,
+        0.0,
+        0.8189383,
+        0.24408224,
+        0.4115311,
+        0.0,
+        0.78498214,
+        0.23231524,
+        0.40392977,
+        0.0,
+        0.75102603,
+        0.22054824,
+        0.39632845,
+        0.0,
+        0.71706986,
+        0.20878126,
+        0.38872713,
+        0.0,
+        0.68311375,
+        0.19701427,
+        0.3811258,
+        0.0,
+        0.64915764,
+        0.18524729,
+        0.37352446,
+        0.0,
+        0.61520153,
+        0.1734803,
+        0.36592314,
+        0.0,
+        0.5812454,
+        0.16171332,
+        0.35832182,
+        0.0,
+        0.54728925,
+        0.14994633,
+        0.3507205,
+        0.0,
+        0.5133332,
+        0.13817933,
+        0.34311917,
+        0.0,
+        0.47937706,
+        0.12641235,
+        0.33551785,
+        0.0,
+        0.44542095,
+        0.11464538,
+        0.32791653,
+        0.0,
+        0.4114648,
+        0.10287838,
+        0.3203152,
+        0.0,
+        0.3775087,
+        0.09111139,
+        0.3127139,
+        0.0,
+        0.34355265,
+        0.07934444,
+        0.3051126,
+        0.0,
+        0.31923324,
+        0.071548834,
+        0.2971484,
+        0.0,
+        0.30943242,
+        0.069736525,
+        0.2886375,
+        0.0,
+        0.29963163,
+        0.06792422,
+        0.2801266,
+        0.0,
+        0.28983086,
+        0.06611192,
+        0.27161574,
+        0.0,
+        0.28003007,
+        0.06429961,
+        0.26310483,
+        0.0,
+        0.27022928,
+        0.062487308,
+        0.25459394,
+        0.0,
+        0.2604285,
+        0.060675003,
+        0.24608305,
+        0.0,
+        0.25062773,
+        0.058862705,
+        0.2375722,
+        0.0,
+        0.24082693,
+        0.057050396,
+        0.22906129,
+        0.0,
+        0.23102614,
+        0.05523809,
+        0.2205504,
+        0.0,
+        0.22122535,
+        0.05342579,
+        0.21203953,
+        0.0,
+        0.21142457,
+        0.051613484,
+        0.20352864,
+        0.0,
+        0.20162378,
+        0.04980118,
+        0.19501776,
+        0.0,
+        0.191823,
+        0.047988877,
+        0.18650687,
+        0.0,
+        0.18202221,
+        0.04617657,
+        0.17799598,
+        0.0,
+        0.17222144,
+        0.044364266,
+        0.16948509,
+        0.0,
+        0.16242065,
+        0.042551965,
+        0.1609742,
+        0.0,
+        0.15261987,
+        0.04073966,
+        0.15246333,
+        0.0,
+        0.14281909,
+        0.038927354,
+        0.14395244,
+        0.0,
+        0.1330183,
+        0.03711505,
+        0.13544154,
+        0.0,
+        0.12321752,
+        0.035302747,
+        0.12693067,
+        0.0,
+        0.11341673,
+        0.03349044,
+        0.11841978,
+        0.0,
+        0.103615955,
+        0.03167814,
+        0.10990891,
+        0.0,
+        0.09381516,
+        0.029865835,
+        0.101398006,
+        0.0,
+        0.084014386,
+        0.02805353,
+        0.09288713,
+        0.0,
+        0.074213594,
+        0.026241224,
+        0.084376246,
+        0.0
+      ],
+      "LUTMinTime": 0.016,
+      "LUTMaxTime": 0.9755815,
+      "LUTInvTimeRange": 1.0421209,
+      "LUTNumSamplesMinusOne": 55.0
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "ActiveBlockDirection_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -0.46668884,
+        "Y": 30.000944,
+        "Z": 124.33859
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 89.89085,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "PassiveBlockDirection_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 38.07461,
+        "Y": 10.277256,
+        "Z": 123.95423
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 50.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_MeleeBlackKnight_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.46"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_AI_MeleeBlackKnight_Character_C:VFX_Visor_Aura_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.63"
+      },
+      "VariableGUID": "DD706C7D-4CC3D388-617E7DA5-87884001",
+      "InternalVariableName": "VFX_Visor_Aura"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_MeleeBlackKnight_Character_C:PassiveBlockDirection_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.47"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "BD7AF92E-466AA797-9D82A5AC-E7F28F57",
+      "InternalVariableName": "PassiveBlockDirection"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_BlackKnight_AttackOpportunityComponent_C'",
+        "ObjectPath": "/DowdunReach/Gameplay/AI/BlackKnightFaction/BP_BlackKnight_AttackOpportunityComponent"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_BlackKnight_AttackOpportunityComponent_C'BP_AI_MeleeBlackKnight_Character_C:BP_BlackKnight_AttackOpportunityComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.11"
+      },
+      "VariableGUID": "A2100C43-4469C1F2-1ED93ABF-85998A23",
+      "InternalVariableName": "BP_BlackKnight_AttackOpportunityComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'AIBlockingComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "AIBlockingComponent'BP_AI_MeleeBlackKnight_Character_C:AIBlockingComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.2"
+      },
+      "VariableGUID": "B563E50B-44220EC9-B7C91DB3-EC57A4CF",
+      "InternalVariableName": "AIBlockingComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_MeleeBlackKnight_Character_C:VFX_Corruption_Aura_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.39"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "0E684AD1-401E3F56-7DFC97B1-BD326C40",
+      "InternalVariableName": "VFX_Corruption_Aura"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SkeletonMelee_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_SkeletonMelee_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_SkeletonMelee_AiCombatModeInitiator_C'BP_AI_MeleeBlackKnight_Character_C:BP_SkeletonMelee_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.12"
+      },
+      "VariableGUID": "4BB4258D-4DDD899B-78C1A698-E73C48DE",
+      "InternalVariableName": "BP_SkeletonMelee_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_AI_MeleeBlackKnight_Character_C:WeakPoint_Head_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.61"
+      },
+      "AttachToName": "head",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.56"
+        }
+      ],
+      "VariableGUID": "6DF29A9A-4CFB5F47-C66CBCBE-76B249E1",
+      "InternalVariableName": "WeakPoint_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_MeleeBlackKnight_Character_C:VFX_VisorGlint_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.40"
+      },
+      "VariableGUID": "4E35D598-4A7D83CC-8792E7A9-C2F2B947",
+      "InternalVariableName": "VFX_VisorGlint"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_AI_MeleeBlackKnight_Character_C:Shield_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.62"
+      },
+      "AttachToName": "prop_l",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "290A237B-4A80CB77-5B78E4BF-23ECB8D9",
+      "InternalVariableName": "Shield"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_MeleeBlackKnight_Character_C:ActiveBlockDirection_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.45"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "51DAEC80-452992B0-ABE8E996-1844EE3D",
+      "InternalVariableName": "ActiveBlockDirection"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.52"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.55"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.54"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.49"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.53"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.56"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.57"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.50"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.58"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.51"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.52"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_MeleeBlackKnight_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.48"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Biped_Base_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.42"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_U_MED_BlackKnightMelee_C'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Black_Knight_Melee_01/ABP_U_MED_BlackKnightMelee"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Black_Knight_Melee_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Black_Knight_Melee_01/SK_M_MED_Black_Knight_Melee_01"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_M_MED_Black_Knight_Melee_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/NPC/Humanoid/M_MED_Black_Knight_Melee_01/SK_M_MED_Black_Knight_Melee_01"
+      },
+      "bPerBoneMotionBlur": false,
+      "OverrideMaterials": [
+        null
+      ],
+      "CustomPrimitiveData": {
+        "Data": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_MeleeBlackKnight_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.13"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -85.0
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "WeakPoint_Head_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 30.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 5.0,
+        "Y": 5.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Shield_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_M_MED_Black_Knight_Melee_Kite_1H_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/Weapons/Faction/M_MED_Black_Knight_Melee_Kite_1H_01/SM_M_MED_Black_Knight_Melee_Kite_1H_01"
+      },
+      "OverlayMaterial": {
+        "ObjectName": "MaterialInstanceConstant'MI_Overlay_ShieldBash_Glow_01'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Library/Character/BlackKnight/Materials/MI_Overlay_ShieldBash_Glow_01"
+      },
+      "bGenerateOverlapEvents": false,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "VFX_Visor_Aura_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_BlackKnight_VisorAura_01'",
+        "ObjectPath": "/DowdunReach/Art/VFX/Enemies/BlackKnight/Visor_Aura/SM_BlackKnight_VisorAura_01"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_VFX_BlackKnight_Visor_Look5'",
+          "ObjectPath": "/DowdunReach/Art/VFX/Enemies/BlackKnight/Visor_Aura/MI_VFX_BlackKnight_Visor_Look5"
+        }
+      ],
+      "RelativeLocation": {
+        "X": 24.60014,
+        "Y": -27.127298,
+        "Z": -5.0807123
+      },
+      "RelativeRotation": {
+        "Pitch": 81.90618,
+        "Yaw": -90.00001,
+        "Roll": 65.66343
+      },
+      "RelativeScale3D": {
+        "X": 0.16,
+        "Y": 0.228704,
+        "Z": 2.879042
+      },
+      "bVisible": false
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Weapon_GEN_VARIABLE",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'BP_AI_Biped_Base_C:Weapon_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.43"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_M_MED_Black_Knight_Melee_Sword_1H_01'",
+        "ObjectPath": "/DowdunReach/Art/Skeleton/Weapons/Faction/M_MED_Black_Knight_Melee_Sword_1H_01/SM_M_MED_Black_Knight_Melee_Sword_1H_01"
+      },
+      "bEvaluateWorldPositionOffsetInRayTracing": true,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_M_MED_Black_Knight_Melee_Sword_1H'",
+          "ObjectPath": "/DowdunReach/Art/Skeleton/Weapons/Faction/M_MED_Black_Knight_Melee_Sword_1H_01/Materials/MI_M_MED_Black_Knight_Melee_Sword_1H"
+        }
+      ],
+      "bAffectDistanceFieldLighting": false,
+      "RelativeScale3D": {
+        "X": 0.7,
+        "Y": 1.0,
+        "Z": 0.8
+      },
+      "bCanEverAffectNavigation": false
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Aura_Startup_Reverse_Template",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 1.0,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_MeleeBlackKnight_Character_C:CurveFloat_0_3'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.16"
+          },
+          "PropertyName": "Aura_Startup_Reverse_NewTrack_0_936A2B5042A1AC1C858C49814777D274",
+          "TrackName": "NewTrack_0",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "936A2B50-42A1AC1C-858C4981-4777D274",
+      "VariableName": "Aura_Startup_Reverse",
+      "DirectionPropertyName": "Aura_Startup_Reverse__Direction_936A2B5042A1AC1C858C49814777D274",
+      "UpdateFunctionName": "Aura_Startup_Reverse__UpdateFunc",
+      "FinishedFunctionName": "Aura_Startup_Reverse__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Aura_Startup_Template",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 1.0,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_MeleeBlackKnight_Character_C:CurveFloat_0'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.15"
+          },
+          "PropertyName": "Aura_Startup_NewTrack_0_5028829843F86C94EBF30CBB847C48FD",
+          "TrackName": "NewTrack_0",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "50288298-43F86C94-EBF30CBB-847C48FD",
+      "VariableName": "Aura_Startup",
+      "DirectionPropertyName": "Aura_Startup__Direction_5028829843F86C94EBF30CBB847C48FD",
+      "UpdateFunctionName": "Aura_Startup__UpdateFunc",
+      "FinishedFunctionName": "Aura_Startup__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TimelineTemplate",
+    "Name": "Timeline_0_Template",
+    "Outer": "BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'TimelineTemplate'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TimelineLength": 1.0,
+      "FloatTracks": [
+        {
+          "CurveFloat": {
+            "ObjectName": "CurveFloat'BP_AI_MeleeBlackKnight_Character_C:CurveFloat_0_3_4'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/AI/BlackKnightFaction/MeleeBlackKnight/BP_AI_MeleeBlackKnight_Character.17"
+          },
+          "PropertyName": "Timeline_0_NewTrack_0_4416DCB94F3D4BE4C754C3BC8199FFD6",
+          "TrackName": "NewTrack_0",
+          "bIsExternalCurve": false
+        }
+      ],
+      "TimelineGuid": "4416DCB9-4F3D4BE4-C754C3BC-8199FFD6",
+      "VariableName": "Timeline_0",
+      "DirectionPropertyName": "Timeline_0__Direction_4416DCB94F3D4BE4C754C3BC8199FFD6",
+      "UpdateFunctionName": "Timeline_0__UpdateFunc",
+      "FinishedFunctionName": "Timeline_0__FinishedFunc"
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": "Default__BP_AI_MeleeBlackKnight_Character_C",
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Biped_Base_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.45"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SlowEffectConfig": {
+        "MaximumValue": 0.4
+      }
+    }
+  }
+]

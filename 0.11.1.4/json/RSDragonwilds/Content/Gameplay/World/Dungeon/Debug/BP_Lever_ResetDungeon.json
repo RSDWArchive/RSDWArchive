@@ -1,0 +1,970 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NumReplicatedProperties": 1,
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'BP_Lever_ResetDungeon_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.2"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.20"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_Lever_ResetDungeon_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.10"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:ExecuteUbergraph_BP_Lever_ResetDungeon'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.5"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'WorldActor'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:OnRep_HasBeenActivated'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.6"
+      },
+      {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:ResetLever'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.8"
+      },
+      {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:TryActivateLever'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.9"
+      },
+      {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:BndEvt__Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.3"
+      },
+      {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:ResetActor'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.7"
+      },
+      {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:DeleteDungeon_Message'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.4"
+      },
+      {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:ExecuteUbergraph_BP_Lever_ResetDungeon'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.5"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TextRender",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'TextRenderComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StaticMesh_Base",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_StatuePlinth02",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Interaction",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'InteractionComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InteractSphere",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SphereComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StaticMesh_Lever",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "HasBeenActivated",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | Net | DisableEditOnInstance | RepNotify",
+        "RepNotifyFunc": "OnRep_HasBeenActivated",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DungeonTeleport",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | ExposeOnSpawn",
+        "PropertyClass": {
+          "ObjectName": "Class'DungeonTeleport'",
+          "ObjectPath": "/Script/Dungeon"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "ResetSuccess_Text",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "ResetFail_Text",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_Lever_ResetDungeon": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:ExecuteUbergraph_BP_Lever_ResetDungeon'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.5"
+      },
+      "DeleteDungeon_Message": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:DeleteDungeon_Message'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.4"
+      },
+      "ResetActor": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:ResetActor'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.7"
+      },
+      "BndEvt__Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:BndEvt__Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.3"
+      },
+      "TryActivateLever": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:TryActivateLever'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.9"
+      },
+      "ResetLever": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:ResetLever'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.8"
+      },
+      "OnRep_HasBeenActivated": {
+        "ObjectName": "Function'BP_Lever_ResetDungeon_C:OnRep_HasBeenActivated'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.6"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'Resettable'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Lever_ResetDungeon_C'Default__BP_Lever_ResetDungeon_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=\"/Script/CoreUObject.Class'/Script/Dominion.Resettable'\"))"
+    }
+  },
+  {
+    "Type": "BP_Lever_ResetDungeon_C",
+    "Name": "Default__BP_Lever_ResetDungeon_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.BP_Lever_ResetDungeon_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "ResetSuccess_Text": {
+        "Namespace": "",
+        "Key": "D6C38B9C48F1024401433C8115A5C693",
+        "SourceString": "Dungeon is Reset",
+        "LocalizedString": "Dungeon is Reset"
+      },
+      "ResetFail_Text": {
+        "Namespace": "",
+        "Key": "9BC031BC45CA42AE6B1A758895BE8372",
+        "SourceString": "The dungeon cannot be deleted:\r\nthere are players in it, \r\nor there is no dungeon",
+        "LocalizedString": "The dungeon cannot be deleted:\r\nthere are players in it, \r\nor there is no dungeon"
+      },
+      "DisplayName": {
+        "Namespace": "",
+        "Key": "F01270C54716B67B5BA3DE975370873F",
+        "SourceString": "Lever",
+        "LocalizedString": "Lever"
+      },
+      "NetDormancy": "ENetDormancy::DORM_Awake"
+    }
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "Interaction",
+          "DelegatePropertyName": "OnInteractionEvent",
+          "FunctionNameToBind": "BndEvt__Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__Interaction_K2Node_ComponentBoundEvent_0_OnInteraction__DelegateSignature",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "DeleteDungeon_Message",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsDeleted",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Net | FUNC_NetMulticast | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_Lever_ResetDungeon",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_ComponentBoundEvent_Player",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerCharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_CustomEvent_IsDeleted",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_Color",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Object'Color'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_Color_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "Object'Color'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnRep_HasBeenActivated",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Temp_struct_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetTimer_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "Struct": {
+          "ObjectName": "Object'TimerHandle'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeRotation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ResetActor",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ResetLever",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_GetEmptyText_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "TryActivateLever",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasAuthority_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_DeleteDungeon_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InteractionComponent",
+    "Name": "Interaction_GEN_VARIABLE",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'InteractionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InteractionPrompt": {
+        "Namespace": "",
+        "Key": "B1A5F81340C11E6633CADF8FA9374C20",
+        "SourceString": "Reset Dungeon",
+        "LocalizedString": "Reset Dungeon"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Lever_ResetDungeon_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.12"
+      },
+      "VariableGUID": "5B456AB5-4B4AD97E-B01449AF-8742FE48",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Lever_ResetDungeon_C:StaticMesh_Lever_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.24"
+      },
+      "VariableGUID": "A49E1B6A-4EAF9754-E32A758A-59493E89",
+      "InternalVariableName": "StaticMesh_Lever"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Lever_ResetDungeon_C:StaticMesh_Base_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.23"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.17"
+        }
+      ],
+      "VariableGUID": "21DE2621-4F881790-996C99BC-D5B7ED8F",
+      "InternalVariableName": "StaticMesh_Base"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SphereComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SphereComponent'BP_Lever_ResetDungeon_C:InteractSphere_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.21"
+      },
+      "VariableGUID": "BAE68CD7-44AC21C5-A75469B5-B29FB469",
+      "InternalVariableName": "InteractSphere"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'InteractionComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "InteractionComponent'BP_Lever_ResetDungeon_C:Interaction_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.11"
+      },
+      "VariableGUID": "5A317628-47AB4A30-8F66B7A1-B27D9F43",
+      "InternalVariableName": "Interaction"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_Lever_ResetDungeon_C:SM_StatuePlinth02_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.22"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.19"
+        }
+      ],
+      "VariableGUID": "13A9EF3B-4D16DAF6-63DAE482-9EC1A66A",
+      "InternalVariableName": "SM_StatuePlinth02"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'TextRenderComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TextRenderComponent'BP_Lever_ResetDungeon_C:TextRender_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.25"
+      },
+      "VariableGUID": "B21326B2-491BEA01-5E9BCCAE-208A1BA6",
+      "InternalVariableName": "TextRender"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.18"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.16"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.18"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.19"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Lever_ResetDungeon_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Dungeon/Debug/BP_Lever_ResetDungeon.13"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "InteractSphere_GEN_VARIABLE",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'SphereComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SphereRadius": 100.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "TraceOnlyWorldActor",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -3.7953377,
+        "Y": 0.0,
+        "Z": 41.03998
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.4209794,
+        "Z": 1.4209794
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_StatuePlinth02_GEN_VARIABLE",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_StatuePlinth01'",
+        "ObjectPath": "RSDragonwilds/Content/Marketplace/DepthsBelow/Geometry/Props/Statues/SM_StatuePlinth01.2"
+      },
+      "RelativeScale3D": {
+        "X": 0.8,
+        "Y": 0.8,
+        "Z": 0.695652
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMesh_Base_GEN_VARIABLE",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 129.37503
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMesh_Lever_GEN_VARIABLE",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -1.2164764,
+        "Y": -2.2888184E-05,
+        "Z": 5.2681565
+      }
+    }
+  },
+  {
+    "Type": "TextRenderComponent",
+    "Name": "TextRender_GEN_VARIABLE",
+    "Outer": "BP_Lever_ResetDungeon_C",
+    "Class": "UScriptClass'TextRenderComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Text": {
+        "CultureInvariantString": null
+      },
+      "TextMaterial": {
+        "ObjectName": "Material'DefaultTextMaterialTranslucentUnlit'",
+        "ObjectPath": "RSDragonwilds/Content/Marketplace/SmokeBuilder/DemoRoom/Materials/DefaultTextMaterialTranslucentUnlit.0"
+      },
+      "HorizontalAlignment": "EHorizTextAligment::EHTA_Center",
+      "WorldSize": 42.0,
+      "bAlwaysRenderAsText": true,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 330.6251
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": -0.0
+      },
+      "bReplicates": true
+    }
+  }
+]

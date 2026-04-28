@@ -1,0 +1,267 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Components_PlayerBlocking_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'PlayerBlockingComponent'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_Components_PlayerBlocking_C:SetParryWindowVFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_PlayerBlocking.3"
+      }
+    ],
+    "FuncMap": {
+      "SetParryWindowVFX": {
+        "ObjectName": "Function'BP_Components_PlayerBlocking_C:SetParryWindowVFX'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_PlayerBlocking.3"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Components_PlayerBlocking_C'Default__BP_Components_PlayerBlocking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_PlayerBlocking.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_Components_PlayerBlocking_C",
+    "Name": "Default__BP_Components_PlayerBlocking_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_PlayerBlocking.BP_Components_PlayerBlocking_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ParryWindowLength": 100.0,
+      "BareHandsBlockingDamageNegation": 5.0,
+      "ParryAnims": {
+        "ObjectName": "ParryAnimsData'DA_Player_ParryAnims'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/Animations/DA_Player_ParryAnims.0"
+      },
+      "ParryInvulnerability": {
+        "ObjectName": "BlueprintGeneratedClass'GE_Invulnerable_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_Invulnerable.0"
+      },
+      "BlockingEffect": {
+        "ObjectName": "BlueprintGeneratedClass'GE_BlockStaminaRegenPenalty_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_BlockStaminaRegenPenalty.0"
+      },
+      "DisableBlockQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Player.Status.Dead"
+          },
+          {
+            "TagName": "Player.Status.Resting"
+          },
+          {
+            "TagName": "Player.Status.Mounted"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          1,
+          3,
+          0,
+          1,
+          2
+        ],
+        "UserDescription": "Can block query",
+        "AutoDescription": " ANY( Player.Status.Dead, Player.Status.Resting, Player.Status.Mounted )"
+      },
+      "BlockGameplayEventTag": {
+        "TagName": "GameplayEvent.Combat.Block"
+      },
+      "DefaultParryPulse": {
+        "ParryPulseShape": {
+          "ObjectName": "DominionShape_Sphere'Default__BP_Components_PlayerBlocking_C:DominionShape_Sphere_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Components/BP_Components_PlayerBlocking.2"
+        },
+        "ParryPulseForce": 500.0,
+        "ParryPulseObjectTypes": [
+          "ObjectTypeQuery8"
+        ],
+        "ParryPulseActorClassFilter": {
+          "ObjectName": "Class'DominionAICharacter'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      "BlockXpEvent": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_XPEvents_PlayerActions'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Progress/XPEventTables/DT_XPEvents_PlayerActions.0"
+        },
+        "RowName": "Action_Block"
+      },
+      "ParryXpEvent": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_XPEvents_PlayerActions'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Progress/XPEventTables/DT_XPEvents_PlayerActions.0"
+        },
+        "RowName": "Action_Parry"
+      }
+    }
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": "Default__BP_Components_PlayerBlocking_C",
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Radius": 350.0,
+      "Offset": {
+        "X": 100.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "SetParryWindowVFX",
+    "Outer": "BP_Components_PlayerBlocking_C",
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "EquipmentActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'HeldEquipmentActor'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "MaterialParamValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetMaterials_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "ObjectProperty",
+          "Name": "CallFunc_GetMaterials_ReturnValue",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'MaterialInterface'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInterface'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsMaterial_Instance_Dynamic",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  }
+]

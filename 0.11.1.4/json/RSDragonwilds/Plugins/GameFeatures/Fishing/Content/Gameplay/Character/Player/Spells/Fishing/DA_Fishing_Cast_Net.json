@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "DominionSpellData",
+    "Name": "DA_Fishing_Cast_Net",
+    "Class": "UScriptClass'DominionSpellData'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SpecialRequirementsStrategy": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SpellSpecialRequirementsStrategy_StandingInFishingNode_Net_C'",
+        "ObjectPath": "/Fishing/Gameplay/Character/Player/Spells/Fishing/BP_SpellSpecialRequirementsStrategy_StandingInFishingNode_Net"
+      },
+      "Modules": {
+        "Modules": [
+          {
+            "Module": {
+              "ObjectName": "SpellModule_InputHoldingTracker'DA_Fishing_Cast_Net:SpellModule_InputHoldingTracker_0'",
+              "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/Character/Player/Spells/Fishing/DA_Fishing_Cast_Net.2"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_PlayMontage'DA_Fishing_Cast_Net:SpellModule_PlayMontage_0'",
+              "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/Character/Player/Spells/Fishing/DA_Fishing_Cast_Net.4"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_CostStamina'DA_Fishing_Cast_Net:SpellModule_CostStamina_0'",
+              "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/Character/Player/Spells/Fishing/DA_Fishing_Cast_Net.1"
+            }
+          },
+          {
+            "Module": {
+              "ObjectName": "SpellModule_NetFishing'DA_Fishing_Cast_Net:SpellModule_NetFishing_0'",
+              "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/Character/Player/Spells/Fishing/DA_Fishing_Cast_Net.3"
+            }
+          }
+        ]
+      },
+      "PersistenceID": "wvnP7EvQEAAA2RuhwcxELg",
+      "InternalName": "special_fishing_casting_net"
+    }
+  },
+  {
+    "Type": "SpellModule_CostStamina",
+    "Name": "SpellModule_CostStamina_0",
+    "Outer": "DA_Fishing_Cast_Net",
+    "Class": "UScriptClass'SpellModule_CostStamina'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Amount": 10.0,
+      "bStartExpiringWhenOutOfStamina": true,
+      "ModuleName": "CostStamina",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_NetFishing_CatchState_C'",
+          "ObjectPath": "/Fishing/Art/Animation/Animations/PlayerM/Skills/Fishing/AnimNotify/AnimNotify_NetFishing_CatchState"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_InputHoldingTracker",
+    "Name": "SpellModule_InputHoldingTracker_0",
+    "Outer": "DA_Fishing_Cast_Net",
+    "Class": "UScriptClass'SpellModule_InputHoldingTracker'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "InputHoldingLoopExitType": "EInputHoldingLoopExitType::CancelSpell",
+      "ModuleName": "InputHoldingTracker",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_StartCharging_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Player/AnimNotifies/AnimNotify_StartCharging.1"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_NetFishing",
+    "Name": "SpellModule_NetFishing_0",
+    "Outer": "DA_Fishing_Cast_Net",
+    "Class": "UScriptClass'SpellModule_NetFishing'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RequiredEquipmentCategory": {
+        "TagName": "Item.Equipment.Tool.Fishing.Net"
+      },
+      "LowPowerLevelNotification": {
+        "TagName": "UI.Notification.Fishing.Net.PowerLevelTooLow"
+      },
+      "FishingProbabilityPerLevelDifferences": [
+        0.65,
+        0.1,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "FishingNodeTraceCollisionChannel": "ECollisionChannel::ECC_GameTraceChannel5",
+      "ModuleName": "NetFishing",
+      "Triggers": {
+        "PlayMontageRef": {
+          "ModuleName": "PlayMontage"
+        },
+        "AnimNotifyClass": {
+          "ObjectName": "BlueprintGeneratedClass'AnimNotify_NetFishing_CatchState_C'",
+          "ObjectPath": "/Fishing/Art/Animation/Animations/PlayerM/Skills/Fishing/AnimNotify/AnimNotify_NetFishing_CatchState"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SpellModule_PlayMontage",
+    "Name": "SpellModule_PlayMontage_0",
+    "Outer": "DA_Fishing_Cast_Net",
+    "Class": "UScriptClass'SpellModule_PlayMontage'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Montage": {
+        "ObjectName": "AnimMontage'AM_PlayerM_Fishing_Net_Cast'",
+        "ObjectPath": "/Fishing/Art/Animation/Animations/PlayerM/Skills/Fishing/AM_PlayerM_Fishing_Net_Cast"
+      },
+      "bShouldRotateToCameraForward": false,
+      "bAllowTriggeringNotifiesMultipleTimes": true,
+      "ModuleName": "PlayMontage",
+      "Triggers": {
+        "bHasStateTrigger": true
+      }
+    }
+  }
+]
