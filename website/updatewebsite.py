@@ -54,7 +54,7 @@ def main() -> None:
         description=(
             "Master website update pipeline using website/data.config.json. "
             "By default runs website/tools/compiledata.py, which builds "
-            "ItemData, LocationData, MapData, BPData, LootData, NameData, NPCData, "
+            "ItemData, LocationData, MapData, BPData, GEData, LootData, NameData, NPCData, "
             "PlanData, ProgressionData, RecipeData, SpellData, VestigeData, and IconData. "
             "Use --skip-compile-data to skip that step."
         )
@@ -68,7 +68,7 @@ def main() -> None:
         "--skip-compile-data",
         action="store_true",
         help=(
-            "Skip website/tools/compiledata.py (Item, Location, Map, BP, Loot, Name, "
+            "Skip website/tools/compiledata.py (Item, Location, Map, BP, GE, Loot, Name, "
             "NPC, Plan, Progression, Recipe, Spell, Vestige, Icon data)."
         ),
     )

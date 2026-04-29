@@ -857,7 +857,7 @@ def main() -> None:
             "Compile dataset JSON using website config: Item, Location (chunk actors + PCG "
             "foliage ISMC, merged + wiki-filtered into LocationData.json), MapData "
             "(chunk-boundary GeoJSON overlays for Map.html), BPData (BP_* blueprint class "
-            "paths), Loot, Name, NPC, Plan, "
+            "paths), GEData (GE_* gameplay-effect class paths), Loot, Name, NPC, Plan, "
             "Progression, Recipe, Spell, Vestige, Icon."
         )
     )
@@ -889,6 +889,7 @@ def main() -> None:
     env["RSDW_LOOT_SOURCE_DIR"] = root_s
     env["RSDW_NPC_SOURCE_DIR"] = root_s
     env["RSDW_BP_SOURCE_DIR"] = root_s
+    env["RSDW_GE_SOURCE_DIR"] = root_s
     env["RSDW_PLAN_SOURCE_DIR"] = root_s
     env["RSDW_PROGRESSION_SOURCE_DIR"] = root_s
     env["RSDW_RECIPE_SOURCE_DIR"] = root_s
@@ -906,6 +907,7 @@ def main() -> None:
         tools / "LocationData" / "CompileLocationData.py",
         tools / "MapData" / "CompileMapData.py",
         tools / "BPData" / "CompileBPData.py",
+        tools / "GEData" / "CompileGEData.py",
         tools / "LootData" / "CompileLootData.py",
         tools / "NameData" / "CompileNameData.py",
         tools / "NPCData" / "CompileNPCData.py",
