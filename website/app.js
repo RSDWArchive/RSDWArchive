@@ -197,20 +197,33 @@ function displayPath(path) {
   return showFullPaths ? path : basename(path);
 }
 
-function splitTokens(query) {
-  return query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+/** @returns {{ positives: string[], negatives: string[] }} lowercased substrings */
+function parseSearchInclusiveExclusive(queryLower) {
+  const raw = queryLower.trim().split(/\s+/).filter(Boolean);
+  const positives = [];
+  const negatives = [];
+  for (const t of raw) {
+    if (t.startsWith("-") && t.length > 1) {
+      negatives.push(t.slice(1));
+    } else if (!t.startsWith("-")) {
+      positives.push(t);
+    }
+  }
+  return { positives, negatives };
 }
 
-function scoreEntry(entry, query, tokens) {
-  if (tokens.length === 0) {
-    return -1;
+function scoreEntry(entry, positives) {
+  if (positives.length === 0) {
+    return Math.max(0, 90 - Math.floor(entry.path.length * 0.03));
   }
 
-  for (const token of tokens) {
+  for (const token of positives) {
     if (!entry.pathLower.includes(token)) {
       return -1;
     }
   }
+
+  const query = positives.join(" ");
 
   let score = 0;
 
@@ -222,7 +235,7 @@ function scoreEntry(entry, query, tokens) {
     score += 900;
   }
 
-  for (const token of tokens) {
+  for (const token of positives) {
     if (entry.baseLower === token) {
       score += 360;
     } else if (entry.baseLower.startsWith(token)) {
@@ -407,11 +420,12 @@ async function openFile(filePath) {
 }
 
 function handleSearch() {
-  const query = searchInput.value.trim().toLowerCase();
-  const tokens = splitTokens(query);
-  currentQueryTokens = tokens;
+  const queryRaw = searchInput.value.trim();
+  const query = queryRaw.toLowerCase();
+  const { positives, negatives } = parseSearchInclusiveExclusive(query);
+  currentQueryTokens = positives;
 
-  if (!query) {
+  if (!queryRaw) {
     currentMatches = [];
     selectedMatchIndex = -1;
     setActiveButton(null);
@@ -432,7 +446,17 @@ function handleSearch() {
 
   const scored = [];
   for (const entry of indexedFiles) {
-    const score = scoreEntry(entry, query, tokens);
+    let excluded = false;
+    for (const n of negatives) {
+      if (entry.pathLower.includes(n)) {
+        excluded = true;
+        break;
+      }
+    }
+    if (excluded) {
+      continue;
+    }
+    const score = scoreEntry(entry, positives);
     if (score >= 0) {
       scored.push({ entry, score });
     }

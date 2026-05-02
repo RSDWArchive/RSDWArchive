@@ -18,22 +18,36 @@
     };
   }
 
-  /** Same token-AND semantics as app.js / search-match.js (order-free). */
+  /** Same token semantics as app.js / search-match.js: AND positives, minus excludes. */
   function haystackMatchesQuery(haystack, queryRaw) {
     const fn = global.rsdwHaystackMatchesQuery;
     if (typeof fn === "function") {
       return fn(haystack, queryRaw);
     }
-    const tokens = String(queryRaw || "")
+    const raw = String(queryRaw || "")
       .trim()
       .toLowerCase()
       .split(/\s+/)
       .filter(Boolean);
-    if (tokens.length === 0) {
+    if (raw.length === 0) {
       return true;
     }
+    const positives = [];
+    const negatives = [];
+    for (const t of raw) {
+      if (t.startsWith("-") && t.length > 1) {
+        negatives.push(t.slice(1));
+      } else if (!t.startsWith("-")) {
+        positives.push(t);
+      }
+    }
     const h = String(haystack || "").toLowerCase();
-    return tokens.every((t) => h.includes(t));
+    for (const neg of negatives) {
+      if (h.includes(neg)) {
+        return false;
+      }
+    }
+    return positives.every((p) => h.includes(p));
   }
 
   async function copyTextToClipboard(text) {
