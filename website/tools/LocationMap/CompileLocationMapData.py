@@ -36,6 +36,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import sys
 from collections import Counter, OrderedDict
 from pathlib import Path
@@ -50,6 +51,13 @@ _DEFAULT_OUTPUT = _HERE / "LocationMapData.json"
 _DEFAULT_ICONDATA = _HERE.parent / "IconData" / "IconData.json"
 _REPO_ROOT = _HERE.parents[2]
 _WEBSITE_ROOT = _HERE.parents[1]
+# Folder where referenced icon PNGs are copied so the website is self-contained
+# (GitHub Pages publishes only the website/ folder, so we cannot reference
+# ../0.11.1.4/...).
+_ICON_OUT_DIR = _HERE / "icons"
+# Path emitted in LocationMapData.json (relative to LocationMap.html, which
+# lives at website/LocationMap.html).
+_ICON_WEB_PREFIX = "tools/LocationMap/icons"
 
 # Placed-actor key:    <Asset>_UAID_<hex>_<id>
 # Foliage-instance key: <Spawner>::InstancedFoliageActor_<...>/<ISMC>_C_<n>#inst<i>
@@ -116,35 +124,64 @@ def build_icon_index(icondata_path: Path) -> dict[str, str]:
         return {}
 
     # Glob all T_Icon_*.png and T_Map_Icon_*.png files under the version textures tree.
+    # Map stem -> absolute source path so we can copy referenced icons into the
+    # website/ tree later (so they ship with GitHub Pages).
     index: dict[str, str] = {}
     for pattern in ("T_Icon_*.png", "T_Icons_*.png", "T_Map_Icon_*.png", "T_NavIcons_*.png"):
         for png in png_root.rglob(pattern):
             stem = png.stem
             if stem in index:
                 continue  # keep first hit; duplicates are extremely rare
-            try:
-                rel_to_repo = png.resolve().relative_to(_REPO_ROOT)
-            except ValueError:
-                continue
-            # Convert to a path that works from website/ (one level deep under repo root).
-            rel_to_website = Path("..") / rel_to_repo
-            index[stem] = rel_to_website.as_posix()
+            index[stem] = str(png.resolve())
     print(f"[INFO] Indexed {len(index)} icon PNGs from {png_root}", flush=True)
     return index
 
 
-def resolve_icon(icon_field: Any, icon_ref: Any, icon_index: dict[str, str]) -> str | None:
-    """Prefer iconRef when it resolves; otherwise fall back to literal icon path."""
+def resolve_icon(icon_field: Any, icon_ref: Any, icon_index: dict[str, str],
+                 referenced: set[str]) -> str | None:
+    """Prefer iconRef when it resolves; otherwise fall back to literal icon path.
+
+    Returns the website-relative path that will exist after copy_referenced_icons()
+    runs, and records the stem in `referenced` so the source PNG gets copied.
+    """
     if isinstance(icon_ref, str) and icon_ref:
         # Allow either 'T_Icon_Foo' or 'T_Icon_Foo.png'.
         stem = icon_ref[:-4] if icon_ref.lower().endswith(".png") else icon_ref
-        hit = icon_index.get(stem)
-        if hit:
-            return hit
+        if stem in icon_index:
+            referenced.add(stem)
+            return f"{_ICON_WEB_PREFIX}/{stem}.png"
         print(f"[WARN] Unresolved iconRef: {icon_ref!r}", flush=True)
     if isinstance(icon_field, str) and icon_field:
         return icon_field
     return None
+
+
+def copy_referenced_icons(referenced: set[str], icon_index: dict[str, str]) -> int:
+    """Copy each referenced icon's source PNG into _ICON_OUT_DIR.
+
+    Removes any stale PNGs in _ICON_OUT_DIR that are no longer referenced so the
+    folder stays small. Returns the number of icons present after sync.
+    """
+    _ICON_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    wanted = {f"{stem}.png" for stem in referenced}
+    # Remove stale icons.
+    for existing in _ICON_OUT_DIR.glob("*.png"):
+        if existing.name not in wanted:
+            try:
+                existing.unlink()
+            except OSError:
+                pass
+    # Copy in new/updated icons.
+    for stem in sorted(referenced):
+        src = icon_index.get(stem)
+        if not src:
+            continue
+        dst = _ICON_OUT_DIR / f"{stem}.png"
+        try:
+            shutil.copyfile(src, dst)
+        except OSError as exc:
+            print(f"[WARN] Failed to copy icon {stem}: {exc}", flush=True)
+    return len(list(_ICON_OUT_DIR.glob("*.png")))
 
 
 def compile_rules(rules_payload: dict) -> tuple[list[re.Pattern], list[dict], dict]:
@@ -257,20 +294,21 @@ def main() -> None:
     rules_payload = json.loads(rules_path.read_text(encoding="utf-8"))
     drop_patterns, categories, fallback = compile_rules(rules_payload)
     icon_index = build_icon_index(args.icondata.resolve())
+    referenced_icons: set[str] = set()
 
     # Pre-build the output container in declared category/subcategory order.
     bucket_meta: OrderedDict[str, dict[str, Any]] = OrderedDict()
     for cat in categories:
         cat_payload: dict[str, Any] = {
             "label": cat["label"],
-            "icon": resolve_icon(cat["icon"], cat.get("iconRef"), icon_index),
+            "icon": resolve_icon(cat["icon"], cat.get("iconRef"), icon_index, referenced_icons),
         }
         if cat["subcategories"]:
             sub_payload: OrderedDict[str, dict[str, Any]] = OrderedDict()
             for sub in cat["subcategories"]:
                 sub_payload[sub["subcategory"]] = {
                     "label": sub["label"],
-                    "icon": resolve_icon(sub["icon"], sub.get("iconRef"), icon_index),
+                    "icon": resolve_icon(sub["icon"], sub.get("iconRef"), icon_index, referenced_icons),
                     "points": [],
                 }
             # Auto-create a per-parent fallback bucket for assets that match the
@@ -388,6 +426,8 @@ def main() -> None:
         encoding="utf-8",
     )
 
+    icon_count = copy_referenced_icons(referenced_icons, icon_index)
+    print(f"[INFO] Synced {icon_count} icon PNGs into {_ICON_OUT_DIR}", flush=True)
     print(f"[INFO] Wrote {out_path}", flush=True)
     print(f"[INFO] {total} entries -> "
           f"{sum(counts.values())} kept ({dropped} dropped, {bad_position} bad pos)",
