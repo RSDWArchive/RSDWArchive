@@ -857,7 +857,8 @@ def main() -> None:
             "Compile dataset JSON using website config: Item, Location (chunk actors + PCG "
             "foliage ISMC, merged + wiki-filtered into LocationData.json), MapData "
             "(chunk-boundary GeoJSON overlays for Map.html), BPData (BP_* blueprint class "
-            "paths), GEData (GE_* gameplay-effect class paths), Loot, Name, NPC, Plan, "
+            "paths), GEData (GE_* gameplay-effect class paths), LocationMap (categorized "
+            "actor pins for LocationMap.html), Loot, Name, NPC, Plan, "
             "Progression, Recipe, Spell, Vestige, Icon."
         )
     )
@@ -905,6 +906,7 @@ def main() -> None:
     steps = [
         tools / "ItemData" / "CompileItemData.py",
         tools / "LocationData" / "CompileLocationData.py",
+        tools / "LocationMap" / "CompileLocationMapData.py",
         tools / "MapData" / "CompileMapData.py",
         tools / "BPData" / "CompileBPData.py",
         tools / "GEData" / "CompileGEData.py",
