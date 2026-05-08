@@ -185,42 +185,50 @@ def get_display_name_from_object_path(
     return disp
 
 
+def spawnable_item_struct_to_payload(
+    row: dict[str, Any],
+    source_root: Path,
+    st_item_names: dict[str, str],
+    item_display_name_cache: ItemDisplayCache,
+) -> dict[str, Any]:
+    """Normalize one loot spawnable entry (set row or prefab GuaranteedStandaloneItems)."""
+    spawned = row.get("SpawnedItemData") or {}
+    object_name = spawned.get("ObjectName", "")
+    object_path = spawned.get("ObjectPath", "")
+    item_id = parse_item_id(str(object_name))
+    item_display_name = get_display_name_from_object_path(
+        source_root,
+        str(object_path),
+        item_id,
+        st_item_names,
+        item_display_name_cache,
+    )
+    return {
+        "itemId": item_id,
+        "itemDisplayName": item_display_name,
+        "itemObjectName": object_name,
+        "itemObjectPath": object_path,
+        "minimumDropAmount": row.get("MinimumDropAmount"),
+        "maximumDropAmount": row.get("MaximumDropAmount"),
+        "dropChance": row.get("DropChance"),
+        "flags": {
+            "oneInstancePerPlayerOnlyVisibleToThem": row.get("bOneInstancePerPlayerOnlyVisibleToThem"),
+            "autoAddToInventory": row.get("bAutoAddToInventory"),
+            "onlyForPlayersThatInflictedDamage": row.get("bOnlyForPlayersThatInflictedDamage"),
+        },
+    }
+
+
 def get_set_entries(
     set_row: dict[str, Any],
     source_root: Path,
     st_item_names: dict[str, str],
     item_display_name_cache: ItemDisplayCache,
 ) -> list[dict[str, Any]]:
-    out: list[dict[str, Any]] = []
-    for item in set_row.get("SpawnableItems", []):
-        spawned = item.get("SpawnedItemData") or {}
-        object_name = spawned.get("ObjectName", "")
-        object_path = spawned.get("ObjectPath", "")
-        item_id = parse_item_id(str(object_name))
-        item_display_name = get_display_name_from_object_path(
-            source_root,
-            str(object_path),
-            item_id,
-            st_item_names,
-            item_display_name_cache,
-        )
-        out.append(
-            {
-                "itemId": item_id,
-                "itemDisplayName": item_display_name,
-                "itemObjectName": object_name,
-                "itemObjectPath": object_path,
-                "minimumDropAmount": item.get("MinimumDropAmount"),
-                "maximumDropAmount": item.get("MaximumDropAmount"),
-                "dropChance": item.get("DropChance"),
-                "flags": {
-                    "oneInstancePerPlayerOnlyVisibleToThem": item.get("bOneInstancePerPlayerOnlyVisibleToThem"),
-                    "autoAddToInventory": item.get("bAutoAddToInventory"),
-                    "onlyForPlayersThatInflictedDamage": item.get("bOnlyForPlayersThatInflictedDamage"),
-                },
-            }
-        )
-    return out
+    return [
+        spawnable_item_struct_to_payload(item, source_root, st_item_names, item_display_name_cache)
+        for item in set_row.get("SpawnableItems", [])
+    ]
 
 
 def sorted_dict(value: dict[str, Any]) -> dict[str, Any]:
@@ -440,6 +448,22 @@ def main() -> None:
                         "item": item,
                     }
                 )
+
+        for standalone_row in prefab.get("GuaranteedStandaloneItems", []):
+            if not isinstance(standalone_row, dict):
+                continue
+            item = spawnable_item_struct_to_payload(
+                standalone_row,
+                source_root,
+                st_item_names,
+                item_display_name_cache,
+            )
+            chest_entry["resolvedItems"].append(
+                {
+                    "source": "guaranteedStandalone",
+                    "item": item,
+                }
+            )
 
         for additional in prefab.get("AdditionalItemSets", []):
             handle = additional.get("LootItemSetHandle") or {}

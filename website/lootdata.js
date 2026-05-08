@@ -140,18 +140,25 @@ function buildEnemyEntries() {
 }
 
 function buildChestEntries() {
-  return Object.entries(lootData.chests).map(([name, value]) => ({
-    key: name,
-    type: VIEW_CHESTS,
-    data: value,
-    searchBlob: [
-      name,
-      value.prefabRef?.row || "",
-      ...(value.guaranteedSetRows || []),
-      ...(value.additionalSetRows || []).map((entry) => entry.setRow || ""),
-      ...(value.resolvedItems || []).map((entry) => `${entry.item?.itemId || ""} ${entry.item?.itemDisplayName || ""}`)
-    ].join(" ").toLowerCase()
-  }));
+  return Object.entries(lootData.chests).map(([name, value]) => {
+    const resolved = value.resolvedItems || [];
+    const hasStandalone = resolved.some((entry) => entry.source === "guaranteedStandalone");
+    return {
+      key: name,
+      type: VIEW_CHESTS,
+      data: value,
+      searchBlob: [
+        name,
+        value.prefabRef?.row || "",
+        ...(value.guaranteedSetRows || []),
+        ...(value.additionalSetRows || []).map((entry) => entry.setRow || ""),
+        ...resolved.map((entry) => `${entry.source || ""} ${entry.item?.itemId || ""} ${entry.item?.itemDisplayName || ""}`),
+        hasStandalone ? "standalone guaranteedstandalone" : ""
+      ]
+        .join(" ")
+        .toLowerCase()
+    };
+  });
 }
 
 function buildItemEntries() {
@@ -240,14 +247,34 @@ function renderEnemyPreview(entry) {
   return `${JSON.stringify(out, null, 2)}\n`;
 }
 
+function countChestResolvedBySource(resolvedItems) {
+  const counts = {
+    guaranteedSet: 0,
+    guaranteedStandalone: 0,
+    additionalSet: 0,
+    other: 0
+  };
+  for (const entry of resolvedItems || []) {
+    const src = entry.source;
+    if (src === "guaranteedSet" || src === "guaranteedStandalone" || src === "additionalSet") {
+      counts[src] += 1;
+    } else if (src) {
+      counts.other += 1;
+    }
+  }
+  return counts;
+}
+
 function renderChestPreview(entry) {
+  const resolvedItems = entry.data.resolvedItems || [];
   const out = {
     chestProfile: entry.key,
     respawn: entry.data.respawn,
     prefabRef: entry.data.prefabRef,
     guaranteedSetRows: entry.data.guaranteedSetRows,
     additionalSetRows: entry.data.additionalSetRows,
-    resolvedItems: entry.data.resolvedItems
+    resolvedItemCounts: countChestResolvedBySource(resolvedItems),
+    resolvedItems
   };
   return `${JSON.stringify(out, null, 2)}\n`;
 }
@@ -295,7 +322,7 @@ function buildWikiDropLinesFromEnemy(entry) {
 }
 
 function buildWikiDropLinesFromChest(entry) {
-  return entry.data.resolvedItems.map((resolved) => {
+  return (entry.data.resolvedItems || []).map((resolved) => {
     const item = resolved.item || {};
     const itemName = item.itemDisplayName || item.itemId;
     return `{{DropsLine|name=${escapeWikiValue(itemName)}|quantity=${toQuantityText(item.minimumDropAmount, item.maximumDropAmount)}|rarity=${toRarityText(item.dropChance)}}}`;
