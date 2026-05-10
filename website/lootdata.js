@@ -321,24 +321,77 @@ function buildWikiDropLinesFromEnemy(entry) {
   });
 }
 
-function buildWikiDropLinesFromChest(entry) {
-  return (entry.data.resolvedItems || []).map((resolved) => {
-    const item = resolved.item || {};
-    const itemName = item.itemDisplayName || item.itemId;
-    return `{{DropsLine|name=${escapeWikiValue(itemName)}|quantity=${toQuantityText(item.minimumDropAmount, item.maximumDropAmount)}|rarity=${toRarityText(item.dropChance)}}}`;
-  });
+function buildWikiDropLine(item) {
+  const itemName = item.itemDisplayName || item.itemId;
+  return `{{DropsLine|name=${escapeWikiValue(itemName)}|quantity=${toQuantityText(item.minimumDropAmount, item.maximumDropAmount)}|rarity=${toRarityText(item.dropChance)}}}`;
 }
 
-function renderWikiDropsBlock(lines) {
+function formatSetRollChance(chance) {
+  if (chance === undefined || chance === null) {
+    return null;
+  }
+  // Trim trailing .0 from values like 5.0 so headers read "5%" not "5.0%".
+  const num = Number(chance);
+  if (!Number.isFinite(num)) {
+    return null;
+  }
+  return Number.isInteger(num) ? `${num}%` : `${num}%`;
+}
+
+// Group resolvedItems by (source, setRow, setRollChance) preserving first-seen
+// order. Each group becomes its own wiki Drop Table with a header that
+// communicates the set's own roll chance, so readers know that an item's
+// dropChance is conditional on first hitting the set's roll.
+function groupChestResolvedItems(resolvedItems) {
+  const groups = [];
+  const indexByKey = new Map();
+  for (const resolved of resolvedItems || []) {
+    const source = resolved.source || "other";
+    const setRow = resolved.setRow || "";
+    const rollChance = resolved.setRollChance ?? null;
+    const key = `${source}|${setRow}|${rollChance}`;
+    let idx = indexByKey.get(key);
+    if (idx === undefined) {
+      idx = groups.length;
+      indexByKey.set(key, idx);
+      groups.push({ source, setRow, setRollChance: rollChance, items: [] });
+    }
+    groups[idx].items.push(resolved.item || {});
+  }
+  return groups;
+}
+
+function chestGroupHeader(group) {
+  const { source, setRow, setRollChance } = group;
+  switch (source) {
+    case "guaranteedSet": {
+      const label = setRow ? `Guaranteed Set (${setRow})` : "Guaranteed Set";
+      return `===${label}===`;
+    }
+    case "guaranteedStandalone":
+      return "===Guaranteed Drops===";
+    case "additionalSet": {
+      const pct = formatSetRollChance(setRollChance);
+      const parts = ["Additional Set"];
+      if (pct) parts.push(pct);
+      if (setRow) parts.push(`(${setRow})`);
+      return `===${parts.join(" ")}===`;
+    }
+    default:
+      return "===Drop Table===";
+  }
+}
+
+function renderWikiDropsBlock(lines, header = "===Drop Table===") {
   if (lines.length === 0) {
     return [
-      "===Drop Table===",
+      header,
       "{{DropsTableHead}}",
       "{{DropsTableBottom}}"
     ].join("\n");
   }
   return [
-    "===Drop Table===",
+    header,
     "{{DropsTableHead}}",
     ...lines,
     "{{DropsTableBottom}}"
@@ -350,7 +403,14 @@ function renderEnemyWiki(entry) {
 }
 
 function renderChestWiki(entry) {
-  return `${renderWikiDropsBlock(buildWikiDropLinesFromChest(entry))}\n`;
+  const groups = groupChestResolvedItems(entry.data.resolvedItems || []);
+  if (groups.length === 0) {
+    return `${renderWikiDropsBlock([])}\n`;
+  }
+  return `${groups.map((group) => {
+    const lines = group.items.map(buildWikiDropLine);
+    return renderWikiDropsBlock(lines, chestGroupHeader(group));
+  }).join("\n\n")}\n`;
 }
 
 function renderItemWiki(entry) {
