@@ -326,22 +326,39 @@ function buildWikiDropLine(item) {
   return `{{DropsLine|name=${escapeWikiValue(itemName)}|quantity=${toQuantityText(item.minimumDropAmount, item.maximumDropAmount)}|rarity=${toRarityText(item.dropChance)}}}`;
 }
 
-function formatSetRollChance(chance) {
-  if (chance === undefined || chance === null) {
+function formatSetWeight(weight) {
+  if (weight === undefined || weight === null) {
     return null;
   }
-  // Trim trailing .0 from values like 5.0 so headers read "5%" not "5.0%".
-  const num = Number(chance);
+  const num = Number(weight);
   if (!Number.isFinite(num)) {
     return null;
   }
-  return Number.isInteger(num) ? `${num}%` : `${num}%`;
+  // Render as a clean weight, e.g. "5/100".
+  const str = Number.isInteger(num) ? String(num) : num.toString();
+  return `${str}/100`;
+}
+
+function formatRollsRange(min, max) {
+  if ((min === undefined || min === null) && (max === undefined || max === null)) {
+    return null;
+  }
+  if (min === max || max === undefined || max === null) {
+    return `${min} roll${min === 1 ? "" : "s"}`;
+  }
+  if (min === undefined || min === null) {
+    return `up to ${max} rolls`;
+  }
+  return `${min}-${max} rolls`;
 }
 
 // Group resolvedItems by (source, setRow, setRollChance) preserving first-seen
-// order. Each group becomes its own wiki Drop Table with a header that
-// communicates the set's own roll chance, so readers know that an item's
-// dropChance is conditional on first hitting the set's roll.
+// order. Each group becomes its own wiki Drop Table.
+//
+// IMPORTANT: For additionalSet groups, setRollChance is a WEIGHT in a
+// weighted-pick pool of size N rolls (where N = random int in
+// [additionalSetRollsMin, additionalSetRollsMax]), NOT an independent per-roll
+// probability. The header reflects that.
 function groupChestResolvedItems(resolvedItems) {
   const groups = [];
   const indexByKey = new Map();
@@ -361,7 +378,7 @@ function groupChestResolvedItems(resolvedItems) {
   return groups;
 }
 
-function chestGroupHeader(group) {
+function chestGroupHeader(group, chestData) {
   const { source, setRow, setRollChance } = group;
   switch (source) {
     case "guaranteedSet": {
@@ -371,10 +388,15 @@ function chestGroupHeader(group) {
     case "guaranteedStandalone":
       return "===Guaranteed Drops===";
     case "additionalSet": {
-      const pct = formatSetRollChance(setRollChance);
+      const weight = formatSetWeight(setRollChance);
+      const rolls = formatRollsRange(
+        chestData?.additionalSetRollsMin,
+        chestData?.additionalSetRollsMax
+      );
       const parts = ["Additional Set"];
-      if (pct) parts.push(pct);
-      if (setRow) parts.push(`(${setRow})`);
+      if (rolls) parts.push(`(${rolls})`);
+      if (setRow) parts.push(`- ${setRow}`);
+      if (weight) parts.push(`[weight ${weight}]`);
       return `===${parts.join(" ")}===`;
     }
     default:
@@ -409,7 +431,7 @@ function renderChestWiki(entry) {
   }
   return `${groups.map((group) => {
     const lines = group.items.map(buildWikiDropLine);
-    return renderWikiDropsBlock(lines, chestGroupHeader(group));
+    return renderWikiDropsBlock(lines, chestGroupHeader(group, entry.data));
   }).join("\n\n")}\n`;
 }
 

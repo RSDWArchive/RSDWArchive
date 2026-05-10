@@ -409,6 +409,8 @@ def main() -> None:
             },
             "guaranteedSetRows": [],
             "additionalSetRows": [],
+            "additionalSetRollsMin": None,
+            "additionalSetRollsMax": None,
             "resolvedItems": [],
         }
 
@@ -426,6 +428,8 @@ def main() -> None:
             continue
 
         prefab = chest_prefabs[prefab_row]
+        chest_entry["additionalSetRollsMin"] = prefab.get("MinAdditionalSetRolls")
+        chest_entry["additionalSetRollsMax"] = prefab.get("MaxAdditionalSetRolls")
         for set_handle in prefab.get("GuaranteedItemSets", []):
             set_row = set_handle.get("RowName")
             chest_entry["guaranteedSetRows"].append(set_row)
