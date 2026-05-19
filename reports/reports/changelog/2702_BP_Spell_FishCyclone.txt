@@ -1,0 +1,295 @@
+Change #2702
+Type: Modified
+Old Path: RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/UtilityMagic/BP_Spell_FishCyclone.json
+New Path: RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/UtilityMagic/BP_Spell_FishCyclone.json
+Added Lines: 98
+Removed Lines: 79
+
+================================================================================
+diff --git a/E:/Github/0.11.1.4/json/RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/UtilityMagic/BP_Spell_FishCyclone.json b/E:/Github/RSDWArchive/0.11.2/json/RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/UtilityMagic/BP_Spell_FishCyclone.json
+index bc5f48010..3202df7a3 100644
+--- a/E:/Github/0.11.1.4/json/RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/UtilityMagic/BP_Spell_FishCyclone.json
++++ b/E:/Github/RSDWArchive/0.11.2/json/RSDragonwilds/Plugins/GameFeatures/Fishing/Content/Gameplay/UtilityMagic/BP_Spell_FishCyclone.json
+@@ -666,6 +666,13 @@
+     "Class": "UScriptClass'Function'",
+     "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+     "ChildProperties": [
++      {
++        "Type": "IntProperty",
++        "Name": "ItemStackSize",
++        "Flags": "RF_Public",
++        "ElementSize": 4,
++        "PropertyFlags": "Edit | BlueprintVisible"
++      },
+       {
+         "Type": "StructProperty",
+         "Name": "Fish Drop",
+@@ -723,18 +730,14 @@
+         "bIsNativeBool": true
+       },
+       {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetCaster_ReturnValue",
++        "Type": "DoubleProperty",
++        "Name": "CallFunc_Conv_IntToDouble_ReturnValue",
+         "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerCharacter'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
++        "ElementSize": 8
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetCaster_ReturnValue_1",
++        "Name": "CallFunc_GetCaster_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+         "PropertyClass": {
+@@ -764,18 +767,6 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "CallFunc_IsValid_ReturnValue_2",
+-        "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
+-      },
+       {
+         "Type": "InterfaceProperty",
+         "Name": "CallFunc_GetSkillComponent_self_CastInput",
+@@ -798,15 +789,27 @@
+         }
+       },
+       {
+-        "Type": "StructProperty",
+-        "Name": "CallFunc_GetRandomPointInCircle_ReturnValue",
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetCaster_ReturnValue_1",
+         "Flags": "RF_Public",
+-        "ElementSize": 24,
+-        "Struct": {
+-          "ObjectName": "Object'Vector'",
+-          "ObjectPath": "/Script/CoreUObject"
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'DominionPlayerCharacter'",
++          "ObjectPath": "/Script/Dominion"
+         }
+       },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsValid_ReturnValue_2",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
+       {
+         "Type": "BoolProperty",
+         "Name": "CallFunc_IsValid_ReturnValue_3",
+@@ -819,6 +822,16 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
++      {
++        "Type": "StructProperty",
++        "Name": "CallFunc_GetRandomPointInCircle_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 24,
++        "Struct": {
++          "ObjectName": "Object'Vector'",
++          "ObjectPath": "/Script/CoreUObject"
++        }
++      },
+       {
+         "Type": "StructProperty",
+         "Name": "CallFunc_RandomUnitVectorInConeInDegrees_ReturnValue",
+@@ -898,60 +911,65 @@
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetResourceData_ReturnValue",
++        "Name": "CallFunc_LoadAsset_Blocking_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+-        "PropertyFlags": "ConstParm",
+         "PropertyClass": {
+-          "ObjectName": "Class'FishingNodeResourceData'",
+-          "ObjectPath": "/Script/Dominion"
++          "ObjectName": "Class'Object'",
++          "ObjectPath": "/Script/CoreUObject"
+         }
+       },
+       {
+-        "Type": "StructProperty",
+-        "Name": "K2Node_MakeStruct_ItemSpawnParameters",
++        "Type": "ObjectProperty",
++        "Name": "K2Node_DynamicCast_AsItem_Data",
+         "Flags": "RF_Public",
+-        "ElementSize": 256,
+-        "Struct": {
+-          "ObjectName": "Object'ItemSpawnParameters'",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'ItemData'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
++      {
++        "Type": "BoolProperty",
++        "Name": "K2Node_DynamicCast_bSuccess",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetRandomFishSpeciesUsingBait_ReturnValue",
++        "Name": "CallFunc_GetResourceData_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+         "PropertyFlags": "ConstParm",
+         "PropertyClass": {
+-          "ObjectName": "Class'CatchableFishSpeciesData'",
++          "ObjectName": "Class'FishingNodeResourceData'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+-      {
+-        "Type": "StrProperty",
+-        "Name": "CallFunc_SpawnAndLaunchItem_Sync_OutFailureReason",
+-        "Flags": "RF_Public",
+-        "ElementSize": 16
+-      },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_SpawnAndLaunchItem_Sync_ReturnValue",
++        "Name": "CallFunc_GetRandomFishSpeciesUsingBait_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
++        "PropertyFlags": "ConstParm",
+         "PropertyClass": {
+-          "ObjectName": "Class'WorldItem'",
++          "ObjectName": "Class'CatchableFishSpeciesData'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetMagneticComponent_ReturnValue",
++        "Name": "CallFunc_GetCaster_ReturnValue_3",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
+-        "PropertyFlags": "InstancedReference",
+         "PropertyClass": {
+-          "ObjectName": "Class'MagneticComponent_GrantItem'",
++          "ObjectName": "Class'DominionPlayerCharacter'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+@@ -967,6 +985,32 @@
+         "BoolSize": 1,
+         "bIsNativeBool": true
+       },
++      {
++        "Type": "StructProperty",
++        "Name": "K2Node_MakeStruct_ItemSpawnParameters",
++        "Flags": "RF_Public",
++        "ElementSize": 256,
++        "Struct": {
++          "ObjectName": "Object'ItemSpawnParameters'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
++      {
++        "Type": "StrProperty",
++        "Name": "CallFunc_SpawnAndLaunchItem_Sync_OutFailureReason",
++        "Flags": "RF_Public",
++        "ElementSize": 16
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_SpawnAndLaunchItem_Sync_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyClass": {
++          "ObjectName": "Class'WorldItem'",
++          "ObjectPath": "/Script/Dominion"
++        }
++      },
+       {
+         "Type": "BoolProperty",
+         "Name": "CallFunc_IsValid_ReturnValue_5",
+@@ -981,11 +1025,12 @@
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "CallFunc_GetCaster_ReturnValue_3",
++        "Name": "CallFunc_GetMagneticComponent_ReturnValue",
+         "Flags": "RF_Public",
+         "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
+         "PropertyClass": {
+-          "ObjectName": "Class'DominionPlayerCharacter'",
++          "ObjectName": "Class'MagneticComponent_GrantItem'",
+           "ObjectPath": "/Script/Dominion"
+         }
+       },
+@@ -1014,36 +1059,10 @@
+         "bIsNativeBool": true
+       },
+       {
+-        "Type": "ObjectProperty",
+-        "Name": "CallFunc_LoadAsset_Blocking_ReturnValue",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'Object'",
+-          "ObjectPath": "/Script/CoreUObject"
+-        }
+-      },
+-      {
+-        "Type": "ObjectProperty",
+-        "Name": "K2Node_DynamicCast_AsItem_Data",
+-        "Flags": "RF_Public",
+-        "ElementSize": 8,
+-        "PropertyClass": {
+-          "ObjectName": "Class'ItemData'",
+-          "ObjectPath": "/Script/Dominion"
+-        }
+-      },
+-      {
+-        "Type": "BoolProperty",
+-        "Name": "K2Node_DynamicCast_bSuccess",
++        "Type": "FloatProperty",
++        "Name": "CallFunc_AddXpFromEvent_Multiplier_ImplicitCast",
+         "Flags": "RF_Public",
+-        "ElementSize": 1,
+-        "FieldSize": 1,
+-        "ByteOffset": 0,
+-        "ByteMask": 1,
+-        "FieldMask": 255,
+-        "BoolSize": 1,
+-        "bIsNativeBool": true
++        "ElementSize": 4
+       }
+     ],
+     "FunctionFlags": "FUNC_Private | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"

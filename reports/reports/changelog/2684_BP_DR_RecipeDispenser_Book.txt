@@ -1,0 +1,243 @@
+Change #2684
+Type: Modified
+Old Path: RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.json
+New Path: RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.json
+Added Lines: 87
+Removed Lines: 40
+
+================================================================================
+diff --git a/E:/Github/0.11.1.4/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.json b/E:/Github/RSDWArchive/0.11.2/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.json
+index bb8c4f220..11c11abd5 100644
+--- a/E:/Github/0.11.1.4/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.json
++++ b/E:/Github/RSDWArchive/0.11.2/json/RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.json
+@@ -1,19 +1,4 @@
+ [
+-  {
+-    "Type": "AudioComponent",
+-    "Name": "Audio_GEN_VARIABLE",
+-    "Outer": "BP_DR_RecipeDispenser_Book_C",
+-    "Class": "UScriptClass'AudioComponent'",
+-    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+-    "Properties": {
+-      "Sound": {
+-        "ObjectName": "DominionMetaSoundSource'MSS_BC_Wo_AmSt_MagicFissure'",
+-        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/World/Generic/BeautifulCorner/MagicRift/MSS_BC_Wo_AmSt_MagicFissure.0"
+-      },
+-      "VolumeMultiplier": 0.4,
+-      "bAutoActivate": false
+-    }
+-  },
+   {
+     "Type": "BlueprintGeneratedClass",
+     "Name": "BP_DR_RecipeDispenser_Book_C",
+@@ -81,23 +66,23 @@
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "Read Book",
++        "Name": "DiegeticEmitterPoint",
+         "Flags": "RF_Public | RF_LoadCompleted",
+         "ElementSize": 8,
+         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+         "PropertyClass": {
+-          "ObjectName": "Class'StaticMeshComponent'",
+-          "ObjectPath": "/Script/Engine"
++          "ObjectName": "Class'DiegeticEmitterPointComponent'",
++          "ObjectPath": "/Script/Dominion"
+         }
+       },
+       {
+         "Type": "ObjectProperty",
+-        "Name": "Audio",
++        "Name": "Read Book",
+         "Flags": "RF_Public | RF_LoadCompleted",
+         "ElementSize": 8,
+         "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+         "PropertyClass": {
+-          "ObjectName": "Class'AudioComponent'",
++          "ObjectName": "Class'StaticMeshComponent'",
+           "ObjectPath": "/Script/Engine"
+         }
+       },
+@@ -148,7 +133,7 @@
+     "bCooked": true,
+     "ClassDefaultObject": {
+       "ObjectName": "BP_DR_RecipeDispenser_Book_C'Default__BP_DR_RecipeDispenser_Book_C'",
+-      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.2"
++      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.1"
+     },
+     "EditorTags": {
+       "BlueprintType": "BPTYPE_Normal"
+@@ -176,6 +161,22 @@
+       }
+     }
+   },
++  {
++    "Type": "DiegeticEmitterPointComponent",
++    "Name": "DiegeticEmitterPoint_GEN_VARIABLE",
++    "Outer": "BP_DR_RecipeDispenser_Book_C",
++    "Class": "UScriptClass'DiegeticEmitterPointComponent'",
++    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
++    "Properties": {
++      "AssociatedAudioEvent": {
++        "AssetPathName": "/Game/Audio/MetasoundSources/World/Generic/BeautifulCorner/MagicRift/MSS_BC_Wo_AmSt_MagicFissure.MSS_BC_Wo_AmSt_MagicFissure",
++        "SubPathString": ""
++      },
++      "DiegeticEmitterTag": {
++        "TagName": "Audio.DiegeticEmitter.QuestItem"
++      }
++    }
++  },
+   {
+     "Type": "Function",
+     "Name": "BP_OnRecipesDispensedForPlayer",
+@@ -333,6 +334,52 @@
+         "FieldMask": 255,
+         "BoolSize": 1,
+         "bIsNativeBool": true
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetAssociatedAudioComponent_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'AudioComponent'",
++          "ObjectPath": "/Script/Engine"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsValid_ReturnValue",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
++      },
++      {
++        "Type": "ObjectProperty",
++        "Name": "CallFunc_GetAssociatedAudioComponent_ReturnValue_1",
++        "Flags": "RF_Public",
++        "ElementSize": 8,
++        "PropertyFlags": "InstancedReference",
++        "PropertyClass": {
++          "ObjectName": "Class'AudioComponent'",
++          "ObjectPath": "/Script/Engine"
++        }
++      },
++      {
++        "Type": "BoolProperty",
++        "Name": "CallFunc_IsValid_ReturnValue_1",
++        "Flags": "RF_Public",
++        "ElementSize": 1,
++        "FieldSize": 1,
++        "ByteOffset": 0,
++        "ByteMask": 1,
++        "FieldMask": 255,
++        "BoolSize": 1,
++        "bIsNativeBool": true
+       }
+     ],
+     "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+@@ -588,8 +635,8 @@
+         ],
+         "DataInterfaces": [
+           {
+-            "ObjectName": "NiagaraDataInterfaceColorCurve'BP_DR_RecipeDispenser_Book_C:Niagara_GEN_VARIABLE.NiagaraDataInterfaceColorCurve_1'",
+-            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.12"
++            "ObjectName": "NiagaraDataInterfaceColorCurve'BP_DR_RecipeDispenser_Book_C:Niagara_GEN_VARIABLE.NiagaraDataInterfaceColorCurve_0'",
++            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.11"
+           }
+         ]
+       }
+@@ -1375,44 +1422,44 @@
+   },
+   {
+     "Type": "SCS_Node",
+-    "Name": "SCS_Node_2",
++    "Name": "SCS_Node_3",
+     "Outer": "SimpleConstructionScript_0",
+     "Class": "UScriptClass'SCS_Node'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+       "ComponentClass": {
+-        "ObjectName": "Class'AudioComponent'",
++        "ObjectName": "Class'StaticMeshComponent'",
+         "ObjectPath": "/Script/Engine"
+       },
+       "ComponentTemplate": {
+-        "ObjectName": "AudioComponent'BP_DR_RecipeDispenser_Book_C:Audio_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.0"
++        "ObjectName": "StaticMeshComponent'BP_DR_RecipeDispenser_Book_C:Read Book_GEN_VARIABLE'",
++        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.20"
+       },
+       "ParentComponentOrVariableName": "StaticMesh",
+       "ParentComponentOwnerClassName": "BP_RecipeDispenser_Base_C",
+-      "VariableGUID": "974753CF-4CC6CA38-B2018483-5DC11CD1",
+-      "InternalVariableName": "Audio"
++      "VariableGUID": "653B25B5-419AE0A1-1A6D19A0-5F5CD01E",
++      "InternalVariableName": "Read Book"
+     }
+   },
+   {
+     "Type": "SCS_Node",
+-    "Name": "SCS_Node_3",
++    "Name": "SCS_Node_4",
+     "Outer": "SimpleConstructionScript_0",
+     "Class": "UScriptClass'SCS_Node'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+       "ComponentClass": {
+-        "ObjectName": "Class'StaticMeshComponent'",
+-        "ObjectPath": "/Script/Engine"
++        "ObjectName": "Class'DiegeticEmitterPointComponent'",
++        "ObjectPath": "/Script/Dominion"
+       },
+       "ComponentTemplate": {
+-        "ObjectName": "StaticMeshComponent'BP_DR_RecipeDispenser_Book_C:Read Book_GEN_VARIABLE'",
+-        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.20"
++        "ObjectName": "DiegeticEmitterPointComponent'BP_DR_RecipeDispenser_Book_C:DiegeticEmitterPoint_GEN_VARIABLE'",
++        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.2"
+       },
+       "ParentComponentOrVariableName": "StaticMesh",
+       "ParentComponentOwnerClassName": "BP_RecipeDispenser_Base_C",
+-      "VariableGUID": "653B25B5-419AE0A1-1A6D19A0-5F5CD01E",
+-      "InternalVariableName": "Read Book"
++      "VariableGUID": "85781167-47F25F11-5E4B45B6-D8709DC4",
++      "InternalVariableName": "DiegeticEmitterPoint"
+     }
+   },
+   {
+@@ -1428,11 +1475,11 @@
+           "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.16"
+         },
+         {
+-          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_2'",
++          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_3'",
+           "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.17"
+         },
+         {
+-          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_3'",
++          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_4'",
+           "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.18"
+         }
+       ],
+@@ -1442,11 +1489,11 @@
+           "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.16"
+         },
+         {
+-          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_2'",
++          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_3'",
+           "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.17"
+         },
+         {
+-          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_3'",
++          "ObjectName": "SCS_Node'BP_DR_RecipeDispenser_Book_C:SimpleConstructionScript_0.SCS_Node_4'",
+           "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/DowdunReach/Content/Gameplay/World/Misc/BP_DR_RecipeDispenser_Book.18"
+         }
+       ],
