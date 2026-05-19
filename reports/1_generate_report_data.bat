@@ -4,11 +4,11 @@ setlocal
 REM ============================
 REM Paths
 REM ============================
-set "NEW_JSON=E:\Github\RSDWArchive\0.11.1.4\json"
-set "OLD_JSON=E:\Github\0.11.1\json"
+set "NEW_JSON=E:\Github\RSDWArchive\0.11.2\json"
+set "OLD_JSON=E:\Github\0.11.1.4\json"
 
-set "NEW_TEXTURES=E:\Github\RSDWArchive\0.11.1.4\textures"
-set "OLD_TEXTURES=E:\Github\0.11.1\textures"
+set "NEW_TEXTURES=E:\Github\RSDWArchive\0.11.2\textures"
+set "OLD_TEXTURES=E:\Github\0.11.1.4\textures"
 
 REM Output folder = same folder as this .bat, inside /reports
 set "OUT_DIR=%~dp0reports"
@@ -21,7 +21,7 @@ echo ==========================================
 echo      JSON + TEXTURE DIFF REPORT TOOL
 echo ==========================================
 echo.
-echo Comparing: 0.11.1  --^>  0.11.1.4
+echo Comparing: 0.11.2  --^>  0.11.1.4
 echo.
 echo JSON Old:      %OLD_JSON%
 echo JSON New:      %NEW_JSON%
