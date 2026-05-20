@@ -844,6 +844,21 @@ def resolve_json_root(repo_root: Path, config: dict) -> Path:
     return (repo_root / dataset_version.strip() / "json").resolve()
 
 
+def resolve_texture_root(repo_root: Path, config: dict) -> Path:
+    explicit_texture_root = config.get("datasetTexturesRoot")
+    if isinstance(explicit_texture_root, str) and explicit_texture_root.strip():
+        candidate = Path(explicit_texture_root.strip())
+        if not candidate.is_absolute():
+            candidate = (repo_root / candidate).resolve()
+        return candidate
+
+    dataset_version = config.get("datasetVersion")
+    if not isinstance(dataset_version, str) or not dataset_version.strip():
+        raise ValueError("Config missing required string key: datasetVersion")
+
+    return (repo_root / dataset_version.strip()).resolve()
+
+
 def validate_json_root(json_root: Path) -> None:
     if not json_root.exists():
         raise FileNotFoundError(f"JSON root not found: {json_root}")
@@ -857,9 +872,9 @@ def main() -> None:
             "Compile dataset JSON using website config: Item, Location (chunk actors + PCG "
             "foliage ISMC, merged + wiki-filtered into LocationData.json), MapData "
             "(chunk-boundary GeoJSON overlays for Map.html), BPData (BP_* blueprint class "
-            "paths), GEData (GE_* gameplay-effect class paths), LocationMap (categorized "
-            "actor pins for LocationMap.html), Loot, Name, NPC, Plan, "
-            "Progression, Recipe, Spell, Vestige, Icon."
+            "paths), GEData (GE_* gameplay-effect class paths), Loot, Name, NPC, Plan, "
+            "Progression, Recipe, Spell, Vestige, Icon, LocationMap (categorized "
+            "actor pins for LocationMap.html)."
         )
     )
     parser.add_argument(
@@ -880,6 +895,7 @@ def main() -> None:
 
     config = load_config(config_path)
     json_root = resolve_json_root(repo_root, config)
+    texture_root = resolve_texture_root(repo_root, config)
     validate_json_root(json_root)
 
     env = dict(os.environ)
@@ -893,10 +909,12 @@ def main() -> None:
     env["RSDW_GE_SOURCE_DIR"] = root_s
     env["RSDW_PLAN_SOURCE_DIR"] = root_s
     env["RSDW_PROGRESSION_SOURCE_DIR"] = root_s
+    env["RSDW_QUEST_SOURCE_DIR"] = root_s
     env["RSDW_RECIPE_SOURCE_DIR"] = root_s
     env["RSDW_SPELL_SOURCE_DIR"] = root_s
     env["RSDW_VESTIGE_SOURCE_DIR"] = root_s
     env["RSDW_NAME_SOURCE_DIR"] = root_s
+    env["RSDW_TEXTURE_ROOT"] = str(texture_root)
 
     tools = repo_root / "website" / "tools"
 
@@ -906,7 +924,6 @@ def main() -> None:
     steps = [
         tools / "ItemData" / "CompileItemData.py",
         tools / "LocationData" / "CompileLocationData.py",
-        tools / "LocationMap" / "CompileLocationMapData.py",
         tools / "MapData" / "CompileMapData.py",
         tools / "BPData" / "CompileBPData.py",
         tools / "GEData" / "CompileGEData.py",
@@ -915,18 +932,24 @@ def main() -> None:
         tools / "NPCData" / "CompileNPCData.py",
         tools / "PlanData" / "CompilePlanData.py",
         tools / "ProgressionData" / "CompileProgressionData.py",
+        tools / "QuestData" / "CompileQuestData.py",
         tools / "RecipeData" / "CompileRecipeData.py",
         tools / "SpellData" / "CompileSpellData.py",
         tools / "VestigeData" / "CompileVestigeData.py",
         tools / "IconData" / "CompileIconData.py",
+        tools / "LocationMap" / "CompileLocationMapData.py",
     ]
 
     for py in steps:
-        run_step(["python", str(py)], repo_root, env)
+        command = ["python", str(py)]
+        if py.name in {"CompileIconData.py", "CompileLocationMapData.py"}:
+            command.extend(["--config", str(config_path)])
+        run_step(command, repo_root, env)
 
     print("[INFO] Compile data pipeline completed successfully.")
     print(f"[INFO] Config: {config_path}")
     print(f"[INFO] JSON root used: {json_root}")
+    print(f"[INFO] Texture root used: {texture_root}")
 
 
 if __name__ == "__main__":

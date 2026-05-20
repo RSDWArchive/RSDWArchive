@@ -200,6 +200,24 @@ def audit_loot_data(path: Path) -> None:
     print(f"  issues.missingReferences: {len(issues.get('missingReferences') or [])}")
 
 
+def audit_quest_data(path: Path) -> None:
+    print(f"\n=== QuestData ({path}) ===")
+    try:
+        data = load_json(path)
+    except Exception as exc:  # noqa: BLE001
+        print(f"  ERROR: {exc}")
+        return
+    quests = data.get("quests") or {}
+    issues = data.get("issues") or {}
+    indexes = data.get("indexes") or {}
+    print(f"  quests: {len(quests)}")
+    print(f"  flow files by quest: {len((indexes.get('questToFlowFiles') or {}))}")
+    print(f"  itemToRequiredByQuests keys: {len(indexes.get('itemToRequiredByQuests') or {})}")
+    print(f"  itemToRewardedByQuests keys: {len(indexes.get('itemToRewardedByQuests') or {})}")
+    print(f"  itemToConsumedByQuests keys: {len(indexes.get('itemToConsumedByQuests') or {})}")
+    print(f"  issues.unresolvedText: {len(issues.get('unresolvedText') or [])}")
+
+
 def audit_npc_data(path: Path, loot_path: Path | None) -> None:
     print(f"\n=== NPCData ({path}) ===")
     try:
@@ -289,6 +307,7 @@ def main() -> None:
         "progression": tools / "ProgressionData" / "ProgressionData.json",
         "vestige": tools / "VestigeData" / "VestigeData.json",
         "loot": tools / "LootData" / "LootData.json",
+        "quest": tools / "QuestData" / "QuestData.json",
         "name": tools / "NameData" / "NameData.json",
         "npc": tools / "NPCData" / "NPCData.json",
         "location": tools / "LocationData" / "LocationData.json",
@@ -315,6 +334,8 @@ def main() -> None:
             audit_vestige_data(p)
         elif key == "loot":
             audit_loot_data(p)
+        elif key == "quest":
+            audit_quest_data(p)
         elif key == "name":
             audit_name_data(p)
         elif key == "npc":

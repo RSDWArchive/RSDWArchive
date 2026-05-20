@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import sys
@@ -51,6 +52,7 @@ _DEFAULT_OUTPUT = _HERE / "LocationMapData.json"
 _DEFAULT_ICONDATA = _HERE.parent / "IconData" / "IconData.json"
 _REPO_ROOT = _HERE.parents[2]
 _WEBSITE_ROOT = _HERE.parents[1]
+_DEFAULT_CONFIG = _REPO_ROOT / "website" / "data.config.json"
 # Folder where referenced icon PNGs are copied so the website is self-contained
 # (GitHub Pages publishes only the website/ folder, so we cannot reference
 # ../0.11.1.4/...).
@@ -103,24 +105,78 @@ def parse_position(value: Any) -> tuple[float, float, float] | None:
         return None
 
 
-def build_icon_index(icondata_path: Path) -> dict[str, str]:
+def display_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(_REPO_ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
+def resolve_texture_root_from_config(config_path: Path) -> Path | None:
+    if not config_path.exists():
+        return None
+    try:
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"[WARN] Could not read texture root config {config_path}: {exc}", flush=True)
+        return None
+    if not isinstance(config, dict):
+        return None
+
+    explicit = config.get("datasetTexturesRoot")
+    if isinstance(explicit, str) and explicit.strip():
+        candidate = Path(explicit.strip())
+        return candidate if candidate.is_absolute() else (_REPO_ROOT / candidate).resolve()
+
+    version = config.get("datasetVersion")
+    if isinstance(version, str) and version.strip():
+        return (_REPO_ROOT / version.strip()).resolve()
+    return None
+
+
+def resolve_texture_root(icondata_path: Path, config_path: Path) -> Path | None:
+    env_root = os.environ.get("RSDW_TEXTURE_ROOT")
+    if env_root:
+        candidate = Path(env_root)
+        if candidate.exists():
+            return candidate
+        print(f"[WARN] RSDW_TEXTURE_ROOT does not exist: {candidate}", flush=True)
+
+    if icondata_path.exists():
+        payload = json.loads(icondata_path.read_text(encoding="utf-8"))
+        png_root_str = payload.get("pngRoot") if isinstance(payload, dict) else None
+        if isinstance(png_root_str, str) and png_root_str.strip():
+            png_root = Path(png_root_str)
+            if png_root.exists():
+                return png_root
+            print(
+                f"[WARN] IconData.pngRoot does not exist: {png_root}; "
+                f"falling back to {config_path}",
+                flush=True,
+            )
+        else:
+            print("[WARN] IconData.json missing 'pngRoot'; falling back to config.", flush=True)
+    else:
+        print(f"[WARN] IconData.json not found at {icondata_path}; falling back to config.", flush=True)
+
+    config_root = resolve_texture_root_from_config(config_path)
+    if config_root and config_root.exists():
+        return config_root
+    if config_root:
+        print(f"[WARN] Texture root from config does not exist: {config_root}", flush=True)
+    return None
+
+
+def build_icon_index(icondata_path: Path, config_path: Path) -> dict[str, str]:
     """
     Returns { 'T_Icon_Foo': '<path-relative-to-website-root>' } for every
     T_Icon_*.png we can locate under IconData.pngRoot. The website is served
     from website/, so paths are returned with the appropriate '../' prefix
     so that <img src="<path>"> works directly from any HTML in website/.
     """
-    if not icondata_path.exists():
-        print(f"[WARN] IconData.json not found at {icondata_path}; iconRef will not be resolved.", flush=True)
-        return {}
-    payload = json.loads(icondata_path.read_text(encoding="utf-8"))
-    png_root_str = payload.get("pngRoot")
-    if not png_root_str:
-        print("[WARN] IconData.json missing 'pngRoot'; iconRef will not be resolved.", flush=True)
-        return {}
-    png_root = Path(png_root_str)
-    if not png_root.exists():
-        print(f"[WARN] IconData.pngRoot does not exist: {png_root}", flush=True)
+    png_root = resolve_texture_root(icondata_path, config_path)
+    if png_root is None:
+        print("[WARN] No valid texture root found; iconRef will not be resolved.", flush=True)
         return {}
 
     # Glob all T_Icon_*.png and T_Map_Icon_*.png files under the version textures tree.
@@ -270,6 +326,8 @@ def main() -> None:
                         help=f"Output LocationMapData.json (default: {_DEFAULT_OUTPUT})")
     parser.add_argument("--icondata", type=Path, default=_DEFAULT_ICONDATA,
                         help=f"IconData.json for resolving iconRef -> PNG path (default: {_DEFAULT_ICONDATA})")
+    parser.add_argument("--config", type=Path, default=_DEFAULT_CONFIG,
+                        help=f"website data config fallback for texture root (default: {_DEFAULT_CONFIG})")
     parser.add_argument("--top-unknown", type=int, default=40,
                         help="Report this many most-common uncategorized asset classes in _meta.")
     args = parser.parse_args()
@@ -293,7 +351,7 @@ def main() -> None:
 
     rules_payload = json.loads(rules_path.read_text(encoding="utf-8"))
     drop_patterns, categories, fallback = compile_rules(rules_payload)
-    icon_index = build_icon_index(args.icondata.resolve())
+    icon_index = build_icon_index(args.icondata.resolve(), args.config.resolve())
     referenced_icons: set[str] = set()
 
     # Pre-build the output container in declared category/subcategory order.
@@ -401,8 +459,8 @@ def main() -> None:
 
     meta = {
         "generatedBy": "website/tools/LocationMap/CompileLocationMapData.py",
-        "input": str(in_path),
-        "rules": str(rules_path),
+        "input": display_path(in_path),
+        "rules": display_path(rules_path),
         "counts": {
             "totalEntries": total,
             "droppedByRules": dropped,

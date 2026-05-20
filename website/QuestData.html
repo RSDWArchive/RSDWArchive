@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RSDW Archive - ItemData</title>
+  <title>RSDW Archive - QuestData</title>
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png" />
@@ -21,8 +21,8 @@
       <a class="brand-home-link brand-title" href="./index.html">RSDW Archive</a>
     </div>
     <div class="header-search">
-      <label class="sr-only" for="file-search">Search Item Data</label>
-      <input id="file-search" type="search" placeholder="Search items..." autocomplete="off" />
+      <label class="sr-only" for="file-search">Search Quest Data</label>
+      <input id="file-search" type="search" placeholder="Search Quests..." autocomplete="off" />
     </div>
     <div class="header-actions">
       <div class="discord-menu">
@@ -63,17 +63,22 @@
 
   <main>
     <section id="landing-message" class="landing-message">
-      <p id="home-status" aria-live="polite">Loading ItemData...</p>
-      <p id="home-subtitle" class="landing-subtitle">Browse items — names, tags, and enrichments for wiki infoboxes</p>
+      <p id="home-status" aria-live="polite">Loading QuestData...</p>
+      <p id="home-subtitle" class="landing-subtitle">Browse quests, required items, rewards, variables, and progression hooks</p>
     </section>
 
-    <p id="status" aria-live="polite">Loading ItemData...</p>
+    <p id="status" aria-live="polite">Loading QuestData...</p>
 
     <section class="results-viewer">
       <aside>
         <div class="panel-header">
-          <h2>Items</h2>
-          <button id="toggle-filenames" type="button" class="panel-action-btn" aria-pressed="false">Show File Names</button>
+          <h2 id="list-title">Quests</h2>
+          <div class="view-tabs" role="tablist" aria-label="Quest data views">
+            <button id="tab-quests" class="panel-action-btn view-tab-btn active" type="button" role="tab" aria-selected="true">Quests</button>
+            <button id="tab-items" class="panel-action-btn view-tab-btn" type="button" role="tab" aria-selected="false">Items</button>
+            <button id="tab-variables" class="panel-action-btn view-tab-btn" type="button" role="tab" aria-selected="false">Variables</button>
+            <button id="tab-progression" class="panel-action-btn view-tab-btn" type="button" role="tab" aria-selected="false">Progression</button>
+          </div>
         </div>
         <ul id="results"></ul>
       </aside>
@@ -88,7 +93,7 @@
           </div>
         </div>
         <p id="selected-path">Select an entry</p>
-        <pre id="file-content">Search and click an entry to preview compiled item data.</pre>
+        <pre id="file-content">Search and click an entry to preview compiled quest data.</pre>
       </article>
     </section>
   </main>
@@ -105,8 +110,7 @@
   <div id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden></div>
 
   <script src="./search-match.js" defer></script>
-  <script src="./dataset-viewer.js" defer></script>
-  <script src="./itemdata.js" defer></script>
+  <script src="./questdata.js" defer></script>
   <script src="./discord-menu.js" defer></script>
 </body>
 </html>
