@@ -6,6 +6,8 @@ from pathlib import Path
 
 DEFAULT_CONFIG_RELATIVE = Path("website", "data.config.json")
 DEFAULT_INDEX_OUTPUT_RELATIVE = Path("website", "file-index.json")
+INDEX_EXCLUDED_FILENAMES = {"ArchiveExtractManifest.json", "PipelineRun.json"}
+INDEX_EXCLUDED_DIRNAMES = {"PipelineLogs"}
 
 
 def run_step(command: list[str], cwd: Path) -> None:
@@ -40,6 +42,11 @@ def build_file_index(repo_root: Path, dataset_root: Path, out_path: Path) -> Non
     files = []
     for path in sorted(dataset_root.rglob("*")):
         if not path.is_file():
+            continue
+        rel_parts = path.relative_to(dataset_root).parts
+        if path.name in INDEX_EXCLUDED_FILENAMES or any(
+            part in INDEX_EXCLUDED_DIRNAMES for part in rel_parts
+        ):
             continue
         rel = path.relative_to(repo_root).as_posix()
         files.append(f"../{rel}")

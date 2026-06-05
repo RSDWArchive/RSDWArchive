@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Cue4ParseRoot Condition="'$(Cue4ParseRoot)' == '' and '$(CUE4PARSE_ROOT)' != ''">$(CUE4PARSE_ROOT)</Cue4ParseRoot>
+    <UseCue4ParseSource Condition="'$(Cue4ParseRoot)' != ''">true</UseCue4ParseSource>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(UseCue4ParseSource)' == 'true'">
+    <ProjectReference Include="$(Cue4ParseRoot)\CUE4Parse\CUE4Parse.csproj" />
+    <ProjectReference Include="$(Cue4ParseRoot)\CUE4Parse-Conversion\CUE4Parse-Conversion.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseCue4ParseSource)' != 'true'">
+    <PackageReference Include="CUE4Parse" Version="1.2.2" />
+    <PackageReference Include="CUE4Parse-Conversion" Version="1.2.1" />
+  </ItemGroup>
+
+</Project>
