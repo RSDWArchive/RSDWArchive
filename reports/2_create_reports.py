@@ -1,19 +1,15 @@
+import argparse
 import os
 
 # =========================================================
 # CONFIG
 # All input/output lives in a "reports" folder next to this script
 # =========================================================
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.join(SCRIPT_DIR, "reports")
-os.makedirs(BASE_DIR, exist_ok=True)
-
-JSON_REPORT = os.path.join(BASE_DIR, "json_name_status_report.txt")
-TEXTURES_REPORT = os.path.join(BASE_DIR, "textures_name_status_report.txt")
-OUTPUT_REPORT = os.path.join(BASE_DIR, "clean_diff_report.txt")
-
 OLD_VERSION = "0.11.1.4"
 NEW_VERSION = "0.11.2"
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_BASE_DIR = os.path.join(SCRIPT_DIR, "reports")
 
 
 def clean_path(path: str) -> str:
@@ -134,12 +130,28 @@ def write_summary_block(out, label: str, parsed: dict):
     write_renamed_section(out, parsed["renamed"])
 
 
-def main():
-    json_data = parse_name_status_report(JSON_REPORT, "json")
-    texture_data = parse_name_status_report(TEXTURES_REPORT, "textures")
+def parse_args():
+    parser = argparse.ArgumentParser(description="Create the cleaned archive diff report.")
+    parser.add_argument("--base-dir", default=DEFAULT_BASE_DIR, help="Folder containing raw report inputs.")
+    parser.add_argument("--old-version", default=OLD_VERSION)
+    parser.add_argument("--new-version", default=NEW_VERSION)
+    return parser.parse_args()
 
-    with open(OUTPUT_REPORT, "w", encoding="utf-8") as out:
-        out.write(f"From {OLD_VERSION} to {NEW_VERSION}\n\n")
+
+def main():
+    args = parse_args()
+    base_dir = os.path.abspath(args.base_dir)
+    os.makedirs(base_dir, exist_ok=True)
+
+    json_report = os.path.join(base_dir, "json_name_status_report.txt")
+    textures_report = os.path.join(base_dir, "textures_name_status_report.txt")
+    output_report = os.path.join(base_dir, "clean_diff_report.txt")
+
+    json_data = parse_name_status_report(json_report, "json")
+    texture_data = parse_name_status_report(textures_report, "textures")
+
+    with open(output_report, "w", encoding="utf-8") as out:
+        out.write(f"From {args.old_version} to {args.new_version}\n\n")
         out.write("This report groups files into easier-to-read sections.\n")
         out.write("Rename entries are shown separately so they do not get mixed in with added/removed files.\n\n")
 
@@ -164,7 +176,7 @@ def main():
             f"Renamed={len(texture_data['renamed'])}\n"
         )
 
-    print(f"Done. Wrote report to: {OUTPUT_REPORT}")
+    print(f"Done. Wrote report to: {output_report}")
 
 
 if __name__ == "__main__":

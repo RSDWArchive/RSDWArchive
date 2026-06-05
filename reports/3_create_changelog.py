@@ -1,11 +1,11 @@
+import argparse
 import os
 import re
+import shutil
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-BASE_DIR = SCRIPT_DIR / "reports"
-INPUT_FILE = BASE_DIR / "json_full_diff_report.txt"
-OUTPUT_DIR = BASE_DIR / "changelog"
+DEFAULT_BASE_DIR = SCRIPT_DIR / "reports"
 INDEX_FILE = "index.txt"
 
 
@@ -146,13 +146,28 @@ def write_block_file(out_dir: Path, idx: int, info: dict):
     return filename
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Split the JSON full diff into per-file changelog entries.")
+    parser.add_argument("--base-dir", type=Path, default=DEFAULT_BASE_DIR, help="Folder containing json_full_diff_report.txt.")
+    parser.add_argument("--clean", action="store_true", help="Remove the existing changelog folder before writing.")
+    return parser.parse_args()
+
+
 def main():
-    if not INPUT_FILE.exists():
-        raise FileNotFoundError(f"Could not find {INPUT_FILE}")
+    args = parse_args()
+    base_dir = args.base_dir.resolve()
+    input_file = base_dir / "json_full_diff_report.txt"
+    output_dir = base_dir / "changelog"
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    if not input_file.exists():
+        raise FileNotFoundError(f"Could not find {input_file}")
 
-    text = INPUT_FILE.read_text(encoding="utf-8", errors="ignore")
+    if args.clean and output_dir.exists():
+        shutil.rmtree(output_dir)
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    text = input_file.read_text(encoding="utf-8", errors="ignore")
     blocks = split_diff_blocks(text)
     parsed = [parse_block(block) for block in blocks]
 
@@ -174,7 +189,7 @@ def main():
         elif info["change_type"] == "Modified":
             modified_only += 1
 
-        filename = write_block_file(OUTPUT_DIR, i, info)
+        filename = write_block_file(output_dir, i, info)
 
         index_lines.append(f"[{i:04d}] {filename}")
         index_lines.append(f"  Type: {info['change_type']}")
@@ -193,11 +208,11 @@ def main():
         "",
     ]
 
-    index_path = OUTPUT_DIR / INDEX_FILE
+    index_path = output_dir / INDEX_FILE
     with index_path.open("w", encoding="utf-8") as f:
         f.write("\n".join(summary_lines + index_lines))
 
-    print(f"Done. Wrote {len(parsed)} split files to: {OUTPUT_DIR}")
+    print(f"Done. Wrote {len(parsed)} split files to: {output_dir}")
     print(f"Index file: {index_path}")
 
 

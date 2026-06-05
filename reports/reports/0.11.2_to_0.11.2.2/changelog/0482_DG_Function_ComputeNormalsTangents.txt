@@ -1,0 +1,660 @@
+Change #0482
+Type: Modified
+Old Path: Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.json
+New Path: Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.json
+Added Lines: 217
+Removed Lines: 55
+
+================================================================================
+diff --git "a/E:\\Github\\RSDWArchive\\0.11.2\\json/Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.json" "b/E:\\Github\\RSDWArchive\\0.11.2.2\\json/Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.json"
+index 3f3a33e52..82dd89e66 100644
+--- "a/E:\\Github\\RSDWArchive\\0.11.2\\json/Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.json"
++++ "b/E:\\Github\\RSDWArchive\\0.11.2.2\\json/Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.json"
+@@ -2,7 +2,10 @@
+   {
+     "Type": "OptimusComponentSourceBinding",
+     "Name": "Primary",
+-    "Outer": "@Bindings",
++    "Outer": {
++      "ObjectName": "OptimusComponentSourceBindingContainer'DG_Function_ComputeNormalsTangents:@Bindings'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.1"
++    },
+     "Class": "UScriptClass'OptimusComponentSourceBinding'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -17,7 +20,10 @@
+   {
+     "Type": "OptimusComponentSourceBindingContainer",
+     "Name": "@Bindings",
+-    "Outer": "DG_Function_ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusDeformer'DG_Function_ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.2"
++    },
+     "Class": "UScriptClass'OptimusComponentSourceBindingContainer'",
+     "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -63,7 +69,10 @@
+   {
+     "Type": "OptimusFunctionNodeGraph",
+     "Name": "ComputeNormalsTangents",
+-    "Outer": "DG_Function_ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusDeformer'DG_Function_ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.2"
++    },
+     "Class": "UScriptClass'OptimusFunctionNodeGraph'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -228,14 +237,20 @@
+   {
+     "Type": "OptimusHalfEdgeDataInterface",
+     "Name": "OptimusHalfEdgeDataInterface_0",
+-    "Outer": "OptimusNode_DataInterface_2",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.7"
++    },
+     "Class": "UScriptClass'OptimusHalfEdgeDataInterface'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted"
+   },
+   {
+     "Type": "OptimusNode_CustomComputeKernel",
+     "Name": "OptimusNode_CustomComputeKernel_0",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNode_CustomComputeKernel'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -471,7 +486,10 @@
+   {
+     "Type": "OptimusNode_DataInterface",
+     "Name": "OptimusNode_DataInterface_1",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNode_DataInterface'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -540,7 +558,10 @@
+   {
+     "Type": "OptimusNode_DataInterface",
+     "Name": "OptimusNode_DataInterface_2",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNode_DataInterface'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -581,7 +602,10 @@
+   {
+     "Type": "OptimusNode_FunctionReference",
+     "Name": "FunctionReferenceNode",
+-    "Outer": "UpdateGraph",
++    "Outer": {
++      "ObjectName": "OptimusNodeGraph'DG_Function_ComputeNormalsTangents:UpdateGraph'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.11"
++    },
+     "Class": "UScriptClass'OptimusNode_FunctionReference'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -633,7 +657,10 @@
+   {
+     "Type": "OptimusNode_GraphTerminal",
+     "Name": "Entry",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNode_GraphTerminal'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -661,7 +688,10 @@
+   {
+     "Type": "OptimusNode_GraphTerminal",
+     "Name": "Return",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNode_GraphTerminal'",
+     "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -689,7 +719,10 @@
+   {
+     "Type": "OptimusNodeGraph",
+     "Name": "UpdateGraph",
+-    "Outer": "DG_Function_ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusDeformer'DG_Function_ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.2"
++    },
+     "Class": "UScriptClass'OptimusNodeGraph'",
+     "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -704,7 +737,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_0",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -721,7 +757,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_1",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -738,7 +777,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_2",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -755,7 +797,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_3",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -772,7 +817,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_4",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -789,7 +837,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_5",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -806,7 +857,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_6",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -823,7 +877,10 @@
+   {
+     "Type": "OptimusNodeLink",
+     "Name": "OptimusNodeLink_7",
+-    "Outer": "ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusFunctionNodeGraph'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.3"
++    },
+     "Class": "UScriptClass'OptimusNodeLink'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -840,7 +897,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Default Component Binding",
+-    "Outer": "Entry",
++    "Outer": {
++      "ObjectName": "OptimusNode_GraphTerminal'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Entry'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.9"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -857,7 +917,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Position",
+-    "Outer": "Entry",
++    "Outer": {
++      "ObjectName": "OptimusNode_GraphTerminal'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Entry'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.9"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -879,7 +942,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutPosition",
+-    "Outer": "OptimusNode_CustomComputeKernel_0",
++    "Outer": {
++      "ObjectName": "OptimusNode_CustomComputeKernel'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.5"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -901,7 +967,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutTangentX",
+-    "Outer": "OptimusNode_CustomComputeKernel_0",
++    "Outer": {
++      "ObjectName": "OptimusNode_CustomComputeKernel'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.5"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -923,7 +992,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutTangentZ",
+-    "Outer": "OptimusNode_CustomComputeKernel_0",
++    "Outer": {
++      "ObjectName": "OptimusNode_CustomComputeKernel'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.5"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -945,7 +1017,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Primary Group",
+-    "Outer": "OptimusNode_CustomComputeKernel_0",
++    "Outer": {
++      "ObjectName": "OptimusNode_CustomComputeKernel'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.5"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -978,7 +1053,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Edge",
+-    "Outer": "Primary Group",
++    "Outer": {
++      "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.25"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -996,7 +1074,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "IndexBuffer",
+-    "Outer": "Primary Group",
++    "Outer": {
++      "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.25"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1015,7 +1096,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Position",
+-    "Outer": "Primary Group",
++    "Outer": {
++      "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.25"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1037,7 +1121,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "TwinEdge",
+-    "Outer": "Primary Group",
++    "Outer": {
++      "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.25"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1056,7 +1143,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "UV",
+-    "Outer": "Primary Group",
++    "Outer": {
++      "ObjectName": "OptimusNodePin'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_CustomComputeKernel_0.Primary Group'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.25"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1079,7 +1169,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Color",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1101,7 +1194,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "IndexBuffer",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1120,7 +1216,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "NumTriangles",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1133,7 +1232,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "NumUVChannels",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1146,7 +1248,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "NumVertices",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1159,7 +1264,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Position",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1181,7 +1289,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "SkinnedMesh",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1198,7 +1309,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "TangentX",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1220,7 +1334,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "TangentZ",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1242,7 +1359,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "UV",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1265,7 +1385,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "EdgesPerVertex",
+-    "Outer": "OptimusNode_DataInterface_2",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.7"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1283,7 +1406,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "SkinnedMesh",
+-    "Outer": "OptimusNode_DataInterface_2",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.7"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1300,7 +1426,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "TwinEdges",
+-    "Outer": "OptimusNode_DataInterface_2",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_2'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.7"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1319,7 +1448,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutPosition",
+-    "Outer": "Return",
++    "Outer": {
++      "ObjectName": "OptimusNode_GraphTerminal'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.10"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1341,7 +1473,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutTangentX",
+-    "Outer": "Return",
++    "Outer": {
++      "ObjectName": "OptimusNode_GraphTerminal'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.10"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1363,7 +1498,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutTangentZ",
+-    "Outer": "Return",
++    "Outer": {
++      "ObjectName": "OptimusNode_GraphTerminal'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.Return'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.10"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1385,7 +1523,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Default Component Binding",
+-    "Outer": "FunctionReferenceNode",
++    "Outer": {
++      "ObjectName": "OptimusNode_FunctionReference'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.8"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1402,7 +1543,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutPosition",
+-    "Outer": "FunctionReferenceNode",
++    "Outer": {
++      "ObjectName": "OptimusNode_FunctionReference'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.8"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1424,7 +1568,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutTangentX",
+-    "Outer": "FunctionReferenceNode",
++    "Outer": {
++      "ObjectName": "OptimusNode_FunctionReference'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.8"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1446,7 +1593,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "OutTangentZ",
+-    "Outer": "FunctionReferenceNode",
++    "Outer": {
++      "ObjectName": "OptimusNode_FunctionReference'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.8"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1468,7 +1618,10 @@
+   {
+     "Type": "OptimusNodePin",
+     "Name": "Position",
+-    "Outer": "FunctionReferenceNode",
++    "Outer": {
++      "ObjectName": "OptimusNode_FunctionReference'DG_Function_ComputeNormalsTangents:UpdateGraph.FunctionReferenceNode'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.8"
++    },
+     "Class": "UScriptClass'OptimusNodePin'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted",
+     "Properties": {
+@@ -1490,22 +1643,31 @@
+   {
+     "Type": "OptimusResourceContainer",
+     "Name": "@Resources",
+-    "Outer": "DG_Function_ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusDeformer'DG_Function_ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.2"
++    },
+     "Class": "UScriptClass'OptimusResourceContainer'",
+     "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+   },
+   {
+     "Type": "OptimusSkinnedMeshDataInterface",
+     "Name": "OptimusSkinnedMeshDataInterface_0",
+-    "Outer": "OptimusNode_DataInterface_1",
++    "Outer": {
++      "ObjectName": "OptimusNode_DataInterface'DG_Function_ComputeNormalsTangents:ComputeNormalsTangents.OptimusNode_DataInterface_1'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.6"
++    },
+     "Class": "UScriptClass'OptimusSkinnedMeshDataInterface'",
+     "Flags": "RF_WasLoaded | RF_LoadCompleted"
+   },
+   {
+     "Type": "OptimusVariableContainer",
+     "Name": "@Variables",
+-    "Outer": "DG_Function_ComputeNormalsTangents",
++    "Outer": {
++      "ObjectName": "OptimusDeformer'DG_Function_ComputeNormalsTangents'",
++      "ObjectPath": "Engine/Plugins/Animation/DeformerGraph/Content/DeformerFunctions/DG_Function_ComputeNormalsTangents.2"
++    },
+     "Class": "UScriptClass'OptimusVariableContainer'",
+     "Flags": "RF_Public | RF_Transactional | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+   }
+-]
+\ No newline at end of file
++]
