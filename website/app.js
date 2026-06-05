@@ -36,6 +36,9 @@ const IMAGE_EXTENSIONS = new Set([
 const searchInput = document.getElementById("file-search");
 const statusEl = document.getElementById("status");
 const resultsEl = document.getElementById("results");
+const resultsFooterEl = document.getElementById("results-footer");
+const resultsSummaryEl = document.getElementById("results-summary");
+const loadMoreResultBtns = Array.from(document.querySelectorAll("[data-load-more-results]"));
 const resultsViewer = document.querySelector(".results-viewer");
 const landingMessageEl = document.getElementById("landing-message");
 const homeStatusEl = document.getElementById("home-status");
@@ -52,6 +55,7 @@ const toolsDropdownEl = document.getElementById("tools-dropdown");
 
 let indexedFiles = [];
 let currentActiveBtn = null;
+let allCurrentMatches = [];
 let currentMatches = [];
 let selectedMatchIndex = -1;
 let debounceTimer = null;
@@ -304,7 +308,7 @@ function setActiveButton(buttonEl) {
   currentActiveBtn = buttonEl;
 }
 
-function setSelectedMatch(index) {
+function setSelectedMatch(index, options = {}) {
   if (currentMatches.length === 0) {
     selectedMatchIndex = -1;
     setActiveButton(null);
@@ -318,7 +322,45 @@ function setSelectedMatch(index) {
   }
 
   setActiveButton(button);
-  button.scrollIntoView({ block: "nearest" });
+  if (options.scroll !== false) {
+    button.scrollIntoView({ block: "nearest" });
+  }
+}
+
+function updateResultCountStatus() {
+  const totalMatches = allCurrentMatches.length;
+  const shownMatches = currentMatches.length;
+  const capped = totalMatches > shownMatches
+    ? ` (showing ${shownMatches.toLocaleString()} of ${totalMatches.toLocaleString()})`
+    : "";
+  updateStatus(`${totalMatches.toLocaleString()} matches${capped}.`);
+
+  if (!resultsSummaryEl) {
+    return;
+  }
+
+  resultsSummaryEl.hidden = totalMatches === 0;
+  resultsSummaryEl.textContent = totalMatches > shownMatches
+    ? `Showing ${shownMatches.toLocaleString()} of ${totalMatches.toLocaleString()}`
+    : `Showing ${shownMatches.toLocaleString()}`;
+}
+
+function updateLoadMoreState() {
+  if (!resultsFooterEl || loadMoreResultBtns.length === 0) {
+    return;
+  }
+
+  const remaining = allCurrentMatches.length - currentMatches.length;
+  resultsFooterEl.hidden = remaining <= 0;
+
+  const nextCount = Math.min(MAX_RESULTS, Math.max(remaining, 0));
+  for (const button of loadMoreResultBtns) {
+    button.hidden = remaining <= 0;
+    if (remaining > 0) {
+      button.textContent = `Load ${nextCount.toLocaleString()} More`;
+      button.title = `${remaining.toLocaleString()} more matching files available`;
+    }
+  }
 }
 
 function renderResults(matches, tokens) {
@@ -331,6 +373,8 @@ function renderResults(matches, tokens) {
     li.style.color = "var(--muted)";
     li.style.padding = "0.75rem";
     resultsEl.appendChild(li);
+    updateResultCountStatus();
+    updateLoadMoreState();
     return;
   }
 
@@ -348,6 +392,25 @@ function renderResults(matches, tokens) {
     fragment.appendChild(li);
   });
   resultsEl.appendChild(fragment);
+  updateLoadMoreState();
+}
+
+function loadMoreResults() {
+  if (currentMatches.length >= allCurrentMatches.length) {
+    updateLoadMoreState();
+    return;
+  }
+
+  const selectedBefore = selectedMatchIndex;
+  const nextCount = Math.min(currentMatches.length + MAX_RESULTS, allCurrentMatches.length);
+  currentMatches = allCurrentMatches.slice(0, nextCount);
+  renderResults(currentMatches, currentQueryTokens);
+
+  if (selectedBefore >= 0) {
+    setSelectedMatch(selectedBefore, { scroll: false });
+  }
+
+  updateResultCountStatus();
 }
 
 async function openMatchByIndex(index) {
@@ -421,12 +484,18 @@ function handleSearch() {
   currentQueryTokens = positives;
 
   if (!queryRaw) {
+    allCurrentMatches = [];
     currentMatches = [];
     selectedMatchIndex = -1;
     setActiveButton(null);
     resultsViewer.classList.remove("visible");
     setLandingVisible(true);
     resultsEl.innerHTML = "";
+    if (resultsSummaryEl) {
+      resultsSummaryEl.hidden = true;
+      resultsSummaryEl.textContent = "";
+    }
+    updateLoadMoreState();
     currentOpenPath = null;
     updateContentActionState();
     selectedPathEl.textContent = "Select a file";
@@ -464,18 +533,14 @@ function handleSearch() {
     return a.entry.path.localeCompare(b.entry.path);
   });
 
-  const totalMatches = scored.length;
-  currentMatches = scored.slice(0, MAX_RESULTS).map((item) => item.entry);
+  allCurrentMatches = scored.map((item) => item.entry);
+  currentMatches = allCurrentMatches.slice(0, MAX_RESULTS);
 
   renderResults(currentMatches, currentQueryTokens);
   resultsViewer.classList.add("visible");
   setLandingVisible(false);
   setSelectedMatch(0);
-
-  const capped = totalMatches > MAX_RESULTS
-    ? ` (showing first ${MAX_RESULTS.toLocaleString()})`
-    : "";
-  updateStatus(`${totalMatches.toLocaleString()} matches${capped}.`);
+  updateResultCountStatus();
 }
 
 function applyPathDisplayMode() {
@@ -662,6 +727,9 @@ async function init() {
 
 searchInput.addEventListener("input", triggerDebouncedSearch);
 searchInput.addEventListener("keydown", handleSearchKeyDown);
+for (const button of loadMoreResultBtns) {
+  button.addEventListener("click", loadMoreResults);
+}
 togglePathsBtn.addEventListener("click", () => {
   showFullPaths = !showFullPaths;
   applyPathDisplayMode();
