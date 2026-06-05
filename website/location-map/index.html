@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSDW Archive - Location map</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/shared/assets/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/shared/assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/shared/assets/favicon_io/favicon-16x16.png" />
+  <link rel="icon" href="/shared/assets/favicon_io/favicon.ico" />
+  <link rel="manifest" href="/shared/assets/favicon_io/site.webmanifest" />
+  <link rel="preload" href="https://fonts.gstatic.com/s/sofiasans/v20/Yq6T-LCVXSLy9uPBwlATrORKkzApcb8.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="/shared/site-shell.css" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="map-page rsdw-no-offset" data-archive-page="location-map" data-map-status="Loading...">
+  <div id="rsdw-header-mount"></div>
+
+<main class="map-page-main">
+    <aside class="map-sidebar" aria-label="Category picker">
+      <div class="map-sidebar-head">
+        <label for="locationmap-search" class="map-sidebar-label">Actor search</label>
+        <input
+          id="locationmap-search"
+          type="search"
+          class="map-sidebar-search"
+          placeholder="Filter e.g. &quot;ore stone -coal&quot;"
+          title="Space-separated tokens. Prefix a token with - to exclude."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <p id="locationmap-count" class="map-sidebar-count" aria-live="polite"></p>
+      </div>
+      <ul id="locationmap-category-list" class="map-chunk-list" role="listbox" aria-label="Actor categories"></ul>
+      <div id="locationmap-detail" class="map-chunk-detail" hidden></div>
+      <div class="map-sidebar-foot">
+        <label for="locationmap-icon-size" class="map-sidebar-label">
+          Icon size: <span id="locationmap-icon-size-value">20</span>px
+        </label>
+        <input
+          id="locationmap-icon-size"
+          type="range"
+          min="8"
+          max="64"
+          step="1"
+          value="20"
+          class="map-sidebar-slider"
+        />
+      </div>
+    </aside>
+    <div id="world-map" role="application" aria-label="Dragonwilds world map with categorized actor pins"></div>
+  </main>
+
+  <div id="rsdw-footer-mount"></div>
+
+  <script src="/shared/shared-header.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+  <script src="/locationmap.js" defer></script>
+</body>
+</html>

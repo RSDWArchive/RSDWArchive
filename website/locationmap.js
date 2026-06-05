@@ -11,7 +11,7 @@
  * are pure UI grouping: their checkbox toggles all children at once and their
  * count is the sum of children. The map only ever renders leaf layers.
  */
-const LOCATION_MAP_DATA_URL = "./tools/LocationMap/LocationMapData.json";
+const LOCATION_MAP_DATA_URL = "/tools/LocationMap/LocationMapData.json";
 
 const mapEl = document.getElementById("world-map");
 const statusEl = document.getElementById("map-status");
@@ -25,10 +25,12 @@ const countEl = document.getElementById("locationmap-count");
 
 let map = null;
 
-siteLogo.addEventListener("error", () => {
-  siteLogo.style.opacity = "0.5";
-  siteLogo.title = "Add website/logo.png to display your logo.";
-});
+if (siteLogo) {
+  siteLogo.addEventListener("error", () => {
+    siteLogo.style.opacity = "0.5";
+    siteLogo.title = "Add website/logo.png to display your logo.";
+  });
+}
 
 function setStatus(text) {
   if (statusEl) statusEl.textContent = text;
@@ -70,10 +72,16 @@ async function loadJson(url) {
   return response.json();
 }
 
+function normalizeAssetUrl(url) {
+  if (!url) return "";
+  if (/^(?:https?:|data:|\/)/i.test(url)) return url;
+  return `/${String(url).replace(/^\.?\//, "")}`;
+}
+
 function makeIcon(iconUrl) {
   if (!iconUrl) return null;
   return window.L.icon({
-    iconUrl,
+    iconUrl: normalizeAssetUrl(iconUrl),
     iconSize: [20, 20],
     iconAnchor: [10, 10],
     popupAnchor: [0, -8],
@@ -216,7 +224,7 @@ function makeRow({ checkbox, iconUrl, label, expandable, expanded, indent }) {
 
   if (iconUrl) {
     const iconImg = document.createElement("img");
-    iconImg.src = iconUrl;
+    iconImg.src = normalizeAssetUrl(iconUrl);
     iconImg.alt = "";
     iconImg.width = 16;
     iconImg.height = 16;

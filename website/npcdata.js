@@ -1,4 +1,4 @@
-const DATA_URL = "./tools/NPCData/NPCData.json";
+const DATA_URL = "/tools/NPCData/NPCData.json";
 const MAX_RESULTS = 500;
 const SEARCH_DEBOUNCE_MS = 90;
 
@@ -41,10 +41,12 @@ let debounceTimer = null;
 let previewFormat = PREVIEW_FORMAT_JSON;
 let copyToastTimer = null;
 
-siteLogo.addEventListener("error", () => {
-  siteLogo.style.opacity = "0.5";
-  siteLogo.title = "Add website/logo.png to display your logo.";
-});
+if (siteLogo) {
+  siteLogo.addEventListener("error", () => {
+    siteLogo.style.opacity = "0.5";
+    siteLogo.title = "Add website/logo.png to display your logo.";
+  });
+}
 
 function updateStatus(text) {
   statusEl.textContent = text;
@@ -63,10 +65,6 @@ function setLandingVisible(visible) {
   statusEl.style.display = visible ? "none" : "block";
 }
 
-function setToolsDropdown(open) {
-  toolsDropdownEl.hidden = !open;
-  toolsToggleBtn.setAttribute("aria-expanded", String(open));
-}
 
 function updatePreviewControlsState() {
   const hasSelection = Boolean(currentOpenEntry);
@@ -250,7 +248,7 @@ function renderResults(matches) {
   if (matches.length === 0) {
     const li = document.createElement("li");
     li.textContent = "No matching entries.";
-    li.style.color = "#8ca0b3";
+    li.style.color = "var(--muted)";
     li.style.padding = "0.75rem";
     resultsEl.appendChild(li);
     return;
@@ -549,18 +547,6 @@ async function init() {
 
 searchInput.addEventListener("input", triggerDebouncedSearch);
 searchInput.addEventListener("keydown", handleSearchKeyDown);
-
-toolsToggleBtn.addEventListener("click", () => {
-  setToolsDropdown(toolsDropdownEl.hidden);
-});
-document.addEventListener("click", (event) => {
-  if (!(event.target instanceof Node)) {
-    return;
-  }
-  if (!toolsDropdownEl.contains(event.target) && !toolsToggleBtn.contains(event.target)) {
-    setToolsDropdown(false);
-  }
-});
 
 tabNpcsBtn.addEventListener("click", () => {
   setView(VIEW_NPCS);

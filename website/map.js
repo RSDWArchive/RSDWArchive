@@ -6,8 +6,8 @@
  * Data source: website/tools/MapData/CompileMapData.py (sibling GeoJSONs).
  * CRS / transformation matches locationdata.js (game X,Y → Leaflet lat,lng as Y,X).
  */
-const GEOJSON_GRID = "./tools/MapData/ChunkWorldMapBounds_GridCell.geojson";
-const GEOJSON_CONTENT = "./tools/MapData/ChunkWorldMapBounds_ContentBounds.geojson";
+const GEOJSON_GRID = "/tools/MapData/ChunkWorldMapBounds_GridCell.geojson";
+const GEOJSON_CONTENT = "/tools/MapData/ChunkWorldMapBounds_ContentBounds.geojson";
 
 const mapEl = document.getElementById("world-map");
 const statusEl = document.getElementById("map-status");
@@ -21,10 +21,10 @@ const ctxMenuHeaderEl = document.getElementById("map-context-menu-header");
 const ctxMenuHideBtn = document.getElementById("map-context-menu-hide");
 
 const CONTEXT_STYLE = {
-  color: "rgba(91, 128, 168, 0.55)",
+  color: "rgba(180, 164, 140, 0.52)",
   weight: 1,
   opacity: 0.55,
-  fillColor: "rgba(91, 128, 168, 0.18)",
+  fillColor: "rgba(180, 164, 140, 0.16)",
   fillOpacity: 0.08
 };
 
@@ -32,20 +32,20 @@ const CONTEXT_STYLE = {
 // chunk the user is actually aiming at (e.g. a MainGrid cell underneath an
 // HLOD cell they previously selected).
 const SELECTED_GRID_STYLE = {
-  color: "rgba(61, 169, 252, 0.98)",
+  color: "rgba(224, 200, 150, 0.98)",
   weight: 2.5,
   opacity: 1,
-  fillColor: "rgba(61, 169, 252, 0.35)",
+  fillColor: "rgba(224, 200, 150, 0.34)",
   fillOpacity: 0.25,
   interactive: false
 };
 
 const SELECTED_CONTENT_STYLE = {
-  color: "rgba(34, 197, 94, 0.95)",
+  color: "rgba(210, 178, 116, 0.95)",
   weight: 2,
   opacity: 0.95,
   dashArray: "6,4",
-  fillColor: "rgba(34, 197, 94, 0.15)",
+  fillColor: "rgba(210, 178, 116, 0.14)",
   fillOpacity: 0.1,
   interactive: false
 };
@@ -69,10 +69,12 @@ let contextLayer = null;
 let selectedGridLayer = null;
 let selectedContentLayer = null;
 
-siteLogo.addEventListener("error", () => {
-  siteLogo.style.opacity = "0.5";
-  siteLogo.title = "Add website/logo.png to display your logo.";
-});
+if (siteLogo) {
+  siteLogo.addEventListener("error", () => {
+    siteLogo.style.opacity = "0.5";
+    siteLogo.title = "Add website/logo.png to display your logo.";
+  });
+}
 
 function setStatus(text) {
   if (statusEl) {

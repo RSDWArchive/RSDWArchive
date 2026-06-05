@@ -1,4 +1,4 @@
-const DATA_URL = "./tools/SpellData/SpellData.json";
+const DATA_URL = "/tools/SpellData/SpellData.json";
 
 function fileName(path) {
   const parts = path.split("/");

@@ -1,5 +1,5 @@
-const INDEX_URL = "./file-index.json";
-const CONFIG_URL = "./data.config.json";
+const INDEX_URL = "/file-index.json";
+const CONFIG_URL = "/data.config.json";
 let BRANCH = "main";
 let ROOT_FOLDER = "0.11.0.3";
 const MAX_RESULTS = 300;
@@ -60,10 +60,12 @@ let showFullPaths = false;
 let currentOpenPath = null;
 const DEFAULT_REPO_CONTEXT = { owner: "RSDWArchive", repo: "RSDWArchive" };
 
-siteLogo.addEventListener("error", () => {
-  siteLogo.style.opacity = "0.5";
-  siteLogo.title = "Add website/logo.png to display your logo.";
-});
+if (siteLogo) {
+  siteLogo.addEventListener("error", () => {
+    siteLogo.style.opacity = "0.5";
+    siteLogo.title = "Add website/logo.png to display your logo.";
+  });
+}
 
 function escapeHtml(str) {
   return str
@@ -124,7 +126,7 @@ function buildGithubTreeUrl(filePath) {
 }
 
 function buildLocalUrl(filePath) {
-  return `../${encodeURI(filePath)}`;
+  return `/${encodeURI(filePath)}`;
 }
 
 function isTextFile(filePath) {
@@ -173,13 +175,6 @@ function setLandingVisible(visible) {
   statusEl.style.display = visible ? "none" : "block";
 }
 
-function setToolsDropdown(open) {
-  if (!toolsDropdownEl || !toolsToggleBtn) {
-    return;
-  }
-  toolsDropdownEl.hidden = !open;
-  toolsToggleBtn.setAttribute("aria-expanded", String(open));
-}
 
 function updateContentActionState() {
   const hasSelection = Boolean(currentOpenPath);
@@ -333,7 +328,7 @@ function renderResults(matches, tokens) {
   if (matches.length === 0) {
     const li = document.createElement("li");
     li.textContent = "No matching files.";
-    li.style.color = "#8ca0b3";
+    li.style.color = "var(--muted)";
     li.style.padding = "0.75rem";
     resultsEl.appendChild(li);
     return;
@@ -681,20 +676,6 @@ downloadFileBtn.addEventListener("click", () => {
   void handleDownloadFile();
 });
 
-if (toolsToggleBtn && toolsDropdownEl) {
-  toolsToggleBtn.addEventListener("click", () => {
-    setToolsDropdown(toolsDropdownEl.hidden);
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!(event.target instanceof Node)) {
-      return;
-    }
-    if (!toolsDropdownEl.contains(event.target) && !toolsToggleBtn.contains(event.target)) {
-      setToolsDropdown(false);
-    }
-  });
-}
 
 updateContentActionState();
 applyPathDisplayMode();

@@ -1,4 +1,4 @@
-const DATA_URL = "./tools/PlanData/PlanData.json";
+const DATA_URL = "/tools/PlanData/PlanData.json";
 
 function fileName(path) {
   const parts = path.split("/");

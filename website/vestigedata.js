@@ -1,4 +1,4 @@
-const DATA_URL = "./tools/VestigeData/VestigeData.json";
+const DATA_URL = "/tools/VestigeData/VestigeData.json";
 
 function fileName(path) {
   const parts = path.split("/");

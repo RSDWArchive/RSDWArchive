@@ -1,4 +1,4 @@
-const DATA_URL = "./tools/ProgressionData/ProgressionData.json";
+const DATA_URL = "/tools/ProgressionData/ProgressionData.json";
 
 function shortTablePath(fullPath) {
   const idx = fullPath.lastIndexOf("/");

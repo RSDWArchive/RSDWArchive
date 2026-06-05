@@ -66,25 +66,8 @@
     document.body.removeChild(textArea);
   }
 
-  function bindToolsMenu(toolsToggleBtn, toolsDropdownEl) {
-    if (!toolsToggleBtn || !toolsDropdownEl) {
-      return;
-    }
-    function setOpen(open) {
-      toolsDropdownEl.hidden = !open;
-      toolsToggleBtn.setAttribute("aria-expanded", String(open));
-    }
-    toolsToggleBtn.addEventListener("click", () => {
-      setOpen(toolsDropdownEl.hidden);
-    });
-    document.addEventListener("click", (event) => {
-      if (!(event.target instanceof Node)) {
-        return;
-      }
-      if (!toolsDropdownEl.contains(event.target) && !toolsToggleBtn.contains(event.target)) {
-        setOpen(false);
-      }
-    });
+  function bindToolsMenu() {
+    // The shared Archive header owns the viewer dropdown.
   }
 
   /**
@@ -149,7 +132,7 @@
       });
     }
 
-    bindToolsMenu(toolsToggleBtn, toolsDropdownEl);
+    bindToolsMenu();
 
     function formatRowListLabel(row) {
       if (showFileNames) {

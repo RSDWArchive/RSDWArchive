@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSDW Archive - LocationData</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/shared/assets/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/shared/assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/shared/assets/favicon_io/favicon-16x16.png" />
+  <link rel="icon" href="/shared/assets/favicon_io/favicon.ico" />
+  <link rel="manifest" href="/shared/assets/favicon_io/site.webmanifest" />
+  <link rel="preload" href="https://fonts.gstatic.com/s/sofiasans/v20/Yq6T-LCVXSLy9uPBwlATrORKkzApcb8.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="/shared/site-shell.css" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-archive-page="location-data" data-search-placeholder="Search Locations..." data-search-label="Search Location Data">
+  <div id="rsdw-header-mount"></div>
+
+<main>
+    <section id="landing-message" class="landing-message">
+      <p id="home-status" aria-live="polite">Loading LocationData...</p>
+      <p id="home-subtitle" class="landing-subtitle">Browse locations</p>
+    </section>
+
+    <p id="status" aria-live="polite">Loading LocationData...</p>
+
+    <section class="results-viewer">
+      <aside>
+        <div class="panel-header">
+          <h2>Location</h2>
+          <button id="combine-btn" type="button" class="panel-action-btn" disabled>Combine</button>
+        </div>
+        <ul id="results"></ul>
+      </aside>
+      <article>
+        <div class="panel-header">
+          <h2>Coordinates</h2>
+          <div class="content-actions">
+            <button id="toggle-preview-format" type="button" class="panel-action-btn" disabled>Wiki</button>
+            <button id="copy-preview" type="button" class="panel-action-btn preview-copy-btn" aria-label="Copy preview to clipboard" title="Copy preview to clipboard" disabled>
+              <img src="/clipboard.png" alt="" />
+            </button>
+            <button id="toggle-map-mode" type="button" class="panel-action-btn">Map: Selected</button>
+          </div>
+        </div>
+        <p id="selected-path">Select a location</p>
+        <pre id="file-content">Search and click a location to preview XYZ coordinates.</pre>
+        <div id="location-map"></div>
+      </article>
+    </section>
+  </main>
+  <div id="combiner-modal" class="combiner-modal" hidden>
+    <div class="combiner-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="combiner-title">
+      <h3 id="combiner-title">Location Combiner</h3>
+      <p class="combiner-map-docs">
+        <a
+          href="https://dragonwilds.runescape.wiki/w/Template:Map"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Module Map Docs
+        </a>
+      </p>
+      <label class="combiner-check">
+        <input id="include-z" type="checkbox" />
+        <span>Include Z-Location</span>
+      </label>
+      <div class="combiner-field">
+        <label for="combine-name">Name (optional)</label>
+        <input
+          id="combine-name"
+          type="text"
+          class="combiner-text"
+          placeholder=""
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <div class="combiner-field">
+        <label for="combine-description">Description (optional)</label>
+        <textarea
+          id="combine-description"
+          class="combiner-text"
+          rows="2"
+          placeholder=""
+          autocomplete="off"
+          spellcheck="false"
+        ></textarea>
+      </div>
+      <div class="combiner-field">
+        <label for="combine-icon">Icon (optional)</label>
+        <input
+          id="combine-icon"
+          type="text"
+          class="combiner-text"
+          placeholder=""
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <div class="combiner-field">
+        <label for="combine-icon-size">IconSize (optional)</label>
+        <input
+          id="combine-icon-size"
+          type="text"
+          class="combiner-text"
+          placeholder=""
+          inputmode="numeric"
+          pattern="[0-9]+,[0-9]+"
+          autocomplete="off"
+          title="Width and height in pixels, e.g. 60,50"
+        />
+      </div>
+      <div class="combiner-actions">
+        <button id="combiner-cancel" type="button" class="panel-action-btn">Cancel</button>
+        <button
+          id="combiner-copy-center"
+          type="button"
+          class="panel-action-btn"
+          title="Copy wiki fragment |center=Y,X (map order; adds ,Z when Include Z-Location is checked) for Map module"
+        >
+          Copy Center Loc
+        </button>
+        <button id="combiner-create" type="button" class="panel-action-btn">Create LocationData</button>
+      </div>
+    </div>
+  </div>
+<div id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden></div>
+
+  <div id="rsdw-footer-mount"></div>
+
+  <script src="/shared/shared-header.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+  <script src="/search-match.js" defer></script>
+  <script src="/locationdata.js" defer></script>
+</body>
+</html>

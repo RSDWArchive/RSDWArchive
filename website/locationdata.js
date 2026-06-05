@@ -1,9 +1,9 @@
 // Coordinates are Unreal world "X Y Z" (same order as in-game).
 // LocationData.json is the single master: chunk LocationData + PCG foliage, wiki-bounds filtered.
 const DATA_URL_CANDIDATES = [
-  "./tools/LocationData/LocationData.json"
+  "/tools/LocationData/LocationData.json"
 ];
-const CONFIG_URL = "./data.config.json";
+const CONFIG_URL = "/data.config.json";
 let ROOT_FOLDER = "0.11.0.3";
 const MAX_RESULTS = 400;
 const SEARCH_DEBOUNCE_MS = 90;
@@ -51,10 +51,12 @@ let locationMap = null;
 let locationMarkersLayer = null;
 let mapMode = "selected";
 
-siteLogo.addEventListener("error", () => {
-  siteLogo.style.opacity = "0.5";
-  siteLogo.title = "Add website/logo.png to display your logo.";
-});
+if (siteLogo) {
+  siteLogo.addEventListener("error", () => {
+    siteLogo.style.opacity = "0.5";
+    siteLogo.title = "Add website/logo.png to display your logo.";
+  });
+}
 
 function escapeHtml(str) {
   return str
@@ -98,10 +100,6 @@ function setLandingVisible(visible) {
   statusEl.style.display = visible ? "none" : "block";
 }
 
-function setToolsDropdown(open) {
-  toolsDropdownEl.hidden = !open;
-  toolsToggleBtn.setAttribute("aria-expanded", String(open));
-}
 
 function setCombinerModal(open) {
   combinerModal.hidden = !open;
@@ -391,7 +389,7 @@ function renderResults(matches) {
   if (matches.length === 0) {
     const li = document.createElement("li");
     li.textContent = "No matching locations.";
-    li.style.color = "#8ca0b3";
+    li.style.color = "var(--muted)";
     li.style.padding = "0.75rem";
     resultsEl.appendChild(li);
     return;
@@ -671,18 +669,6 @@ async function init() {
 
 searchInput.addEventListener("input", triggerDebouncedSearch);
 searchInput.addEventListener("keydown", handleSearchKeyDown);
-
-toolsToggleBtn.addEventListener("click", () => {
-  setToolsDropdown(toolsDropdownEl.hidden);
-});
-document.addEventListener("click", (event) => {
-  if (!(event.target instanceof Node)) {
-    return;
-  }
-  if (!toolsDropdownEl.contains(event.target) && !toolsToggleBtn.contains(event.target)) {
-    setToolsDropdown(false);
-  }
-});
 
 combineBtn.addEventListener("click", () => {
   includeZInput.checked = false;
