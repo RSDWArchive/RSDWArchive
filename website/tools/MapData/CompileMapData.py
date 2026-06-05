@@ -143,6 +143,31 @@ def iter_l_world_top_level_objects(path: Path):
             yield data
 
 
+def unreal_ref_leaf(value: Any) -> str | None:
+    """
+    Convert CUE4Parse object-reference dicts into the FModel-style object leaf
+    used as the chunk id.
+    """
+    if isinstance(value, dict):
+        value = value.get("ObjectName") or value.get("AssetPathName")
+    if not isinstance(value, str):
+        return None
+    text = value.strip()
+    if not text:
+        return None
+    if "'" in text:
+        parts = text.split("'")
+        if len(parts) >= 2 and parts[1]:
+            text = parts[1]
+    if ":" in text:
+        text = text.split(":", 1)[1]
+    if "." in text:
+        text = text.rsplit(".", 1)[-1]
+    if "/" in text:
+        text = text.rsplit("/", 1)[-1]
+    return text or None
+
+
 def extract_spatial_hash_by_outer(l_world: Path) -> dict[str, dict[str, Any]]:
     """Map chunk stem (Outer) -> Properties of WorldPartitionRuntimeCellDataSpatialHash."""
     out: dict[str, dict[str, Any]] = {}
@@ -151,7 +176,7 @@ def extract_spatial_hash_by_outer(l_world: Path) -> dict[str, dict[str, Any]]:
             continue
         if obj.get("Type") != "WorldPartitionRuntimeCellDataSpatialHash":
             continue
-        outer = obj.get("Outer")
+        outer = unreal_ref_leaf(obj.get("Outer"))
         props = obj.get("Properties")
         if not isinstance(outer, str) or not isinstance(props, dict):
             continue

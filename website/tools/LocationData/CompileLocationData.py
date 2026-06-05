@@ -131,6 +131,33 @@ def iter_nodes(data: Any) -> Iterable[dict[str, Any]]:
             yield from iter_nodes(item)
 
 
+def unreal_ref_leaf(value: Any) -> str | None:
+    """
+    Convert CUE4Parse object-reference dicts into the FModel-style object leaf
+    used by the website data. Examples:
+      {"ObjectName": "Actor'L_World:PersistentLevel.Foo_UAID_1'"} -> Foo_UAID_1
+      "Foo_UAID_1" -> Foo_UAID_1
+    """
+    if isinstance(value, dict):
+        value = value.get("ObjectName") or value.get("AssetPathName")
+    if not isinstance(value, str):
+        return None
+    text = value.strip()
+    if not text:
+        return None
+    if "'" in text:
+        parts = text.split("'")
+        if len(parts) >= 2 and parts[1]:
+            text = parts[1]
+    if ":" in text:
+        text = text.split(":", 1)[1]
+    if "." in text:
+        text = text.rsplit(".", 1)[-1]
+    if "/" in text:
+        text = text.rsplit("/", 1)[-1]
+    return text or None
+
+
 def vec3_from_dict(
     d: Any, keys: tuple[str, str, str] = ("X", "Y", "Z")
 ) -> tuple[float, float, float] | None:
@@ -177,7 +204,7 @@ def extract_spatial_hash_by_outer(l_world: Path) -> dict[str, dict[str, Any]]:
             continue
         if obj.get("Type") != "WorldPartitionRuntimeCellDataSpatialHash":
             continue
-        outer = obj.get("Outer")
+        outer = unreal_ref_leaf(obj.get("Outer"))
         props = obj.get("Properties")
         if not isinstance(outer, str) or not isinstance(props, dict):
             continue
@@ -315,7 +342,7 @@ def collect_bp_anima_vent_elements(data: Any) -> dict[str, str]:
                     preferred[name] = el
             continue
         if node.get("Type") == "InteractionComponent":
-            outer = node.get("Outer")
+            outer = unreal_ref_leaf(node.get("Outer"))
             if not isinstance(outer, str) or not outer.startswith(ANIMA_VENT_OUTER_PREFIX):
                 continue
             props = node.get("Properties") or {}
@@ -339,7 +366,7 @@ def location_key_for_outer(outer: str, anima_elements: dict[str, str]) -> str:
 
 
 def extract_outer_xyz(node: dict[str, Any]) -> tuple[str | None, str | None]:
-    outer = node.get("Outer")
+    outer = unreal_ref_leaf(node.get("Outer"))
     if not outer:
         return None, None
     props = node.get("Properties") or {}
@@ -348,7 +375,7 @@ def extract_outer_xyz(node: dict[str, Any]) -> tuple[str | None, str | None]:
         return None, None
     if not all(k in rel_loc for k in ("X", "Y", "Z")):
         return None, None
-    return str(outer), f"{rel_loc['X']} {rel_loc['Y']} {rel_loc['Z']}"
+    return outer, f"{rel_loc['X']} {rel_loc['Y']} {rel_loc['Z']}"
 
 
 def process_chunk_file(path: Path) -> tuple[dict[str, str], int]:
@@ -411,7 +438,7 @@ def build_foliage_root_map(data: Any) -> dict[str, tuple[float, float, float]]:
             continue
         if node.get("Name") != "RootComponent0":
             continue
-        outer = node.get("Outer")
+        outer = unreal_ref_leaf(node.get("Outer"))
         if not isinstance(outer, str):
             continue
         props = node.get("Properties")
@@ -439,7 +466,7 @@ def build_pcg_tile_spawner_box_root_map(data: Any) -> dict[str, tuple[float, flo
             continue
         if node.get("Name") != "Box":
             continue
-        outer = node.get("Outer")
+        outer = unreal_ref_leaf(node.get("Outer"))
         if not isinstance(outer, str) or not outer.startswith("BP_PCG_TileSpawner_C"):
             continue
         props = node.get("Properties")
@@ -585,7 +612,7 @@ def process_pcg_file(
         if not is_interactable_foliage_ismc_type(type_name):
             continue
         seen += 1
-        outer = node.get("Outer")
+        outer = unreal_ref_leaf(node.get("Outer"))
         name = node.get("Name")
         if not isinstance(outer, str) or not isinstance(name, str):
             skipped += 1
