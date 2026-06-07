@@ -228,6 +228,8 @@
         " - ",
         el("a", { href: "https://rsdwbuilds.com", target: "_blank", rel: "noopener" }, ["Builds"]),
         " - ",
+        el("a", { href: "https://rsdwmodel.com", target: "_blank", rel: "noopener" }, ["Model"]),
+        " - ",
         el("a", { href: "https://rsdwtools.com", target: "_blank", rel: "noopener" }, ["Tools"])
       ])
     ]);
