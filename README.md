@@ -18,6 +18,10 @@ https://github.com/RSDWArchive?tab=repositories
 See [Updating.md](Updating.md) for the local archive update pipeline, report
 generation, old-dataset archival, and Git batch-push flow.
 
+For larger multi-project orchestration, see
+[PIPELINE_HANDOFF.md](PIPELINE_HANDOFF.md) for this repo's pipeline contract,
+inputs, outputs, success markers, and failure modes.
+
 ## Tips for Searching:
 Commonly used keywords to help you find what you're looking for. Search for:
 
