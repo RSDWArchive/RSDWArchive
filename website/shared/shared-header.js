@@ -27,7 +27,6 @@
   ];
 
   var REPO_URL = "https://github.com/RSDWArchive/RSDWArchive";
-  var PAGE_ICON = "/shared/assets/page-icons/archive-viewer.png";
   var DISCORD_LINKS = [
     { name: "Official", href: "https://discord.com/invite/rsdragonwilds" },
     { name: "Wiki", href: "https://discord.com/invite/rsdwwiki" },
@@ -177,10 +176,7 @@
         "data-archive-page": page.id
       };
       if (page.id === activePage) attrs.class = "is-active";
-      return el("a", attrs, [
-        el("img", { src: PAGE_ICON, alt: "" }),
-        page.name
-      ]);
+      return el("a", attrs, [page.name]);
     }));
     toolsWrap.appendChild(toolsToggle);
     toolsWrap.appendChild(toolsMenu);
@@ -225,6 +221,8 @@
       el("p", null, ["Game files & assets are property of Jagex Ltd."]),
       el("p", null, [
         el("a", { href: "/" }, ["Archive"]),
+        " - ",
+        el("a", { href: "https://rsdwbasebuilder.com/", target: "_blank", rel: "noopener" }, ["BaseBuilder"]),
         " - ",
         el("a", { href: "https://rsdwbuilds.com", target: "_blank", rel: "noopener" }, ["Builds"]),
         " - ",
