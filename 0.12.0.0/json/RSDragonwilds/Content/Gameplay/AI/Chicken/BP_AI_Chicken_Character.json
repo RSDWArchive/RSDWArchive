@@ -1,0 +1,2227 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Template": {
+      "ObjectName": "AIAttributesComponent'Default__BP_DominionAICharacter_C:AI Attributes Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.0"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DamageTypeAffinities": [
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Fire"
+          },
+          "Value": "EDamageTypeAffinity::Weakness"
+        },
+        {
+          "Key": {
+            "TagName": "DamageType.Magical.Air"
+          },
+          "Value": "EDamageTypeAffinity::Resistance"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AIAudioManagerComponent",
+    "Name": "AIAudioManager_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'AIAudioManagerComponent'",
+    "Template": {
+      "ObjectName": "AIAudioManagerComponent'BP_DominionAICharacter_C:AIAudioManager_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "IdleSoundToPlay": {
+        "ObjectName": "DominionMetaSoundSource'MSS_Cr_Vox_Chicken_Distant_Idle_Call'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/Creatures/Distant_Idle/MSS_Cr_Vox_Chicken_Distant_Idle_Call.0"
+      },
+      "CharacterAudioManagerData": {
+        "ObjectName": "CharacterAudioManagerData'ADA_ChickenCharacterData'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/DataAssets/Characters/ADA_ChickenCharacterData.0"
+      }
+    }
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Template": {
+      "ObjectName": "AiHealthComponent'Default__BP_DominionAICharacter_C:Health Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ModifyHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyHealth.0"
+      },
+      "ModifyMaxHealthGE": {
+        "ObjectName": "BlueprintGeneratedClass'GE_ModifyMaxHealth_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Effects/GE_ModifyMaxHealth.0"
+      },
+      "MaxHealth": 50.0
+    }
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Template": {
+      "ObjectName": "AiMovementComponent'Default__BP_DominionAICharacter_C:CharMoveComp'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NavAgentName": "Default",
+      "SpeedFactorIfMovingBackwards": {
+        "ObjectName": "CurveFloat'Curve_MediumBeast_BackwardsAccelleration'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/MediumBeast/Curve_MediumBeast_BackwardsAccelleration.0"
+      },
+      "bEnableLocomotionAnimation": true,
+      "MovementAnimationsTable": {
+        "ObjectName": "DataTable'DT_Chicken_Movement'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_Movement.0"
+      },
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Chicken_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_Rotation.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_Chicken_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_Rotation.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_Chicken_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Chicken_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Chicken_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_Chicken_RotationAlert'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_RotationAlert.0"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_Chicken_Rotation'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Movement/DT_Chicken_Rotation.0"
+          }
+        }
+      ],
+      "MaxStepHeight": 35.0,
+      "WalkableFloorAngle": 60.0,
+      "WalkableFloorZ": 0.49999997,
+      "MaxAcceleration": 1000.0,
+      "bOrientRotationToMovement": true,
+      "NavMovementProperties": {
+        "bUpdateNavAgentWithOwnersCollision": false
+      },
+      "NavAgentProps": {
+        "AgentRadius": 30.0,
+        "AgentHeight": 150.0,
+        "PreferredNavData": {
+          "AssetPathName": "/Script/NavigationSystem.RecastNavMesh",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Template": {
+      "ObjectName": "AiSightSensorPositionComponent'Default__BP_DominionAICharacter_C:Sight Sensor Position Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_Chicken_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_Chicken_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.32"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:ExecuteUbergraph_BP_AI_Chicken_Character'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.23"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnFailure_816D4A2348AD08F416D0B38212BEC972'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.25"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnSuccess_816D4A2348AD08F416D0B38212BEC972'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.27"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnFailure_B2A39E894B002C8F3C8E10AE7B5CFA24'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.26"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnSuccess_B2A39E894B002C8F3C8E10AE7B5CFA24'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.28"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnDamageRecieved'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.24"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.29"
+      },
+      {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:ExecuteUbergraph_BP_AI_Chicken_Character'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.23"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Weakpoint_RangedSize",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LootDrop",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'LootDropComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Chicken_AiCombatModeInitiator",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Chicken_AiCombatModeInitiator_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiCombatModeInitiator.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Chicken_AiAttackComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Chicken_AiAttackComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiAttackComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_Chicken_AttackOpportunityComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_Chicken_AttackOpportunityComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Attacks/BP_Chicken_AttackOpportunityComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Targetable",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'TargetableComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitPointsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiAnimationManager",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHitReactionsComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDamageComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiDeathComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_AiHealthBarComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_AiHealthBarComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.0"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_Chicken_Character": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:ExecuteUbergraph_BP_AI_Chicken_Character'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.23"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.29"
+      },
+      "OnDamageRecieved": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnDamageRecieved'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.24"
+      },
+      "OnSuccess_B2A39E894B002C8F3C8E10AE7B5CFA24": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnSuccess_B2A39E894B002C8F3C8E10AE7B5CFA24'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.28"
+      },
+      "OnFailure_B2A39E894B002C8F3C8E10AE7B5CFA24": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnFailure_B2A39E894B002C8F3C8E10AE7B5CFA24'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.26"
+      },
+      "OnSuccess_816D4A2348AD08F416D0B38212BEC972": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnSuccess_816D4A2348AD08F416D0B38212BEC972'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.27"
+      },
+      "OnFailure_816D4A2348AD08F416D0B38212BEC972": {
+        "ObjectName": "Function'BP_AI_Chicken_Character_C:OnFailure_816D4A2348AD08F416D0B38212BEC972'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.25"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_Chicken_Character_C",
+    "Name": "Default__BP_AI_Chicken_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.BP_AI_Chicken_Character_C'",
+    "Template": {
+      "ObjectName": "BP_DominionAICharacter_C'Default__BP_DominionAICharacter_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.7"
+    },
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "AIDataClass": {
+        "AssetPathName": "/Game/Gameplay/AI/Chicken/BP_AI_Chicken_Data.BP_AI_Chicken_Data_C",
+        "SubPathString": ""
+      },
+      "DominionAIActionsComponent": {
+        "ObjectName": "DominionAIActionsComponent'Default__BP_AI_Chicken_Character_C:DominionAIActionsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.19"
+      },
+      "HealthComponent": {
+        "ObjectName": "AiHealthComponent'Default__BP_AI_Chicken_Character_C:Health Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.2"
+      },
+      "HitRecipientAudioTag": {
+        "TagName": "Audio.Flesh"
+      },
+      "MusicStateToRequest": "EPrimaryMusicState::CombatLowTier",
+      "MusicThreatLevel": 10,
+      "TargetingAttachToBone": "spine_02",
+      "SightSensorPositionComponent": {
+        "ObjectName": "AiSightSensorPositionComponent'Default__BP_AI_Chicken_Character_C:Sight Sensor Position Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.4"
+      },
+      "AIAttributesComponent": {
+        "ObjectName": "AIAttributesComponent'Default__BP_AI_Chicken_Character_C:AI Attributes Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.0"
+      },
+      "TrackedStatusEffectsComponent": {
+        "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.56"
+      },
+      "EnvironmentComponent": {
+        "ObjectName": "EnvironmentComponent'Default__BP_AI_Chicken_Character_C:Environment Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.22"
+      },
+      "GameplayEffectsComponent": {
+        "ObjectName": "DominionGameplayEffectsComponent'Default__BP_AI_Chicken_Character_C:Gameplay Effects Component'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.20"
+      },
+      "LockOnTargetingBoneName": "spine_02",
+      "AIName": {
+        "Namespace": "",
+        "Key": "8E024AB64F51A88B7002DDAD910182CD",
+        "SourceString": "Chicken",
+        "LocalizedString": "Chicken"
+      },
+      "GameplayTagsComponent": {
+        "ObjectName": "GameplayTagsComponent'Default__BP_AI_Chicken_Character_C:GameplayTagsComponent'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.30"
+      },
+      "Mesh": {
+        "ObjectName": "SkeletalMeshComponent'Default__BP_AI_Chicken_Character_C:CharacterMesh0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.49"
+      },
+      "CharacterMovement": {
+        "ObjectName": "AiMovementComponent'Default__BP_AI_Chicken_Character_C:CharMoveComp'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.3"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Chicken_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.17"
+      },
+      "bUseControllerRotationYaw": false,
+      "AutoPossessAI": "EAutoPossessAI::PlacedInWorldOrSpawned",
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Controller_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Controller.8"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Chicken_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.17"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiAnimationManager_C",
+    "Name": "BP_AiAnimationManager_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.BP_AiAnimationManager_C'",
+    "Template": {
+      "ObjectName": "BP_AiAnimationManager_C'Default__BP_AiAnimationManager_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "BoneLookAt": "neck_C0_head_jnt",
+      "MinRotationPlayRate": 1.0,
+      "LeftYawRange": {
+        "X": 0.0,
+        "Y": 90.0
+      },
+      "RightYawRange": {
+        "X": 0.0,
+        "Y": 90.0
+      },
+      "ForwardYawRange": {
+        "X": -90.0,
+        "Y": 90.0
+      }
+    }
+  },
+  {
+    "Type": "BP_AiDamageComponent_C",
+    "Name": "BP_AiDamageComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.BP_AiDamageComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDamageComponent_C'Default__BP_AiDamageComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiDeathComponent_C'Default__BP_AiDeathComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DespawnVFX_Socket": "spine_C0_3_jnt",
+      "DespawnTime": 3.0,
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_Chicken_Death_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Actions/Death/DAA_Chicken_Death.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHealthBarComponent_C",
+    "Name": "BP_AiHealthBarComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.BP_AiHealthBarComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHealthBarComponent_C'Default__BP_AiHealthBarComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Space": "EWidgetSpace::Screen",
+      "bGenerateOverlapEvents": false,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel17",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "NoCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel2",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel3",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel4",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel5",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "EngineTraceChannel6",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 120.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "BP_AiHitPointsComponent_C",
+    "Name": "BP_AiHitPointsComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.BP_AiHitPointsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitPointsComponent_C'Default__BP_AiHitPointsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "HitPoints": [
+        {
+          "ShapeComponentRef": {
+            "OtherActor": null,
+            "ComponentProperty": "Weakpoint_RangedSize",
+            "PathToComponent": ""
+          },
+          "bCanBeHitByMelee": false,
+          "DebugColor": {
+            "B": 0,
+            "G": 255,
+            "R": 0,
+            "A": 255,
+            "Hex": "00FF00"
+          },
+          "bDrawDebugText": true,
+          "Specs": [
+            {
+              "Module": {
+                "ObjectName": "HitPointDamageMultiplierModule'BP_AI_Chicken_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE.HitPointDamageMultiplierModule_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.31"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_AiHitReactionsComponent_C",
+    "Name": "BP_AiHitReactionsComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.BP_AiHitReactionsComponent_C'",
+    "Template": {
+      "ObjectName": "BP_AiHitReactionsComponent_C'Default__BP_AiHitReactionsComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "LightForceThreshold": 100.0,
+      "HeavyForceThreshold": 9999.0
+    }
+  },
+  {
+    "Type": "BP_Chicken_AiAttackComponent_C",
+    "Name": "BP_Chicken_AiAttackComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiAttackComponent.BP_Chicken_AiAttackComponent_C'",
+    "Template": {
+      "ObjectName": "BP_Chicken_AiAttackComponent_C'Default__BP_Chicken_AiAttackComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiAttackComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BP_Chicken_AiCombatModeInitiator_C",
+    "Name": "BP_Chicken_AiCombatModeInitiator_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiCombatModeInitiator.BP_Chicken_AiCombatModeInitiator_C'",
+    "Template": {
+      "ObjectName": "BP_Chicken_AiCombatModeInitiator_C'Default__BP_Chicken_AiCombatModeInitiator_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiCombatModeInitiator.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CombatModeAreaInstance": {
+        "ObjectName": "CombatModeArea'BP_AI_Chicken_Character_C:BP_Chicken_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.18"
+      }
+    }
+  },
+  {
+    "Type": "BP_Chicken_AttackOpportunityComponent_C",
+    "Name": "BP_Chicken_AttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Chicken/Attacks/BP_Chicken_AttackOpportunityComponent.BP_Chicken_AttackOpportunityComponent_C'",
+    "Template": {
+      "ObjectName": "BP_Chicken_AttackOpportunityComponent_C'Default__BP_Chicken_AttackOpportunityComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Attacks/BP_Chicken_AttackOpportunityComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "Weakpoint_RangedSize_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 55.0,
+      "CapsuleRadius": 35.0,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_Pawn",
+        "CollisionProfileName": "WeakPoint",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Building",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ground",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Template": {
+      "ObjectName": "CapsuleComponent'Default__BP_DominionAICharacter_C:CollisionCylinder'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.8"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "CapsuleHalfHeight": 45.0,
+      "CapsuleRadius": 20.0,
+      "bUseSystemDefaultObstacleAreaClass": false,
+      "AreaClassOverride": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_GameTraceChannel3",
+        "CollisionProfileName": "Ai",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "TriggerVolume",
+              "Response": "ECollisionResponse::ECR_Overlap"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "CombatModeArea",
+    "Name": "CombatModeArea_0",
+    "Outer": {
+      "ObjectName": "BP_Chicken_AiCombatModeInitiator_C'BP_AI_Chicken_Character_C:BP_Chicken_AiCombatModeInitiator_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.14"
+    },
+    "Class": "UScriptClass'CombatModeArea'",
+    "Template": {
+      "ObjectName": "CombatModeArea'Default__BP_Chicken_AiCombatModeInitiator_C:CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiCombatModeInitiator.2"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Shape": {
+        "ObjectName": "DominionShape_Sphere'BP_AI_Chicken_Character_C:BP_Chicken_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0.DominionShape_Sphere_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.21"
+      }
+    }
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Template": {
+      "ObjectName": "DominionAIActionsComponent'Default__BP_DominionAICharacter_C:DominionAIActionsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.12"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Template": {
+      "ObjectName": "DominionGameplayEffectsComponent'Default__BP_DominionAICharacter_C:Gameplay Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.13"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionShape_Sphere",
+    "Name": "DominionShape_Sphere_0",
+    "Outer": {
+      "ObjectName": "CombatModeArea'BP_AI_Chicken_Character_C:BP_Chicken_AiCombatModeInitiator_GEN_VARIABLE.CombatModeArea_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.18"
+    },
+    "Class": "UScriptClass'DominionShape_Sphere'",
+    "Template": {
+      "ObjectName": "DominionShape_Sphere'Default__BP_Chicken_AiCombatModeInitiator_C:CombatModeArea_0.DominionShape_Sphere_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiCombatModeInitiator.3"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Template": {
+      "ObjectName": "EnvironmentComponent'Default__BP_DominionAICharacter_C:Environment Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.14"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_Chicken_Character",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'DominionAchievementWriteDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "K2Node_CustomEvent_WrittenAchievementName_3",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_CustomEvent_WrittenProgress_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_CustomEvent_WrittenUserTag_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "K2Node_CustomEvent_WrittenAchievementName_2",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_CustomEvent_WrittenProgress_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_CustomEvent_WrittenUserTag_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'DominionAchievementWriteDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Temp_real_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "Temp_name_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_2",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'DominionAchievementWriteDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "K2Node_CustomEvent_WrittenAchievementName_1",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_CustomEvent_WrittenProgress_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_CustomEvent_WrittenUserTag_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "K2Node_CustomEvent_WrittenAchievementName",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_CustomEvent_WrittenProgress",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_CustomEvent_WrittenUserTag",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_3",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'DominionAchievementWriteDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Temp_real_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "Temp_name_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 12
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_Target",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_CustomEvent_DamageEvent",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ConstParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'DominionDamageEvent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_4",
+        "Flags": "RF_Public",
+        "ElementSize": 32,
+        "SignatureFunction": {
+          "ObjectName": "Object'OnDamageReceivedSignatureDynamic__DelegateSignature'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsDominion_Player_Controller",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DominionPlayerController'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_WriteAchievementProgress_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DomAchievementWriteCallbackProxy'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_WriteAchievementProgress_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'DomAchievementWriteCallbackProxy'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "Object'TypeDamage'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_HasTag_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnDamageRecieved",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Target",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "DamageEvent",
+        "Flags": "RF_Public",
+        "ElementSize": 240,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm | ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'DominionDamageEvent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnFailure_816D4A2348AD08F416D0B38212BEC972",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "NameProperty",
+        "Name": "WrittenAchievementName",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "WrittenProgress",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "WrittenUserTag",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnFailure_B2A39E894B002C8F3C8E10AE7B5CFA24",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "NameProperty",
+        "Name": "WrittenAchievementName",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "WrittenProgress",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "WrittenUserTag",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnSuccess_816D4A2348AD08F416D0B38212BEC972",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "NameProperty",
+        "Name": "WrittenAchievementName",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "WrittenProgress",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "WrittenUserTag",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnSuccess_B2A39E894B002C8F3C8E10AE7B5CFA24",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "NameProperty",
+        "Name": "WrittenAchievementName",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "WrittenProgress",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "WrittenUserTag",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_DominionAICharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.22"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Template": {
+      "ObjectName": "GameplayTagsComponent'Default__BP_DominionAICharacter_C:GameplayTagsComponent'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.27"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "HitPointDamageMultiplierModule",
+    "Name": "HitPointDamageMultiplierModule_0",
+    "Outer": {
+      "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Chicken_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.11"
+    },
+    "Class": "UScriptClass'HitPointDamageMultiplierModule'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'AIAudioManagerComponent'",
+            "ObjectPath": "/Script/Dominion"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "AIAudioManagerComponent'BP_AI_Chicken_Character_C:AIAudioManager_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.1"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_DominionAICharacter_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.5"
+            },
+            "SCSVariableName": "AIAudioManager",
+            "AssociatedGuid": "A67185B4-4154555F-CC1F3980-144D6B0F"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LootDropComponent",
+    "Name": "LootDrop_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'LootDropComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "EnemyTableRowHandle": {
+        "DataTable": {
+          "ObjectName": "CompositeDataTable'DT_CompositeEnemyLootDropTable'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Items/LootDropTables/DT_CompositeEnemyLootDropTable.0"
+        },
+        "RowName": "Chicken"
+      },
+      "DefaultResourceClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RuntimeSpawnedWorldItem_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/WorldItems/BP_RuntimeSpawnedWorldItem.0"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_Chicken_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.34"
+      },
+      "VariableGUID": "1D2A580A-41ADCDDC-5DC619AA-4E66816F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiAnimationManager_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiAnimationManager.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiAnimationManager_C'BP_AI_Chicken_Character_C:BP_AiAnimationManager_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.7"
+      },
+      "VariableGUID": "2B4DEC54-426CE68D-A11FA9BA-B463D2A0",
+      "InternalVariableName": "BP_AiAnimationManager"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_10",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitPointsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitPointsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitPointsComponent_C'BP_AI_Chicken_Character_C:BP_AiHitPointsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.11"
+      },
+      "VariableGUID": "C5793BCD-4BCF5388-08EE2897-9B88E849",
+      "InternalVariableName": "BP_AiHitPointsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_11",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'TargetableComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "TargetableComponent'BP_AI_Chicken_Character_C:Targetable_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.50"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "778FC938-447E03D9-48E0D696-2BF2A182",
+      "InternalVariableName": "Targetable"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_AI_Chicken_Character_C:Weakpoint_RangedSize_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.16"
+      },
+      "ParentComponentOrVariableName": "CollisionCylinder",
+      "bIsParentComponentNative": true,
+      "VariableGUID": "7A0A291C-467ACBD7-1945849C-1D25349A",
+      "InternalVariableName": "Weakpoint_RangedSize"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Chicken_AttackOpportunityComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/Attacks/BP_Chicken_AttackOpportunityComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Chicken_AttackOpportunityComponent_C'BP_AI_Chicken_Character_C:BP_Chicken_AttackOpportunityComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.15"
+      },
+      "VariableGUID": "DC137A68-4069CD97-1B0ABD80-829DD137",
+      "InternalVariableName": "BP_Chicken_AttackOpportunityComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHealthBarComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHealthBarComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHealthBarComponent_C'BP_AI_Chicken_Character_C:BP_AiHealthBarComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.10"
+      },
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "MetaDataArray": [
+        {
+          "DataKey": "tooltip",
+          "DataValue": ""
+        }
+      ],
+      "VariableGUID": "6A8FB227-4EDA65EE-1F2AF5A1-22343270",
+      "InternalVariableName": "BP_AiHealthBarComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDeathComponent_C'BP_AI_Chicken_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.9"
+      },
+      "VariableGUID": "B4B3B570-4973C0DC-F54169BF-84C0559D",
+      "InternalVariableName": "BP_AiDeathComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiDamageComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDamageComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiDamageComponent_C'BP_AI_Chicken_Character_C:BP_AiDamageComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.8"
+      },
+      "VariableGUID": "95C62570-47762DE3-2D5FFB8A-D46C7610",
+      "InternalVariableName": "BP_AiDamageComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AiHitReactionsComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiHitReactionsComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_AiHitReactionsComponent_C'BP_AI_Chicken_Character_C:BP_AiHitReactionsComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.12"
+      },
+      "VariableGUID": "1F3CE235-4204EADA-59885CA3-5459544D",
+      "InternalVariableName": "BP_AiHitReactionsComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'LootDropComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "LootDropComponent'BP_AI_Chicken_Character_C:LootDrop_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.33"
+      },
+      "VariableGUID": "86B024C4-43B9EAAF-38BC499A-ADAD870E",
+      "InternalVariableName": "LootDrop"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Chicken_AiAttackComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiAttackComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Chicken_AiAttackComponent_C'BP_AI_Chicken_Character_C:BP_Chicken_AiAttackComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.13"
+      },
+      "VariableGUID": "DC82D28E-41E47761-54D85BA7-AD0021FD",
+      "InternalVariableName": "BP_Chicken_AiAttackComponent"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_Chicken_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.48"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Chicken_AiCombatModeInitiator_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_Chicken_AiCombatModeInitiator.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_Chicken_AiCombatModeInitiator_C'BP_AI_Chicken_Character_C:BP_Chicken_AiCombatModeInitiator_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.14"
+      },
+      "VariableGUID": "3F04998F-4ED25EB3-32F4C6A0-1B4D8A34",
+      "InternalVariableName": "BP_Chicken_AiCombatModeInitiator"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.39"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.41"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.42"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.43"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.44"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.36"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.37"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_11'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.38"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.40"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.46"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.47"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.45"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.39"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_Chicken_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.35"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Template": {
+      "ObjectName": "SkeletalMeshComponent'Default__BP_DominionAICharacter_C:CharacterMesh0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.33"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_Chicken_C'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Avian/Chicken_01/ABP_Chicken.1"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_Chicken_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Avian/Chicken_01/SK_Chicken_01.1"
+      },
+      "SkinnedAsset": {
+        "ObjectName": "SkeletalMesh'SK_Chicken_01'",
+        "ObjectPath": "RSDragonwilds/Content/Art/Skeleton/NPC/Avian/Chicken_01/SK_Chicken_01.1"
+      },
+      "OverrideMaterials": [
+        null
+      ],
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "CollisionProfileName": "AiMesh",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_Chicken_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.17"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -45.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "TargetableComponent",
+    "Name": "Targetable_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.5"
+    },
+    "Class": "UScriptClass'TargetableComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TargetingDistance": 5000.0
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectInstance",
+    "Name": "TrackedStatusEffectInstance_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.56"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstance'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectInstance'Default__BP_DominionAICharacter_C:Tracked Status Effects Component.TrackedStatusEffectInstance_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.35"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectInstanceBleeding",
+    "Name": "TrackedStatusEffectInstanceBleeding_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.56"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstanceBleeding'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectInstanceBleeding'Default__BP_DominionAICharacter_C:Tracked Status Effects Component.TrackedStatusEffectInstanceBleeding_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.36"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectInstanceBurning",
+    "Name": "TrackedStatusEffectInstanceBurning_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.56"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstanceBurning'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectInstanceBurning'Default__BP_DominionAICharacter_C:Tracked Status Effects Component.TrackedStatusEffectInstanceBurning_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.37"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectInstancePoison",
+    "Name": "TrackedStatusEffectInstancePoison_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.56"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstancePoison'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectInstancePoison'Default__BP_DominionAICharacter_C:Tracked Status Effects Component.TrackedStatusEffectInstancePoison_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.38"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectInstanceSlow",
+    "Name": "TrackedStatusEffectInstanceSlow_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.56"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstanceSlow'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectInstanceSlow'Default__BP_DominionAICharacter_C:Tracked Status Effects Component.TrackedStatusEffectInstanceSlow_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.39"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": {
+      "ObjectName": "BP_AI_Chicken_Character_C'Default__BP_AI_Chicken_Character_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.6"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Template": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_DominionAICharacter_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BP_DominionAICharacter.40"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TrackedStatusEffectInstances": [
+        {
+          "ObjectName": "TrackedStatusEffectInstancePoison'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstancePoison_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.54"
+        },
+        {
+          "ObjectName": "TrackedStatusEffectInstanceBurning'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstanceBurning_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.53"
+        },
+        {
+          "ObjectName": "TrackedStatusEffectInstanceBleeding'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstanceBleeding_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.52"
+        },
+        {
+          "ObjectName": "TrackedStatusEffectInstanceSlow'Default__BP_AI_Chicken_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstanceSlow_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Chicken/BP_AI_Chicken_Character.55"
+        }
+      ]
+    }
+  }
+]
