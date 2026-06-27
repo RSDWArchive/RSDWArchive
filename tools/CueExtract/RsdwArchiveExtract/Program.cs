@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using CUE4Parse.Compression;
@@ -75,6 +76,8 @@ internal static class Program
 
     private static int Run(CliOptions options)
     {
+        var runStartedAt = DateTimeOffset.UtcNow;
+        var runStopwatch = Stopwatch.StartNew();
         var retocRoot = Path.GetFullPath(options.RetocRoot!);
         var usmapPath = Path.GetFullPath(options.Usmap!);
         var outputRoot = options.Output is null ? null : Path.GetFullPath(options.Output);
@@ -83,6 +86,8 @@ internal static class Program
         Console.WriteLine($"usmap:      {usmapPath}");
         if (outputRoot is not null) Console.WriteLine($"output:     {outputRoot}");
         Console.WriteLine($"mode:       {(options.DryRun ? "dry-run" : "export")}");
+        Console.WriteLine($"extract:    {options.ExtractMode}");
+        Console.WriteLine($"workers:    {options.Workers}");
 
         RegisterArchiveObjectTypes();
         TryInitializeCompression();
@@ -138,45 +143,41 @@ internal static class Program
         Directory.CreateDirectory(outputRoot!);
         CopyUsmap(usmapPath, outputRoot!);
 
-        var results = new List<ArchiveExportResult>();
+        var effectiveWorkers = Math.Min(ResolveWorkerCount(options.Workers), Math.Max(files.Count, 1));
+        Console.WriteLine($"effective workers: {effectiveWorkers:N0}");
+
+        var results = ProcessPackages(provider, files, outputRoot!, options.Force, options.ExtractMode, effectiveWorkers);
         var counters = new ArchiveCounters();
-        var startedAt = DateTimeOffset.UtcNow;
-
-        foreach (var (file, index) in files.Select((file, index) => (file, index + 1)))
+        foreach (var result in results)
         {
-            Console.WriteLine($"[{index}/{files.Count}] {file.Path}");
-            var result = ProcessPackage(provider, file, outputRoot!, options.Force);
             counters.Add(result);
-            results.Add(result);
-
-            if (result.Succeeded)
-            {
-                var jsonNote = result.JsonSkipped ? "json skipped" : result.JsonPath is not null ? "json wrote" : "json none";
-                var textureNote = result.TextureSkippedCount > 0 || result.TexturePaths.Count > 0
-                    ? $"textures wrote {result.TexturePaths.Count}, skipped {result.TextureSkippedCount}"
-                    : "textures none";
-                Console.WriteLine($"  ok: {jsonNote}; {textureNote}");
-            }
-            else
-            {
-                Console.WriteLine($"  failed: {result.Error}");
-            }
         }
+
+        runStopwatch.Stop();
+        var durationSeconds = Math.Round(runStopwatch.Elapsed.TotalSeconds, 3);
+        var packagesPerSecond = durationSeconds > 0 ? Math.Round(files.Count / durationSeconds, 3) : files.Count;
 
         var manifestPath = options.Manifest ?? Path.Combine(outputRoot!, "ArchiveExtractManifest.json");
         var manifest = new ArchiveExtractManifest
         {
-            StartedAtUtc = startedAt,
+            StartedAtUtc = runStartedAt,
             FinishedAtUtc = DateTimeOffset.UtcNow,
             RetocRoot = retocRoot,
             Usmap = usmapPath,
             Output = outputRoot!,
+            RequestedWorkers = options.Workers,
+            EffectiveWorkers = effectiveWorkers,
+            ExtractMode = options.ExtractMode,
+            DurationSeconds = durationSeconds,
+            PackagesPerSecond = packagesPerSecond,
             SelectedPackageCount = files.Count,
             JsonWrittenCount = counters.JsonWritten,
             JsonSkippedCount = counters.JsonSkipped,
             TextureWrittenCount = counters.TextureWritten,
             TextureSkippedCount = counters.TextureSkipped,
             FailedPackageCount = counters.FailedPackages,
+            JsonBytesWritten = counters.JsonBytesWritten,
+            TextureBytesWritten = counters.TextureBytesWritten,
             Results = results
         };
 
@@ -186,12 +187,92 @@ internal static class Program
             "done: " +
             $"json wrote {counters.JsonWritten:N0}, json skipped {counters.JsonSkipped:N0}, " +
             $"textures wrote {counters.TextureWritten:N0}, textures skipped {counters.TextureSkipped:N0}, " +
-            $"failed {counters.FailedPackages:N0} package(s)");
+            $"failed {counters.FailedPackages:N0} package(s), " +
+            $"{packagesPerSecond:N2} package(s)/sec");
 
         return counters.FailedPackages == 0 ? 0 : 1;
     }
 
-    private static ArchiveExportResult ProcessPackage(DefaultFileProvider provider, GameFile file, string outputRoot, bool force)
+    private static List<ArchiveExportResult> ProcessPackages(
+        DefaultFileProvider provider,
+        IReadOnlyList<GameFile> files,
+        string outputRoot,
+        bool force,
+        string extractMode,
+        int workers)
+    {
+        var results = new ArchiveExportResult[files.Count];
+        var completed = 0;
+        var consoleLock = new object();
+
+        if (workers <= 1)
+        {
+            for (var index = 0; index < files.Count; index++)
+            {
+                var result = ProcessPackageTimed(provider, files[index], outputRoot, force, extractMode);
+                results[index] = result;
+                WritePackageProgress(index + 1, files.Count, result, consoleLock);
+            }
+
+            return results.ToList();
+        }
+
+        Parallel.For(
+            0,
+            files.Count,
+            new ParallelOptions { MaxDegreeOfParallelism = workers },
+            index =>
+            {
+                var result = ProcessPackageTimed(provider, files[index], outputRoot, force, extractMode);
+                results[index] = result;
+                var done = Interlocked.Increment(ref completed);
+                WritePackageProgress(done, files.Count, result, consoleLock);
+            });
+
+        return results.ToList();
+    }
+
+    private static ArchiveExportResult ProcessPackageTimed(
+        DefaultFileProvider provider,
+        GameFile file,
+        string outputRoot,
+        bool force,
+        string extractMode)
+    {
+        var stopwatch = Stopwatch.StartNew();
+        var result = ProcessPackage(provider, file, outputRoot, force, extractMode);
+        stopwatch.Stop();
+        result.DurationSeconds = Math.Round(stopwatch.Elapsed.TotalSeconds, 3);
+        result.WorkerId = Environment.CurrentManagedThreadId;
+        return result;
+    }
+
+    private static void WritePackageProgress(int completed, int total, ArchiveExportResult result, object consoleLock)
+    {
+        lock (consoleLock)
+        {
+            Console.WriteLine($"[{completed}/{total}] {result.PackagePath}");
+            if (result.Succeeded)
+            {
+                var jsonNote = result.JsonSkipped ? "json skipped" : result.JsonPath is not null ? "json wrote" : "json none";
+                var textureNote = result.TextureSkippedCount > 0 || result.TexturePaths.Count > 0
+                    ? $"textures wrote {result.TexturePaths.Count}, skipped {result.TextureSkippedCount}"
+                    : "textures none";
+                Console.WriteLine($"  ok: {jsonNote}; {textureNote}; {result.DurationSeconds:N3}s");
+            }
+            else
+            {
+                Console.WriteLine($"  failed: {result.Error}");
+            }
+        }
+    }
+
+    private static ArchiveExportResult ProcessPackage(
+        DefaultFileProvider provider,
+        GameFile file,
+        string outputRoot,
+        bool force,
+        string extractMode)
     {
         var result = new ArchiveExportResult
         {
@@ -200,31 +281,40 @@ internal static class Program
 
         try
         {
+            var effectiveForce = string.Equals(extractMode, "missing-only", StringComparison.OrdinalIgnoreCase) ? false : force;
             var package = provider.LoadPackage(file);
             var exports = package.GetExports().ToList();
 
-            var jsonPath = ExpectedJsonPath(outputRoot, file.Path);
-            if (!force && File.Exists(jsonPath))
+            if (ShouldExportJson(extractMode))
             {
-                result.JsonPath = jsonPath;
-                result.JsonSkipped = true;
-            }
-            else
-            {
-                Directory.CreateDirectory(Path.GetDirectoryName(jsonPath)!);
-                File.WriteAllText(jsonPath, SerializeExportsForArchive(exports) + Environment.NewLine);
-                result.JsonPath = jsonPath;
-            }
-
-            foreach (var textureResult in ExportTextures(outputRoot, file.Path, exports, force))
-            {
-                if (textureResult.Skipped)
+                var jsonPath = ExpectedJsonPath(outputRoot, file.Path);
+                if (!effectiveForce && File.Exists(jsonPath))
                 {
-                    result.TextureSkippedCount++;
+                    result.JsonPath = jsonPath;
+                    result.JsonSkipped = true;
                 }
                 else
                 {
-                    result.TexturePaths.Add(textureResult.Path);
+                    Directory.CreateDirectory(Path.GetDirectoryName(jsonPath)!);
+                    File.WriteAllText(jsonPath, SerializeExportsForArchive(exports) + Environment.NewLine);
+                    result.JsonPath = jsonPath;
+                    result.JsonBytesWritten = new FileInfo(jsonPath).Length;
+                }
+            }
+
+            if (ShouldExportTextures(extractMode))
+            {
+                foreach (var textureResult in ExportTextures(outputRoot, file.Path, exports, effectiveForce))
+                {
+                    if (textureResult.Skipped)
+                    {
+                        result.TextureSkippedCount++;
+                    }
+                    else
+                    {
+                        result.TexturePaths.Add(textureResult.Path);
+                        result.TextureBytesWritten += textureResult.BytesWritten;
+                    }
                 }
             }
 
@@ -305,7 +395,7 @@ internal static class Program
                 var existingSingleTexture = ExistingTexturePath(outputRoot, baseRelative);
                 if (existingSingleTexture is not null)
                 {
-                    yield return new TextureExportResult(existingSingleTexture, true);
+                    yield return new TextureExportResult(existingSingleTexture, true, 0);
                     continue;
                 }
             }
@@ -328,7 +418,7 @@ internal static class Program
                 var existing = ExistingTexturePath(outputRoot, relativeNoExt);
                 if (!force && existing is not null)
                 {
-                    yield return new TextureExportResult(existing, true);
+                    yield return new TextureExportResult(existing, true, 0);
                     continue;
                 }
 
@@ -341,7 +431,7 @@ internal static class Program
                 var outPath = CombineUnderRoot(outputRoot, "textures/" + relativeNoExt + "." + ext);
                 Directory.CreateDirectory(Path.GetDirectoryName(outPath)!);
                 File.WriteAllBytes(outPath, imageData);
-                yield return new TextureExportResult(outPath, false);
+                yield return new TextureExportResult(outPath, false, imageData.LongLength);
             }
         }
     }
@@ -555,6 +645,33 @@ internal static class Program
 
     private static string NormalizeSeparators(string value) => value.Replace('\\', '/');
 
+    private static bool ShouldExportJson(string extractMode) =>
+        extractMode is "full" or "json-only" or "missing-only";
+
+    private static bool ShouldExportTextures(string extractMode) =>
+        extractMode is "full" or "textures-only" or "missing-only";
+
+    private static int ResolveWorkerCount(string value)
+    {
+        var normalized = value.Trim();
+        if (string.Equals(normalized, "auto", StringComparison.OrdinalIgnoreCase))
+        {
+            return Math.Clamp(Environment.ProcessorCount - 2, 1, 20);
+        }
+
+        if (string.Equals(normalized, "max", StringComparison.OrdinalIgnoreCase))
+        {
+            return Math.Max(Environment.ProcessorCount, 1);
+        }
+
+        if (int.TryParse(normalized, out var workers) && workers > 0)
+        {
+            return workers;
+        }
+
+        throw new CliException("--workers must be a positive integer, auto, or max");
+    }
+
     private static void PrintHelp()
     {
         Console.WriteLine("""
@@ -578,6 +695,9 @@ Selection:
 Mode:
   --dry-run             Print selected package paths without exporting.
   --force               Re-export existing JSON/textures.
+  --extract-mode <mode> full, json-only, textures-only, or missing-only. Default: full.
+  --workers <n|auto|max>
+                        Parallel package workers. Default: 1.
   --manifest <path>     Manifest path. Default: <out>/ArchiveExtractManifest.json.
   --help                Show this help.
 """);
@@ -595,6 +715,8 @@ internal sealed class CliOptions
     public bool Force { get; private set; }
     public bool ShowHelp { get; private set; }
     public int? Limit { get; private set; }
+    public string Workers { get; private set; } = "1";
+    public string ExtractMode { get; private set; } = "full";
     public List<string> AssetSelectors { get; } = [];
     public List<string> NameSelectors { get; } = [];
     public List<string> Prefixes { get; } = [];
@@ -632,6 +754,12 @@ internal sealed class CliOptions
                     break;
                 case "--force":
                     options.Force = true;
+                    break;
+                case "--workers":
+                    options.Workers = RequireValue(args, ref i, arg);
+                    break;
+                case "--extract-mode":
+                    options.ExtractMode = RequireValue(args, ref i, arg).ToLowerInvariant();
                     break;
                 case "--asset":
                     options.AssetSelectors.AddRange(SplitCsv(RequireValue(args, ref i, arg)));
@@ -673,6 +801,11 @@ internal sealed class CliOptions
             throw new CliException("--out is required unless --dry-run is used");
         }
 
+        if (ExtractMode is not ("full" or "json-only" or "textures-only" or "missing-only"))
+        {
+            throw new CliException("--extract-mode must be full, json-only, textures-only, or missing-only");
+        }
+
         if (!DryRun && !All && Limit is null && AssetSelectors.Count == 0 && NameSelectors.Count == 0)
         {
             throw new CliException("broad export requires --limit, --asset, --name, or --all");
@@ -700,10 +833,11 @@ internal sealed class CliOptions
 
 internal sealed class CliException(string message) : Exception(message);
 
-internal sealed class TextureExportResult(string path, bool skipped)
+internal sealed class TextureExportResult(string path, bool skipped, long bytesWritten)
 {
     public string Path { get; } = path;
     public bool Skipped { get; } = skipped;
+    public long BytesWritten { get; } = bytesWritten;
 }
 
 internal sealed class ArchiveExportResult
@@ -713,8 +847,12 @@ internal sealed class ArchiveExportResult
     public string? Error { get; set; }
     public string? JsonPath { get; set; }
     public bool JsonSkipped { get; set; }
+    public long JsonBytesWritten { get; set; }
     public List<string> TexturePaths { get; init; } = [];
     public int TextureSkippedCount { get; set; }
+    public long TextureBytesWritten { get; set; }
+    public double DurationSeconds { get; set; }
+    public int WorkerId { get; set; }
 }
 
 internal sealed class ArchiveCounters
@@ -724,6 +862,8 @@ internal sealed class ArchiveCounters
     public int TextureWritten { get; private set; }
     public int TextureSkipped { get; private set; }
     public int FailedPackages { get; private set; }
+    public long JsonBytesWritten { get; private set; }
+    public long TextureBytesWritten { get; private set; }
 
     public void Add(ArchiveExportResult result)
     {
@@ -744,6 +884,8 @@ internal sealed class ArchiveCounters
 
         TextureWritten += result.TexturePaths.Count;
         TextureSkipped += result.TextureSkippedCount;
+        JsonBytesWritten += result.JsonBytesWritten;
+        TextureBytesWritten += result.TextureBytesWritten;
     }
 }
 
@@ -754,12 +896,19 @@ internal sealed class ArchiveExtractManifest
     public required string RetocRoot { get; init; }
     public required string Usmap { get; init; }
     public required string Output { get; init; }
+    public required string RequestedWorkers { get; init; }
+    public int EffectiveWorkers { get; init; }
+    public required string ExtractMode { get; init; }
+    public double DurationSeconds { get; init; }
+    public double PackagesPerSecond { get; init; }
     public int SelectedPackageCount { get; init; }
     public int JsonWrittenCount { get; init; }
     public int JsonSkippedCount { get; init; }
     public int TextureWrittenCount { get; init; }
     public int TextureSkippedCount { get; init; }
     public int FailedPackageCount { get; init; }
+    public long JsonBytesWritten { get; init; }
+    public long TextureBytesWritten { get; init; }
     public List<ArchiveExportResult> Results { get; init; } = [];
 }
 

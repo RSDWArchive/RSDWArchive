@@ -20,7 +20,8 @@ generation, old-dataset archival, and Git batch-push flow.
 
 For larger multi-project orchestration, see
 [PIPELINE_HANDOFF.md](PIPELINE_HANDOFF.md) for this repo's pipeline contract,
-inputs, outputs, success markers, and failure modes.
+inputs, outputs, success markers, and failure modes. The machine-readable
+command contract lives in [pipeline.contract.json](pipeline.contract.json).
 
 ## Tips for Searching:
 Commonly used keywords to help you find what you're looking for. Search for:

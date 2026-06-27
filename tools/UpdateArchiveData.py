@@ -25,6 +25,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -44,6 +45,7 @@ LARGE_FILE_LIMIT_MB = 100
 LARGE_FILE_LIMIT_BYTES = LARGE_FILE_LIMIT_MB * 1024 * 1024
 DEFAULT_GIT_BATCH_GB = 1.9
 DEFAULT_GIT_FILE_LIMIT_MB = 100.0
+DEFAULT_REPORT_TIMEOUT_MINUTES = 30.0
 
 
 @dataclass(frozen=True)
@@ -51,6 +53,36 @@ class RetocCacheStatus:
     state: str
     detail: str
     manifest: dict | None = None
+
+
+@dataclass(frozen=True)
+class CommandStage:
+    name: str
+    command: str
+    cwd: str
+    status: str
+    started_utc: str | None
+    finished_utc: str | None
+    duration_seconds: float | None
+    exit_code: int | None = None
+    log_path: str | None = None
+    timed_out: bool = False
+    timeout_seconds: float | None = None
+
+    def to_dict(self) -> dict:
+        return {
+            "name": self.name,
+            "command": self.command,
+            "cwd": self.cwd,
+            "status": self.status,
+            "started_utc": self.started_utc,
+            "finished_utc": self.finished_utc,
+            "duration_seconds": self.duration_seconds,
+            "exit_code": self.exit_code,
+            "log_path": self.log_path,
+            "timed_out": self.timed_out,
+            "timeout_seconds": self.timeout_seconds,
+        }
 
 
 def repo_root() -> Path:
@@ -334,19 +366,34 @@ def run_command(
     cwd: Path,
     log_path: Path | None,
     dry_run: bool,
-) -> None:
+    timeout_seconds: float | None = None,
+) -> CommandStage:
     print_section(title)
-    print(command_text(cmd))
+    cmd_text = command_text(cmd)
+    print(cmd_text)
     if dry_run:
-        return
+        return CommandStage(
+            name=title,
+            command=cmd_text,
+            cwd=str(cwd),
+            status="planned",
+            started_utc=None,
+            finished_utc=None,
+            duration_seconds=None,
+            log_path=str(log_path) if log_path else None,
+            timeout_seconds=timeout_seconds,
+        )
 
     assert log_path is not None
     log_path.parent.mkdir(parents=True, exist_ok=True)
+    started_utc = now_iso()
+    started = time.monotonic()
     with log_path.open("w", encoding="utf-8", errors="replace") as log:
         log.write(f"# {title}\n")
         log.write(f"# cwd: {cwd}\n")
-        log.write(f"# started_utc: {now_iso()}\n")
-        log.write(f"$ {command_text(cmd)}\n\n")
+        log.write(f"# started_utc: {started_utc}\n")
+        log.write(f"# timeout_seconds: {timeout_seconds}\n")
+        log.write(f"$ {cmd_text}\n\n")
         log.flush()
 
         proc = subprocess.Popen(
@@ -363,11 +410,117 @@ def run_command(
         for line in proc.stdout:
             print(line, end="")
             log.write(line)
-        rc = proc.wait()
-        log.write(f"\n# finished_utc: {now_iso()}\n")
+        try:
+            rc = proc.wait(timeout=timeout_seconds)
+            timed_out = False
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            rc = proc.wait()
+            timed_out = True
+        finished_utc = now_iso()
+        duration_seconds = round(time.monotonic() - started, 3)
+        log.write(f"\n# finished_utc: {finished_utc}\n")
+        log.write(f"# duration_seconds: {duration_seconds}\n")
         log.write(f"# exit_code: {rc}\n")
+        log.write(f"# timed_out: {timed_out}\n")
+        stage = CommandStage(
+            name=title,
+            command=cmd_text,
+            cwd=str(cwd),
+            status="timeout" if timed_out else ("completed" if rc == 0 else "failed"),
+            started_utc=started_utc,
+            finished_utc=finished_utc,
+            duration_seconds=duration_seconds,
+            exit_code=rc,
+            log_path=str(log_path),
+            timed_out=timed_out,
+            timeout_seconds=timeout_seconds,
+        )
+        if timed_out:
+            raise SystemExit(f"{title} timed out after {timeout_seconds} seconds. Log: {log_path}")
         if rc != 0:
             raise SystemExit(f"{title} failed with exit code {rc}. Log: {log_path}")
+        return stage
+
+
+def run_command_to_log(
+    title: str,
+    cmd: Sequence[str],
+    *,
+    cwd: Path,
+    log_path: Path | None,
+    dry_run: bool,
+    timeout_seconds: float | None,
+) -> CommandStage:
+    print_section(title)
+    cmd_text = command_text(cmd)
+    print(cmd_text)
+    if timeout_seconds:
+        print(f"Timeout: {timeout_seconds:g} seconds")
+    if dry_run:
+        return CommandStage(
+            name=title,
+            command=cmd_text,
+            cwd=str(cwd),
+            status="planned",
+            started_utc=None,
+            finished_utc=None,
+            duration_seconds=None,
+            log_path=str(log_path) if log_path else None,
+            timeout_seconds=timeout_seconds,
+        )
+
+    assert log_path is not None
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    started_utc = now_iso()
+    started = time.monotonic()
+    timed_out = False
+    rc: int | None = None
+    with log_path.open("w", encoding="utf-8", errors="replace") as log:
+        log.write(f"# {title}\n")
+        log.write(f"# cwd: {cwd}\n")
+        log.write(f"# started_utc: {started_utc}\n")
+        log.write(f"# timeout_seconds: {timeout_seconds}\n")
+        log.write(f"$ {cmd_text}\n\n")
+        log.flush()
+        try:
+            completed = subprocess.run(
+                [str(c) for c in cmd],
+                cwd=str(cwd),
+                stdout=log,
+                stderr=subprocess.STDOUT,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=timeout_seconds,
+                check=False,
+            )
+            rc = completed.returncode
+        except subprocess.TimeoutExpired:
+            timed_out = True
+
+        finished_utc = now_iso()
+        duration_seconds = round(time.monotonic() - started, 3)
+        log.write(f"\n# finished_utc: {finished_utc}\n")
+        log.write(f"# duration_seconds: {duration_seconds}\n")
+        log.write(f"# exit_code: {rc}\n")
+        log.write(f"# timed_out: {timed_out}\n")
+
+    status = "timeout" if timed_out else ("completed" if rc == 0 else "failed")
+    print(f"{title} {status} in {duration_seconds:g}s")
+    return CommandStage(
+        name=title,
+        command=cmd_text,
+        cwd=str(cwd),
+        status=status,
+        started_utc=started_utc,
+        finished_utc=finished_utc,
+        duration_seconds=duration_seconds,
+        exit_code=rc,
+        log_path=str(log_path),
+        timed_out=timed_out,
+        timeout_seconds=timeout_seconds,
+    )
 
 
 def require_tool(name: str) -> str:
@@ -437,6 +590,80 @@ def should_run_completion_stages(args: argparse.Namespace) -> bool:
     )
 
 
+def resolve_reports_mode(args: argparse.Namespace) -> str:
+    if args.skip_reports:
+        return "skip"
+    return args.reports_mode
+
+
+def report_timeout_seconds(args: argparse.Namespace) -> float | None:
+    if args.report_timeout_minutes is None or args.report_timeout_minutes <= 0:
+        return None
+    return args.report_timeout_minutes * 60.0
+
+
+def report_required(mode: str) -> bool:
+    return mode == "required"
+
+
+def resolve_extract_workers(args: argparse.Namespace) -> str:
+    if args.extract_workers:
+        return args.extract_workers
+    if args.resource_profile == "conservative":
+        return "1"
+    if args.resource_profile == "max":
+        return "max"
+    return "auto"
+
+
+def reports_state(
+    *,
+    mode: str,
+    status: str,
+    reason: str,
+    previous_dataset: Path | None = None,
+    output_dir: Path | None = None,
+    stage: CommandStage | None = None,
+    report_run_json: Path | None = None,
+    error: str | None = None,
+) -> dict:
+    required = report_required(mode)
+    return {
+        "mode": mode,
+        "status": status,
+        "skipped": status == "skipped",
+        "required": required,
+        "acceptable": status == "completed" or not required,
+        "reason": reason,
+        "previous_dataset": str(previous_dataset) if previous_dataset else None,
+        "output_dir": str(output_dir) if output_dir else None,
+        "report_run_json": str(report_run_json) if report_run_json else None,
+        "stage": stage.to_dict() if stage else None,
+        "error": error,
+    }
+
+
+def previous_archive_state(
+    *,
+    status: str,
+    reason: str,
+    source: Path | None = None,
+    destination: Path | None = None,
+    required: bool = False,
+    error: str | None = None,
+) -> dict:
+    return {
+        "status": status,
+        "skipped": status == "skipped",
+        "required": required,
+        "acceptable": status == "completed" or not required,
+        "reason": reason,
+        "source": str(source) if source else None,
+        "destination": str(destination) if destination else None,
+        "error": error,
+    }
+
+
 def default_report_output_dir(repo: Path, old_version: str, new_version: str) -> Path:
     return repo / "reports" / "reports" / f"{old_version}_to_{new_version}"
 
@@ -477,6 +704,12 @@ def load_archive_extract_summary(path: Path) -> dict:
         "textures_written": data.get("TextureWrittenCount"),
         "textures_skipped": data.get("TextureSkippedCount"),
         "failed_packages": data.get("FailedPackageCount"),
+        "requested_workers": data.get("RequestedWorkers"),
+        "effective_workers": data.get("EffectiveWorkers"),
+        "duration_seconds": data.get("DurationSeconds"),
+        "packages_per_second": data.get("PackagesPerSecond"),
+        "json_bytes_written": data.get("JsonBytesWritten"),
+        "texture_bytes_written": data.get("TextureBytesWritten"),
     }
 
 
@@ -556,10 +789,13 @@ def write_pipeline_summary(
     output_root: Path,
     log_dir: Path | None,
     dry_run: bool,
+    stages: list[CommandStage],
+    resource_settings: dict,
     reports: dict | None = None,
-    previous_archive: dict | None = None,
+    previous_dataset_archival: dict | None = None,
     git_commit_plan: dict | None = None,
 ) -> None:
+    previous_archive = previous_dataset_archival or {"skipped": True}
     summary = {
         "schema": "RSDWArchive.UpdatePipeline.v1",
         "updated_utc": now_iso(),
@@ -570,6 +806,8 @@ def write_pipeline_summary(
         "usmap": str(usmap),
         "output_root": str(output_root),
         "log_dir": str(log_dir) if log_dir else None,
+        "resource_settings": resource_settings,
+        "stages": [stage.to_dict() for stage in stages],
         "website": {
             "skipped": args.skip_website,
             "config_update_skipped": args.skip_config_update,
@@ -577,6 +815,7 @@ def write_pipeline_summary(
         "counts_by_extension": extension_counts(output_root),
         "archive_extract": load_archive_extract_summary(output_root / "ArchiveExtractManifest.json"),
         "reports": reports or {"skipped": True},
+        "previous_dataset_archival": previous_archive,
         "previous_archive": previous_archive or {"skipped": True},
         "git_commit_plan": git_commit_plan or {"skipped": True},
     }
@@ -602,6 +841,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--cue4parse-root", type=Path, default=None)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_RELATIVE)
     parser.add_argument("--dry-run", action="store_true", help="Print planned work without running commands.")
+    parser.add_argument(
+        "--resource-profile",
+        choices=["conservative", "balanced", "max"],
+        default="balanced",
+        help="Default local resource posture. Controls auto extraction workers when --extract-workers is omitted.",
+    )
 
     parser.add_argument("--skip-retoc", action="store_true")
     parser.add_argument("--force-retoc", action="store_true", help="Run retoc even if the cache looks populated.")
@@ -609,6 +854,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--force-extract", action="store_true", help="Re-export existing JSON/textures.")
 
     parser.add_argument("--extract-limit", type=int, default=None, help="Limit CUE extraction for smoke tests.")
+    parser.add_argument(
+        "--extract-workers",
+        default=None,
+        help="CUE extractor workers: integer, auto, or max. Defaults from --resource-profile.",
+    )
+    parser.add_argument(
+        "--extract-mode",
+        choices=["full", "json-only", "textures-only", "missing-only"],
+        default="full",
+        help="CUE extraction scope. Default full preserves archive parity.",
+    )
     parser.add_argument("--asset", action="append", default=[], help="Exact package path for CUE extraction. Repeatable.")
     parser.add_argument("--name", action="append", default=[], help="Exact asset name for CUE extraction. Repeatable.")
     parser.add_argument("--prefix", default=None, help="Comma-separated CUE extraction filename prefixes.")
@@ -625,6 +881,24 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--run-reports", action="store_true", help="Run reports even for a partial/skipped pipeline run.")
     parser.add_argument("--skip-reports", action="store_true", help="Skip old-vs-new report generation.")
+    parser.add_argument(
+        "--reports-mode",
+        choices=["required", "best-effort", "skip"],
+        default="best-effort",
+        help="Report behavior. best-effort is nonblocking and records timeout/failure in PipelineRun.json.",
+    )
+    parser.add_argument(
+        "--report-timeout-minutes",
+        type=float,
+        default=DEFAULT_REPORT_TIMEOUT_MINUTES,
+        help="Timeout for report generation. Use 0 for no timeout.",
+    )
+    parser.add_argument(
+        "--report-detail",
+        choices=["summary", "full"],
+        default="summary",
+        help="summary avoids full rename-detecting diffs; full keeps the historical deep diff/changelog outputs.",
+    )
     parser.add_argument("--report-output-dir", type=Path, default=None, help="Report output folder.")
     parser.add_argument(
         "--skip-archive-previous",
@@ -683,7 +957,20 @@ def main(argv: list[str] | None = None) -> int:
     log_dir = None if args.dry_run else output_root / "PipelineLogs" / utc_stamp()
     completion_stages = should_run_completion_stages(args)
     report_stages = completion_stages or args.run_reports
+    reports_mode = resolve_reports_mode(args)
+    extract_workers = resolve_extract_workers(args)
+    report_timeout = report_timeout_seconds(args)
     git_plan_stage = (completion_stages or args.run_git_plan or args.git_commit_batches) and not args.skip_git_plan
+    stages: list[CommandStage] = []
+    resource_settings = {
+        "profile": args.resource_profile,
+        "extract_workers_requested": args.extract_workers,
+        "extract_workers_effective_request": extract_workers,
+        "extract_mode": args.extract_mode,
+        "reports_mode": reports_mode,
+        "report_timeout_minutes": args.report_timeout_minutes,
+        "report_detail": args.report_detail,
+    }
     if args.git_push_each and not args.git_commit_batches:
         raise SystemExit("--git-push-each requires --git-commit-batches.")
     previous_dataset = resolve_previous_dataset(args, root, version, output_root) if (report_stages or args.previous_version) else None
@@ -704,9 +991,13 @@ def main(argv: list[str] | None = None) -> int:
     print(f"output:     {output_root}")
     print(f"cue4parse:  {cue4parse_root}")
     print(f"config:     {config_path}")
+    print(f"resources:  {args.resource_profile}")
+    print(f"workers:    {extract_workers}")
     if report_stages:
         print(f"previous:   {previous_dataset if previous_dataset else '<none detected>'}")
-        print(f"reports:    {report_output_dir if report_output_dir else '<skipped>'}")
+        print(f"reports:    {report_output_dir if report_output_dir else '<skipped>'} ({reports_mode})")
+        if reports_mode != "skip":
+            print(f"report timeout: {report_timeout if report_timeout else '<none>'}")
         print(f"archive old: {args.archive_previous_destination.resolve()}")
     print(f"git plan:   {git_plan_output if git_plan_stage else '<skipped>'}")
     if log_dir:
@@ -721,7 +1012,7 @@ def main(argv: list[str] | None = None) -> int:
                 f"CUE4Parse source checkout not found: {cue4parse_root}\n"
                 "Clone FabianFG/CUE4Parse there or pass --cue4parse-root."
             )
-    if report_stages and not args.skip_reports and previous_dataset is not None:
+    if report_stages and reports_mode != "skip" and previous_dataset is not None:
         require_tool("git")
     if git_plan_stage:
         require_tool("git")
@@ -755,12 +1046,14 @@ def main(argv: list[str] | None = None) -> int:
             try:
                 if not args.dry_run:
                     lock_path = acquire_retoc_lock(retoc_version_root)
-                run_command(
-                    "retoc to-legacy",
-                    retoc_cmd,
-                    cwd=root,
-                    log_path=log_dir / "01_retoc.log" if log_dir else None,
-                    dry_run=args.dry_run,
+                stages.append(
+                    run_command(
+                        "retoc to-legacy",
+                        retoc_cmd,
+                        cwd=root,
+                        log_path=log_dir / "01_retoc.log" if log_dir else None,
+                        dry_run=args.dry_run,
+                    )
                 )
                 if not args.dry_run:
                     write_retoc_manifest(
@@ -795,6 +1088,10 @@ def main(argv: list[str] | None = None) -> int:
             str(output_root),
             "--manifest",
             str(output_root / "ArchiveExtractManifest.json"),
+            "--workers",
+            extract_workers,
+            "--extract-mode",
+            args.extract_mode,
         ]
         for asset in args.asset:
             cmd.extend(["--asset", asset])
@@ -809,12 +1106,14 @@ def main(argv: list[str] | None = None) -> int:
         if args.force_extract:
             cmd.append("--force")
 
-        run_command(
-            "CUE4Parse archive extract",
-            cmd,
-            cwd=root,
-            log_path=log_dir / "02_archive_extract.log" if log_dir else None,
-            dry_run=args.dry_run,
+        stages.append(
+            run_command(
+                "CUE4Parse archive extract",
+                cmd,
+                cwd=root,
+                log_path=log_dir / "02_archive_extract.log" if log_dir else None,
+                dry_run=args.dry_run,
+            )
         )
 
     write_large_file_gitignore(output_root, args.dry_run)
@@ -839,12 +1138,14 @@ def main(argv: list[str] | None = None) -> int:
             website_cmd.append("--skip-compile-data")
         if args.skip_file_index:
             website_cmd.append("--skip-file-index")
-        run_command(
-            "Website update",
-            website_cmd,
-            cwd=root,
-            log_path=log_dir / "03_website_update.log" if log_dir else None,
-            dry_run=args.dry_run,
+        stages.append(
+            run_command(
+                "Website update",
+                website_cmd,
+                cwd=root,
+                log_path=log_dir / "03_website_update.log" if log_dir else None,
+                dry_run=args.dry_run,
+            )
         )
 
     reports_summary: dict | None = None
@@ -853,19 +1154,31 @@ def main(argv: list[str] | None = None) -> int:
         if previous_dataset is None:
             print_section("Archive reports")
             print("Skipped; no previous dataset folder was detected.")
-            reports_summary = {"skipped": True, "reason": "no previous dataset detected"}
-            previous_archive_summary = {"skipped": True, "reason": "no previous dataset detected"}
-        elif args.skip_reports:
+            reports_summary = reports_state(
+                mode=reports_mode,
+                status="skipped",
+                reason="no previous dataset detected",
+            )
+            previous_archive_summary = previous_archive_state(
+                status="skipped",
+                reason="no previous dataset detected",
+            )
+        elif reports_mode == "skip":
             print_section("Archive reports")
-            print("Skipped by --skip-reports")
-            reports_summary = {
-                "skipped": True,
-                "reason": "--skip-reports",
-                "previous_dataset": str(previous_dataset),
-            }
+            print("Skipped by report mode.")
+            reports_summary = reports_state(
+                mode=reports_mode,
+                status="skipped",
+                reason="reports mode is skip",
+                previous_dataset=previous_dataset,
+            )
             print_section("Archive previous dataset")
-            print("Skipped because report generation was skipped.")
-            previous_archive_summary = {"skipped": True, "reason": "reports skipped"}
+            print("Deferred because report generation was skipped.")
+            previous_archive_summary = previous_archive_state(
+                status="deferred",
+                reason="reports skipped",
+                source=previous_dataset,
+            )
         else:
             assert report_output_dir is not None
             reports_cmd = [
@@ -881,44 +1194,106 @@ def main(argv: list[str] | None = None) -> int:
                 version,
                 "--out-dir",
                 str(report_output_dir),
+                "--detail",
+                args.report_detail,
             ]
-            run_command(
+            report_stage = run_command_to_log(
                 "Archive reports",
                 reports_cmd,
                 cwd=root,
                 log_path=log_dir / "04_archive_reports.log" if log_dir else None,
                 dry_run=args.dry_run,
+                timeout_seconds=report_timeout,
             )
-            reports_summary = {
-                "skipped": False,
-                "previous_dataset": str(previous_dataset),
-                "output_dir": str(report_output_dir),
-            }
-
-            if args.skip_archive_previous:
-                print_section("Archive previous dataset")
-                print("Skipped by --skip-archive-previous")
-                previous_archive_summary = {
-                    "skipped": True,
-                    "reason": "--skip-archive-previous",
-                    "previous_dataset": str(previous_dataset),
-                }
-            else:
-                moved_to = archive_previous_dataset(
-                    previous_dataset,
-                    args.archive_previous_destination,
-                    args.dry_run,
+            stages.append(report_stage)
+            report_run_json = report_output_dir / "ReportRun.json"
+            if report_stage.status in {"completed", "planned"}:
+                reports_summary = reports_state(
+                    mode=reports_mode,
+                    status=report_stage.status,
+                    reason=report_stage.status,
+                    previous_dataset=previous_dataset,
+                    output_dir=report_output_dir,
+                    stage=report_stage,
+                    report_run_json=report_run_json,
                 )
-                previous_archive_summary = {
-                    "skipped": False,
-                    "source": str(previous_dataset),
-                    "destination": str(moved_to),
-                }
+            else:
+                reason = "report generation timed out" if report_stage.status == "timeout" else "report generation failed"
+                reports_summary = reports_state(
+                    mode=reports_mode,
+                    status=report_stage.status,
+                    reason=reason,
+                    previous_dataset=previous_dataset,
+                    output_dir=report_output_dir,
+                    stage=report_stage,
+                    report_run_json=report_run_json if report_run_json.exists() else None,
+                    error=f"Archive reports {report_stage.status}",
+                )
+                if report_required(reports_mode):
+                    raise SystemExit(f"Archive reports {report_stage.status}. Log: {report_stage.log_path}")
+
+            if reports_summary["status"] in {"completed", "planned"}:
+                if reports_summary["status"] == "planned":
+                    print_section("Archive previous dataset")
+                    print("Planned after reports complete.")
+                    previous_archive_summary = previous_archive_state(
+                        status="planned",
+                        reason="dry run",
+                        source=previous_dataset,
+                        destination=args.archive_previous_destination.resolve() / previous_dataset.name,
+                    )
+                elif args.skip_archive_previous:
+                    print_section("Archive previous dataset")
+                    print("Skipped by --skip-archive-previous")
+                    previous_archive_summary = previous_archive_state(
+                        status="skipped",
+                        reason="--skip-archive-previous",
+                        source=previous_dataset,
+                    )
+                else:
+                    try:
+                        moved_to = archive_previous_dataset(
+                            previous_dataset,
+                            args.archive_previous_destination,
+                            args.dry_run,
+                        )
+                        previous_archive_summary = previous_archive_state(
+                            status="completed" if not args.dry_run else "planned",
+                            reason="completed" if not args.dry_run else "dry run",
+                            source=previous_dataset,
+                            destination=moved_to,
+                        )
+                    except SystemExit as exc:
+                        if report_required(reports_mode):
+                            raise
+                        print(f"Previous dataset archival failed but is nonblocking in {reports_mode} mode: {exc}")
+                        previous_archive_summary = previous_archive_state(
+                            status="failed",
+                            reason="nonblocking archival failure",
+                            source=previous_dataset,
+                            required=False,
+                            error=str(exc),
+                        )
+            else:
+                print_section("Archive previous dataset")
+                print("Deferred because reports did not complete.")
+                previous_archive_summary = previous_archive_state(
+                    status="deferred",
+                    reason="reports did not complete",
+                    source=previous_dataset,
+                )
     else:
         print_section("Archive reports")
         print("Skipped for partial/smoke pipeline run.")
-        reports_summary = {"skipped": True, "reason": "partial pipeline run"}
-        previous_archive_summary = {"skipped": True, "reason": "partial pipeline run"}
+        reports_summary = reports_state(
+            mode=reports_mode,
+            status="skipped",
+            reason="partial pipeline run",
+        )
+        previous_archive_summary = previous_archive_state(
+            status="skipped",
+            reason="partial pipeline run",
+        )
 
     git_commit_plan_summary: dict | None = None
     if git_plan_stage:
@@ -943,12 +1318,14 @@ def main(argv: list[str] | None = None) -> int:
         if args.git_push_each:
             git_cmd.append("--push-each")
 
-        run_command(
-            "Git commit plan" if not args.git_commit_batches else "Git commit batches",
-            git_cmd,
-            cwd=root,
-            log_path=log_dir / "05_git_commit_plan.log" if log_dir else None,
-            dry_run=args.dry_run,
+        stages.append(
+            run_command(
+                "Git commit plan" if not args.git_commit_batches else "Git commit batches",
+                git_cmd,
+                cwd=root,
+                log_path=log_dir / "05_git_commit_plan.log" if log_dir else None,
+                dry_run=args.dry_run,
+            )
         )
         git_commit_plan_summary = {
             "skipped": False,
@@ -970,7 +1347,7 @@ def main(argv: list[str] | None = None) -> int:
         print_section("Dry Run Complete")
         print("No files were written and no commands were executed.")
     else:
-        summary_path = output_root / ("PipelineRun.json" if completion_stages else "PipelineRun.partial.json")
+        summary_path = output_root / "PipelineRun.json"
         write_pipeline_summary(
             path=summary_path,
             args=args,
@@ -981,8 +1358,10 @@ def main(argv: list[str] | None = None) -> int:
             output_root=output_root,
             log_dir=log_dir,
             dry_run=False,
+            stages=stages,
+            resource_settings=resource_settings,
             reports=reports_summary,
-            previous_archive=previous_archive_summary,
+            previous_dataset_archival=previous_archive_summary,
             git_commit_plan=git_commit_plan_summary,
         )
         print_section("Summary")

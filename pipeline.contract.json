@@ -1,0 +1,229 @@
+{
+  "schema": "RSDWArchive.PipelineContract.v1",
+  "project": "RSDWArchive",
+  "workingDirectory": "E:\\Github\\RSDWArchive",
+  "entrypoint": "python .\\tools\\UpdateArchiveData.py",
+  "defaultVersionSource": "UE4SS ProjectVersion header dump",
+  "commands": {
+    "dryRun": {
+      "description": "Resolve inputs and planned stages without writing files or running child commands.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--dry-run"
+      ]
+    },
+    "fullArtifactBuild": {
+      "description": "Build Archive artifacts locally with aggressive extractor resources and nonblocking reports.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--reports-mode",
+        "best-effort",
+        "--resource-profile",
+        "max",
+        "--extract-workers",
+        "max"
+      ]
+    },
+    "buildLocalNoGitPlan": {
+      "description": "Build Archive artifacts locally and leave Git planning to a later step.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--reports-mode",
+        "best-effort",
+        "--resource-profile",
+        "max",
+        "--extract-workers",
+        "max",
+        "--skip-git-plan"
+      ]
+    },
+    "smokeExtract": {
+      "description": "Small extraction smoke test without website, reports, or Git planning.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--skip-retoc",
+        "--extract-limit",
+        "50",
+        "--skip-website",
+        "--skip-config-update",
+        "--reports-mode",
+        "skip",
+        "--skip-git-plan",
+        "--extract-workers",
+        "auto"
+      ]
+    },
+    "planOnlyAfterBuild": {
+      "description": "Regenerate the Git batch plan for an already-built version.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--version",
+        "${version}",
+        "--skip-retoc",
+        "--skip-extract",
+        "--skip-config-update",
+        "--skip-website",
+        "--reports-mode",
+        "skip",
+        "--run-git-plan"
+      ]
+    },
+    "commitOnlyAfterBuild": {
+      "description": "Create Git-safe commit batches for an already-built version without pushing.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--version",
+        "${version}",
+        "--skip-retoc",
+        "--skip-extract",
+        "--skip-config-update",
+        "--skip-website",
+        "--reports-mode",
+        "skip",
+        "--run-git-plan",
+        "--git-commit-batches"
+      ]
+    },
+    "selfOwnedCommitPush": {
+      "description": "Build artifacts, create Git-safe commit batches, and push each batch.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--reports-mode",
+        "best-effort",
+        "--resource-profile",
+        "max",
+        "--extract-workers",
+        "max",
+        "--git-commit-batches",
+        "--git-push-each"
+      ]
+    },
+    "pushEachAfterBuild": {
+      "description": "Create and push Git-safe commit batches for an already-built version.",
+      "argv": [
+        "python",
+        ".\\tools\\UpdateArchiveData.py",
+        "--version",
+        "${version}",
+        "--skip-retoc",
+        "--skip-extract",
+        "--skip-config-update",
+        "--skip-website",
+        "--reports-mode",
+        "skip",
+        "--run-git-plan",
+        "--git-commit-batches",
+        "--git-push-each"
+      ]
+    }
+  },
+  "supportedFlags": {
+    "resourceProfile": [
+      "conservative",
+      "balanced",
+      "max"
+    ],
+    "extractWorkers": [
+      "positive integer",
+      "auto",
+      "max"
+    ],
+    "extractMode": [
+      "full",
+      "json-only",
+      "textures-only",
+      "missing-only"
+    ],
+    "reportsMode": [
+      "required",
+      "best-effort",
+      "skip"
+    ],
+    "reportDetail": [
+      "summary",
+      "full"
+    ]
+  },
+  "requiredDependencies": {
+    "gameInstall": "RuneScape: Dragonwilds install with Content\\Paks",
+    "headerDump": "<game-root>\\Binaries\\Win64\\ue4ss\\UHTHeaderDump\\EngineSettings\\Private\\GeneralProjectSettings.cpp",
+    "usmap": "Current .usmap from UE4SS, RSDW_USMAP_ROOT, --usmap-search-root, --usmap, or Retoc cache",
+    "retoc": "retoc on PATH unless --skip-retoc is used with a ready cache",
+    "dotnet": "dotnet on PATH unless --skip-extract is used",
+    "python": "Python on PATH",
+    "git": "Git on PATH for reports and Git planning",
+    "cue4parseRoot": "E:\\Github\\CUE4Parse unless overridden by --cue4parse-root or CUE4PARSE_ROOT"
+  },
+  "sharedCache": {
+    "root": "E:\\Github\\Retoc\\RSDragonwilds\\${version}",
+    "lockFile": ".retoc.lock",
+    "manifest": "retoc-manifest.json",
+    "rules": [
+      "Respect .retoc.lock and stop if another pipeline owns the cache.",
+      "Accept an existing retoc-manifest.json only when game and version match.",
+      "Skip Retoc when Engine and RSDragonwilds package data already exist.",
+      "Never write Retoc output inside E:\\Github\\RSDWArchive."
+    ]
+  },
+  "outputs": {
+    "datasetRoot": "E:\\Github\\RSDWArchive\\${version}",
+    "json": "E:\\Github\\RSDWArchive\\${version}\\json",
+    "textures": "E:\\Github\\RSDWArchive\\${version}\\textures",
+    "usmap": "E:\\Github\\RSDWArchive\\${version}\\usmap",
+    "archiveExtractManifest": "E:\\Github\\RSDWArchive\\${version}\\ArchiveExtractManifest.json",
+    "pipelineRun": "E:\\Github\\RSDWArchive\\${version}\\PipelineRun.json",
+    "websiteConfig": "E:\\Github\\RSDWArchive\\website\\data.config.json",
+    "fileIndex": "E:\\Github\\RSDWArchive\\website\\file-index.json",
+    "compiledWebsiteDatasets": "E:\\Github\\RSDWArchive\\website\\tools\\*.json",
+    "reports": "E:\\Github\\RSDWArchive\\reports\\reports\\${oldVersion}_to_${version}",
+    "gitPlan": "E:\\Github\\RSDWArchive\\${version}\\GitCommitPlan.json"
+  },
+  "successCriteria": [
+    "Process exits with code 0.",
+    "${version}\\PipelineRun.json exists and schema is RSDWArchive.UpdatePipeline.v1.",
+    "${version}\\ArchiveExtractManifest.json exists and FailedPackageCount is 0.",
+    "website\\data.config.json datasetVersion equals ${version}.",
+    "website\\file-index.json exists.",
+    "PipelineRun.json reports.acceptable is true.",
+    "PipelineRun.json previous_dataset_archival.acceptable is true.",
+    "If Git publish flags are used, the Git batch stage completes and pushes each batch."
+  ],
+  "nonblockingStages": {
+    "reports": {
+      "normalMode": "best-effort",
+      "acceptableStatuses": [
+        "completed",
+        "skipped",
+        "timeout",
+        "failed"
+      ],
+      "requiredWhen": "--reports-mode required"
+    },
+    "previousDatasetArchival": {
+      "normalMode": "best-effort",
+      "acceptableStatuses": [
+        "completed",
+        "skipped",
+        "deferred",
+        "failed"
+      ],
+      "requiredWhen": "not currently required by the release contract"
+    }
+  },
+  "downstreamHandoff": {
+    "archiveDataset": "E:\\Github\\RSDWArchive\\${version}",
+    "websiteDatasets": "E:\\Github\\RSDWArchive\\website\\tools\\*.json",
+    "masterValidationSource": "E:\\Github\\RSDWArchive\\${version}\\PipelineRun.json"
+  },
+  "futureContractNotes": {
+    "pushAtEnd": "Not implemented; current supported publish mode is push-each.",
+    "separateValidateCommand": "Not implemented as a single canonical command; use PipelineRun.json success criteria plus existing website audits when needed."
+  }
+}

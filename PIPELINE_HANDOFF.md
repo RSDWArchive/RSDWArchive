@@ -13,8 +13,10 @@ orchestration project. It is intentionally more contract-focused than
 | Primary entrypoint | `python .\tools\UpdateArchiveData.py` |
 | Dry run | `python .\tools\UpdateArchiveData.py --dry-run` |
 | Full artifact build | `python .\tools\UpdateArchiveData.py` |
-| Self-owned commit and push | `python .\tools\UpdateArchiveData.py --git-commit-batches --git-push-each` |
+| MasterPipeline full build | `python .\tools\UpdateArchiveData.py --reports-mode best-effort --resource-profile max --extract-workers max` |
+| Self-owned commit and push | `python .\tools\UpdateArchiveData.py --reports-mode best-effort --resource-profile max --extract-workers max --git-commit-batches --git-push-each` |
 | Completion summary schema | `RSDWArchive.UpdatePipeline.v1` in `<version>\PipelineRun.json` |
+| Machine contract | `pipeline.contract.json` |
 | Shared Retoc cache | `E:\Github\Retoc\RSDragonwilds\<ProjectVersion>` |
 | CUE4Parse checkout | `E:\Github\CUE4Parse` |
 
@@ -51,13 +53,33 @@ The canonical full pipeline runs these stages in order:
 6. Update `website\data.config.json` to the new full `ProjectVersion`.
 7. Run `website\updatewebsite.py` to compile website datasets and
    `website\file-index.json`.
-8. Generate reports from the newest previous dataset to the new dataset.
-9. Move the previous dataset folder to `E:\Github`, unless skipped.
+8. Generate summary reports from the newest previous dataset to the new
+   dataset. Reports default to `--reports-mode best-effort` and are
+   nonblocking unless `--reports-mode required` is passed.
+9. Move the previous dataset folder to `E:\Github`, unless skipped. This is
+   recorded as best-effort housekeeping for normal MasterPipeline releases.
 10. Generate a local Git commit batch plan, and optionally create and push those
     batches when Git flags are provided.
 
-Partial or smoke-test runs write `<version>\PipelineRun.partial.json` instead of
-the full completion summary.
+Successful full, resumed, partial, and smoke-test runs write the canonical
+`<version>\PipelineRun.json`. Partial/skipped/nonblocking stages are recorded as
+structured status fields inside that summary.
+
+## Performance And Resume Controls
+
+- `--resource-profile conservative|balanced|max` controls the default worker
+  request when `--extract-workers` is omitted.
+- `--extract-workers <n|auto|max>` is passed to the CUE4Parse extractor.
+  `auto` leaves a little CPU headroom; `max` uses the processor count.
+- `--extract-mode full|json-only|textures-only|missing-only` controls extractor
+  scope. The default `full` keeps archive parity. `missing-only` is useful for
+  resume runs because it will not rewrite existing outputs.
+- `--reports-mode required|best-effort|skip` controls report gating. The default
+  is `best-effort`.
+- `--report-timeout-minutes <n>` bounds report generation. A timeout is
+  recorded in `PipelineRun.json`; it is nonblocking in `best-effort` mode.
+- `--report-detail summary|full` controls report depth. `summary` avoids the
+  historical full rename-detecting diff and changelog pass; `full` keeps it.
 
 ## Shared Cache Rules
 
@@ -81,6 +103,7 @@ After a successful full run, downstream projects may consume:
 - `E:\Github\RSDWArchive\<version>\usmap`
 - `E:\Github\RSDWArchive\<version>\ArchiveExtractManifest.json`
 - `E:\Github\RSDWArchive\<version>\PipelineRun.json`
+- `E:\Github\RSDWArchive\pipeline.contract.json`
 - `E:\Github\RSDWArchive\website\data.config.json`
 - `E:\Github\RSDWArchive\website\file-index.json`
 - `E:\Github\RSDWArchive\website\tools\*.json`
@@ -102,8 +125,9 @@ of these are true:
   `FailedPackageCount: 0`.
 - `website\data.config.json` has `datasetVersion` equal to `<version>`.
 - `website\file-index.json` exists.
-- Report output exists at `reports\reports\<old>_to_<new>`, unless reports were
-  skipped or no previous dataset was detected.
+- `reports.status` in `PipelineRun.json` is `completed`, `skipped`, `timeout`,
+  or `failed`, and `reports.acceptable` is `true`.
+- `previous_dataset_archival.acceptable` is `true`.
 - If Git flags were used, the Git batch stage completed successfully and pushed
   each generated batch.
 
@@ -120,6 +144,8 @@ downstream consumers. Common failures include:
 - Retoc cache is locked, conflicting, or incomplete.
 - Previous dataset archive destination already exists at `E:\Github\<old>`.
 - A child command fails; inspect `<version>\PipelineLogs\<timestamp>\*.log`.
+- Report timeout/failure is nonblocking in `best-effort` mode, but fails the
+  node in `required` mode.
 
 ## Orchestrator Defaults
 
@@ -127,7 +153,7 @@ Recommended orchestration flow:
 
 1. Run `python .\tools\UpdateArchiveData.py --dry-run`.
 2. If dry run succeeds and the resolved version is the intended version, run
-   `python .\tools\UpdateArchiveData.py --git-commit-batches --git-push-each`.
+   `python .\tools\UpdateArchiveData.py --reports-mode best-effort --resource-profile max --extract-workers max --git-commit-batches --git-push-each`.
 3. Validate the success criteria above.
 4. Start downstream projects that consume `E:\Github\RSDWArchive\<version>` or
    `website\tools\*.json`.

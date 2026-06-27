@@ -121,6 +121,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--old-version", required=True)
     parser.add_argument("--new-version", required=True)
     parser.add_argument("--out-dir", type=Path, default=None)
+    parser.add_argument(
+        "--detail",
+        choices=["summary", "full"],
+        default="summary",
+        help="summary skips full JSON diff/changelog; full keeps the historical deep report output.",
+    )
     return parser.parse_args()
 
 
@@ -139,34 +145,39 @@ def main() -> int:
     print(f"old:    {old_root}")
     print(f"new:    {new_root}")
     print(f"output: {out_dir}")
+    print(f"detail: {args.detail}")
 
     clean_output_dir(out_dir)
 
     outputs = {
         "json_name_status": out_dir / "json_name_status_report.txt",
         "json_numstat": out_dir / "json_numstat_report.txt",
-        "json_full_diff": out_dir / "json_full_diff_report.txt",
         "textures_name_status": out_dir / "textures_name_status_report.txt",
     }
+    if args.detail == "full":
+        outputs["json_full_diff"] = out_dir / "json_full_diff_report.txt"
+
+    rename_args = ["-M"] if args.detail == "full" else ["--no-renames"]
 
     exit_codes = {
         "json_name_status": run_git_diff(
-            ["git", "diff", "--no-index", "-M", "--name-status", old_root / "json", new_root / "json"],
+            ["git", "diff", "--no-index", *rename_args, "--name-status", old_root / "json", new_root / "json"],
             outputs["json_name_status"],
         ),
         "json_numstat": run_git_diff(
-            ["git", "diff", "--no-index", "-M", "--numstat", old_root / "json", new_root / "json"],
+            ["git", "diff", "--no-index", *rename_args, "--numstat", old_root / "json", new_root / "json"],
             outputs["json_numstat"],
         ),
-        "json_full_diff": run_git_diff(
-            ["git", "diff", "--no-index", "-M", old_root / "json", new_root / "json"],
-            outputs["json_full_diff"],
-        ),
         "textures_name_status": run_git_diff(
-            ["git", "diff", "--no-index", "-M", "--name-status", old_root / "textures", new_root / "textures"],
+            ["git", "diff", "--no-index", *rename_args, "--name-status", old_root / "textures", new_root / "textures"],
             outputs["textures_name_status"],
         ),
     }
+    if args.detail == "full":
+        exit_codes["json_full_diff"] = run_git_diff(
+            ["git", "diff", "--no-index", *rename_args, old_root / "json", new_root / "json"],
+            outputs["json_full_diff"],
+        )
 
     run_python(
         [
@@ -180,7 +191,10 @@ def main() -> int:
             args.new_version,
         ]
     )
-    run_python([sys.executable, SCRIPT_DIR / "3_create_changelog.py", "--base-dir", out_dir, "--clean"])
+    changelog_index: str | None = None
+    if args.detail == "full":
+        run_python([sys.executable, SCRIPT_DIR / "3_create_changelog.py", "--base-dir", out_dir, "--clean"])
+        changelog_index = str(out_dir / "changelog" / "index.txt")
 
     large_ignored_files = write_large_file_gitignore(out_dir)
 
@@ -192,10 +206,11 @@ def main() -> int:
         "old_root": str(old_root),
         "new_root": str(new_root),
         "output_dir": str(out_dir),
+        "detail": args.detail,
         "git_diff_exit_codes": exit_codes,
         "files": {key: str(path) for key, path in outputs.items()},
         "clean_report": str(out_dir / "clean_diff_report.txt"),
-        "changelog_index": str(out_dir / "changelog" / "index.txt"),
+        "changelog_index": changelog_index,
         "large_ignored_files": large_ignored_files,
     }
     (out_dir / "ReportRun.json").write_text(json.dumps(report_run, indent=2) + "\n", encoding="utf-8")
