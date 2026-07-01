@@ -1,5 +1,5 @@
 // Coordinates are Unreal world "X Y Z" (same order as in-game).
-// LocationData.json is the single master: chunk LocationData + PCG foliage, wiki-bounds filtered.
+// LocationData.json is the single master: chunk LocationData + PCG foliage, map-bounds filtered.
 const DATA_URL_CANDIDATES = [
   "/tools/LocationData/LocationData.json"
 ];
@@ -170,26 +170,14 @@ function initLocationMap() {
     return;
   }
 
-  const bounds = [{ lon: 0, lat: -100800 }, { lon: 302400, lat: 201600 }];
-  const mult = 6144 / 302400 / 16;
-  const dragonwildsCRS = window.L.extend({}, window.L.CRS.Simple, {
-    projection: window.L.Projection.LonLat,
-    transformation: new window.L.Transformation(mult, 0, mult, mult * 100800)
-  });
-
-  locationMap = window.L.map(locationMapEl, {
-    crs: dragonwildsCRS,
-    maxBounds: bounds,
+  locationMap = window.RSDW_MAP_CALIBRATION.createLeafletMap(locationMapEl, {
     zoom: 2,
     minZoom: 0.5,
     maxZoom: 4,
-    zoomSnap: 0.5,
-    attributionControl: false
+    zoomSnap: 0.5
   });
 
-  window.L.tileLayer("https://maps.runescape.wiki/dw/tiles/{z}/{x}_{y}.png").addTo(locationMap);
   locationMarkersLayer = window.L.layerGroup().addTo(locationMap);
-  locationMap.fitBounds(bounds);
 }
 
 function entryToLatLng(entry) {

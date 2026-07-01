@@ -4,7 +4,8 @@
  * selected chunk gets a prominent overlay plus a detail readout.
  *
  * Data source: website/tools/MapData/CompileMapData.py (sibling GeoJSONs).
- * CRS / transformation matches locationdata.js (game X,Y → Leaflet lat,lng as Y,X).
+ * CRS / transformation comes from shared/map-calibration.js
+ * (game X,Y -> Leaflet lat,lng as Y,X).
  */
 const GEOJSON_GRID = "/tools/MapData/ChunkWorldMapBounds_GridCell.geojson";
 const GEOJSON_CONTENT = "/tools/MapData/ChunkWorldMapBounds_ContentBounds.geojson";
@@ -83,29 +84,12 @@ function setStatus(text) {
 }
 
 function createDragonwildsMap(container) {
-  const bounds = [
-    { lon: 0, lat: -100800 },
-    { lon: 302400, lat: 201600 }
-  ];
-  const mult = 6144 / 302400 / 16;
-  const dragonwildsCRS = window.L.extend({}, window.L.CRS.Simple, {
-    projection: window.L.Projection.LonLat,
-    transformation: new window.L.Transformation(mult, 0, mult, mult * 100800)
-  });
-
-  const m = window.L.map(container, {
-    crs: dragonwildsCRS,
-    maxBounds: bounds,
+  return window.RSDW_MAP_CALIBRATION.createLeafletMap(container, {
     zoom: 1,
     minZoom: 0.5,
     maxZoom: 4,
-    zoomSnap: 0.5,
-    attributionControl: false
+    zoomSnap: 0.5
   });
-
-  window.L.tileLayer("https://maps.runescape.wiki/dw/tiles/{z}/{x}_{y}.png").addTo(m);
-  m.fitBounds(bounds);
-  return m;
 }
 
 /** GeoJSON rings store [game X, game Y]; Leaflet on this page uses lat=Y, lng=X. */

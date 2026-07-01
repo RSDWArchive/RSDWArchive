@@ -46,6 +46,20 @@ from functools import partial
 from pathlib import Path
 from typing import Any, Iterable
 
+TOOLS_DIR = Path(__file__).resolve().parents[1]
+if str(TOOLS_DIR) not in sys.path:
+    sys.path.insert(0, str(TOOLS_DIR))
+
+from map_calibration import (  # noqa: E402
+    MAP_X_MAX,
+    MAP_X_MIN,
+    MAP_Y_MAX,
+    MAP_Y_MIN,
+    MAP_Z_MAX,
+    MAP_Z_MIN,
+    map_filter_meta,
+)
+
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
@@ -87,15 +101,14 @@ ANIMA_VENT_INTERACTION_KEY_RE = re.compile(r"^AnimaVent\.InteractionPrompt\.(.+)
 FOLIAGE_ISMC_TYPE_PREFIX = "BP_InteractableFoliageISMC_"
 ACTOR_CLASS_OBJECT_NAME_RE = re.compile(r"^BlueprintGeneratedClass'([^']+)'$")
 
-# Wiki Leaflet maxBounds — must stay in sync with website/map.js and
-# website/locationdata.js.
-WIKI_X_MIN = 0.0
-WIKI_X_MAX = 302400.0
-WIKI_Y_MIN = -100800.0
-WIKI_Y_MAX = 201600.0
-# Sanity window; tune if legitimate cave/surface spawns are being clipped.
-WIKI_Z_MIN = -20000.0
-WIKI_Z_MAX = 40000.0
+# Website Leaflet maxBounds — must stay in sync with
+# website/shared/map-calibration.js.
+WIKI_X_MIN = MAP_X_MIN
+WIKI_X_MAX = MAP_X_MAX
+WIKI_Y_MIN = MAP_Y_MIN
+WIKI_Y_MAX = MAP_Y_MAX
+WIKI_Z_MIN = MAP_Z_MIN
+WIKI_Z_MAX = MAP_Z_MAX
 
 _INST_RE = re.compile(r"#inst\d+\b")
 _INST_SUFFIX_RE = re.compile(r"#inst\d+$")
@@ -851,14 +864,10 @@ def filter_to_wiki_bounds(
 
 def wiki_filter_meta() -> dict[str, Any]:
     return {
-        "wikiBounds": {
-            "x": [WIKI_X_MIN, WIKI_X_MAX],
-            "y": [WIKI_Y_MIN, WIKI_Y_MAX],
-            "z": [WIKI_Z_MIN, WIKI_Z_MAX],
-        },
+        "wikiBounds": map_filter_meta(),
         "dropFoliagePcgWithoutInst": True,
         "dropPcgDupAggregateWhenInstExists": True,
-        "source": "website/map.js + website/locationdata.js Leaflet maxBounds; Z band heuristic",
+        "source": "website/shared/map-calibration.js + website/tools/map_calibration.py; Z band heuristic",
     }
 
 

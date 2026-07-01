@@ -4,7 +4,8 @@
  * Data source: website/tools/LocationMap/CompileLocationMapData.py
  *   -> website/tools/LocationMap/LocationMapData.json
  *
- * CRS / transformation matches map.js (game X,Y -> Leaflet lat,lng as Y,X).
+ * CRS / transformation comes from shared/map-calibration.js
+ * (game X,Y -> Leaflet lat,lng as Y,X).
  *
  * Layer model: every leaf bucket (a category with no subcategories, or one
  * specific subcategory under a parent) has its own Leaflet layer. Parent rows
@@ -37,29 +38,12 @@ function setStatus(text) {
 }
 
 function createDragonwildsMap(container) {
-  const bounds = [
-    { lon: 0, lat: -100800 },
-    { lon: 302400, lat: 201600 }
-  ];
-  const mult = 6144 / 302400 / 16;
-  const dragonwildsCRS = window.L.extend({}, window.L.CRS.Simple, {
-    projection: window.L.Projection.LonLat,
-    transformation: new window.L.Transformation(mult, 0, mult, mult * 100800)
-  });
-
-  const m = window.L.map(container, {
-    crs: dragonwildsCRS,
-    maxBounds: bounds,
+  return window.RSDW_MAP_CALIBRATION.createLeafletMap(container, {
     zoom: 1,
     minZoom: 0.5,
     maxZoom: 4,
-    zoomSnap: 0.5,
-    attributionControl: false
+    zoomSnap: 0.5
   });
-
-  window.L.tileLayer("https://maps.runescape.wiki/dw/tiles/{z}/{x}_{y}.png").addTo(m);
-  m.fitBounds(bounds);
-  return m;
 }
 
 function gameXYToLatLng(x, y) {
