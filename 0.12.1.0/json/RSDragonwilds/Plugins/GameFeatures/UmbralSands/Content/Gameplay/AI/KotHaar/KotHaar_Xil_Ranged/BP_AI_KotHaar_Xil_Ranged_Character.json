@@ -1,0 +1,1038 @@
+[
+  {
+    "Type": "AIAttributesComponent",
+    "Name": "AI Attributes Component",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'AIAttributesComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiHealthComponent",
+    "Name": "Health Component",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'AiHealthComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "AiMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'AiMovementComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "bEnableLocomotionAnimation": true,
+      "AlertnessStatesToRotationTable": [
+        {
+          "Key": "EAlertnessState::AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_KotHaar_Xil_Rotation'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Turns/DT_KotHaar_Xil_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_KotHaar_Xil_Rotation'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Turns/DT_KotHaar_Xil_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::SUSPICIOUS",
+          "Value": {
+            "ObjectName": "DataTable'DT_KotHaar_Xil_Rotation'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Turns/DT_KotHaar_Xil_Rotation"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_KotHaar_Xil_RotationAlert'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Turns/DT_KotHaar_Xil_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::COMBAT",
+          "Value": {
+            "ObjectName": "DataTable'DT_KotHaar_Xil_RotationAlert'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Turns/DT_KotHaar_Xil_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::LOST_TARGET",
+          "Value": {
+            "ObjectName": "DataTable'DT_KotHaar_Xil_RotationAlert'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Turns/DT_KotHaar_Xil_RotationAlert"
+          }
+        },
+        {
+          "Key": "EAlertnessState::TRANSITION_TO_AMBIENT",
+          "Value": {
+            "ObjectName": "DataTable'DT_KotHaar_Xil_Rotation'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Turns/DT_KotHaar_Xil_Rotation"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "AiSightSensorPositionComponent",
+    "Name": "Sight Sensor Position Component",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'AiSightSensorPositionComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_AI_KotHaar_Xil_Ranged_Character_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.24"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_AI_KotHaar_Xil_Ranged_Character_C:InheritableComponentHandler'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.17"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_AI_KotHaar_Xil_Ranged_Character_C:ExecuteUbergraph_BP_AI_KotHaar_Xil_Ranged_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.14"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Hur_Character_C'",
+      "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Hur/BP_AI_KotHaar_Hur_Character"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_AI_KotHaar_Xil_Ranged_Character_C:SetChakramVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.15"
+      },
+      {
+        "ObjectName": "Function'BP_AI_KotHaar_Xil_Ranged_Character_C:Event_SetChakramVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.13"
+      },
+      {
+        "ObjectName": "Function'BP_AI_KotHaar_Xil_Ranged_Character_C:ExecuteUbergraph_BP_AI_KotHaar_Xil_Ranged_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.14"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_RangedBeast_RangedAttackComponent",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_RangedBeast_RangedAttackComponent_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/RangedBeast/Attacks/BP_RangedBeast_RangedAttackComponent.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "NS_KotHaarXil_Projectile_Spawn_Right",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SM_Chakrams_Kothaar_Right",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_AI_KotHaar_Xil_Ranged_Character": {
+        "ObjectName": "Function'BP_AI_KotHaar_Xil_Ranged_Character_C:ExecuteUbergraph_BP_AI_KotHaar_Xil_Ranged_Character'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.14"
+      },
+      "Event_SetChakramVisibility": {
+        "ObjectName": "Function'BP_AI_KotHaar_Xil_Ranged_Character_C:Event_SetChakramVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.13"
+      },
+      "SetChakramVisibility": {
+        "ObjectName": "Function'BP_AI_KotHaar_Xil_Ranged_Character_C:SetChakramVisibility'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.15"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_AI_KotHaar_Xil_Ranged_Character_C",
+    "Name": "Default__BP_AI_KotHaar_Xil_Ranged_Character_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.BP_AI_KotHaar_Xil_Ranged_Character_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {}
+    }
+  },
+  {
+    "Type": "BP_AiDeathComponent_C",
+    "Name": "BP_AiDeathComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.BP_AiDeathComponent_C'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate",
+    "Properties": {
+      "DeathAIAction": {
+        "ObjectName": "BlueprintGeneratedClass'DAA_KotHaarXil_Death_C'",
+        "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Xil/Actions/Death/DAA_KotHaarXil_Death"
+      }
+    }
+  },
+  {
+    "Type": "BP_KotHaarHur_AttackOpportunityComponent_C",
+    "Name": "BP_KotHaarHur_AttackOpportunityComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted | RF_InheritableComponentTemplate"
+  },
+  {
+    "Type": "BP_RangedBeast_RangedAttackComponent_C",
+    "Name": "BP_RangedBeast_RangedAttackComponent_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/AI/BeastFaction/RangedBeast/Attacks/BP_RangedBeast_RangedAttackComponent.BP_RangedBeast_RangedAttackComponent_C'",
+    "Template": {
+      "ObjectName": "BP_RangedBeast_RangedAttackComponent_C'Default__BP_RangedBeast_RangedAttackComponent_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/RangedBeast/Attacks/BP_RangedBeast_RangedAttackComponent.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionAIActionsComponent",
+    "Name": "DominionAIActionsComponent",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'DominionAIActionsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionGameplayEffectsComponent",
+    "Name": "Gameplay Effects Component",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'DominionGameplayEffectsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "EnvironmentComponent",
+    "Name": "Environment Component",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'EnvironmentComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "Function",
+    "Name": "Event_SetChakramVisibility",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Visible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "MeshVisibilityDelay",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_AI_KotHaar_Xil_Ranged_Character",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_CustomEvent_Visible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_CustomEvent_MeshVisibilityDelay",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Delay_Duration_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetChakramVisibility",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Visible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "RightVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "LeftVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Temp_real_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "Temp_real_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "GameplayTagsComponent",
+    "Name": "GameplayTagsComponent",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'GameplayTagsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Flags": "RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_KotHaarHur_AttackOpportunityComponent_C'",
+            "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Hur/Components/BP_KotHaarHur_AttackOpportunityComponent"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_KotHaarHur_AttackOpportunityComponent_C'BP_AI_KotHaar_Xil_Ranged_Character_C:BP_KotHaarHur_AttackOpportunityComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.7"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Hur_Character_C'",
+              "ObjectPath": "/UmbralSands/Gameplay/AI/KotHaar/KotHaar_Hur/BP_AI_KotHaar_Hur_Character"
+            },
+            "SCSVariableName": "BP_KotHaarHur_AttackOpportunityComponent",
+            "AssociatedGuid": "377A283F-431DC8B3-A4E2BE8C-0F9EDF65"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "BlueprintGeneratedClass'BP_AiDeathComponent_C'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/Components/BP_AiDeathComponent.0"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "BP_AiDeathComponent_C'BP_AI_KotHaar_Xil_Ranged_Character_C:BP_AiDeathComponent_GEN_VARIABLE'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_AI_Biped_Base_C'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BaseAIClasses/Characters/BP_AI_Biped_Base.4"
+            },
+            "SCSVariableName": "BP_AiDeathComponent",
+            "AssociatedGuid": "0CC921EB-43120990-5809CDA9-007BAF5B"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "NS_KotHaarXil_Projectile_Spawn_Right_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_KotHaarXil_Projectile_Spawn'",
+        "ObjectPath": "/UmbralSands/Art/VFX/AI/Kothaar/Xil/Impact/NS_KotHaarXil_Projectile_Spawn"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Color",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'LinearColor'",
+                  "ObjectPath": "/Script/CoreUObject"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Length",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Length",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "RibbonWidth",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.RibbonWidth",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Width",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Width",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 0,
+            "Name": "User.Color",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'LinearColor'",
+                "ObjectPath": "/Script/CoreUObject"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 16,
+            "Name": "User.Length",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 24,
+            "Name": "User.RibbonWidth",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 20,
+            "Name": "User.Width",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          128,
+          63,
+          205,
+          204,
+          76,
+          62,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          128,
+          63,
+          0,
+          0,
+          160,
+          65,
+          0,
+          0,
+          160,
+          65
+        ]
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 17.0,
+        "Z": -7.0
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.24"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_AI_KotHaar_Xil_Ranged_Character_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.19"
+      },
+      "VariableGUID": "993D7907-4B57B651-2E2137BE-FAB14038",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.24"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_AI_KotHaar_Xil_Ranged_Character_C:SM_Chakrams_Kothaar_Right_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.26"
+      },
+      "AttachToName": "prop_r",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.22"
+        }
+      ],
+      "VariableGUID": "416148ED-4E45D270-D3B3E0B9-4B487192",
+      "InternalVariableName": "SM_Chakrams_Kothaar_Right"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.24"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_AI_KotHaar_Xil_Ranged_Character_C:NS_KotHaarXil_Projectile_Spawn_Right_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.18"
+      },
+      "VariableGUID": "A8A833EB-478A1EBC-53CE35AC-6500C6D0",
+      "InternalVariableName": "NS_KotHaarXil_Projectile_Spawn_Right"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.24"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedBeast_RangedAttackComponent_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/AI/BeastFaction/RangedBeast/Attacks/BP_RangedBeast_RangedAttackComponent.0"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "BP_RangedBeast_RangedAttackComponent_C'BP_AI_KotHaar_Xil_Ranged_Character_C:BP_RangedBeast_RangedAttackComponent_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.8"
+      },
+      "VariableGUID": "C4841B8F-40ED4364-9125D690-74D783CC",
+      "InternalVariableName": "BP_RangedBeast_RangedAttackComponent"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.23"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.21"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.22"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.23"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_AI_KotHaar_Xil_Ranged_Character_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.20"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'ABP_M_MED_KotHaar_Xil_C'",
+        "ObjectPath": "/UmbralSands/Art/Skeleton/NPC/Humanoid/M_MED_KotHaar_Xil_01/ABP_M_MED_KotHaar_Xil"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_M_MED_Kothaar_Xil_Ranged_01'",
+          "ObjectPath": "/UmbralSands/Art/Skeleton/NPC/Humanoid/M_MED_KotHaar_Xil_Ranged_01/Materials/MI_M_MED_Kothaar_Xil_Ranged_01"
+        }
+      ],
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:CollisionCylinder'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.9"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "SM_Chakrams_Kothaar_Right_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.4"
+    },
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_Chakrams_Kothaar_1H_01'",
+        "ObjectPath": "/UmbralSands/Art/Skeleton/Weapons/Faction/Chakrams_Kothaar_1H_01/SM_Chakrams_Kothaar_1H_01"
+      },
+      "bGenerateOverlapEvents": false,
+      "CanCharacterStepUpOn": "ECanBeCharacterBase::ECB_No",
+      "BodyInstance": {
+        "SolverAsyncDeltaTime": 0.016667,
+        "CollisionProfileName": "FloorCollision",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Ai",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            },
+            {
+              "Channel": "Player",
+              "Response": "ECollisionResponse::ECR_Ignore"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Type": "TrackedStatusEffectInstanceBleeding",
+    "Name": "TrackedStatusEffectInstanceBleeding_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.31"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstanceBleeding'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectInstanceBurning",
+    "Name": "TrackedStatusEffectInstanceBurning_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.31"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstanceBurning'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectInstancePoison",
+    "Name": "TrackedStatusEffectInstancePoison_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.31"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstancePoison'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectInstanceSlow",
+    "Name": "TrackedStatusEffectInstanceSlow_0",
+    "Outer": {
+      "ObjectName": "TrackedStatusEffectsComponent'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.31"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectInstanceSlow'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "TrackedStatusEffectsComponent",
+    "Name": "Tracked Status Effects Component",
+    "Outer": {
+      "ObjectName": "BP_AI_KotHaar_Xil_Ranged_Character_C'Default__BP_AI_KotHaar_Xil_Ranged_Character_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.5"
+    },
+    "Class": "UScriptClass'TrackedStatusEffectsComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_DefaultSubObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "TrackedStatusEffectInstances": [
+        {
+          "ObjectName": "TrackedStatusEffectInstancePoison'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstancePoison_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.29"
+        },
+        {
+          "ObjectName": "TrackedStatusEffectInstanceBurning'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstanceBurning_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.28"
+        },
+        {
+          "ObjectName": "TrackedStatusEffectInstanceBleeding'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstanceBleeding_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.27"
+        },
+        {
+          "ObjectName": "TrackedStatusEffectInstanceSlow'Default__BP_AI_KotHaar_Xil_Ranged_Character_C:Tracked Status Effects Component.TrackedStatusEffectInstanceSlow_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/UmbralSands/Content/Gameplay/AI/KotHaar/KotHaar_Xil_Ranged/BP_AI_KotHaar_Xil_Ranged_Character.30"
+        }
+      ]
+    }
+  }
+]
