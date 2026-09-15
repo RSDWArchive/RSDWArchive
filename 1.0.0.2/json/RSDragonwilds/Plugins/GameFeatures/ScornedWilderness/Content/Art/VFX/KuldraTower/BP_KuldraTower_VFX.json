@@ -1,0 +1,796 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_KuldraTower_VFX_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_KuldraTower_VFX_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.12"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Actor'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_KuldraTower_VFX_C:UpdateRays'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.2"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "AnimaCore",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AnimaSparks",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AnimaRays",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'InstancedStaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "RayCount",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Seed",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Struct": {
+          "ObjectName": "Object'RandomStream'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "OrientationRotationRange",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Radius",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "OrriantationTarget",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 24,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FuncMap": {
+      "UpdateRays": {
+        "ObjectName": "Function'BP_KuldraTower_VFX_C:UpdateRays'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.2"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_KuldraTower_VFX_C'Default__BP_KuldraTower_VFX_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "BP_KuldraTower_VFX_C",
+    "Name": "Default__BP_KuldraTower_VFX_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.BP_KuldraTower_VFX_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RayCount": 12,
+      "Seed": {
+        "InitialSeed": 0,
+        "Seed": 0
+      },
+      "OrientationRotationRange": 0.5,
+      "OrriantationTarget": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "PrimaryActorTick": {
+        "bStartWithTickEnabled": false
+      },
+      "bEnableAutoLODGeneration": false
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateRays",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_KuldraTower_VFX_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Normal_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeRotFromZ_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Conv_DoubleToVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_RandomFloatInRangeFromStream_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_RandomFloatInRangeFromStream_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_RandomRotatorFromStream_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_RLerp_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetUpVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Multiply_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Object'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_AddInstance_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Conv_DoubleToVector_InDouble_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeVector_Z_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeVector_X_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_MakeVector_Y_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "InstancedStaticMeshComponent",
+    "Name": "AnimaRays_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_KuldraTower_VFX_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.0"
+    },
+    "Class": "UScriptClass'InstancedStaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_VFX_XPlane_Subdivided'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Component/Mesh/Primitive/SM_VFX_XPlane_Subdivided.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_KuldraTower_LightRay'",
+          "ObjectPath": "/ScornedWilderness/Art/VFX/KuldraTower/MI_KuldraTower_LightRay"
+        }
+      ],
+      "LDMaxDrawDistance": 200000.0,
+      "CachedMaxDrawDistance": 200000.0
+    }
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "AnimaSparks_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_KuldraTower_VFX_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.0"
+    },
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_KuldraTower_Sparks'",
+        "ObjectPath": "/ScornedWilderness/Art/VFX/KuldraTower/NS_KuldraTower_Sparks"
+      },
+      "OverrideParameters": {
+        "UserParameterRedirects": [
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "MeteorsDelay",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.MeteorsDelay",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "MeteorsDuration",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.MeteorsDuration",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "Radius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.Radius",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Object'NiagaraFloat'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 2,
+                "Flags": 0
+              }
+            }
+          },
+          {
+            "Key": {
+              "VarData": "",
+              "Name": "StaticMesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            },
+            "Value": {
+              "VarData": "",
+              "Name": "User.StaticMesh",
+              "TypeDef": {
+                "ClassStructOrEnum": {
+                  "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                  "ObjectPath": "/Script/Niagara"
+                },
+                "UnderlyingType": 1,
+                "Flags": 0
+              }
+            }
+          }
+        ],
+        "SortedParameterOffsets": [
+          {
+            "Offset": 8,
+            "Name": "User.MeteorsDelay",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 4,
+            "Name": "User.MeteorsDuration",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.Radius",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Object'NiagaraFloat'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 2,
+              "Flags": 0
+            }
+          },
+          {
+            "Offset": 0,
+            "Name": "User.StaticMesh",
+            "TypeDef": {
+              "ClassStructOrEnum": {
+                "ObjectName": "Class'NiagaraDataInterfaceStaticMesh'",
+                "ObjectPath": "/Script/Niagara"
+              },
+              "UnderlyingType": 1,
+              "Flags": 0
+            }
+          }
+        ],
+        "ParameterData": [
+          0,
+          0,
+          72,
+          67,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          128,
+          62
+        ],
+        "DataInterfaces": [
+          {
+            "ObjectName": "NiagaraDataInterfaceStaticMesh'BP_KuldraTower_VFX_C:AnimaSparks_GEN_VARIABLE.NiagaraDataInterfaceStaticMesh_1'",
+            "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.6"
+          }
+        ]
+      },
+      "LDMaxDrawDistance": 100000.0,
+      "CachedMaxDrawDistance": 100000.0,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 2060.0
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_0",
+    "Outer": {
+      "ObjectName": "NiagaraComponent'BP_KuldraTower_VFX_C:AnimaSparks_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.4"
+    },
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceMode": "ENDIStaticMesh_SourceMode::AttachParent",
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "NiagaraDataInterfaceStaticMesh",
+    "Name": "NiagaraDataInterfaceStaticMesh_1",
+    "Outer": {
+      "ObjectName": "NiagaraComponent'BP_KuldraTower_VFX_C:AnimaSparks_GEN_VARIABLE'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.4"
+    },
+    "Class": "UScriptClass'NiagaraDataInterfaceStaticMesh'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SourceMode": "ENDIStaticMesh_SourceMode::AttachParent",
+      "LODIndexUserParameter": {
+        "Parameter": {
+          "VarData": "",
+          "Name": "None",
+          "TypeDef": {
+            "ClassStructOrEnum": {
+              "ObjectName": "Object'NiagaraInt32'",
+              "ObjectPath": "/Script/Niagara"
+            },
+            "UnderlyingType": 2,
+            "Flags": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_KuldraTower_VFX_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.0"
+    },
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_KuldraTower_VFX_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.12"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_KuldraTower_VFX_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.7"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.9"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.11"
+        }
+      ],
+      "VariableGUID": "697D66F4-40F4401D-4D3F9BB5-7D847BF1",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_KuldraTower_VFX_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.12"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_KuldraTower_VFX_C:AnimaSparks_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.4"
+      },
+      "VariableGUID": "918194D1-430CF12A-2293F8AF-E07E9CD8",
+      "InternalVariableName": "AnimaSparks"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_KuldraTower_VFX_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.12"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'InstancedStaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "InstancedStaticMeshComponent'BP_KuldraTower_VFX_C:AnimaRays_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.3"
+      },
+      "VariableGUID": "37047420-4DDB34B7-CE5508B3-E95CC91B",
+      "InternalVariableName": "AnimaRays"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_KuldraTower_VFX_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.12"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_KuldraTower_VFX_C:AnimaCore_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.13"
+      },
+      "VariableGUID": "EE5DE033-4D35D838-42D7818C-7604AF6E",
+      "InternalVariableName": "AnimaCore"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_KuldraTower_VFX_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.0"
+    },
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.8"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.8"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.10"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.9"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.11"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_KuldraTower_VFX_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.8"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "AnimaCore_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_KuldraTower_VFX_C'",
+      "ObjectPath": "RSDragonwilds/Plugins/GameFeatures/ScornedWilderness/Content/Art/VFX/KuldraTower/BP_KuldraTower_VFX.0"
+    },
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_VFX_XPlane_Subdivided'",
+        "ObjectPath": "RSDragonwilds/Content/Art/VFX/Component/Mesh/Primitive/SM_VFX_XPlane_Subdivided.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_KuldraTower_LightCore'",
+          "ObjectPath": "/ScornedWilderness/Art/VFX/KuldraTower/MI_KuldraTower_LightCore"
+        }
+      ],
+      "LDMaxDrawDistance": 200000.0,
+      "CachedMaxDrawDistance": 200000.0,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -2000.0
+      },
+      "RelativeScale3D": {
+        "X": 4.0,
+        "Y": 4.0,
+        "Z": 2.0
+      }
+    }
+  }
+]
