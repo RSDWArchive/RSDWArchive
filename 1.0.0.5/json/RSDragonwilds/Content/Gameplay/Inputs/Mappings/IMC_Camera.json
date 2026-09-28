@@ -1,0 +1,242 @@
+[
+  {
+    "Type": "DominionAimAccelerationBoostInputModifier",
+    "Name": "DominionAimAccelerationBoostInputModifier_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'DominionAimAccelerationBoostInputModifier'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxAimAccelerationMultiplier": 1.75,
+      "AimAccelerationInputMagnitudeCurve": {
+        "ObjectName": "CurveFloat'Curve_AimAccelerationMagnitude'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Data/Curve_AimAccelerationMagnitude.0"
+      },
+      "AimAccelerationTimeCurve": {
+        "ObjectName": "CurveFloat'Curve_AimAccelerationTime'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Data/Curve_AimAccelerationTime.0"
+      },
+      "AimAccelerationTimeCurveDecaySpeed": 100.0
+    }
+  },
+  {
+    "Type": "DominionAimAccelerationSmoothingInputModifier",
+    "Name": "DominionAimAccelerationSmoothingInputModifier_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'DominionAimAccelerationSmoothingInputModifier'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AccelerationRange": {
+        "SlowestSmoothingSpeed": 12.5,
+        "FastestSmoothingSpeed": 42.5
+      },
+      "DecelerationRange": {
+        "SlowestSmoothingSpeed": 20.0,
+        "FastestSmoothingSpeed": 60.0
+      },
+      "bUseInstantAccelerationAtMaxInputMagnitude": false,
+      "MaxInputAccelerationRange": {
+        "SlowestSmoothingSpeed": 15.0,
+        "FastestSmoothingSpeed": 55.0
+      },
+      "bUseInstantDecelerationAtZeroInputMagnitude": false,
+      "NoInputDecelerationRange": {
+        "SlowestSmoothingSpeed": 40.0,
+        "FastestSmoothingSpeed": 110.0
+      }
+    }
+  },
+  {
+    "Type": "DominionDeadzoneInputModifier",
+    "Name": "DominionDeadzoneInputModifier_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'DominionDeadzoneInputModifier'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "DominionRadialResponseCurveInputModifier",
+    "Name": "DominionRadialResponseCurveInputModifier_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'DominionRadialResponseCurveInputModifier'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RadialResponseCurve": {
+        "ObjectName": "CurveFloat'Curve_AimResponseCurve'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/Character/Data/Curve_AimResponseCurve.0"
+      }
+    }
+  },
+  {
+    "Type": "DominionRawInputCaptureInputModifier",
+    "Name": "DominionRawInputCaptureInputModifier_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'DominionRawInputCaptureInputModifier'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InputMappingContext",
+    "Name": "IMC_Camera",
+    "Class": "UScriptClass'InputMappingContext'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Mappings": [
+        {
+          "Triggers": [],
+          "Modifiers": [],
+          "Action": {
+            "ObjectName": "InputAction'IA_Camera_Rotate'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Actions/Basic/IA_Camera_Rotate.0"
+          },
+          "Key": {
+            "KeyName": "MouseX"
+          },
+          "SettingBehavior": "EPlayerMappableKeySettingBehaviors::InheritSettingsFromAction",
+          "PlayerMappableKeySettings": null
+        },
+        {
+          "Triggers": [],
+          "Modifiers": [
+            {
+              "ObjectName": "InputModifierSwizzleAxis'IMC_Camera:InputModifierSwizzleAxis_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.9"
+            },
+            {
+              "ObjectName": "InputModifierNegate'IMC_Camera:InputModifierNegate_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.6"
+            }
+          ],
+          "Action": {
+            "ObjectName": "InputAction'IA_Camera_Rotate'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Actions/Basic/IA_Camera_Rotate.0"
+          },
+          "Key": {
+            "KeyName": "MouseY"
+          },
+          "SettingBehavior": "EPlayerMappableKeySettingBehaviors::InheritSettingsFromAction",
+          "PlayerMappableKeySettings": null
+        },
+        {
+          "Triggers": [
+            {
+              "ObjectName": "InputTriggerRequireNeutral'IMC_Camera:InputTriggerRequireNeutral_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.10"
+            }
+          ],
+          "Modifiers": [
+            {
+              "ObjectName": "DominionDeadzoneInputModifier'IMC_Camera:DominionDeadzoneInputModifier_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.2"
+            },
+            {
+              "ObjectName": "DominionRawInputCaptureInputModifier'IMC_Camera:DominionRawInputCaptureInputModifier_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.4"
+            },
+            {
+              "ObjectName": "DominionRadialResponseCurveInputModifier'IMC_Camera:DominionRadialResponseCurveInputModifier_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.3"
+            },
+            {
+              "ObjectName": "DominionAimAccelerationBoostInputModifier'IMC_Camera:DominionAimAccelerationBoostInputModifier_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.0"
+            },
+            {
+              "ObjectName": "DominionAimAccelerationSmoothingInputModifier'IMC_Camera:DominionAimAccelerationSmoothingInputModifier_0'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.1"
+            },
+            {
+              "ObjectName": "InputModifierScaleByDeltaTime'IMC_Camera:InputModifierScaleByDeltaTime_1'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.8"
+            },
+            {
+              "ObjectName": "InputModifierScalar'IMC_Camera:InputModifierScalar_1'",
+              "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.7"
+            }
+          ],
+          "Action": {
+            "ObjectName": "InputAction'IA_Camera_Rotate'",
+            "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Actions/Basic/IA_Camera_Rotate.0"
+          },
+          "Key": {
+            "KeyName": "Gamepad_Right2D"
+          },
+          "SettingBehavior": "EPlayerMappableKeySettingBehaviors::InheritSettingsFromAction",
+          "PlayerMappableKeySettings": null
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InputModifierNegate",
+    "Name": "InputModifierNegate_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'InputModifierNegate'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InputModifierScalar",
+    "Name": "InputModifierScalar_1",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'InputModifierScalar'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Scalar": {
+        "X": 100.0,
+        "Y": 100.0,
+        "Z": 100.0
+      }
+    }
+  },
+  {
+    "Type": "InputModifierScaleByDeltaTime",
+    "Name": "InputModifierScaleByDeltaTime_1",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'InputModifierScaleByDeltaTime'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InputModifierSwizzleAxis",
+    "Name": "InputModifierSwizzleAxis_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'InputModifierSwizzleAxis'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "InputTriggerRequireNeutral",
+    "Name": "InputTriggerRequireNeutral_0",
+    "Outer": {
+      "ObjectName": "InputMappingContext'IMC_Camera'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/Inputs/Mappings/IMC_Camera.5"
+    },
+    "Class": "UScriptClass'InputTriggerRequireNeutral'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ActuationThreshold": 0.0
+    }
+  }
+]
