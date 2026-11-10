@@ -1,0 +1,958 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SW_PROTO_LIFT_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.18"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:ExecuteUbergraph_BP_SW_PROTO_LIFT'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Actor'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:GetMovementProgress'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.4"
+      },
+      {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.9"
+      },
+      {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:NotifySwitchPositionChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.6"
+      },
+      {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:Stop'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.8"
+      },
+      {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:Move'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.5"
+      },
+      {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.7"
+      },
+      {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:ExecuteUbergraph_BP_SW_PROTO_LIFT'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "Object'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Niagara",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'NiagaraComponent'",
+          "ObjectPath": "/Script/Niagara"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BridgeAudio",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAudioComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Siluette",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SiluetteOrigin",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cube",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'StaticMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Time",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "TargetPosition",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 24,
+        "PropertyFlags": "Edit | BlueprintVisible | BlueprintReadOnly | ExposeOnSpawn",
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_SW_PROTO_LIFT": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:ExecuteUbergraph_BP_SW_PROTO_LIFT'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.3"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:ReceiveBeginPlay'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.7"
+      },
+      "Move": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:Move'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.5"
+      },
+      "Stop": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:Stop'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.8"
+      },
+      "NotifySwitchPositionChanged": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:NotifySwitchPositionChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.6"
+      },
+      "UserConstructionScript": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:UserConstructionScript'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.9"
+      },
+      "GetMovementProgress": {
+        "ObjectName": "Function'BP_SW_PROTO_LIFT_C:GetMovementProgress'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.4"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_NoExport | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "Class'Switchable'",
+          "ObjectPath": "/Script/Dominion"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SW_PROTO_LIFT_C'Default__BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal",
+      "ImplementedInterfaces": "((Interface=\"/Script/CoreUObject.Class'/Script/Dominion.Switchable'\"))"
+    }
+  },
+  {
+    "Type": "BP_SW_PROTO_LIFT_C",
+    "Name": "Default__BP_SW_PROTO_LIFT_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.BP_SW_PROTO_LIFT_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "UberGraphFrame": {},
+      "Time": 15.0,
+      "TargetPosition": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 100.0
+      }
+    }
+  },
+  {
+    "Type": "DominionAudioComponent",
+    "Name": "BridgeAudio_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'DominionAudioComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Sound": {
+        "ObjectName": "DominionMetaSoundSource'MSS_EmSt_SW_BridgeUp_Loop'",
+        "ObjectPath": "RSDragonwilds/Content/Audio/MetasoundSources/World/ScornedWilderness/Bridge/MSS_EmSt_SW_BridgeUp_Loop.0"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 2200.0002
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 5.0000005
+      },
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_SW_PROTO_LIFT",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_SwitchPosition",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_bIsRecentChange",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Object'EMoveComponentAction'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_CustomEvent_bIsForward",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentToWorld_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Object'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_GetMovementProgress_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Location",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Rotation",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Rotator'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_BreakTransform_Scale",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Subtract_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SelectVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Multiply_DoubleDouble_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_MoveComponentTo_OverTime_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetMovementProgress",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsForward",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Parm | OutParm | ReturnParm"
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "StartPosition",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SelectVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_SelectVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Subtract_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Subtract_VectorVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "Object'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Dot_VectorVector_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Dot_VectorVector_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Divide_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
+  },
+  {
+    "Type": "Function",
+    "Name": "Move",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsForward",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "NotifySwitchPositionChanged",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "SwitchPosition",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsRecentChange",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Stop",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "UserConstructionScript",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'Actor:UserConstructionScript'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsEditor_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetRelativeTransform_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "Object'Transform'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeTransform_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_SetStaticMesh_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetRelativeLocation_SweepHitResult",
+        "Flags": "RF_Public",
+        "ElementSize": 264,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "Object'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "NiagaraComponent",
+    "Name": "Niagara_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'NiagaraComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Asset": {
+        "ObjectName": "NiagaraSystem'NS_VFX_AnimaBridge_PillarAppearing'",
+        "ObjectPath": "/ScornedWilderness/Art/VFX/Environment/AnimaDoors/Bridge/NS_VFX_AnimaBridge_PillarAppearing"
+      },
+      "OverrideParameters": {},
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": -150.0,
+        "Z": 239.99998
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 5.0000005
+      },
+      "bAbsoluteScale": true,
+      "bAutoActivate": false
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'SceneComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.18"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_SW_PROTO_LIFT_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.11"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.16"
+        }
+      ],
+      "VariableGUID": "90A7B6D8-482D2328-D656519F-1C8446B8",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.18"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "StaticMeshComponent'BP_SW_PROTO_LIFT_C:Cube_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.19"
+      },
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.14"
+        }
+      ],
+      "VariableGUID": "CEB594EB-459882EC-0BD54EA7-C828992D",
+      "InternalVariableName": "Cube"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.18"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'DominionAudioComponent'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "DominionAudioComponent'BP_SW_PROTO_LIFT_C:BridgeAudio_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.2"
+      },
+      "VariableGUID": "C1E52D1F-471DD86E-C75B7DB5-370173FC",
+      "InternalVariableName": "BridgeAudio"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.18"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": null,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.17"
+        }
+      ],
+      "VariableGUID": "6A09D459-47310C25-C4C6D58C-F9A84A17",
+      "InternalVariableName": "SiluetteOrigin"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_4",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.18"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'NiagaraComponent'",
+        "ObjectPath": "/Script/Niagara"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "NiagaraComponent'BP_SW_PROTO_LIFT_C:Niagara_GEN_VARIABLE'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.10"
+      },
+      "VariableGUID": "6D50D342-4716CDBD-717C8887-F3AE2621",
+      "InternalVariableName": "Niagara"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": {
+      "ObjectName": "SimpleConstructionScript'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.18"
+    },
+    "Class": "UScriptClass'SCS_Node'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'StaticMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": null,
+      "VariableGUID": "D1629383-418930B7-502F238B-92CD98A4",
+      "InternalVariableName": "Siluette"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.12"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.12"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.13"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.15"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.17"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.14"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.16"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_SW_PROTO_LIFT_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.12"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Cube_GEN_VARIABLE",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'BP_SW_PROTO_LIFT_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/World/Mechanisms/Proto/BP_SW_PROTO_LIFT.0"
+    },
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Cube'",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "OverrideMaterials": [
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_SW_Rocks_ForegroundMoss'",
+          "ObjectPath": "/ScornedWilderness/Art/Env/Rocks/MI_SW_Rocks_ForegroundMoss"
+        }
+      ],
+      "BodyInstance": {
+        "ObjectType": "ECollisionChannel::ECC_WorldStatic",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Footstep",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "WorldActor",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_PathTrace",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "Projectile_Arrow",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "FeetIK",
+              "Response": "ECollisionResponse::ECR_Block"
+            },
+            {
+              "Channel": "AudioOcclusion",
+              "Response": "ECollisionResponse::ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeScale3D": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 0.19999999
+      }
+    }
+  }
+]

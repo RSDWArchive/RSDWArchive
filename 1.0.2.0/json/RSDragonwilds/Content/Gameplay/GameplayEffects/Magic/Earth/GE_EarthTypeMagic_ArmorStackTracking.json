@@ -1,0 +1,826 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "GE_EarthTypeMagic_ArmorStackTracking_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Class'DominionGameplayEffectData'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'GE_EarthTypeMagic_ArmorStackTracking_C:FindActiveStackIndex'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.2"
+      },
+      {
+        "ObjectName": "Function'GE_EarthTypeMagic_ArmorStackTracking_C:FillAbilityDisplayData'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.1"
+      },
+      {
+        "ObjectName": "Function'GE_EarthTypeMagic_ArmorStackTracking_C:OnActivationValuesChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.3"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "MaxEarthArmorValue",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 64,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "Object'AttributeOrFloat'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      }
+    ],
+    "FuncMap": {
+      "OnActivationValuesChanged": {
+        "ObjectName": "Function'GE_EarthTypeMagic_ArmorStackTracking_C:OnActivationValuesChanged'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.3"
+      },
+      "FillAbilityDisplayData": {
+        "ObjectName": "Function'GE_EarthTypeMagic_ArmorStackTracking_C:FillAbilityDisplayData'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.1"
+      },
+      "FindActiveStackIndex": {
+        "ObjectName": "Function'GE_EarthTypeMagic_ArmorStackTracking_C:FindActiveStackIndex'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.2"
+      }
+    },
+    "ClassFlags": "CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "GE_EarthTypeMagic_ArmorStackTracking_C'Default__GE_EarthTypeMagic_ArmorStackTracking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.7"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "Function",
+    "Name": "FillAbilityDisplayData",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'GE_EarthTypeMagic_ArmorStackTracking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "AbilityDisplayData",
+        "Flags": "RF_Public",
+        "ElementSize": 96,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Struct": {
+          "ObjectName": "Object'AbilityDisplayData'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Instance",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_EarthTypeMagic_ArmorStack_Instance_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/BP_EarthTypeMagic_ArmorStack_Instance.0"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "NextThreshold",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "AttributeInterface",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "InterfaceClass": {
+          "ObjectName": "Class'GameplayAttributeEffectInterface'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "PreviousThreshold",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "ActiveIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "AttributeValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetAttributeOrFloatValue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_FindActiveStackIndex_StackIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Subtract_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Subtract_DoubleDouble_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Divide_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_FClamp_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetAttributeOrFloatValue_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetAttributeOrFloatValue_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_IsValidIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Array_IsValidIndex_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsGameplay_Attribute_Effect_Interface",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class'GameplayAttributeEffectInterface'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetAttributesComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionAttributesComponent'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BP_TryGetFloatAttributeValue_OutAttributeValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BP_TryGetFloatAttributeValue_OutbFound",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Less_DoubleDouble_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Less_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_Subtract_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_SetFieldsInStruct_FallbackAlphaAmount_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_VariableSet_PreviousThreshold_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "K2Node_VariableSet_NextThreshold_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "FindActiveStackIndex",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'GE_EarthTypeMagic_ArmorStackTracking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Instance",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionGameplayEffect'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "StackIndex",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Parm | OutParm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "ActivationValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "AttributeInteraface",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "InterfaceClass": {
+          "ObjectName": "Class'GameplayAttributeEffectInterface'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GreaterEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsGameplay_Attribute_Effect_Interface",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class'GameplayAttributeEffectInterface'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BP_TryGetFloatAttributeValue_OutAttributeValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BP_TryGetFloatAttributeValue_OutbFound",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetAttributeOrFloatValue_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GreaterEqual_DoubleDouble_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Subtract_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Max_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_GreaterEqual_DoubleDouble_A_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      },
+      {
+        "Type": "DoubleProperty",
+        "Name": "CallFunc_GreaterEqual_DoubleDouble_B_ImplicitCast",
+        "Flags": "RF_Public",
+        "ElementSize": 8
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnActivationValuesChanged",
+    "Outer": {
+      "ObjectName": "BlueprintGeneratedClass'GE_EarthTypeMagic_ArmorStackTracking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.0"
+    },
+    "Class": "UScriptClass'Function'",
+    "Flags": "RF_Public | RF_WasLoaded | RF_LoadCompleted",
+    "SuperStruct": {
+      "ObjectName": "Object'DominionGameplayEffectData:OnActivationValuesChanged'",
+      "ObjectPath": "/Script/Dominion"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Instance",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'DominionGameplayEffect'",
+          "ObjectPath": "/Script/Dominion"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Earth_Type_Magic_Armor_Stack_Instance",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_EarthTypeMagic_ArmorStack_Instance_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/BP_EarthTypeMagic_ArmorStack_Instance.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_Const"
+  },
+  {
+    "Type": "GE_EarthTypeMagic_ArmorStack_1_C",
+    "Name": "GE_EarthTypeMagic_ArmorStack_1_C_0",
+    "Outer": {
+      "ObjectName": "GE_EarthTypeMagic_ArmorStackTracking_C'Default__GE_EarthTypeMagic_ArmorStackTracking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.7"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStack_1.GE_EarthTypeMagic_ArmorStack_1_C'",
+    "Template": {
+      "ObjectName": "GE_EarthTypeMagic_ArmorStack_1_C'Default__GE_EarthTypeMagic_ArmorStack_1_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStack_1.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "GE_EarthTypeMagic_ArmorStack_2_C",
+    "Name": "GE_EarthTypeMagic_ArmorStack_2_C_0",
+    "Outer": {
+      "ObjectName": "GE_EarthTypeMagic_ArmorStackTracking_C'Default__GE_EarthTypeMagic_ArmorStackTracking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.7"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStack_2.GE_EarthTypeMagic_ArmorStack_2_C'",
+    "Template": {
+      "ObjectName": "GE_EarthTypeMagic_ArmorStack_2_C'Default__GE_EarthTypeMagic_ArmorStack_2_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStack_2.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "GE_EarthTypeMagic_ArmorStack_3_C",
+    "Name": "GE_EarthTypeMagic_ArmorStack_3_C_0",
+    "Outer": {
+      "ObjectName": "GE_EarthTypeMagic_ArmorStackTracking_C'Default__GE_EarthTypeMagic_ArmorStackTracking_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.7"
+    },
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStack_3.GE_EarthTypeMagic_ArmorStack_3_C'",
+    "Template": {
+      "ObjectName": "GE_EarthTypeMagic_ArmorStack_3_C'Default__GE_EarthTypeMagic_ArmorStack_3_C'",
+      "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStack_3.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted"
+  },
+  {
+    "Type": "GE_EarthTypeMagic_ArmorStackTracking_C",
+    "Name": "Default__GE_EarthTypeMagic_ArmorStackTracking_C",
+    "Class": "BlueprintGeneratedClass'RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.GE_EarthTypeMagic_ArmorStackTracking_C'",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "MaxEarthArmorValue": {
+        "Source": "EAttributeOrFloatSource::Attribute",
+        "Attribute": {
+          "ObjectName": "BlueprintGeneratedClass'ATT_MaxEarthArmorBuildup_C'",
+          "ObjectPath": "RSDragonwilds/Content/Gameplay/Attributes/ATT_MaxEarthArmorBuildup.1"
+        },
+        "DeveloperSettingLookupName": "None",
+        "DataTableRowHandle": {
+          "DataTable": null,
+          "RowName": "None"
+        },
+        "Value": 0.0
+      },
+      "Name": {
+        "Namespace": "",
+        "Key": "C8333A064A850F15820DEF9BDCDAB468",
+        "SourceString": "Earth Armor",
+        "LocalizedString": "Earth Armor"
+      },
+      "DevName": "earth_type_magic_armor_stack_tracking",
+      "InstanceClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_EarthTypeMagic_ArmorStack_Instance_C'",
+        "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/BP_EarthTypeMagic_ArmorStack_Instance.0"
+      },
+      "bSingleInstance": true,
+      "AddTags": [
+        "Player.Status.EarthArmor.StackTracking",
+        "Player.Status.EarthArmor.StackTracking"
+      ],
+      "AttributeToModify": {
+        "ObjectName": "Class'EarthTypeMagicArmorBuildup'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "Data": {
+        "DurationType": "EDominionGameplayEffectDurationType::Infinite"
+      },
+      "ChildGEsGroups": [
+        {
+          "bActivateImmediately": false,
+          "ActivationMinValue": {
+            "Source": "EAttributeOrFloatSource::DataTableRow",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_EarthTypeMagic_Armor'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/DT_EarthTypeMagic_Armor.0"
+              },
+              "RowName": "Stack1"
+            },
+            "Value": 20.0
+          },
+          "bHasActivationMaxValue": false,
+          "ActivationMaxValue": {
+            "Source": "EAttributeOrFloatSource::Manual",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "Value": 0.0
+          },
+          "bHasDifferentDeactivationValue": false,
+          "DeactivationValue": {
+            "Source": "EAttributeOrFloatSource::Manual",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "Value": 0.0
+          },
+          "ChildGEs": [
+            {
+              "Effect": {
+                "ObjectName": "GE_EarthTypeMagic_ArmorStack_1_C'Default__GE_EarthTypeMagic_ArmorStackTracking_C:GE_EarthTypeMagic_ArmorStack_1_C_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.4"
+              }
+            }
+          ]
+        },
+        {
+          "bActivateImmediately": false,
+          "ActivationMinValue": {
+            "Source": "EAttributeOrFloatSource::DataTableRow",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_EarthTypeMagic_Armor'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/DT_EarthTypeMagic_Armor.0"
+              },
+              "RowName": "Stack2"
+            },
+            "Value": 50.0
+          },
+          "bHasActivationMaxValue": false,
+          "ActivationMaxValue": {
+            "Source": "EAttributeOrFloatSource::Manual",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "Value": 0.0
+          },
+          "bHasDifferentDeactivationValue": false,
+          "DeactivationValue": {
+            "Source": "EAttributeOrFloatSource::Manual",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "Value": 40.0
+          },
+          "ChildGEs": [
+            {
+              "Effect": {
+                "ObjectName": "GE_EarthTypeMagic_ArmorStack_2_C'Default__GE_EarthTypeMagic_ArmorStackTracking_C:GE_EarthTypeMagic_ArmorStack_2_C_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.5"
+              }
+            }
+          ]
+        },
+        {
+          "bActivateImmediately": false,
+          "ActivationMinValue": {
+            "Source": "EAttributeOrFloatSource::DataTableRow",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_EarthTypeMagic_Armor'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/DT_EarthTypeMagic_Armor.0"
+              },
+              "RowName": "Stack3"
+            },
+            "Value": 100.0
+          },
+          "bHasActivationMaxValue": false,
+          "ActivationMaxValue": {
+            "Source": "EAttributeOrFloatSource::Manual",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "Value": 0.0
+          },
+          "bHasDifferentDeactivationValue": false,
+          "DeactivationValue": {
+            "Source": "EAttributeOrFloatSource::Manual",
+            "Attribute": null,
+            "DeveloperSettingLookupName": "None",
+            "DataTableRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "Value": 0.0
+          },
+          "ChildGEs": [
+            {
+              "Effect": {
+                "ObjectName": "GE_EarthTypeMagic_ArmorStack_3_C'Default__GE_EarthTypeMagic_ArmorStackTracking_C:GE_EarthTypeMagic_ArmorStack_3_C_0'",
+                "ObjectPath": "RSDragonwilds/Content/Gameplay/GameplayEffects/Magic/Earth/GE_EarthTypeMagic_ArmorStackTracking.6"
+              }
+            }
+          ]
+        }
+      ],
+      "ActivationCurrentValueAttribute": {
+        "ObjectName": "Class'EarthTypeMagicArmorBuildup'",
+        "ObjectPath": "/Script/Dominion"
+      },
+      "bShouldReplicate": true
+    }
+  }
+]
